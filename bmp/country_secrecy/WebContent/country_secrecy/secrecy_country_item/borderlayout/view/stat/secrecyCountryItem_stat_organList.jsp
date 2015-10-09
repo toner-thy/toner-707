@@ -13,7 +13,7 @@
 <html>
 	<head>
 
-		<title>行政区划国家秘密事项统计</title>
+		<title>行政区划商业秘密事项统计</title>
 		<s:actionmessage theme="messages"/>
 		<!-- 复杂表格CSS支持 -->
 		<link href="${ctx}/platform/css/public/table/complexTbSustain.css" type="text/css" rel="stylesheet"/>
@@ -43,7 +43,7 @@
 				width : 800,
 				height : 550,
 				//icon : '${pageContext.request.contextPath}/platform/theme/default/images/main/display.gif',
-				title : '国家秘密事项统计详情'
+				title : '商业秘密事项统计详情'
 			});
 		}
 		</script>
@@ -106,7 +106,7 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						【${district.districtName }】行政区划国家秘密事项统计
+						【${district.districtName }】行政区划商业秘密事项统计
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<!-- 右侧按钮 -->

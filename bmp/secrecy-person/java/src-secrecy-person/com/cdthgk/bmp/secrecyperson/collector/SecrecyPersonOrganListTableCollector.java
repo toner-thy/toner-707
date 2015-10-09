@@ -15,7 +15,7 @@ import com.cdthgk.view.web.ParameterCollector;
 
 /**
  * <p>
- * 按照单位  统计国家秘密  分密级显示
+ * 按照单位  统计商业秘密  分密级显示
  * </p>
  * <p>
  * copyright cdthgk 2010-2020, all rights reserved.
@@ -29,7 +29,7 @@ public class SecrecyPersonOrganListTableCollector implements ParameterCollector<
 	private SecrecyPersonModuleService secrecyPersonModuleService;
 
 	/**
-	 * //按照单位  统计国家秘密  分密级显示
+	 * //按照单位  统计商业秘密  分密级显示
 	 */
 	@Override
 	public List<OrganListTable> getData(Parameter param) {
@@ -41,7 +41,7 @@ public class SecrecyPersonOrganListTableCollector implements ParameterCollector<
 		String orgName = (String)param.getVariable("organName");
 		organ.setOrganName(orgName);
 
-		//查询  统计出吧单位下 国家秘密事项 的数量  按照密级统计
+		//查询  统计出吧单位下 商业秘密事项 的数量  按照密级统计
 		List<ZongHeTongJiStatDto> statList = secrecyPersonModuleService.count_SecrecyPerson_Organ(district,organ, false);
 
 		// 设置头部  表格的第一排

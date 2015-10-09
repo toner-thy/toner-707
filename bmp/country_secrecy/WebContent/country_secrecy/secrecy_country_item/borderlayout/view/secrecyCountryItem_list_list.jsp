@@ -18,7 +18,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>国家秘密事项列表</title>
+		<title>商业秘密事项列表</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -60,7 +60,7 @@
 					url : '${ctx}/bmp/secrecycountryitem/secrecyCountryItem_detail.action?secrecyCountryItem.secrecyCountryItemId='+id+'&t_date=' + new Date().getTime(),
 					width : 0.8,
 					height : 0.7,
-					title : '国家秘密事项详情'
+					title : '商业秘密事项详情'
 				});
 			}
 
@@ -93,14 +93,14 @@
 			</c:if>
 
 			<!-- 复合面板开始 -->
-			<cp:start defaultTitle="国家秘密事项简介" ctx="${ctx}" icoPath="/country_secrecy/secrecy_country_item/borderlayout/skin/blue/img/list_cpIco.gif">
-				<div id="cp001Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(2,'cp001','国家秘密事项简介');">关 于</div>
-				<div id="cp002Btn" class="cpBtn" href="###" onmouseover="javascript:showCp(2,'cp002','国家秘密事项搜索');">查 询</div>
+			<cp:start defaultTitle="商业秘密事项简介" ctx="${ctx}" icoPath="/country_secrecy/secrecy_country_item/borderlayout/skin/blue/img/list_cpIco.gif">
+				<div id="cp001Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(2,'cp001','商业秘密事项简介');">关 于</div>
+				<div id="cp002Btn" class="cpBtn" href="###" onmouseover="javascript:showCp(2,'cp002','商业秘密事项搜索');">查 询</div>
 			</cp:start>
 				<cp:msg show="true" divId="cp001">
 					<!-- 模块简介 -->
 					<div class="cpMsgTitle">
-						关于国家秘密事项
+						关于商业秘密事项
 					</div>
 					<div class="cpMsgContext">
 						<cpc:tc ctx="${ctx}" showId="bm_secrecy_countryitem"> </cpc:tc>
@@ -120,7 +120,7 @@
 						<table class="st" width="100%">
 							<tr>
 								<td class="tbLable fr" style="white-space:nowrap;">
-									国家秘密事项名称：
+									商业秘密事项名称：
 								</td>
 								<td class="tbValue fl">
 									<input type="text" name="secrecyCountryItem.secrecyCountryItemName" id="secrecyCountryItem.secrecyCountryItemName" value="${secrecyCountryItem.secrecyCountryItemName }" />
@@ -179,15 +179,15 @@
 						<!--判断查询列表过来的1查看保密局，0不是查询列表过来的查看本单位 -->
 						<c:if test="${ywFlag eq '0'}">
 							<c:if test="${dataGetFlag==1}">【${organ.organName}】 - </c:if>
-							国家秘密事项列表
+							商业秘密事项列表
 						</c:if>
 						<c:if test="${ywFlag eq '1'}">
 							<!--判断是否查看下级1查看，0不查看-->
 							<c:if test="${isChildren ne '1'}">
-								${district.districtName}<dis:levelText district="${district}"></dis:levelText>级机关单位 - 国家秘密事项列表
+								${district.districtName}<dis:levelText district="${district}"></dis:levelText>级机关单位 - 商业秘密事项列表
 							</c:if>
 							<c:if test="${isChildren eq '1'}">
-								${district.districtName} - 国家秘密事项列表
+								${district.districtName} - 商业秘密事项列表
 							</c:if>
 						</c:if>
 					</div>
@@ -201,7 +201,7 @@
 							filterable="false" autoIncludeParameters="true" sortable="false">
 							<ec:row>
 								<ec:column property="secrecyCountryItemId" alias="secrecyCountryItemId_checkbox" cell="checkbox" headerCell="checkbox" width="5%"/>
-								<ec:column property="secrecyCountryItemName" title="国家秘密事项名称" width="20%" cell="text" alias="size=20"/>
+								<ec:column property="secrecyCountryItemName" title="商业秘密事项名称" width="20%" cell="text" alias="size=20"/>
 								<ec:column property="formulateSecrecyPerson.name" title="定密负责人" width="10%" cell="text" alias="size=20"/>
 								<ec:column property="null" title="涉密等级" width="5%">
 									<dictionary:text tableCode="bmp" fieldCode="secrecy_level_thing" optionValue="${secrecyCountryItem.secrecyLevel}"></dictionary:text>

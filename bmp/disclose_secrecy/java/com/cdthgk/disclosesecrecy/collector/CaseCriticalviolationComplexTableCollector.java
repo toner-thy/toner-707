@@ -22,7 +22,7 @@ public class CaseCriticalviolationComplexTableCollector implements ParameterColl
 		District district = (District)param.getVariable("district");
 		List<District> districtList = new ArrayList<District>();
 		districtList.add(district);
-		//通过行政区划  统计   行政区划和直辖单位的  国家秘密事项个数   这里不需要合计
+		//通过行政区划  统计   行政区划和直辖单位的  商业秘密事项个数   这里不需要合计
 		List<Map<String, Object>> listSecrecy =discloseSecrecyService.countDiscloseSecrecy(null, null, "secrecy_level",
 				CaseCriticalviolation.class.getName(), district.getDistrictCode(), false);//保密局
 		List<Map<String, Object>> listZhixiaSecrecy =discloseSecrecyService.countDiscloseSecrecy(null, null, "secrecy_level",

@@ -10,7 +10,7 @@
         </id>
         <many-to-one name="secrecyCountryItem" class="com.cdthgk.bmp.secrecycountryitem.vo.SecrecyCountryItem" fetch="select">
             <column name="secrecycountryitem_id" length="39">
-                <comment>国家秘密事项</comment>
+                <comment>商业秘密事项</comment>
             </column>
         </many-to-one>
         <property name="clearType" type="java.lang.Integer">

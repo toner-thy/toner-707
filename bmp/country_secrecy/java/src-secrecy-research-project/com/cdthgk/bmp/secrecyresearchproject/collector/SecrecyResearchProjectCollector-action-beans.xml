@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-	<!-- SimpleTable 统计国家秘密事项的总个数的配置-->
+	<!-- SimpleTable 统计商业秘密事项的总个数的配置-->
 	<bean id="secrecyResearchProjectSimpleTableCollector" class="com.cdthgk.bmp.secrecyresearchproject.collector.SecrecyResearchProjectSimpleTableCollector">
 		<property name="secrecyResearchProjectService" ref="bmp.secrecyResearchProjectService"></property>
 	</bean>

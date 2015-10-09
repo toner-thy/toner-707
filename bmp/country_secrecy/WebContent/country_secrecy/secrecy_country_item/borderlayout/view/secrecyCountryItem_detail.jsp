@@ -14,7 +14,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>国家秘密事项详情</title>
+		<title>商业秘密事项详情</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 
@@ -86,24 +86,24 @@
 		<div class="panel_header no_print" >
 			<div class="panel_title panel_titleListIco no_print">
 				<div style="width: 100%; font-size:22px; padding-top: 10px; padding-bottom: 8px; font-weight: bold; font-family: '楷体_gb2312';" align="center">
-					国家秘密事项【${secrecyCountryItem.secrecyCountryItemName }】详情
+					商业秘密事项【${secrecyCountryItem.secrecyCountryItemName }】详情
 				</div>
 			</div>
 		</div>
 
 		<div class="panel tMargin" style="margin-top: -1px;">
-			<!-- 国家秘密事项     开始 -->
+			<!-- 商业秘密事项     开始 -->
 			<div class="panel tMargin" style="margin-top: -1px;">
 				<div class="panel_header no_print">
 					<div class="panel_title panel_titleListIco no_print">
-						国家秘密事项 - 基本信息
+						商业秘密事项 - 基本信息
 					</div>
 				</div>
 				<div class="panel_content panel_content_table">
 					<table class="content_table" cellspacing="0" cellpadding="0" width="100%;">
 						<tr>
 							<td class="tbLable fr" style="white-space: nowrap;">
-								国家秘密事项名称
+								商业秘密事项名称
 							</td>
 							<td class="tbValue fl" colspan="3">
 								${secrecyCountryItem.secrecyCountryItemName}
@@ -200,14 +200,14 @@
 					<!--endprint1-->
 				</div>
 			</div>
-			<!-- 国家秘密事项     结束 -->
+			<!-- 商业秘密事项     结束 -->
 
 			<div class="split_line"></div><!-- 分隔线 -->
 			<!-- 密级变更的详情页面   开始 -->
 			<div class="panel tMargin" style="margin-top: -1px;">
 				<div class="panel_header no_print">
 					<div class="panel_title panel_titleListIco no_print">
-						国家秘密事项 - 密级变更记录
+						商业秘密事项 - 密级变更记录
 					</div>
 				</div>
 				<div class="panel_content panel_content_table">
@@ -232,7 +232,7 @@
 						</ec:table>
 					</s:if>
 					<s:else>
-						<u:noData text="该国家秘密事项 ,暂无密级变更记录。"/>
+						<u:noData text="该商业秘密事项 ,暂无密级变更记录。"/>
 					</s:else>
 				</div>
 			</div>

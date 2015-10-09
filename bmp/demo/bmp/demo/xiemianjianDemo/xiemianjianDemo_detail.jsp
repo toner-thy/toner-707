@@ -126,7 +126,7 @@
 									发案形式：
 								</td>
 								<td class="tbValue fl">
-									非法获取、持有国家秘密载体泄密
+									非法获取、持有商业秘密载体泄密
 								</td>
 								<td class="tbLable fr">
 									责任单位性质：

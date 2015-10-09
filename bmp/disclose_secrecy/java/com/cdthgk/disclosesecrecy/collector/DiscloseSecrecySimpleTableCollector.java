@@ -23,8 +23,8 @@ public class DiscloseSecrecySimpleTableCollector implements ParameterCollector<S
 
 	private DiscloseSecrecyService discloseSecrecyService;
 	/**
-	 * 通过  (行政区划)对象  查询该行政区划下面     国家秘密事项的总数
-	 * 这个方法  直接算出   国家秘密事项的总数
+	 * 通过  (行政区划)对象  查询该行政区划下面     商业秘密事项的总数
+	 * 这个方法  直接算出   商业秘密事项的总数
 	 */
 	@Override
 	public SimpleTable getData(Parameter param) {
@@ -35,7 +35,7 @@ public class DiscloseSecrecySimpleTableCollector implements ParameterCollector<S
 		List<District> districtList = new ArrayList<District>();
 		districtList.add(district);
 
-		//通过  (行政区划)对象  查询 该行政区划下面     国家秘密事项总数
+		//通过  (行政区划)对象  查询 该行政区划下面     商业秘密事项总数
 		Integer total = new Integer(0);
 		/*Map<String, Object> cmap = secrecyCountryItemService.getSecrecyCountryItim_Total_District(district, 1);
 		if(cmap!=null) {
@@ -47,7 +47,7 @@ public class DiscloseSecrecySimpleTableCollector implements ParameterCollector<S
 		total = discloseSecrecyService.getDiscloseSecrecyTotal(null, DiscloseSecrecy.class.getName(), null, district.getDistrictCode(), false);
 
 		//设置值
-		simpleTable.setTitle("泄密案件");//下面的action是查看 国家秘密事项个数 的明细列表  包括当前行政区划 和下级行政区划
+		simpleTable.setTitle("泄密案件");//下面的action是查看 商业秘密事项个数 的明细列表  包括当前行政区划 和下级行政区划
 		simpleTable.setActionURL("/bmp/discloseSecrecy/zhtj_query_Detail.action?className="+DiscloseSecrecy.class.getName()+"&&district.districtCode="+ district.getDistrictCode());
 		simpleTable.setTotalText(total);
 

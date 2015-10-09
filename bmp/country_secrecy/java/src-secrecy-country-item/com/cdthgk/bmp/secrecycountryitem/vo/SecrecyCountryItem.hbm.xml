@@ -6,7 +6,7 @@
     <class name="com.cdthgk.bmp.secrecycountryitem.vo.SecrecyCountryItem" table="bm_secrecy_countryitem" >
         <id name="secrecyCountryItemId" type="java.lang.String">
             <column name="secrecycountryitem_id" length="39" >
-            	<comment>国家秘密事项id</comment>
+            	<comment>商业秘密事项id</comment>
             </column>
             <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
         </id>
@@ -17,7 +17,7 @@
         </many-to-one>
         <property name="secrecyCountryItemName" type="java.lang.String">
             <column name="secrecycountryitem_name" length="300">
-                <comment>国家秘密事项名称</comment>
+                <comment>商业秘密事项名称</comment>
             </column>
         </property>
         <many-to-one name="formulateSecrecyPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
@@ -127,7 +127,7 @@
         <set name="secrecyCountryItemChanges" table="bm_secrecy_countryitem_change" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="secrecycountryitem_id" length="39">
-                    <comment>国家秘密事项</comment>
+                    <comment>商业秘密事项</comment>
                 </column>
             </key>
             <one-to-many class="com.cdthgk.bmp.secrecycountryitem.vo.SecrecyCountryItemChange" />
@@ -135,7 +135,7 @@
         <set name="secrecyCountryItemClears" table="bm_secrecy_countryitem_clear" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="secrecycountryitem_id" length="39">
-                    <comment>国家秘密事项</comment>
+                    <comment>商业秘密事项</comment>
                 </column>
             </key>
             <one-to-many class="com.cdthgk.bmp.secrecycountryitem.vo.SecrecyCountryItemClear" />

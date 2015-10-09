@@ -26,7 +26,7 @@ public class SecrecyCountryItemFashionTableCollector implements ParameterCollect
 	private SecrecyCountryItemService secrecyCountryItemService;
 
 	/**
-	 * //通过（单位）对象   查询该单位的   国家秘密事项的统计情况    这里查询只返回的一条记录而已
+	 * //通过（单位）对象   查询该单位的   商业秘密事项的统计情况    这里查询只返回的一条记录而已
 	 */
 	@Override
 	public FashionTable getData(Parameter param) {
@@ -35,7 +35,7 @@ public class SecrecyCountryItemFashionTableCollector implements ParameterCollect
 		// 获取传入organ参数
 		Organ organ = (Organ)param.getVariable("organ");
 
-		//通过（单位）对象   查询该单位的   国家秘密事项的密级情况    这里查询只返回的一条记录而已
+		//通过（单位）对象   查询该单位的   商业秘密事项的密级情况    这里查询只返回的一条记录而已
 		List<ZongHeTongJiStatDto> objectList = secrecyCountryItemService.count_SecrecyCountryItim_Organ(null,organ, false);
 
 		if(objectList!=null) {
@@ -45,7 +45,7 @@ public class SecrecyCountryItemFashionTableCollector implements ParameterCollect
 
 				fashionTable.setStyleType("1");
 				fashionTable.setOrganId(organ.getOrganId());
-				fashionTable.setTitle("国家秘密事项统计");
+				fashionTable.setTitle("商业秘密事项统计");
 				fashionTable.setImgUrl("/bmp/statfk/borderlayout/resource/img/secrecyCountryItem.gif");
 				fashionTable.setListAction("bmp/secrecycountryitem/zhtj_OrganDetailList.action");
 				fashionTable.setSecrecyLevel1("绝 密");

@@ -5,11 +5,11 @@
 
 	<bean id="bmp.secrecyCountryItemAction" class="com.cdthgk.bmp.secrecycountryitem.action.SecrecyCountryItemAction" parent="bmpAction" scope="prototype" >
 
-		<!--国家秘密事项的service层注入-->
+		<!--商业秘密事项的service层注入-->
 		<property name="secrecyCountryItemService" ref="bmp.secrecyCountryItemService" ></property>
-		<!--国家秘密事项密级变更的service层注入-->
+		<!--商业秘密事项密级变更的service层注入-->
 		<property name="secrecyCountryItemChangeService" ref="bmp.secrecyCountryItemChangeService" ></property>
-		<!--国家秘密事项密级解除的service层注入-->
+		<!--商业秘密事项密级解除的service层注入-->
 		<property name="secrecyCountryItemClearService" ref="bmp.secrecyCountryItemClearService" />
 
 		<!--要害部门的service层注入-->

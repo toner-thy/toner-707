@@ -13,7 +13,7 @@
 <html>
 	<head>
 
-		<title>行政区划国家秘密事项统计</title>
+		<title>行政区划商业秘密事项统计</title>
 		<s:actionmessage theme="messages"/>
 		<!-- 复杂表格CSS支持 -->
 		<link href="${ctx}/platform/css/public/table/complexTbSustain.css" type="text/css" rel="stylesheet"/>

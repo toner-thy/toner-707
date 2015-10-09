@@ -14,7 +14,7 @@ import com.cdthgk.view.web.ParameterCollector;
 
 /**
  * <p>
- * 按照单位  统计国家秘密  分密级显示
+ * 按照单位  统计商业秘密  分密级显示
  * </p>
  * <p>
  * copyright cdthgk 2010-2020, all rights reserved.
@@ -28,7 +28,7 @@ public class SecrecyResearchProjectOrganListTableCollector implements ParameterC
 	private SecrecyResearchProjectService secrecyResearchProjectService; //涉密科研项目的service
 
 	/**
-	 * //按照单位  统计国家秘密  分密级显示
+	 * //按照单位  统计商业秘密  分密级显示
 	 */
 	@Override
 	public List<OrganListTable> getData(Parameter param) {

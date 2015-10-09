@@ -19,7 +19,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>编辑国家秘密事项</title>
+		<title>编辑商业秘密事项</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -243,13 +243,13 @@
 
 		<div class="body_content">
 			<!-- 复合面板开始 -->
-			<%-- <cp:start defaultTitle="国家秘密事项简介" ctx="${ctx}" icoPath="/country_secrecy/secrecy_country_item/borderlayout/skin/blue/img/list_cpIco.gif">
-				<div id="cp001Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(1,'cp001','国家秘密事项简介');">关 于</div>
+			<%-- <cp:start defaultTitle="商业秘密事项简介" ctx="${ctx}" icoPath="/country_secrecy/secrecy_country_item/borderlayout/skin/blue/img/list_cpIco.gif">
+				<div id="cp001Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(1,'cp001','商业秘密事项简介');">关 于</div>
 			</cp:start>
 				<cp:msg show="true" divId="cp001">
 					<!-- 模块简介 -->
 					<div class="cpMsgTitle">
-						关于国家秘密事项
+						关于商业秘密事项
 					</div>
 					<div class="cpMsgContext">
 						<cpc:tc ctx="${ctx}" showId="bm_secrecy_countryitem"> </cpc:tc>
@@ -265,7 +265,7 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						编辑国家秘密事项
+						编辑商业秘密事项
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 					</div>
@@ -274,7 +274,7 @@
 					<form action="${ctx}/bmp/secrecycountryitem/secrecyCountryItem_editing.action" method="post" id="add_form" name="add_form">
 						<table align="center" class="content_table st" width="100%">
 							<tr>
-								<td class="tbLable fr">国家秘密事项名称：</td>
+								<td class="tbLable fr">商业秘密事项名称：</td>
 								<td class="tbValue fl" colspan="3">
 									<input id="secrecyCountryItem.secrecyCountryItemName" name="secrecyCountryItem.secrecyCountryItemName" type="text"
 									class="validate['required','length[300]']" value="${secrecyCountryItem.secrecyCountryItemName }" style="width: 75%"/>

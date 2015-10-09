@@ -72,7 +72,7 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						接触和知悉绝密级国家秘密文件人员情况详情
+						接触和知悉绝密级商业秘密文件人员情况详情
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<!-- 右侧按钮 -->
@@ -86,7 +86,7 @@
 									文件名称：
 								</td>
 								<td class="tbValue fl" colspan="3">
-									接触和知悉绝密级国家秘密文件人员情况
+									接触和知悉绝密级商业秘密文件人员情况
 								</td>
 							</tr>
 							<tr>

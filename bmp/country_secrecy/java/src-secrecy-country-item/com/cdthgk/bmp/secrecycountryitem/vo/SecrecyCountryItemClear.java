@@ -7,14 +7,14 @@ import java.util.Date;
 import com.cdthgk.platform.permission.user.domain.User;
 
 /**
- * SecrecyCountryItemClear  国家秘密事项  密级解除
+ * SecrecyCountryItemClear  商业秘密事项  密级解除
  */
 public class SecrecyCountryItemClear implements java.io.Serializable {
 
 	private static final long serialVersionUID = 8438319826536784017L;
 
-	private String secrecyContryClearId; //国家秘密事项  密级解除id
-	private SecrecyCountryItem secrecyCountryItem;//国家秘密事项
+	private String secrecyContryClearId; //商业秘密事项  密级解除id
+	private SecrecyCountryItem secrecyCountryItem;//商业秘密事项
 	private Integer clearType; //解密类型
 	private Date clearTime; //解除时间
 	private String reviewPerson;//审核人

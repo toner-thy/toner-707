@@ -13,7 +13,7 @@ import com.cdthgk.view.web.ParameterCollector;
 
 /**
  * <p>
- * 数据收集器，通过行政区划对象，统计出该行政区划下面，国家秘密事项的总数
+ * 数据收集器，通过行政区划对象，统计出该行政区划下面，商业秘密事项的总数
  * </p>
  * <p>
  * copyright cdthgk 2010-2020, all rights reserved.
@@ -24,7 +24,7 @@ import com.cdthgk.view.web.ParameterCollector;
 public class SecrecyComputerSimpleTableCollector implements ParameterCollector<SimpleTable>{
 
 	/***** Spring依赖注入,  服务层注入  ***/
-	private SecrecyComputerService secrecyComputerService; //国家秘密事项的service
+	private SecrecyComputerService secrecyComputerService; //商业秘密事项的service
 
 	/**
 	 * 通过  (行政区划)对象  查询该行政区划下面    涉密计算机的总数

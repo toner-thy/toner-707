@@ -7,7 +7,7 @@
 
 <html>
 	<head>
-		<title>首页国家秘密事项统计</title>
+		<title>首页商业秘密事项统计</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -18,9 +18,9 @@
 		<script type="text/javascript">
 
  			function doSecrecyCountryItemViewBendanWei(id,secrecyLevel){
- 				var titleText = "国家秘密事项撰取-列表";
+ 				var titleText = "商业秘密事项撰取-列表";
  				if(secrecyLevel=="-1") {
- 					titleText = "国家秘密事项合计-列表";
+ 					titleText = "商业秘密事项合计-列表";
  				}
  				TabUtil.openAsTab({
  					url : '${ctx}/bmp/secrecycountryitem/indexView_DetailList.action?organId='+id+'&secrecyLevel='+secrecyLevel+'&t_date='+ new Date().getTime(),
@@ -51,7 +51,7 @@
 						快速查询：
 					</td>
 					<td align="left" style="float: left; padding-bottom: 8px; border-bottom: 1px dotted #99CCE8;">
-						<input type="text" id="part.partName" value="请输入部位名称" onclick="clrSecrecyCountryItemInput();" style="color: #C6C6C6; height: 18px; width: 110px; border-bottom: 1px solid #7F9DB9; border-top: 1px solid #7F9DB9; border-left: 1px solid #7F9DB9; border-right: 0px; float: left; line-height: 19px; padding-left: 3px;"/><div onclick="doSecrecyCountryItemView2();" title="点击快速搜索国家秘密事项" style="background: url('${ctx}/images/index/search/indexPanelSearchBtn.gif') 0px 0px no-repeat; height:20px;width: 24px;float: left; cursor: hand;"></div>
+						<input type="text" id="part.partName" value="请输入部位名称" onclick="clrSecrecyCountryItemInput();" style="color: #C6C6C6; height: 18px; width: 110px; border-bottom: 1px solid #7F9DB9; border-top: 1px solid #7F9DB9; border-left: 1px solid #7F9DB9; border-right: 0px; float: left; line-height: 19px; padding-left: 3px;"/><div onclick="doSecrecyCountryItemView2();" title="点击快速搜索商业秘密事项" style="background: url('${ctx}/images/index/search/indexPanelSearchBtn.gif') 0px 0px no-repeat; height:20px;width: 24px;float: left; cursor: hand;"></div>
 					</td>
 					<td style="width: 5px;"></td>
 				</tr>

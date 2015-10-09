@@ -18,7 +18,7 @@ import com.cdthgk.platform.organization.organ.domain.Organ;
 import ec.common.PageSortModel;
 
 /**
- * 国家秘密事项  密级变更  实现类
+ * 商业秘密事项  密级变更  实现类
  * @author lwj 2013-07-15
  *
  */
@@ -40,11 +40,11 @@ public class SecrecyCountryItemChangeServiceImpl extends
 	}
 
 	/**
-	 * 查询国家秘密事项 的密级变更list
+	 * 查询商业秘密事项 的密级变更list
 	 *
 	 * @param psm  分页对象
 	 * @param organ  单位
-	 * @param secrecyCountryItemChange  国家秘密事项密级变更对象
+	 * @param secrecyCountryItemChange  商业秘密事项密级变更对象
 	 * @param district  行政区划
 	 * @param isChildren 包含下级  1包含  0不包含
 	 *
@@ -75,13 +75,13 @@ public class SecrecyCountryItemChangeServiceImpl extends
 
 		//变更对象不为空的时候
 		if(secrecyCountryItemChange!=null) {
-			//国家秘密事项id
+			//商业秘密事项id
 			if (secrecyCountryItemChange.getSecrecyCountryItem().getSecrecyCountryItemId()!= null
 					&& !"".equals(secrecyCountryItemChange.getSecrecyCountryItem().getSecrecyCountryItemId())) {
 				hql.append(" and p.secrecyCountryItem.secrecyCountryItemId = :pkid");
 				params.put("pkid", secrecyCountryItemChange.getSecrecyCountryItem().getSecrecyCountryItemId());
 			}
-			//国家秘密事项名称
+			//商业秘密事项名称
 			if (secrecyCountryItemChange.getSecrecyCountryItem().getSecrecyCountryItemName()!= null
 					&& !"".equals(secrecyCountryItemChange.getSecrecyCountryItem().getSecrecyCountryItemName())) {
 				hql.append(" and p.secrecyCountryItem.secrecyCountryItemName like :name");

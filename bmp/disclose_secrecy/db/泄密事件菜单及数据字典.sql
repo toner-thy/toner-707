@@ -11,8 +11,8 @@ INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_duty_organ_kind_3', '武器装备科研生产事业单位', 3, 3, 1, 'discloseSecrecy_duty_organ_kind');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_duty_organ_kind_4', '非武器装备科研生产企业', 4, 4, 1, 'discloseSecrecy_duty_organ_kind');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_duty_organ_kind_6', '非武器装备科研生产事业单位', 5, 5, 1, 'discloseSecrecy_duty_organ_kind');
-INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_1', '间谍窃密和故意向境外提供国家秘密', 1, 1, 1, 'discloseSecrecy_case_Type');
-INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_10', '非法复制、记录、存储国家秘密泄密', 10, 10, 1, 'discloseSecrecy_case_Type');
+INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_1', '间谍窃密和故意向境外提供商业秘密', 1, 1, 1, 'discloseSecrecy_case_Type');
+INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_10', '非法复制、记录、存储商业秘密泄密', 10, 10, 1, 'discloseSecrecy_case_Type');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_11', '私人交往和通信泄密', 11, 11, 1, 'discloseSecrecy_case_Type');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_12', '出版宣传工作泄密', 12, 12, 1, 'discloseSecrecy_case_Type');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_13', '丢失被盗泄密', 13, 13, 1, 'discloseSecrecy_case_Type');
@@ -23,10 +23,10 @@ INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_3', '社会网站泄密', 3, 3, 1, 'discloseSecrecy_case_Type');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_4', '其他', 4, 4, 1, 'discloseSecrecy_case_Type');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_5', '利用电子邮等方式通过互联网及其他公共信息网络传递涉密文件资料泄密', 5, 5, 1, 'discloseSecrecy_case_Type');
-INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_6', '非法获取、持有国家秘密载体泄密', 6, 6, 1, 'discloseSecrecy_case_Type');
-INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_7', '买卖、转送或私自销毁国家秘密载体泄密', 7, 7, 1, 'discloseSecrecy_case_Type');
-INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_8', '通过普通邮政、快递等无保密措施的渠道传递国家秘密载体泄密', 8, 8, 1, 'discloseSecrecy_case_Type');
-INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_9', '邮寄、托运国家秘密载体出境，或者未经批准携带、传递国家秘密载体出境泄密', 9, 9, 1, 'discloseSecrecy_case_Type');
+INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_6', '非法获取、持有商业秘密载体泄密', 6, 6, 1, 'discloseSecrecy_case_Type');
+INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_7', '买卖、转送或私自销毁商业秘密载体泄密', 7, 7, 1, 'discloseSecrecy_case_Type');
+INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_8', '通过普通邮政、快递等无保密措施的渠道传递商业秘密载体泄密', 8, 8, 1, 'discloseSecrecy_case_Type');
+INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('discloseSecrecy_case_Type_9', '邮寄、托运商业秘密载体出境，或者未经批准携带、传递商业秘密载体出境泄密', 9, 9, 1, 'discloseSecrecy_case_Type');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('402881b8402814980140281d977f0001', '故意泄密', 1, 1, 1, 'discloseSecrecy_case_kind');
 INSERT INTO sys_dictionary_option (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`) VALUES ('402881b8402814980140281e5bc90002', '过失泄密', 2, 2, 1, 'discloseSecrecy_case_kind');
 

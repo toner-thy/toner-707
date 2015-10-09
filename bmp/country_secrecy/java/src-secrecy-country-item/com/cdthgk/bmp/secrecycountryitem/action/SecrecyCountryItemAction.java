@@ -41,7 +41,7 @@ import com.cdthgk.platform.permission.user.domain.User;
 import ec.common.PageSortModel;
 
 /**
- * 国家秘密事项的action
+ * 商业秘密事项的action
  *
  * @author 梁文杰 2013-07-15
  *
@@ -53,9 +53,9 @@ public class SecrecyCountryItemAction extends BmpAction {
 	/**
 	 * Spring 依赖注入
 	 */
-	private SecrecyCountryItemService secrecyCountryItemService; // 国家秘密事项的service
-	private SecrecyCountryItemChangeService secrecyCountryItemChangeService;// 国家秘密事项密级变更的service
-	private SecrecyCountryItemClearService secrecyCountryItemClearService;// 国家秘密事项密级解除的service
+	private SecrecyCountryItemService secrecyCountryItemService; // 商业秘密事项的service
+	private SecrecyCountryItemChangeService secrecyCountryItemChangeService;// 商业秘密事项密级变更的service
+	private SecrecyCountryItemClearService secrecyCountryItemClearService;// 商业秘密事项密级解除的service
 	private KeySectionModuleService keySectionModuleService;// 要害部门
 	private DistrictService districtService;// 行政区划
 	private OrganService organService;
@@ -64,15 +64,15 @@ public class SecrecyCountryItemAction extends BmpAction {
 	/**
 	 * Struts2 modelDriver
 	 */
-	private SecrecyCountryItem secrecyCountryItem;// 国家秘密事项对象
-	private SecrecyCountryItemChange secrecyCountryItemChange;// 国家秘密事项 密级变对象
-	private SecrecyCountryItemClear secrecyCountryItemClear;// 国家秘密事项 密级解除对象
+	private SecrecyCountryItem secrecyCountryItem;// 商业秘密事项对象
+	private SecrecyCountryItemChange secrecyCountryItemChange;// 商业秘密事项 密级变对象
+	private SecrecyCountryItemClear secrecyCountryItemClear;// 商业秘密事项 密级解除对象
 	private District district;
 
 	/************************************************************************************************/
 
 	/**
-	 * 进入国家秘密事项的 主列表
+	 * 进入商业秘密事项的 主列表
 	 *
 	 * @return
 	 */
@@ -106,7 +106,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 进入国家秘密事项的 列表页面
+	 * 进入商业秘密事项的 列表页面
 	 *
 	 * @return
 	 */
@@ -145,7 +145,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 
 			secrecyCountryItemList = secrecyCountryItemService
 					.queryCountryItemList(psm, district, isChildren,
-							secrecyCountryItem);// 查询 国家秘密事项
+							secrecyCountryItem);// 查询 商业秘密事项
 		} else if (ywFlag.equals("0")) { // 普通页面按照 单位来查询
 			String organId = getRequest().getParameter("organ.organId");
 			Organ organ = new Organ();
@@ -161,7 +161,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 
 			secrecyCountryItemList = secrecyCountryItemService
 					.queryCountryItemList(psm, organ, secrecyCountryItem);// 查询
-																			// 国家秘密事项
+																			// 商业秘密事项
 		}
 
 		this.putToRequest("secrecyCountryItemList", secrecyCountryItemList);
@@ -170,7 +170,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 国家秘密事项 密级变更的列表
+	 * 商业秘密事项 密级变更的列表
 	 *
 	 * @return
 	 */
@@ -210,7 +210,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 			secrecyCountryItemChangeList = secrecyCountryItemChangeService
 					.queryCountryItemChangeList(psm, null,
 							secrecyCountryItemChange, district, isChildren);// 查询
-																			// 国家秘密事项变更
+																			// 商业秘密事项变更
 		} else if (ywFlag.equals("0")) { // 普通页面按照 单位来查询
 			String organId = getRequest().getParameter("organ.organId");
 			Organ organ = new Organ();
@@ -221,7 +221,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 			}
 			secrecyCountryItemChangeList = secrecyCountryItemChangeService
 					.queryCountryItemChangeList(psm, organ,
-							secrecyCountryItemChange, null, 0);// 查询 国家秘密事项变更
+							secrecyCountryItemChange, null, 0);// 查询 商业秘密事项变更
 		}
 
 		this.putToRequest("secrecyCountryItemChangeList",
@@ -231,7 +231,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 国家秘密事项 密级解除列表
+	 * 商业秘密事项 密级解除列表
 	 *
 	 * @return
 	 */
@@ -291,19 +291,19 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 进入国家秘密事项的 新增页面
+	 * 进入商业秘密事项的 新增页面
 	 *
 	 * @return
 	 */
 	public String add() {
 
-		// 设置国家秘密事项初始化信息
+		// 设置商业秘密事项初始化信息
 		this.putToRequest("needReload", Boolean.FALSE);
 		return SUCCESS;
 	}
 
 	/**
-	 * 国家秘密事项的 新增保存
+	 * 商业秘密事项的 新增保存
 	 *
 	 * @return
 	 */
@@ -337,7 +337,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 				// 2.部门保存以后，继续制定该部门为要害部门
 				KeySection keySection = secrecyCountryItemService
 						.saveKeySection(department, u);
-				// 3.设置 国家秘密事项中的 要害部门信息和部门信息
+				// 3.设置 商业秘密事项中的 要害部门信息和部门信息
 				secrecyCountryItem.setKeySectionId(keySection);
 				secrecyCountryItem.setDepartId(department);
 			}
@@ -373,14 +373,14 @@ public class SecrecyCountryItemAction extends BmpAction {
 		}
 		this.putToRequest("secrecyCountryItem", secrecyCountryItem);
 		BusinessLog log=new BusinessLog();
-		log.setBusinessName("国家秘密事项");
+		log.setBusinessName("商业秘密事项");
 		log.setPrimaryKey(secrecyCountryItem.getSecrecyCountryItemId());
 		BusinessLogContext.getInstance().getBusinessLogService().saveAddBusinessLogByModule(getCurrentUser(), log, secrecyCountryItem);
 		return SUCCESS;
 	}
 
 	/**
-	 * 进入国家秘密事项的 编辑页面
+	 * 进入商业秘密事项的 编辑页面
 	 *
 	 * @return
 	 */
@@ -395,7 +395,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 国家秘密事项的 编辑保存
+	 * 商业秘密事项的 编辑保存
 	 *
 	 * @return
 	 */
@@ -432,7 +432,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 				// 2.部门保存以后，继续保存要害部门
 				KeySection keySection = secrecyCountryItemService
 						.saveKeySection(department, u);
-				// 3.设置 国家秘密事项中的 要害部门信息和部门信息
+				// 3.设置 商业秘密事项中的 要害部门信息和部门信息
 				secrecyCountryItem.setKeySectionId(keySection);
 				secrecyCountryItem.setDepartId(department);
 			}
@@ -485,14 +485,14 @@ public class SecrecyCountryItemAction extends BmpAction {
 		}
 		this.putToRequest("secrecyCountryItem", secrecyCountryItem);
 		BusinessLog log = new BusinessLog();
-		log.setBusinessName("国家秘密事项");
+		log.setBusinessName("商业秘密事项");
 		log.setPrimaryKey(secrecyCountryItem.getSecrecyCountryItemId());
 		BusinessLogContext.getInstance().getBusinessLogService().saveEditBusinessLogByModule(getCurrentUser(), log, secrecyCountryItem, beforesci);
 		return SUCCESS;
 	}
 
 	/**
-	 * 国家秘密事项的 删除
+	 * 商业秘密事项的 删除
 	 *
 	 * @return
 	 */
@@ -507,7 +507,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 		this.addActionMessage(getMessageConstant().getDeleteSuccess());
 		for( String id : secrecyCountryItemIds.split(",") ){
                 BusinessLog log = new BusinessLog();
-                log.setBusinessName("国家秘密事项");
+                log.setBusinessName("商业秘密事项");
                 log.setPrimaryKey(id);
                 BusinessLogContext.getInstance().getBusinessLogService().saveDelBusinessLogByModule(getCurrentUser(), log, new SecrecyCountryItem());
 		}
@@ -550,7 +550,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 			SecrecyCountryItemChange obj = secrecyCountryItemChangeService
 					.save(secrecyCountryItemChange);
 
-			// 变更国家秘密事项的密级
+			// 变更商业秘密事项的密级
 			fk = secrecyCountryItemService.get(obj
 					.getSecrecyCountryItem().getSecrecyCountryItemId());
 			beforesci=new SecrecyCountryItem();
@@ -561,14 +561,14 @@ public class SecrecyCountryItemAction extends BmpAction {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			addActionMessage("国家秘密事项密级变更失败！");
+			addActionMessage("商业秘密事项密级变更失败！");
 			this.putToRequest("needReload", Boolean.FALSE);
 		}
 
-		addActionMessage("国家秘密事项密级变更成功！");
+		addActionMessage("商业秘密事项密级变更成功！");
 		this.putToRequest("needReload", Boolean.TRUE);
 		BusinessLog log = new BusinessLog();
-		log.setBusinessName("国家秘密事项");
+		log.setBusinessName("商业秘密事项");
 		log.setPrimaryKey(fk.getSecrecyCountryItemId());
 		BusinessLogContext.getInstance().getBusinessLogService().saveEditBusinessLogByModule(getCurrentUser(), log, fk, beforesci);
 		return SUCCESS;
@@ -610,7 +610,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 			SecrecyCountryItemClear obj = secrecyCountryItemClearService
 					.save(secrecyCountryItemClear);
 
-			// 国家秘密事项解密
+			// 商业秘密事项解密
 			fk = secrecyCountryItemService.get(obj
 					.getSecrecyCountryItem().getSecrecyCountryItemId());
 			beforesci=new SecrecyCountryItem();
@@ -620,14 +620,14 @@ public class SecrecyCountryItemAction extends BmpAction {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			addActionMessage("国家秘密事项密级解除失败！");
+			addActionMessage("商业秘密事项密级解除失败！");
 			this.putToRequest("needReload", Boolean.FALSE);
 		}
 
-		addActionMessage("国家秘密事项密级解除成功！");
+		addActionMessage("商业秘密事项密级解除成功！");
 		this.putToRequest("needReload", Boolean.TRUE);
 		BusinessLog log = new BusinessLog();
-		log.setBusinessName("国家秘密事项");
+		log.setBusinessName("商业秘密事项");
 		log.setPrimaryKey(fk.getSecrecyCountryItemId());
 		BusinessLogContext.getInstance().getBusinessLogService().saveEditBusinessLogByModule(getCurrentUser(), log, fk, beforesci);
 		return SUCCESS;
@@ -642,7 +642,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 		// 获取变更对象
 		secrecyCountryItemChange = secrecyCountryItemChangeService
 				.get(secrecyCountryItemChange.getSecrecyChangeId());
-		// 国家秘密事项
+		// 商业秘密事项
 		secrecyCountryItem = secrecyCountryItemChange.getSecrecyCountryItem();
 
 		this.putToRequest("secrecyCountryItemChange", secrecyCountryItemChange);
@@ -661,10 +661,10 @@ public class SecrecyCountryItemAction extends BmpAction {
 		secrecyCountryItemClear = secrecyCountryItemClearService
 				.get(secrecyCountryItemClear.getSecrecyContryClearId());
 
-		// 国家秘密事项
+		// 商业秘密事项
 		secrecyCountryItem = secrecyCountryItemClear.getSecrecyCountryItem();
 
-		// 查询 国家秘密事项 变更记录
+		// 查询 商业秘密事项 变更记录
 		if (secrecyCountryItemChange == null) {
 			secrecyCountryItemChange = new SecrecyCountryItemChange();
 		}
@@ -673,7 +673,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 		//业务标志 1查询模块  0普通业务模块
 		String ywFlag = this.getRequest().getParameter("ywFlag");
 		if(ywFlag!=null && ywFlag.equals("1")){
-			//通过国家秘密事项对象，该国家秘密事项适用的组织对象
+			//通过商业秘密事项对象，该商业秘密事项适用的组织对象
 			organ = secrecyCountryItem.getCreateOrgan();
 		}
 		secrecyCountryItemChangeList = secrecyCountryItemChangeService
@@ -690,14 +690,14 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 国家秘密事项明细
+	 * 商业秘密事项明细
 	 *
 	 * @return
 	 */
 	public String detail() {
 		Organ organ = this.getCurrentUser().getOrgan();
 		District district = organ.getDistrict();
-		// 获取国家秘密事项对象
+		// 获取商业秘密事项对象
 		secrecyCountryItem = secrecyCountryItemService.get(secrecyCountryItem
 				.getSecrecyCountryItemId());
 
@@ -705,9 +705,9 @@ public class SecrecyCountryItemAction extends BmpAction {
 		if (secrecyCountryItemChange == null) {
 			secrecyCountryItemChange = new SecrecyCountryItemChange();
 		}
-		// 将国家秘密事项对象设置 到 变更对象中
+		// 将商业秘密事项对象设置 到 变更对象中
 		secrecyCountryItemChange.setSecrecyCountryItem(secrecyCountryItem);
-		// 查询 国家秘密事项 变更记录
+		// 查询 商业秘密事项 变更记录
 		List<SecrecyCountryItemChange> secrecyCountryItemChangeList = null;
 		if(!organ.getOrganId().equals(secrecyCountryItem.getCreateOrgan().getOrganId())) {
 			secrecyCountryItemChangeList = secrecyCountryItemChangeService
@@ -727,7 +727,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 通过ajax查询 国家秘密事项表 中的数据被哪些表所引用 传递参数 secrecyCountryItemId -> 国家秘密事项id
+	 * 通过ajax查询 商业秘密事项表 中的数据被哪些表所引用 传递参数 secrecyCountryItemId -> 商业秘密事项id
 	 *
 	 * @return
 	 */
@@ -799,7 +799,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 			Organ organ = this.getCurrentUser().getOrgan();
 			secrecyCountryItemList = secrecyCountryItemService
 					.queryCountryItemList(null, organ, secrecyCountryItem);// 查询
-																			// 国家秘密事项
+																			// 商业秘密事项
 		}
 		this.putToRequest("secrecyCountryItemList", secrecyCountryItemList);
 
@@ -821,7 +821,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 按照单位显示 本单位 统计 国家秘密
+	 * (本单位) 按照单位显示 本单位 统计 商业秘密
 	 *
 	 * @return
 	 */
@@ -847,11 +847,11 @@ public class SecrecyCountryItemAction extends BmpAction {
 		obj.setBeginDate(yearStatProvider.getBeginDate());
 		obj.setEndDate(yearStatProvider.getEndDate());
 
-		// 统计查询国家秘密 按照单位显示 按照单位显示不需要时间参数
+		// 统计查询商业秘密 按照单位显示 按照单位显示不需要时间参数
 		List<Map<String, Object>> countrySecrecyList = secrecyCountryItemService
 				.getOrganCountrySecrecy(organ, obj);
 
-		// 统计查询国家秘密 按照部门显示 按照部门显示需要时间参数
+		// 统计查询商业秘密 按照部门显示 按照部门显示需要时间参数
 		List<Map<String, Object>> countrySecrecy_deaprtmentList = secrecyCountryItemService
 				.getOrganCountrySecrecy_ByDepartment(organ, obj);
 
@@ -862,7 +862,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 按照单位显示 导出 本单位 统计 国家秘密
+	 * (本单位) 按照单位显示 导出 本单位 统计 商业秘密
 	 *
 	 * @return
 	 */
@@ -888,11 +888,11 @@ public class SecrecyCountryItemAction extends BmpAction {
 		obj.setBeginDate(yearStatProvider.getBeginDate());
 		obj.setEndDate(yearStatProvider.getEndDate());
 
-		// 统计查询国家秘密 按照单位显示
+		// 统计查询商业秘密 按照单位显示
 		List<Map<String, Object>> countrySecrecyList = secrecyCountryItemService
 				.getOrganCountrySecrecy(organ, obj);
 
-		// 统计查询国家秘密 按照部门显示 按照部门显示需要时间参数
+		// 统计查询商业秘密 按照部门显示 按照部门显示需要时间参数
 		List<Map<String, Object>> countrySecrecy_deaprtmentList = secrecyCountryItemService
 				.getOrganCountrySecrecy_ByDepartment(organ, obj);
 
@@ -917,7 +917,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 新增国家秘密 本单位 统计 新增国家秘密
+	 * (本单位) 新增商业秘密 本单位 统计 新增商业秘密
 	 *
 	 * @return
 	 */
@@ -944,7 +944,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 		obj.setEndDate(yearStatProvider.getEndDate());
 
 
-		// 统计查询国家秘密
+		// 统计查询商业秘密
 		List<Map<String, Object>> countrySecrecyList = secrecyCountryItemService
 				.getOrganCountrySecrecy(organ, obj);
 
@@ -953,7 +953,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 新增国家秘密 导出 本单位 统计 新增国家秘密
+	 * (本单位) 新增商业秘密 导出 本单位 统计 新增商业秘密
 	 *
 	 * @return
 	 */
@@ -979,7 +979,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 		obj.setBeginDate(yearStatProvider.getBeginDate());
 		obj.setEndDate(yearStatProvider.getEndDate());
 
-		// 统计查询国家秘密
+		// 统计查询商业秘密
 		List<Map<String, Object>> countrySecrecyList = secrecyCountryItemService
 				.getOrganCountrySecrecy(organ, obj);
 
@@ -1002,7 +1002,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 新解国家秘密 本单位 统计 新解国家秘密
+	 * (本单位) 新解商业秘密 本单位 统计 新解商业秘密
 	 *
 	 * @return
 	 */
@@ -1028,7 +1028,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 		obj.setBeginDate(yearStatProvider.getBeginDate());
 		obj.setEndDate(yearStatProvider.getEndDate());
 
-		// 统计查询国家秘密
+		// 统计查询商业秘密
 		List<Map<String, Object>> countrySecrecyList = secrecyCountryItemService
 				.getOrganCountrySecrecy(organ, obj);
 
@@ -1037,7 +1037,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 新解国家秘密 导出 本单位 统计 新解国家秘密
+	 * (本单位) 新解商业秘密 导出 本单位 统计 新解商业秘密
 	 *
 	 * @return
 	 */
@@ -1063,7 +1063,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 		obj.setBeginDate(yearStatProvider.getBeginDate());
 		obj.setEndDate(yearStatProvider.getEndDate());
 
-		// 统计查询国家秘密
+		// 统计查询商业秘密
 		List<Map<String, Object>> countrySecrecyList = secrecyCountryItemService
 				.getOrganCountrySecrecy(organ, obj);
 
@@ -1086,7 +1086,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * （行政区划） 行政区划 查询 国家秘密统计
+	 * （行政区划） 行政区划 查询 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1119,7 +1119,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * （直辖单位） 行政区划 查询 国家秘密统计
+	 * （直辖单位） 行政区划 查询 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1152,7 +1152,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * （单位明细） 行政区划 查询 国家秘密统计
+	 * （单位明细） 行政区划 查询 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1177,7 +1177,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * （行政区划） 行政区划 查询 新增国家秘密统计
+	 * （行政区划） 行政区划 查询 新增商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1210,7 +1210,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * （直辖单位） 行政区划 查询 新增国家秘密统计
+	 * （直辖单位） 行政区划 查询 新增商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1243,7 +1243,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * （行政区划） 行政区划 查询 新解除 国家秘密统计
+	 * （行政区划） 行政区划 查询 新解除 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1276,7 +1276,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * （直辖单位） 行政区划 查询 新解除 国家秘密统计
+	 * （直辖单位） 行政区划 查询 新解除 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1309,7 +1309,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出（行政区划） 行政区划 导出 国家秘密统计
+	 * 导出（行政区划） 行政区划 导出 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1356,7 +1356,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出（直辖单位） 行政区划 导出 国家秘密统计
+	 * 导出（直辖单位） 行政区划 导出 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1403,7 +1403,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出（单位明细） 行政区划 导出 国家秘密统计
+	 * 导出（单位明细） 行政区划 导出 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1442,7 +1442,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出（行政区划） 行政区划 导出 新增国家秘密统计
+	 * 导出（行政区划） 行政区划 导出 新增商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1489,7 +1489,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出（直辖单位） 行政区划 导出 新增国家秘密统计
+	 * 导出（直辖单位） 行政区划 导出 新增商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1536,7 +1536,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出（行政区划） 行政区划 导出 新解除 国家秘密统计
+	 * 导出（行政区划） 行政区划 导出 新解除 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1583,7 +1583,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出（直辖单位） 行政区划 导出 新解除 国家秘密统计
+	 * 导出（直辖单位） 行政区划 导出 新解除 商业秘密统计
 	 *
 	 * @return
 	 */
@@ -1630,7 +1630,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 其他模块引用的 国家秘密事项统计
+	 * (本单位) 其他模块引用的 商业秘密事项统计
 	 *
 	 * @return
 	 */
@@ -1646,11 +1646,11 @@ public class SecrecyCountryItemAction extends BmpAction {
 			organ = getCurrentUser().getOrgan();
 		}
 
-		// 要害部门生成的 国家秘密事项
+		// 要害部门生成的 商业秘密事项
 		List<Map<String, Object>> countrySecrecyList = secrecyCountryItemService
 				.getOrganSecrecyCountryItim_BySection(organ);
 
-		// 系统部门生成的 国家秘密事项
+		// 系统部门生成的 商业秘密事项
 		List<Map<String, Object>> countryNoSectionList = secrecyCountryItemService
 				.getOrganSecrecyCountryItim_NoBySection(organ);
 
@@ -1660,7 +1660,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出 (本单位) 其他模块引用的 导出国家秘密事项统计
+	 * 导出 (本单位) 其他模块引用的 导出商业秘密事项统计
 	 *
 	 * @return
 	 */
@@ -1676,11 +1676,11 @@ public class SecrecyCountryItemAction extends BmpAction {
 			organ = getCurrentUser().getOrgan();
 		}
 
-		// 要害部门生成的 国家秘密事项
+		// 要害部门生成的 商业秘密事项
 		List<Map<String, Object>> countrySecrecyList = secrecyCountryItemService
 				.getOrganSecrecyCountryItim_BySection(organ);
 
-		// 系统部门生成的 国家秘密事项
+		// 系统部门生成的 商业秘密事项
 		List<Map<String, Object>> countryNoSectionList = secrecyCountryItemService
 				.getOrganSecrecyCountryItim_NoBySection(organ);
 
@@ -1704,7 +1704,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (行政区划) 其他模块引用的 统计国家秘密事项
+	 * (行政区划) 其他模块引用的 统计商业秘密事项
 	 *
 	 * @return
 	 */
@@ -1725,7 +1725,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出(行政区划) 其他模块引用的 统计国家秘密事项
+	 * 导出(行政区划) 其他模块引用的 统计商业秘密事项
 	 *
 	 * @return
 	 */
@@ -1761,7 +1761,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (直辖单位) 其他模块引用的 统计国家秘密事项
+	 * (直辖单位) 其他模块引用的 统计商业秘密事项
 	 *
 	 * @return
 	 */
@@ -1782,7 +1782,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 导出(直辖单位) 其他模块引用的 统计国家秘密事项
+	 * 导出(直辖单位) 其他模块引用的 统计商业秘密事项
 	 *
 	 * @return
 	 */
@@ -1818,7 +1818,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 首页统计 国家秘密事项
+	 * (本单位) 首页统计 商业秘密事项
 	 *
 	 * @return
 	 */
@@ -1835,7 +1835,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (本单位) 国家秘密事项 明细 列表
+	 * (本单位) 商业秘密事项 明细 列表
 	 *
 	 * @return
 	 */
@@ -1883,7 +1883,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (行政区) 首页统计 国家秘密事项
+	 * (行政区) 首页统计 商业秘密事项
 	 *
 	 * @return
 	 */
@@ -1900,7 +1900,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * (行政区) 国家秘密事项 明细 列表
+	 * (行政区) 商业秘密事项 明细 列表
 	 *
 	 * @return
 	 */
@@ -1948,7 +1948,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 国家秘密事项查询 左树页面
+	 * 商业秘密事项查询 左树页面
 	 *
 	 * @return
 	 */
@@ -1958,7 +1958,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 
 	/*************************************** 综合统计 *******************************************/
 	/**
-	 * 综合统计 通过行政区划 查询国家秘密事项个数 的明细列表 包括当前行政区划 和下级行政区划 的国家秘密事项的明细
+	 * 综合统计 通过行政区划 查询商业秘密事项个数 的明细列表 包括当前行政区划 和下级行政区划 的商业秘密事项的明细
 	 *
 	 * @return
 	 */
@@ -1990,7 +1990,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 综合统计 通过行政区划编码 统计该行政区划国家秘密事项的统计 一个单位一排数据，同时这个action提供了通过单位的名称模糊查询的功能。
+	 * 综合统计 通过行政区划编码 统计该行政区划商业秘密事项的统计 一个单位一排数据，同时这个action提供了通过单位的名称模糊查询的功能。
 	 *
 	 * @return
 	 */
@@ -2017,7 +2017,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 通过密级，行政区划对象或者单位对象，查询国家秘密事项对应的列表 密级是必须字段，如果点到合计上面了，这里的单位是空的，所以需要行政区划对象
+	 * 通过密级，行政区划对象或者单位对象，查询商业秘密事项对应的列表 密级是必须字段，如果点到合计上面了，这里的单位是空的，所以需要行政区划对象
 	 * 如果没有点到合计，那么会使用单位的对象去查询
 	 *
 	 * @return
@@ -2077,7 +2077,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 				"secrecyCountryItemList");
 		secrecyCountryItemList = secrecyCountryItemService
 				.queryCountryItemList(psm, organ, secrecyCountryItem);// 查询
-																		// 国家秘密事项
+																		// 商业秘密事项
 
 		putToRequest("secrecyCountryItemList", secrecyCountryItemList);
 		putToRequest("secrecy_level", secrecy_level);
@@ -2089,7 +2089,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 	}
 
 	/**
-	 * 综合统计 通过行政区划 查询国家秘密事项个数 的明细列表 包括当前行政区划 和下级行政区划 的国家秘密事项的明细
+	 * 综合统计 通过行政区划 查询商业秘密事项个数 的明细列表 包括当前行政区划 和下级行政区划 的商业秘密事项的明细
 	 *
 	 * @return
 	 */
@@ -2169,7 +2169,7 @@ public class SecrecyCountryItemAction extends BmpAction {
 		// ID值为bm_business_module中的ID
 		resultData.put("id", "5");
 		List<SecrecyCountryItem> secrecyCountryItemList = secrecyCountryItemService.queryCountryItemList(null, getCurrentUser().getOrgan(), null);// 查询
-		String msg = dataValidateService.validateData("国家秘密事项", secrecyCountryItemList, "5");
+		String msg = dataValidateService.validateData("商业秘密事项", secrecyCountryItemList, "5");
 		resultData.put("msg", msg);
 		setResultData(resultData);
 		return JSON;

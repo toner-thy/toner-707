@@ -101,7 +101,7 @@
 							</td>
 							<td class="tbValue fl">
 								<s:select
-										list="#{'1':'国家秘密事项','2':'密品','3':'涉密科研项目'}"
+										list="#{'1':'商业秘密事项','2':'密品','3':'涉密科研项目'}"
 										cssStyle="width:100px;"
 										theme="simple"
 									>

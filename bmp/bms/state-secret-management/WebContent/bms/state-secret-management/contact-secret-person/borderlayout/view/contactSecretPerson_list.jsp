@@ -15,7 +15,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>接触和知悉绝密级国家秘密文件人员情况</title>
+<title>接触和知悉绝密级商业秘密文件人员情况</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -121,8 +121,8 @@
 			<div id="cpPanel" style="width: 100%;">
 				<!-- 切换按钮 -->
 				<div class="cpBtnBar">
-					<div id="cp001Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(2,'cp001','接触和知悉绝密级国家秘密文件人员情况简介');">关 于</div>
-					<div id="cp002Btn" class="cpBtn" href="###" onmouseover="javascript:showCp(2,'cp002','接触和知悉绝密级国家秘密文件人员情况查询');">查 询</div>
+					<div id="cp001Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(2,'cp001','接触和知悉绝密级商业秘密文件人员情况简介');">关 于</div>
+					<div id="cp002Btn" class="cpBtn" href="###" onmouseover="javascript:showCp(2,'cp002','接触和知悉绝密级商业秘密文件人员情况查询');">查 询</div>
 				</div>
 				<!-- 切换面板 -->
 				<div id="cpMainDiv" class="cpMainDiv">
@@ -135,7 +135,7 @@
 								<div id="cp001"
 									style="width: 100%; padding-bottom: 1px; padding-left: 1px; padding-right: 1px;">
 									<!-- 模块简介 -->
-									<div class="cpMsgTitle">关于接触和知悉绝密级国家秘密文件人员</div>
+									<div class="cpMsgTitle">关于接触和知悉绝密级商业秘密文件人员</div>
 									<div class="cpMsgContext">
 										<cpc:tc ctx="${ctx}" showId="annual_plan_description"> </cpc:tc>
 									</div>
@@ -178,7 +178,7 @@
 		<!-- 内容panel开始 -->
 		<div class="panel tMargin">
 			<div class="panel_header">
-				<div class="panel_title panel_titleListIco">接触和知悉绝密级国家秘密文件人员情况列表</div>
+				<div class="panel_title panel_titleListIco">接触和知悉绝密级商业秘密文件人员情况列表</div>
 				<div class="panel_btn_bar pop_button_bar"></div>
 			</div>
 			<div class="panel_content panel_content_table">

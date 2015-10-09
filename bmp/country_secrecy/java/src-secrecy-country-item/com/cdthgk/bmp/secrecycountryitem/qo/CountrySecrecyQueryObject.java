@@ -9,7 +9,7 @@ public class CountrySecrecyQueryObject implements Serializable{
 
 	private String beginDate;//开始时间
 	private String endDate;//结束时间
-	private Integer rflag;//标志  1新增国家秘密  2新解国家秘密  0国家秘密总数
+	private Integer rflag;//标志  1新增商业秘密  2新解商业秘密  0商业秘密总数
 
 	public Integer getRflag() {
 		return rflag;
@@ -32,7 +32,7 @@ public class CountrySecrecyQueryObject implements Serializable{
 
 
 	/**(本单位)总数
-	 * 统计本单位 国家秘密总数  得到初始化的查询条件
+	 * 统计本单位 商业秘密总数  得到初始化的查询条件
 	 * @return
 	 */
 	public static CountrySecrecyQueryObject organ_CountrySecrecy_Count() {
@@ -42,7 +42,7 @@ public class CountrySecrecyQueryObject implements Serializable{
 	}
 
 	/**(本单位)新增
-	 * 统计本单位新增  国家秘密总数   得到初始化的查询条件
+	 * 统计本单位新增  商业秘密总数   得到初始化的查询条件
 	 * @return
 	 */
 	public static CountrySecrecyQueryObject organ_CountrySecrecy_New_Add() {
@@ -52,7 +52,7 @@ public class CountrySecrecyQueryObject implements Serializable{
 	}
 
 	/**(本单位)新解
-	 * 统计本单位新解 国家秘密总数   得到初始化的查询条件
+	 * 统计本单位新解 商业秘密总数   得到初始化的查询条件
 	 * @return
 	 */
 	public static CountrySecrecyQueryObject organ_CountrySecrecy_New_Clear() {

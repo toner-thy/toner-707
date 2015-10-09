@@ -2735,13 +2735,13 @@
 	</#if>
 	<#if selected.id == '5'>
 
-	<!-- 国家秘密事项 -->
+	<!-- 商业秘密事项 -->
 <w:p wsp:rsidR="000C29F0" wsp:rsidRPr="00F06DC1" wsp:rsidRDefault="000C29F0"
 	wsp:rsidP="000C29F0"><w:pPr><w:jc w:val="center" /><w:rPr><w:rFonts
 	w:hint="fareast" /><w:b-cs /><w:sz w:val="44" /></w:rPr></w:pPr><w:r><w:rPr><w:rFonts
 	w:hint="fareast" /><wx:font wx:val="宋体" /><w:b-cs /><w:sz
 	w:val="44" /></w:rPr>
-<w:t>本单位产生国家秘密事项一览表</w:t></w:r></w:p><w:tbl><w:tblPr><w:tblW
+<w:t>本单位产生商业秘密事项一览表</w:t></w:r></w:p><w:tbl><w:tblPr><w:tblW
 	w:w="10313" w:type="dxa" /><w:tblInd w:w="-707" w:type="dxa" /><w:tblBorders><w:top
 	w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto" /><w:left
 	w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto" /><w:bottom
@@ -9625,14 +9625,14 @@
 	</#if>
 	<#if selected.id == '26'>
 
-	<!-- 接触和知悉绝密级国家秘密文件人员情况 -->
+	<!-- 接触和知悉绝密级商业秘密文件人员情况 -->
 	<w:p wsp:rsidR="0051742F" wsp:rsidRPr="00F06DC1" wsp:rsidRDefault="0051742F"><w:pPr><w:jc
 	w:val="center" /><w:rPr><w:rFonts w:hint="fareast" /><w:b-cs /><w:sz
 	w:val="44" /></w:rPr></w:pPr><w:r wsp:rsidRPr="00F06DC1"><w:rPr><w:rFonts
 	w:hint="fareast" /><wx:font wx:val="宋体" /><w:b-cs /><w:sz
 	w:val="44" /></w:rPr>
 
-<w:t>接触和知悉绝密级国家秘密文件人员情况</w:t></w:r></w:p><w:tbl><w:tblPr><w:tblW
+<w:t>接触和知悉绝密级商业秘密文件人员情况</w:t></w:r></w:p><w:tbl><w:tblPr><w:tblW
 	w:w="9782" w:type="dxa" /><w:tblInd w:w="-743" w:type="dxa" /><w:tblBorders><w:top
 	w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto" /><w:left
 	w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto" /><w:bottom

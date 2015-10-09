@@ -18,12 +18,12 @@ public class CaseCriticalviolationSimpleTableCollector implements ParameterColle
 		District district = (District)param.getVariable("district");
 		List<District> districtList = new ArrayList<District>();
 		districtList.add(district);
-		//通过  (行政区划)对象  查询 该行政区划下面     国家秘密事项总数
+		//通过  (行政区划)对象  查询 该行政区划下面     商业秘密事项总数
 		Integer total = new Integer(0);
 		total = discloseSecrecyService.getDiscloseSecrecyTotal(null, CaseCriticalviolation.class.getName(), null, district.getDistrictCode(), false);
 
 		//设置值
-		simpleTable.setTitle("严重违规案件");//下面的action是查看 国家秘密事项个数 的明细列表  包括当前行政区划 和下级行政区划
+		simpleTable.setTitle("严重违规案件");//下面的action是查看 商业秘密事项个数 的明细列表  包括当前行政区划 和下级行政区划
 		simpleTable.setActionURL("/bmp/discloseSecrecy/zhtj_query_Detail.action?className="+CaseCriticalviolation.class.getName()+"&&district.districtCode="+ district.getDistrictCode());
 		simpleTable.setTotalText(total);
 

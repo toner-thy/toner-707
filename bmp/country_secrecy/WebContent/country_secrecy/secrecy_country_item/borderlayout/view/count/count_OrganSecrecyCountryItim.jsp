@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>国家秘密统计(本单位)</title>
+		<title>商业秘密统计(本单位)</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -59,7 +59,7 @@
 			<div class="panel tMargin" style="overflow-y: auto;">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco" >
-						国家秘密事项统计-要害部门生成
+						商业秘密事项统计-要害部门生成
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<a href="###" id="doExport"  onclick="doExportcountryitem_form()" class="pop_button"><span>导出</span></a>
@@ -106,7 +106,7 @@
 			<%-- <div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						国家秘密事项统计-系统部门生成
+						商业秘密事项统计-系统部门生成
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 					</div>

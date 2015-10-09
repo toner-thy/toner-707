@@ -6,14 +6,14 @@
     <class name="com.cdthgk.bmp.secrecycountryitem.vo.SecrecyCountryItemChange" table="bm_secrecy_countryitem_change" >
         <id name="secrecyChangeId" type="java.lang.String">
             <column name="secrecy_change_id" length="39" >
-            	<comment>国家秘密事项  密级变更id</comment>
+            	<comment>商业秘密事项  密级变更id</comment>
             </column>
             <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
         </id>
 
         <many-to-one name="secrecyCountryItem" class="com.cdthgk.bmp.secrecycountryitem.vo.SecrecyCountryItem" fetch="select">
             <column name="secrecycountryitem_id" length="39">
-                <comment>国家秘密事项</comment>
+                <comment>商业秘密事项</comment>
             </column>
         </many-to-one>
 

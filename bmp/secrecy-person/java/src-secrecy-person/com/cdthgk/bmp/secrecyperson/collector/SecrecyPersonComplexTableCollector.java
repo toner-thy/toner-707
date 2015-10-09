@@ -38,7 +38,7 @@ public class SecrecyPersonComplexTableCollector implements ParameterCollector<Co
 	private SecrecyPersonModuleService secrecyPersonModuleService;
 
 	/**
-	 * 通过行政区划  统计   行政区划和直辖单位的国家秘密事项个数
+	 * 通过行政区划  统计   行政区划和直辖单位的商业秘密事项个数
 	 * 不需要合计行
 	 */
 	@Override

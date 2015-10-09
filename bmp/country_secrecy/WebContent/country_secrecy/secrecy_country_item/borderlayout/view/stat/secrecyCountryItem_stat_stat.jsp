@@ -18,7 +18,7 @@
 <html>
 	<head>
 
-		<title>行政区国家秘密事项统计</title>
+		<title>行政区商业秘密事项统计</title>
 
 		<s:actionmessage theme="messages"/>
 		<!-- 复杂表格CSS支持 -->
@@ -50,7 +50,7 @@
 					width : 800,
 					height : 800,
 					icon : '${pageContext.request.contextPath}/platform/theme/default/images/main/display.gif',
-					title : '行政区国家秘密事项统计'
+					title : '行政区商业秘密事项统计'
 				});
 			}
 
@@ -60,7 +60,7 @@
 					width : 800,
 					height : 800,
 					icon : '${pageContext.request.contextPath}/platform/theme/default/images/main/display.gif',
-					title : '行政区国家秘密事项统计'
+					title : '行政区商业秘密事项统计'
 				});
 			}
 
@@ -99,7 +99,7 @@
 			<div class="panel">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						【${district.districtName }】<%=ConstantService.getConstant("District")%>国家秘密事项统计
+						【${district.districtName }】<%=ConstantService.getConstant("District")%>商业秘密事项统计
 					</div>
 					<!-- 右侧按钮 -->
 					<div class="panel_btn_bar pop_button_bar" align="right">
@@ -157,7 +157,7 @@
 					<div class="panel_header">
 						<div class="panel_title panel_titleListIco">
 							<h2>
-								【${district.districtName }】<%=ConstantService.getConstant("District_Area")%>国家秘密事项统计
+								【${district.districtName }】<%=ConstantService.getConstant("District_Area")%>商业秘密事项统计
 							</h2>
 						</div>
 						<!-- 右侧按钮 -->

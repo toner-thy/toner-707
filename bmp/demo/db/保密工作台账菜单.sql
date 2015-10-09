@@ -118,9 +118,9 @@ INSERT INTO sys_domain_organ VALUES ('ca82cae64581e009014581e86df20000', '1');
 		-- ----------------------------- sys_domain_organ表insert语句 ----------------------------
 		INSERT INTO sys_domain_organ VALUES ('ca82caeb4587562e0145875ecebf0002', '1');
 
-		-- ******************************* 添加菜单[ 接触和知悉绝密级国家秘密文件人员情况 ] *******************************
+		-- ******************************* 添加菜单[ 接触和知悉绝密级商业秘密文件人员情况 ] *******************************
 		-- ----------------------------- sys_domain表insert语句 ----------------------------
-		INSERT INTO sys_domain VALUES ('ca82caeb4587562e0145876161510004', 'a', '接触和知悉绝密级国家秘密文件人员情况', '0', '', '', '1', '', '22', 'ca82cae64581e009014581ed08790003');
+		INSERT INTO sys_domain VALUES ('ca82caeb4587562e0145876161510004', 'a', '接触和知悉绝密级商业秘密文件人员情况', '0', '', '', '1', '', '22', 'ca82cae64581e009014581ed08790003');
 		-- ----------------------------- sys_resource表insert语句 ----------------------------
 		INSERT INTO sys_resource VALUES ('ca82caeb4587562e01458845e59f000d', '1', '', '/bmp/workbench-demo/contactAndKnowStateSecrets/contactStateSecrets_list.jsp', 'ca82caeb4587562e0145876161510004');
 		-- ----------------------------- sys_domain_organ表insert语句 ----------------------------

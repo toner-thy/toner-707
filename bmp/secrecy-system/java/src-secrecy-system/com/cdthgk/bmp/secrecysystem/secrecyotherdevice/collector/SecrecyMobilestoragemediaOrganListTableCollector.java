@@ -15,7 +15,7 @@ import com.cdthgk.view.web.ParameterCollector;
 
 /**
  * <p>
- * 按照单位  统计国家秘密  分密级显示
+ * 按照单位  统计商业秘密  分密级显示
  * </p>
  * <p>
  * copyright cdthgk 2010-2020, all rights reserved.
@@ -29,7 +29,7 @@ public class SecrecyMobilestoragemediaOrganListTableCollector implements Paramet
 	private SecrecyMobilestoragemediaService secrecyMobilestoragemediaService;
 
 	/**
-	 * //按照单位  统计国家秘密  分密级显示
+	 * //按照单位  统计商业秘密  分密级显示
 	 */
 	@Override
 	public List<OrganListTable> getData(Parameter param) {

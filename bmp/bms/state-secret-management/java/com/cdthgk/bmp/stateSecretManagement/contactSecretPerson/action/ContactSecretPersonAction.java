@@ -315,7 +315,7 @@ public class ContactSecretPersonAction extends BmpAction {
 		List<ContactSecretPerson> contactSecretPersonList = this.contactSecretPersonService
 				.getListPage(null, null, getCurrentUser().getOrgan(), null,
 						false, null);
-		String msg = dataValidateService.validateData("接触和知悉绝密级国家秘密文件人员情况",
+		String msg = dataValidateService.validateData("接触和知悉绝密级商业秘密文件人员情况",
 				contactSecretPersonList, "26");
 		resultData.put("msg", msg);
 		setResultData(resultData);

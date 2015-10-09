@@ -16,7 +16,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>国家秘密事项列表</title>
+		<title>商业秘密事项列表</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -56,7 +56,7 @@
 					url : '${ctx}/bmp/secrecycountryitem/secrecyCountryItem_detail.action?secrecyCountryItem.secrecyCountryItemId='+id+'&t_date=' + new Date().getTime(),
 					width : 0.8,
 					height : 0.7,
-					title : '国家秘密事项详情'
+					title : '商业秘密事项详情'
 				});
 			}
 
@@ -72,7 +72,7 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						国家秘密事项列表
+						商业秘密事项列表
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 					</div>
@@ -86,7 +86,7 @@
 							filterable="false" autoIncludeParameters="true" sortable="false">
 							<ec:row>
 								<ec:column property="rowCount" cell="rowCount" sortable="false" title="序号" width="5%"/>
-								<ec:column property="secrecyCountryItemName" title="国家秘密事项名称" width="25%" cell="text" alias="size=20"/>
+								<ec:column property="secrecyCountryItemName" title="商业秘密事项名称" width="25%" cell="text" alias="size=20"/>
 								<ec:column property="formulateSecrecyPerson.name" title="定密负责人" width="10%" cell="text" alias="size=20"/>
 								<ec:column property="null" title="涉密等级" width="5%">
 									<dictionary:text tableCode="bmp" fieldCode="secrecy_level_thing" optionValue="${secrecyCountryItem.secrecyLevel}"></dictionary:text>

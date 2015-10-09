@@ -13,14 +13,14 @@ import com.cdthgk.platform.organization.userinfo.domain.UserInfo;
 import com.cdthgk.platform.permission.user.domain.User;
 
 /**
- * SecrecyCountryItem  国家秘密事项
+ * SecrecyCountryItem  商业秘密事项
  */
 public class SecrecyCountryItem implements java.io.Serializable {
 
 	private static final long serialVersionUID = -7366253845572345631L;
 
-	private String secrecyCountryItemId; //国家秘密事项id
-	private String secrecyCountryItemName; //国家秘密事项名称
+	private String secrecyCountryItemId; //商业秘密事项id
+	private String secrecyCountryItemName; //商业秘密事项名称
 	private UserInfo formulateSecrecyPerson; //定密负责人
 	private Integer secrecyLevel; //密级(3秘密，2机密，1绝密)
 	private String secrecyLevelTxt;

@@ -16,7 +16,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>国家秘密事项</title>
+		<title>商业秘密事项</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -73,7 +73,7 @@
 				var url ="<s:url action="secrecyCountryItem_add" namespace="/bmp/secrecycountryitem"/>";
 				TabUtil.openAsTab({
 					url : url,
-					title : '国家秘密事项-新增',
+					title : '商业秘密事项-新增',
 					onClose : function(tab, item) {
 					if(!item.content.getContentWindow().needReload2){
 							if (window.confirm("您确定放弃正在新增的内容吗？")) {
@@ -105,7 +105,7 @@
 				var url = action+'?secrecyCountryItem.secrecyCountryItemId='+items[0].value;
 				TabUtil.openAsTab({
 					url : url,
-					title : '国家秘密事项-编辑',
+					title : '商业秘密事项-编辑',
 					onClose : function(tab, item) {
 					if(!item.content.getContentWindow().needReload2){
 							if (window.confirm("您确定放弃正在编辑的内容吗？")) {
@@ -179,7 +179,7 @@
 					url : action + "?secrecyCountryItem.secrecyCountryItemId=" + items[0].value + "&_ts="+new Date().getTime(),
 					width : 0.4,
 					height : 310,
-					title : '国家秘密事项密级变更'
+					title : '商业秘密事项密级变更'
 				});
 			}
 
@@ -198,7 +198,7 @@
 					url : action + "?secrecyCountryItem.secrecyCountryItemId=" + items[0].value + "&_ts="+new Date().getTime(),
 					width : 0.4,
 					height : 300,
-					title : '国家秘密事项密级解除'
+					title : '商业秘密事项密级解除'
 				});
 			}
 		</script>
@@ -212,9 +212,9 @@
 			<div id="main_tab" class="panel tab_panel" style="height: 650px;width: 100%;">
 				<div id="main_tab_header" class="panel_header" style="width: 100%;">
 					<div class="tab_bar">
-						<div class="panel_title">国家秘密事项列表</div>
-						<div class="panel_title">国家秘密事项密级变更列表</div>
-						<div class="panel_title">国家秘密事项解除列表</div>
+						<div class="panel_title">商业秘密事项列表</div>
+						<div class="panel_title">商业秘密事项密级变更列表</div>
+						<div class="panel_title">商业秘密事项解除列表</div>
 					</div>
 					<div style="position: absolute;right: 0;top: 0;" class="btn_bar">
 						<div style="text-align: right;vertical-align: middle;" >
@@ -228,15 +228,15 @@
 				<!-- 3个面板开始 -->
 				<div class="tab_panel_content">
 
-					<!-- 国家秘密事项列表  -->
+					<!-- 商业秘密事项列表  -->
 					<div class="panel_content" id="list_list" style="overflow: auto;" url="${ctx}/bmp/secrecycountryitem/secrecyCountryItem_list_list.action?districtCode=${district.districtCode}&ywFlag=${ywFlag}&isChildren=${isChildren}">
 					</div>
 
-					<!-- 国家秘密事项密级变更列表  -->
+					<!-- 商业秘密事项密级变更列表  -->
 					<div class="panel_content" style="overflow: auto;" url="${ctx}/bmp/secrecycountryitem/secrecyCountryItem_change_list.action?districtCode=${district.districtCode}&ywFlag=${ywFlag}&isChildren=${isChildren}">
 					</div>
 
-					<!-- 国家秘密事项解除列表  -->
+					<!-- 商业秘密事项解除列表  -->
 					<div class="panel_content" style="overflow: auto;" url="${ctx}/bmp/secrecycountryitem/secrecyCountryItem_clear_list.action?districtCode=${district.districtCode}&ywFlag=${ywFlag}&isChildren=${isChildren}">
 					</div>
 

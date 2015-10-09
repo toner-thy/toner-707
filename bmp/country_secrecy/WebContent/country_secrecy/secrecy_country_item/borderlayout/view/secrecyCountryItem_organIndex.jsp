@@ -26,7 +26,7 @@
 
 <table class="contentTable" width="900" border="1" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td colspan="8" align="center">本单位产生国家秘密事项一览表</td>
+          <td colspan="8" align="center">本单位产生商业秘密事项一览表</td>
         </tr>
         <tr>
           <td width="50" align="center">名称</td>

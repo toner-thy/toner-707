@@ -13,7 +13,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>国家秘密统计(单位明细)</title>
+		<title>商业秘密统计(单位明细)</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -47,7 +47,7 @@
 					url : "${contextPath}/wc/countrySecrecy_organ.component?organId=" + orgId + "&_ts="+new Date().getTime(),
 					width : 0.8,
 					height : 0.8,
-					title : '国家秘密统计明细'
+					title : '商业秘密统计明细'
 				});
 			}
 
@@ -64,7 +64,7 @@
 			<div class="panel tMargin" style="overflow-y: auto;">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						单位明细-国家秘密统计
+						单位明细-商业秘密统计
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<%-- <a href="###" id="doExport"  onclick="doExport()" class="pop_button"><span>导出</span></a> --%>

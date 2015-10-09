@@ -171,7 +171,7 @@
 									style="vertical-align:middle;"  onmouseover="disOne('name_helpId')" onmouseout="noneOne('name_helpId')"  />
 									<div id="name_helpId"  style="display:none;z-index:500;position:absolute; background-color:#CCFFCC;" >
 										<br/>
-											以《涉及国家秘密的信息系统检测评估报告》中的名称为准。
+											以《涉及商业秘密的信息系统检测评估报告》中的名称为准。
 										<br/>
 									</div>
 								</td>
@@ -257,7 +257,7 @@
 									style="vertical-align:middle;"  onmouseover="disOne('startUseDate_helpId')" onmouseout="noneOne('startUseDate_helpId')"  />
 									<div id="startUseDate_helpId"  style="display:none;z-index:500;position:absolute; background-color:#CCFFCC;" >
 										<br/>
-											以保密行政管理部门批复《涉及国家秘密的信息系统使用许可证》 中标注的时间为准。
+											以保密行政管理部门批复《涉及商业秘密的信息系统使用许可证》 中标注的时间为准。
 										<br/>
 									</div>
 								</td>

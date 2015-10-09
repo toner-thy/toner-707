@@ -16,7 +16,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>接触和知悉绝密级国家秘密文件人员情况</title>
+		<title>接触和知悉绝密级商业秘密文件人员情况</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -89,13 +89,13 @@
 
 		<div id="body_content" class="body_content">
 			<!-- 复合面板开始 -->
-			<cp:start defaultTitle="接触和知悉绝密级国家秘密文件人员情况简介" ctx="${ctx}" icoPath="#">
-				<div id="cp001Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(1,'cp001','接触和知悉绝密级国家秘密文件人员情况简介');">关 于</div>
+			<cp:start defaultTitle="接触和知悉绝密级商业秘密文件人员情况简介" ctx="${ctx}" icoPath="#">
+				<div id="cp001Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(1,'cp001','接触和知悉绝密级商业秘密文件人员情况简介');">关 于</div>
 			</cp:start>
 				<cp:msg show="true" divId="cp001">
 					<!-- 模块简介 -->
 					<div class="cpMsgTitle">
-						关于接触和知悉绝密级国家秘密文件人员情况
+						关于接触和知悉绝密级商业秘密文件人员情况
 					</div>
 					<div class="cpMsgContext">
 						<cpc:tc ctx="${ctx}" showId="annual_plan_description"> </cpc:tc>
@@ -109,7 +109,7 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						接触和知悉绝密级国家秘密文件人员情况
+						接触和知悉绝密级商业秘密文件人员情况
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<!-- 右侧按钮 -->

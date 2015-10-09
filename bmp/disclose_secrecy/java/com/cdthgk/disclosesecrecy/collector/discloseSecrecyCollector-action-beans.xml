@@ -51,7 +51,7 @@
 		<property name="collector" ref="caseCriticalviolationSimpleTableCollector"></property>
 	</bean>
 
-    <!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  国家秘密事项个数   这里不需要合计-->
+    <!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  商业秘密事项个数   这里不需要合计-->
 	<!-- 泄密案件-->
 	<bean id="discloseSecrecyComplexTableCollector" class=" com.cdthgk.disclosesecrecy.collector.DiscloseSecrecyComplexTableCollector">
 		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>

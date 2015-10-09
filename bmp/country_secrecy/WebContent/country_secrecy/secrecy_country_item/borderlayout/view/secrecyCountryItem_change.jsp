@@ -17,7 +17,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>国家秘密事项密级变更</title>
+		<title>商业秘密事项密级变更</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -36,7 +36,7 @@
 			$ENV.loader.loadJavaScript("${ctx}/resources/js/SimpleUI/SimpleUI.js", function() {
 				window.onDialogReady = function() {
 					if( "${needReload}" == "true" ){
-						alert("国家秘密事项密级变更成功!");
+						alert("商业秘密事项密级变更成功!");
 						window.getOpener().refresh();
 						$ENV.dialog.close();
 					}

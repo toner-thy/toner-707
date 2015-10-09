@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-	<!-- SimpleTable 统计国家秘密事项的总个数的配置-->
+	<!-- SimpleTable 统计商业秘密事项的总个数的配置-->
 	<bean id="secrecyCountryItemSimpleTableCollector" class="com.cdthgk.bmp.secrecycountryitem.collector.SecrecyCountryItemSimpleTableCollector">
 		<property name="secrecyCountryItemService" ref="bmp.secrecyCountryItemService"></property>
 	</bean>
@@ -15,7 +15,7 @@
 	</bean>
 
 
-	<!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  国家秘密事项个数   这里不需要合计-->
+	<!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  商业秘密事项个数   这里不需要合计-->
 	<bean id="secrecyCountryItemComplexTableCollector" class="com.cdthgk.bmp.secrecycountryitem.collector.SecrecyCountryItemComplexTableCollector">
 		<property name="secrecyCountryItemService" ref="bmp.secrecyCountryItemService"></property>
 	</bean>
@@ -30,7 +30,7 @@
 	</bean>
 
 
-	<!-- OrganListTable   统计出单位下 国家秘密事项 的数量  按照密级统计-->
+	<!-- OrganListTable   统计出单位下 商业秘密事项 的数量  按照密级统计-->
 	<bean id="secrecyCountryItemOrganListTableCollector" class="com.cdthgk.bmp.secrecycountryitem.collector.SecrecyCountryItemOrganListTableCollector">
 		<property name="secrecyCountryItemService" ref="bmp.secrecyCountryItemService"></property>
 	</bean>

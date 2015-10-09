@@ -39,7 +39,7 @@ public class SecrecyCountryItemDistrictListTableCollector implements ParameterCo
 
 		//设置表头
 		DistrictListTable districtTable = new DistrictListTable();
-		districtTable.setTotalText("国家秘密事项");
+		districtTable.setTotalText("商业秘密事项");
 		districtListTableList.add(districtTable);
 
 		//设置列  包括合计列

@@ -273,7 +273,7 @@ implements SecrecyResearchProjectService{
 			if (LangUtils.isEmpty(userInfo.getUserInfoId())) {
 				userInfo.setUserInfoId(null);
 			}
-			userInfo.setRemark(user.getUserInfo().getName()+"在(国家秘密->涉密科研项目)中新增");
+			userInfo.setRemark(user.getUserInfo().getName()+"在(商业秘密->涉密科研项目)中新增");
 			userInfo.save();
 		}
 

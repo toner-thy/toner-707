@@ -3,7 +3,7 @@ package com.cdthgk.bmp.model;
 
 /**
  * <p>
- * 国家秘密
+ * 商业秘密
  * </p>
  * <p>
  * copyright cdthgk 2010-2020, all rights reserved.
@@ -27,7 +27,7 @@ public interface NationSecrecy extends Secrecy{
 
 	/**
 	 * <p>
-	 * 国家秘密等级
+	 * 商业秘密等级
 	 * </p>
 	 *
 	 * @author 钟冀

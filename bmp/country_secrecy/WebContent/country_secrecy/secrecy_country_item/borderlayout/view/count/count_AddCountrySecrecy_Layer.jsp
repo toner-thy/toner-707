@@ -14,7 +14,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>新增国家秘密统计(直辖单位)</title>
+		<title>新增商业秘密统计(直辖单位)</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -74,7 +74,7 @@
 			<div class="panel tMargin" style="overflow-y: auto;">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						直辖单位-新增国家秘密统计
+						直辖单位-新增商业秘密统计
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<a href="###" id="doExport"  onclick="doExport_secrecycountryitemAddLayer()" class="pop_button"><span>导出</span></a>
@@ -85,7 +85,7 @@
 						<s:if test="#request.countrySecrecyList.size>0">
 							<table id="countrySecrecyList_table"  border="0"  cellspacing="0"  cellpadding="0"  class="tableRegion"  width="100%">
 								<tr>
-									<td class="tableHeader" align="center">国家秘密</td>
+									<td class="tableHeader" align="center">商业秘密</td>
 									<td class="tableHeader" align="center">绝密</td><!-- 1 -->
 									<td class="tableHeader" align="center">机密</td><!-- 2 -->
 									<td class="tableHeader" align="center">秘密</td><!-- 3 -->

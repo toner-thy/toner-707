@@ -200,7 +200,7 @@ public class StatinfoServiceImpl extends GenericServiceTemplate<Object, String>
 		setRewardAndPenaltyParams(dataMap, organ);
 		//设置收到密件情况情况
 		setReceiveConfidentialParams(dataMap, organ);
-		//设置接触和知悉绝密级国家秘密文件人员情况
+		//设置接触和知悉绝密级商业秘密文件人员情况
 		setContactSecretPersonParams(dataMap, organ);
 		//设置涉密载体销毁、涉密设备报废情况
 		setDestructionScrapParams(dataMap, organ);
@@ -212,7 +212,7 @@ public class StatinfoServiceImpl extends GenericServiceTemplate<Object, String>
 		setSecrecyMaintainParams(dataMap, organ);
 		//设置装备保密技术防范设备情况
 		setSecrecyTechnologyPreventionParams(dataMap, organ);
-		//设置本单位产生国家秘密事项一览表
+		//设置本单位产生商业秘密事项一览表
 		setSecrecyCountryItemParams(dataMap, organ);
 		//设置涉密文件（资料）复印登记情况
 		setSecrecyCopyParams(dataMap, organ);
@@ -592,7 +592,7 @@ public class StatinfoServiceImpl extends GenericServiceTemplate<Object, String>
 	/**
 	 *
 	 * <p>
-	 * 设置接触和知悉绝密级国家秘密文件情况
+	 * 设置接触和知悉绝密级商业秘密文件情况
 	 * </p>
 	 * <p>
 	 * 创建人 宋亚非  创建时间 2014-5-15 下午2:52:24
@@ -794,7 +794,7 @@ public class StatinfoServiceImpl extends GenericServiceTemplate<Object, String>
 	/**
 	 *
 	 * <p>
-	 * 设置本单位产生国家秘密事项一览表
+	 * 设置本单位产生商业秘密事项一览表
 	 * </p>
 	 * <p>
 	 * 创建人 宋亚非  创建时间 2014-5-19 上午11:04:07

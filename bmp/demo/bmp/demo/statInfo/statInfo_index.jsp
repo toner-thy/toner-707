@@ -204,7 +204,7 @@
 					        <input type="checkbox" name="item" /><label>要害部门</label>
 					        <input type="checkbox" name="item" /><label>要害部位</label>
 					        <input type="checkbox" name="item" /><label>涉密人员</label>
-					        <input type="checkbox" name="item" /><label>国家秘密事项</label>
+					        <input type="checkbox" name="item" /><label>商业秘密事项</label>
 					        <input type="checkbox" name="item" /><label>密品</label>
 					        <input type="checkbox" name="item" /><label>涉密科研项目</label>
 					        <input type="checkbox" name="item" /><label>涉密计算机</label>
@@ -273,7 +273,7 @@
 			    <div class="module_title" id="module4_title">四、涉密人员</div>
 				<div class="module_content" id="module4_content" style="display: none"></div>
 
-			    <div class="module_title" id="module5_title">五、国家秘密事项</div>
+			    <div class="module_title" id="module5_title">五、商业秘密事项</div>
 				<div class="module_content" id="module5_content" style="display: none"></div>
 
 			    <div class="module_title" id="module6_title">六、密品</div>

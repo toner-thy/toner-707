@@ -25,7 +25,7 @@
 
 <table class="contentTable" width="900" border="1" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td colspan="10" align="center">接触和知悉绝密级国家秘密文件人员情况</td>
+          <td colspan="10" align="center">接触和知悉绝密级商业秘密文件人员情况</td>
         </tr>
         <tr>
           <td width="204" align="center" >文件名称（文号）</td>

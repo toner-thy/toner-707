@@ -7,14 +7,14 @@ import java.util.Date;
 import com.cdthgk.platform.permission.user.domain.User;
 
 /**
- * SecrecyCountryItemChange  国家秘密变更
+ * SecrecyCountryItemChange  商业秘密变更
  */
 public class SecrecyCountryItemChange implements java.io.Serializable {
 
 	private static final long serialVersionUID = -3466227623032925625L;
 
-	private String secrecyChangeId; //国家秘密事项  密级变更id
-	private SecrecyCountryItem secrecyCountryItem;  //国家秘密事项
+	private String secrecyChangeId; //商业秘密事项  密级变更id
+	private SecrecyCountryItem secrecyCountryItem;  //商业秘密事项
 	private Integer beforeLevel; //变更前密级
 	private Integer afterLevel;  //变更后密级
 	private Integer changeTimeState; //保密期限变更

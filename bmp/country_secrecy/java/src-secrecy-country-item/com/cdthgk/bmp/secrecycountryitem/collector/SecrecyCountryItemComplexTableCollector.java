@@ -13,7 +13,7 @@ import com.cdthgk.view.web.ParameterCollector;
 
 /**
  * <p>
- * 通过行政区划  统计   行政区划和直辖单位的  国家秘密事项个数   这里不需要合计行
+ * 通过行政区划  统计   行政区划和直辖单位的  商业秘密事项个数   这里不需要合计行
  *  这里的查询出来的数据只有一排哦  亲
  *
  *  //查询出来的列
@@ -37,7 +37,7 @@ public class SecrecyCountryItemComplexTableCollector implements ParameterCollect
 	private SecrecyCountryItemService secrecyCountryItemService;
 
 	/**
-	 * 通过行政区划  统计   行政区划和直辖单位的国家秘密事项个数
+	 * 通过行政区划  统计   行政区划和直辖单位的商业秘密事项个数
 	 * 不需要合计行
 	 */
 	@Override
@@ -50,14 +50,14 @@ public class SecrecyCountryItemComplexTableCollector implements ParameterCollect
 		List<District> districtList = new ArrayList<District>();
 		districtList.add(district);
 
-		//通过行政区划  统计   行政区划和直辖单位的  国家秘密事项个数   这里不需要合计
+		//通过行政区划  统计   行政区划和直辖单位的  商业秘密事项个数   这里不需要合计
 		List<ZongHeTongJiStatDto> list = secrecyCountryItemService.count_SecrecyCountryItim_District(districtList, false);
 		Iterator<ZongHeTongJiStatDto> it = list.iterator();
 
 		while(it.hasNext()){
 			ZongHeTongJiStatDto item = it.next();
 			//表头
-			complexTable.setTitle("国家秘密事项");
+			complexTable.setTitle("商业秘密事项");
 			complexTable.setDistrictName(item.getName());
 			complexTable.setSecrecyText("密 级");
 			complexTable.setNumberText("数 量");
