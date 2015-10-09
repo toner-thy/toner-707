@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecynet.secrecySupervision.vo.SecrecySupervision" table="bm_net_secrecy_supervision">
+        <!-- 主键ID -->
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="39" />
+            <generator class="uuid" />
+        </id>
+		<property name="year" type="java.lang.Integer">
+			<column name="YEAR" length="11">
+				<comment>年</comment>
+			</column>
+		</property>
+		<many-to-one name="reportUser" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="REPORT_USER" >
+				<comment>汇报人</comment>
+			</column>
+		</many-to-one>
+		<property name="reportDate" type="java.util.Date">
+			<column name="REPORT_DATE" >
+				<comment>汇报时间</comment>
+			</column>
+		</property>
+		<many-to-one name="reportDepartment" class="com.cdthgk.platform.organization.department.domain.Department">
+			<column name="REPORT_DEPARTMENT" >
+				<comment>汇报部门</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="reportOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+			<column name="REPORT_ORGAN" >
+				<comment>汇报单位</comment>
+			</column>
+		</many-to-one>
+
+		<property name="inPlatformDuty" type="java.lang.Integer">
+			<column name="IN_PLATFORM_DUTY" length="11" />
+		</property>
+
+		<property name="inCaseInvestigation" type="java.lang.Integer">
+			<column name="IN_CASE_INVESTIGATION" length="11" />
+		</property>
+
+		<property name="inImportantOrganNet" type="java.lang.Integer">
+			<column name="IN_IMPORTANT_ORGAN_NET" length="11" />
+		</property>
+
+		<property name="inSecrecyComInterent" type="java.lang.Integer">
+			<column name="IN_SECRECY_COM_INTERNET" length="11" />
+		</property>
+
+		<property name="inInternetMsgCheck" type="java.lang.Integer">
+			<column name="IN_INTERNET_MSG_CHECK" length="11" />
+		</property>
+
+		<property name="inSecrecyCheck" type="java.lang.Integer">
+			<column name="IN_SECRECY_CHECK" length="11" />
+		</property>
+
+		<property name="inOther" type="java.lang.String">
+			<column name="IN_OTHER" length="4000" />
+		</property>
+
+		<property name="outSociologySupervision" type="java.lang.Integer">
+			<column name="OUT_SOCIOLOGY_SUPERVISION" length="11" />
+		</property>
+
+		<property name="outIpUserMsg" type="java.lang.Integer">
+			<column name="OUT_IP_USER_MSG" length="11" />
+		</property>
+
+		<property name="outOrganReport" type="java.lang.Integer">
+			<column name="OUT_ORGAN_REPORT" length="11" />
+		</property>
+
+		<property name="outInternetAccess" type="java.lang.Integer">
+			<column name="OUT_INTERNET_ACCESS" length="11" />
+		</property>
+
+		<property name="outOther" type="java.lang.String">
+			<column name="OUT_OTHER" length="11" />
+		</property>
+
+		<property name="netCheckTimes" type="java.lang.Integer">
+			<column name="NET_CHECK_TIMES" length="11" />
+		</property>
+
+		<property name="netCheckNum" type="java.lang.Integer">
+			<column name="NET_CHECK_NUM" length="11" />
+		</property>
+
+		<property name="netEvaluationNum" type="java.lang.Integer">
+			<column name="NET_EVALUATION_NUM" length="11" />
+		</property>
+
+		<property name="netCheckAdvice" type="java.lang.String">
+			<column name="NET_CHECK_ADVICE" length="11" />
+		</property>
+
+		<property name="netSecrecyCheckTimes" type="java.lang.Integer">
+			<column name="NET_SECRECY_CHECK_TIMES" length="11" />
+		</property>
+
+		<property name="netSecrecyCheckNum" type="java.lang.Integer">
+			<column name="NET_SECRECY_CHECK_NUM" length="11" />
+		</property>
+
+		<property name="netNoneSecrecyNum" type="java.lang.Integer">
+			<column name="NET_NONE_SECRECY_NUM" length="11" />
+		</property>
+
+		<property name="computerSecrecyNum" type="java.lang.Integer">
+			<column name="COMPUTER_SECRECY_NUM" length="11" />
+		</property>
+
+		<property name="computerNoneNum" type="java.lang.Integer">
+			<column name="COMPUTER_NONE_NUM" length="11" />
+		</property>
+
+		<property name="computerInternetNum" type="java.lang.Integer">
+			<column name="COMPUTER_INTERNET_NUM" length="11" />
+		</property>
+
+		<property name="storageSecrecyNum" type="java.lang.Integer">
+			<column name="STORAGE_SECRECY_NUM" length="11" />
+		</property>
+
+		<property name="stotageNoneNum" type="java.lang.Integer">
+			<column name="STORAGE_NONE_NUM" length="11" />
+		</property>
+
+		<property name="errComputerInternetNum" type="java.lang.Integer">
+			<column name="ERR_COMPUTER_INTERNET_NUM" length="11" />
+		</property>
+
+		<property name="errInternetMsgNum" type="java.lang.Integer">
+			<column name="ERR_INTERNET_MSG_NUM" length="11" />
+		</property>
+
+		<property name="errStorageExchangeUseNum" type="java.lang.Integer">
+			<column name="ERR_STORAGE_EXCHANGE_USE_NUM" length="11" />
+		</property>
+
+		<property name="errPeoplePunishment" type="java.lang.Integer">
+			<column name="ERR_PEOPLE_PUNISHMENT" length="11" />
+		</property>
+
+		<property name="errOtherAdvice" type="java.lang.String">
+			<column name="ERR_OTHER_ADVICE" length="4000" />
+		</property>
+
+		<property name="illegalDealMsg" type="java.lang.String">
+			<column name="ILLEGAL_DEAL_MSG" length="500" />
+		</property>
+
+		<property name="warningOtherAdvice" type="java.lang.String">
+			<column name="WARNING_OTHER_ADVICE" length="4000" />
+		</property>
+
+		<property name="warningMsgNum" type="java.lang.Integer">
+			<column name="WARNING_MSG_NUM" length="11" />
+		</property>
+
+		<property name="webSecrecyMsgNum" type="java.lang.Integer">
+			<column name="WEB_SECRECY_MSG_NUM" length="11" />
+		</property>
+
+		<property name="errComputerTrojanNum" type="java.lang.Integer">
+			<column name="ERR_COMPUTER_TROJAN_NUM" length="11" />
+		</property>
+
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="CREATE_PERSON" length="39">
+                <comment>创建人员</comment>
+            </column>
+        </many-to-one>
+
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="18">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="18">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+
+        <many-to-one name="createDepartment" class="com.cdthgk.platform.organization.department.domain.Department">
+            <column name="CREATE_DEPARTMENT" length="39">
+                <comment>创建部门</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="CREATE_ORGAN" length="39">
+                <comment>创建单位</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

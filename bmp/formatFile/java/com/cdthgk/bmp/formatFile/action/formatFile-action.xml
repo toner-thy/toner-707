@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.formatFile"  namespace="/bmp/formatFile" extends="com.cdthgk.project">
+        <action name="formatFile_list" class="bmp.formatFileAction" method="list">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_list.jsp</result>
+        </action>
+
+        <action name="formatFile_add" class="bmp.formatFileAction" method="add">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_add.jsp</result>
+        </action>
+
+        <action name="formatFile_adding" class="bmp.formatFileAction" method="adding">
+        	<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/formatFile</param>
+				<param name="actionName">formatFile_list</param>
+			</result>
+        </action>
+
+        <action name="formatFile_edit" class="bmp.formatFileAction" method="edit">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_edit.jsp</result>
+        </action>
+
+        <action name="formatFile_editing" class="bmp.formatFileAction" method="editing">
+        	<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/formatFile</param>
+				<param name="actionName">formatFile_list</param>
+			</result>
+        </action>
+
+        <action name="formatFile_download" class="bmp.formatFileAction" method="download">
+        </action>
+
+         <action name="formatFile_delete" class="bmp.formatFileAction" method="delete">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/formatFile</param>
+				<param name="actionName">formatFile_list</param>
+			</result>
+        </action>
+  </package>
+</struts>

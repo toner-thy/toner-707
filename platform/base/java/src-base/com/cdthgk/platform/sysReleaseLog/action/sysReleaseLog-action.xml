@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.action.SysReleaseLog" namespace="/bmp/sysReleaseLog" extends="com.cdthgk.project">
+		<action name="sysReleaseLog_detail" class="bmp.sysReleaseLogAction" method="detail">
+	       	<result name="success">/platform/jsp/public/sysReleaseLog/view/sysReleaseLog_detail.jsp</result>
+        </action>
+	</package>
+</struts>

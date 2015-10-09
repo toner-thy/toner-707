@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="bmp.secrecyStatistics" extends="com.cdthgk.project" namespace="/bmp/secrecyStatistics">
+		<!-- <action name="secrecyWorksummary_main" method="main" class="bmp.secrecyWorksummaryAction">
+			<result name="main">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_main.jsp</result>
+		</action> -->
+		<action name="secrecyStatistics_list" method="list" class="bmp.secrecyStatisticsAction">
+			<result name="list">/bmp/secrecy-statistics/borderlayout/view/secrecyStatistics_list.jsp</result>
+		</action>
+		<action name="secrecyStatistics_print" method="print" class="bmp.secrecyStatisticsAction">
+			<result name="success">/bmp/secrecy-statistics/borderlayout/view/secrecyStatistics_print.jsp</result>
+		</action>
+		<action name="secrecyStatistics_detail" method="detail" class="bmp.secrecyStatisticsAction">
+			<result name="personGroupMemberDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_personGroupMemberDetail.jsp</result>
+			<result name="secrecyWorkOrganMemberDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_secrecyWorkOrganMemberDetail.jsp</result>
+			<result name="keysectionDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_keysectionDetail.jsp</result>
+			<result name="keyPartDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_keyPartDetail.jsp</result>
+			<result name="secrecyPersonDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_secrecyPersonDetail.jsp</result>
+		</action>
+
+		<!-- 导出 -->
+		<action name="secrecyStatistics_exportData" class="bmp.secrecyStatisticsAction" method="exportData">
+			<result name="success" type="excel">
+				<param name="location">/exportExcel/secrecyStatistics.xlsx</param>
+				<param name="fileName">保密工作概况.xlsx</param>
+			</result>
+		</action>
+	</package>
+</struts>

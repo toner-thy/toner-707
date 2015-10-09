@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.log.vo.BusinessLog" table="bm_business_log">
+        <id name="logId" column="log_id" type="java.lang.String">
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+		<property name="tableName" type="java.lang.String">
+            <column name="table_name" length="100">
+                <comment>业务表</comment>
+            </column>
+        </property>
+		<property name="businessName" type="java.lang.String">
+            <column name="business_name" length="200">
+                <comment>业务表名称</comment>
+            </column>
+        </property>
+		<property name="primaryKey" type="java.lang.String">
+            <column name="primary_key" length="100">
+                <comment>业务Id</comment>
+            </column>
+        </property>
+		<property name="operateType" type="java.lang.Integer">
+            <column name="operate_type">
+                <comment>操作类型</comment>
+            </column>
+        </property>
+		<many-to-one name="operateUser" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+        	 <column name="operate_user_id" length="39">
+                <comment>操作人员</comment>
+            </column>
+        </many-to-one>
+		<many-to-one name="operateOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="operate_organ_id" length="39">
+				<comment>操作单位</comment>
+			</column>
+		</many-to-one>
+        <property name="operateTime" type="java.util.Date">
+            <column name="operate_time" length="19">
+                <comment>操作时间</comment>
+            </column>
+        </property>
+		<set name="logContentSet" inverse="true" cascade="save-update,delete">
+			<key>
+				<column name="log_id"></column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.log.vo.BusinessLogContent" />
+		</set>
+    </class>
+</hibernate-mapping>
+

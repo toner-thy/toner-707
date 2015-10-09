@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.info.vo.Info" table="bm_info">
+        <id name="infoId" type="java.lang.String">
+            <column name="info_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+    	<many-to-one name="infoType" class="com.cdthgk.bmp.info.vo.InfoType" fetch="select">
+           <column name="info_type_id" length="39">
+                <comment>信息类型</comment>
+            </column>
+        </many-to-one>
+		<property name="title" type="java.lang.String">
+			<column name="title" length="200">
+				<comment>信息标题</comment>
+			</column>
+		</property>
+		<property name="source" type="java.lang.String">
+			<column name="source" length="100">
+				<comment>信息来源</comment>
+			</column>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status">
+				<comment>信息状态</comment>
+			</column>
+		</property>
+		<property name="infoTime" type="java.util.Date">
+			<column name="info_time">
+				<comment>日期</comment>
+			</column>
+		</property>
+		<property name="reportTime" type="java.util.Date">
+			<column name="report_time">
+				<comment>上报日期</comment>
+			</column>
+		</property>
+		<many-to-one name="leader" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+            <column name="leader" length="39">
+                <comment>审签领导</comment>
+            </column>
+        </many-to-one>
+		<property name="content" type="java.lang.String">
+			<column name="content" length="65535">
+				<comment>正文</comment>
+			</column>
+		</property>
+		<property name="reportPhone" type="java.lang.String">
+			<column name="report_phone" length="12">
+				<comment>报送人电话</comment>
+			</column>
+		</property>
+        <many-to-one name="reportOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+           <column name="report_organ" length="39">
+                <comment>报送人单位</comment>
+            </column>
+        </many-to-one>
+
+        <property name="reportType" type="java.lang.Integer">
+			<column name="report_type">
+				<comment>报送类型</comment>
+			</column>
+		</property>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+            <column name="CREATE_PERSON" length="39">
+                <comment>输入人员</comment>
+            </column>
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="18">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <set name="infoWarnSet" inverse="true"	cascade="delete">
+			<key>
+				<column name="info_id" length="39"/>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.info.vo.InfoWarn" />
+		</set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-30 16:31:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecysystem.secrecyotherdevice.vo.SecrecyMobilestoragemedia" table="bm_secrecy_mobilestoragemedia">
+        <id name="secrecymobilestoragemediaId" type="string">
+            <column name="secrecymobilestoragemedia_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <property name="mediaType" type="java.lang.Integer">
+            <column name="media_type">
+            </column>
+        </property>
+        <property name="mediaDescription" type="string">
+            <column name="media_description" length="300">
+            </column>
+        </property>
+        <property name="secrecyLevel" type="java.lang.Integer">
+            <column name="secrecy_level">
+            </column>
+        </property>
+		<many-to-one name="dutyPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+			<column name="duty_person" length="39">
+			</column>
+		</many-to-one>
+        <property name="mediaNo" type="string">
+            <column name="media_no" length="100">
+            </column>
+        </property>
+        <property name="mediaSeq" type="string">
+            <column name="media_seq" length="100">
+            </column>
+        </property>
+        <property name="isbelongKeydepartment" type="java.lang.Integer">
+            <column name="isbelong_keydepartment">
+            </column>
+        </property>
+        <many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department" fetch="select">
+            <column name="depart_id" length="39">
+           		<comment>部门id/要害部门id</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="keyPart" class="com.cdthgk.bmp.keyPart.vo.Part" fetch="select">
+            <column name="key_part_id" length="39">
+           		<comment>要害部位id</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="keySection" class="com.cdthgk.bmp.keysection.vo.KeySection" fetch="select">
+            <column name="key_section_id" length="39">
+           		<comment>要害部门id</comment>
+            </column>
+        </many-to-one>
+        <property name="dataState" type="java.lang.Integer">
+            <column name="data_state">
+            </column>
+        </property>
+        <property name="secrecyStatus" type="java.lang.Integer">
+            <column name="secrecy_status">
+            </column>
+        </property>
+           <!-- 通用字段 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="CREATE_Person" length="39">
+				<comment>创建用户</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="CREATE_ORGAN" length="39">
+				<comment>创建单位</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="modifyOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="modify_organ" length="39">
+				<comment>修改单位</comment>
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" length="7">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+		<many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="MODIFY_person" length="39">
+				<comment>修改用户</comment>
+			</column>
+		</many-to-one>
+        <set name="secrecyMobilestoragemediaClears" inverse="true">
+            <key>
+                <column name="secrecymobilestoragemedia_id" length="39">
+                </column>
+            </key>
+            <one-to-many class="com.cdthgk.bmp.secrecysystem.secrecyotherdevice.vo.SecrecyMobilestoragemediaClear" />
+        </set>
+        <set name="secrecyMobilestoragemediaChanges" inverse="true">
+            <key>
+                <column name="secrecymobilestoragemedia_id" length="39">
+                </column>
+            </key>
+            <one-to-many class="com.cdthgk.bmp.secrecysystem.secrecyotherdevice.vo.SecrecyMobilestoragemediaChange" />
+        </set>
+    </class>
+</hibernate-mapping>

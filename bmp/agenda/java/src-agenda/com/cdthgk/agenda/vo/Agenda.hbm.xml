@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.agenda.vo.Agenda" table="bm_agenda">
+        <id name="agendaId" type="java.lang.String">
+            <column name="agenda_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <property name="agendaTitle" type="java.lang.String">
+            <column name="agenda_title" length="100">
+                <comment>标题</comment>
+            </column>
+        </property>
+        <property name="agendaContent" type="java.lang.String">
+            <column name="agenda_content" length="1000">
+                <comment>内容</comment>
+            </column>
+        </property>
+        <property name="startTime" type="java.util.Date">
+            <column name="start_time" length="19">
+                <comment>开始时间</comment>
+            </column>
+        </property>
+        <property name="endTime" type="java.util.Date">
+            <column name="end_time" length="19">
+                <comment>结束时间</comment>
+            </column>
+        </property>
+        <many-to-one name="agendaAssigner" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+        	 <column name="agenda_assigner" length="39">
+                <comment>指派人</comment>
+            </column>
+        </many-to-one>
+        	<many-to-one name="agendaExecutor" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+        	 <column name="agenda_executor" length="39">
+                <comment>执行者</comment>
+            </column>
+        </many-to-one>
+       	<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+        	 <column name="create_person" length="39">
+                <comment>输入人员</comment>
+            </column>
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+            <column name="modify_person" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="modify_time" length="19">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-6-12 10:23:08 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.platform.newbieGuide.vo.SysNewbieGuide" table="sys_newbie_guide">
+        <id name="newbieguideId" type="string">
+            <column name="NEWBIEGUIDE_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="200">
+                <comment>���</comment>
+            </column>
+        </property>
+        <property name="tableName" type="string">
+            <column name="TABLE_NAME" length="500">
+                <comment>������Ҫ�����ݵı���</comment>
+            </column>
+        </property>
+        <property name="statusColumnStr" type="string">
+            <column name="STATUS_COLUMN_STR" length="200">
+                <comment>�ñ�ʹ�õ�״̬�ֶ�������û�У����ÿ�</comment>
+            </column>
+        </property>
+        <property name="addUrl" type="string">
+            <column name="ADD_URL" length="1000">
+                <comment>��������</comment>
+            </column>
+        </property>
+        <property name="listUrl" type="string">
+            <column name="LIST_URL" length="1000">
+                <comment>һ������½����ҳ��</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="STATUS">
+                <comment>״̬��1��ʹ�ã�0�����ã�</comment>
+            </column>
+        </property>
+        <property name="orderNum" type="java.lang.Integer">
+            <column name="ordernum">
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

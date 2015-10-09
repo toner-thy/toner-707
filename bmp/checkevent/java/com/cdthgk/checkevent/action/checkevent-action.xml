@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.secrecyCheckEvent"  namespace="/bmp/secrecyCheckEvent" extends="com.cdthgk.project">
+		<action name="secrecyCheckEvent_*" class="secrecyCheckEvent" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyCheckEvent</param>
+				<param name="actionName">secrecyCheckEvent_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyCheckEvent</param>
+				<param name="actionName">secrecyCheckEvent_edit</param>
+				<param name="secrecyCheckEvent.secrecyCheckEventId">${secrecyCheckEvent.secrecyCheckEventId}</param>
+			</result>
+			<result name="print">/bmp/checkevent/borderlayout/view/secrecyCheckEvent_print.jsp</result>
+			<result name="success">/bmp/checkevent/borderlayout/view/secrecyCheckEvent_{1}.jsp</result>
+		</action>
+		 <action name="secrecyCheckEvent_save" class="secrecyCheckEvent" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyCheckEvent</param>
+				<param name="actionName">secrecyCheckEvent_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="secrecyCheckEvent_update" class="secrecyCheckEvent" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyCheckEvent</param>
+				<param name="actionName">secrecyCheckEvent_edit</param>
+				<param name="secrecyCheckEvent.secrecyCheckEventId">${secrecyCheckEvent.secrecyCheckEventId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="secrecyCheckEvent_allList" class="secrecyCheckEvent" method="allList" >
+			<result name="allList">/bmp/checkevent/borderlayout/view/secrecyCheckEvent_allList.jsp</result>
+		</action>
+
+		<action name="secrecyCheckEvent_organIndex" class="secrecyCheckEvent" method="organIndex">
+			<result name="success">/bmp/checkevent/borderlayout/view/secrecyCheckEvent_organIndex.jsp</result>
+		</action>
+			 <!-- 数据填写校验 -->
+		<action name="secrecyCheckEvent_dataValidate" method="dataValidate" class="secrecyCheckEvent"></action>
+	</package>
+</struts>

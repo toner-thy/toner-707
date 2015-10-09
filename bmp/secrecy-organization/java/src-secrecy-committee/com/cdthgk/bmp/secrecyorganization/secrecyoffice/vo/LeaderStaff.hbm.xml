@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-13 16:51:30 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.LeaderStaff" table="bm_leader_staff">
+        <id name="leaderStaffId" type="string">
+            <column name="leader_staff_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+
+        <many-to-one name="secrecyOffice" class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.SecrecyOffice" fetch="select">
+			<column name="SECRECY_OFFICE_ID" length="39">
+				<comment>保密办（保密局）</comment>
+			</column>
+		</many-to-one>
+
+        <property name="secretary" type="java.lang.Integer">
+            <column name="secretary" />
+        </property>
+        <property name="deputySecretary" type="java.lang.Integer">
+            <column name="deputy_secretary" />
+        </property>
+        <property name="inspector" type="java.lang.Integer">
+            <column name="inspector" />
+        </property>
+        <property name="deputyInspector" type="java.lang.Integer">
+            <column name="deputy_inspector" />
+        </property>
+        <property name="deptStaff" type="java.lang.Integer">
+            <column name="dept_staff" />
+        </property>
+        <property name="other" type="java.lang.Integer">
+            <column name="other" />
+        </property>
+    </class>
+</hibernate-mapping>

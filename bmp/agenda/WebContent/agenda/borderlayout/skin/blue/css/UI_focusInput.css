@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+.sfradiobox , .sfcheckbox
+{
+	border: 0;
+	padding:0;
+	background: none;
+}
+
+
+.bo {
+	border-bottom: solid 1px #CCCCCC;
+}
+label {
+	float: left;
+	padding: 10px 0px 4px 30px;
+}
+
+
+textarea {
+	border: 1px solid #999;
+	margin: 5px 0px;
+}
+
+
+textarea {
+	padding: 1px;
+}
+.bt {
+	width: 38px;
+	/*height: 20px;*/
+	border: solid 1px #CCCCCC;
+	background: #FBFBFB;
+	text-align: center;
+}
+.btcenter {
+	text-align: center;
+	clear: left;
+	padding: 4px 0px 0px;
+}
+.sffocus {
+	background: #F0F9FB; /*----for IE----*/
+	border: 1px solid #1D95C7;
+}
+textarea:focus, input:focus {
+	background: #F0F9FB;; /*----for firefox......----*/
+	border: 1px solid #1D95C7;
+}
+
+
+.sfhover {
+	background: #F0F9FB; 
+	border: 1px solid #1D95C7;
+	color:#000;
+}
+
+
+

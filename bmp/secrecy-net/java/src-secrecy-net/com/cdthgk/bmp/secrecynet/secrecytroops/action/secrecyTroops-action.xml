@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.secrecyTroops"  namespace="/net/secrecyTroops" extends="com.cdthgk.project">
+
+        <action name="secrecyTroops_add" class="bmp.secrecyTroopsAction" method="add">
+        	<result name="success">/bmp/secrecy-net/secrecy-troops/borderlayout/view/secrecyTroops_add.jsp</result>
+        </action>
+        <action name="secrecyTroops_detail" class="bmp.secrecyTroopsAction" method="detail">
+        	<result name="success">/bmp/secrecy-net/secrecy-troops/borderlayout/view/secrecyTroops_detail.jsp</result>
+        </action>
+
+        <action name="secrecyTroops_adding" class="bmp.secrecyTroopsAction" method="adding">
+        	<result name="add_action" type="stateRedirectAction">
+				<param name="namespace">/net/secrecyTroops</param>
+				<param name="actionName">secrecyTroops_add</param>
+			</result>
+        </action>
+        <action name="secrecyTroops_editing" class="bmp.secrecyTroopsAction" method="editing">
+        	<result name="add_action" type="stateRedirectAction">
+				<param name="namespace">/net/secrecyTroops</param>
+				<param name="actionName">secrecyTroops_add</param>
+			</result>
+        </action>
+
+  </package>
+</struts>

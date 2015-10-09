@@ -1,0 +1,155 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+
+<html>
+	<head>
+		<title>首页涉密人员统计</title>
+
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+
+		<script type="text/javascript">
+			$ENV.loader.loadStyleSheet("${ctx}/bmp/borderlayout/skin/blue/css/index_stat_panel.css");
+		</script>
+
+		<script type="text/javascript">
+ 			function doSecView(action, type) {
+ 				TabUtil.openAsTab({
+ 					url : action + "&t_date=" + new Date().getTime(),
+ 					title : '涉密人员合计-列表'
+ 				});
+ 			}
+
+ 			function doSecPersonView(id,secrecyLevel){
+ 				TabUtil.openAsTab({
+ 					url : '${ctx}/bmp/secrecyperson/secrecyPerson_organSecPersonData.action?id='+id+'&secrecyLevel='+secrecyLevel+'&t_date='+ new Date().getTime(),
+ 					title : '涉密人员-列表'
+ 				});
+ 			}
+
+			// 快速搜索
+			function doSecPersonView2(){
+				var name = $('secrecyPerson.userInfo.name').value;
+				TabUtil.openAsTab({
+					url : '${ctx}/secrecyPerson_secPersonQueryData.action?secrecyPerson.userInfo.name='+name+'&t_date='+ new Date().getTime(),
+					title : '涉密人员查询-详情'
+				});
+			}
+
+			// 点击搜索框，提示消失
+			function clrSecrecyPersonInput(){
+				document.getElementById("secrecyPerson.userInfo.name").value = "";
+			}
+		</script>
+	</head>
+
+	<body>
+		<!-- 注意！该面板要求高度150才不出现右侧滚动条 -->
+
+		<!-- 设置合计数量 -->
+		<c:set var="secrecyPersonNum" value="${secrecyPersonArgs[1] + secrecyPersonArgs[2] + secrecyPersonArgs[3]}" />
+
+		<table style="width: 95%;">
+
+			<!-- 搜索框 (目前尚未实现搜索，所以暂时屏蔽搜索框)-->
+			<!--
+				<tr>
+					<td style="height: 4px;" colspan="4"></td>
+				</tr>
+				<tr>
+					<td style="width: 5px;"></td>
+					<td align="right" style="color: #2F6DA3; float: right; padding-left: 7px; padding-bottom: 8px; padding-top: 2px; border-bottom: 1px dotted #99CCE8;">
+						快速查询：
+					</td>
+					<td align="left" style="float: left; padding-bottom: 8px; border-bottom: 1px dotted #99CCE8;">
+						<input type="text" id="secrecyPerson.userInfo.name" value="请输入姓名" onclick="clrSecrecyPersonInput();" style="color: #C6C6C6; height: 18px; width: 110px; border-bottom: 1px solid #7F9DB9; border-top: 1px solid #7F9DB9; border-left: 1px solid #7F9DB9; border-right: 0px; float: left; line-height: 19px; padding-left: 3px;"/><div onclick="doSecPersonView2();" title="点击快速搜索涉密人员" style="background: url('${ctx}/images/index/search/indexPanelSearchBtn.gif') 0px 0px no-repeat; height:20px;width: 24px;float: left; cursor: hand;"></div>
+					</td>
+					<td style="width: 5px;"></td>
+				</tr>
+			 -->
+
+			<!-- 内容 -->
+			<tr>
+				<td style="" colspan="4">
+					<table style="width: 100%;">
+						<tr>
+							<td	class="td_img_left">
+								<!-- 图标 -->
+								<img src="${ctx}/bmp/images/index/secrecyPerson/ico.jpg">
+							</td>
+							<td class="td_img_right">
+								<!-- 统计内容 -->
+								<table style="width: 100%;" cellpadding="0" cellspacing="0">
+									<tr>
+										<td class="td_content_left">
+											一般:
+										</td>
+										<td class="td_content_right">
+											<c:if test="${secrecyPersonArgs[1] eq 0}">
+												0
+											</c:if>
+											<c:if test="${secrecyPersonArgs[1] ne 0}">
+												<a href="###" onclick="doSecPersonView('${organ.organId}','3')">
+													${secrecyPersonArgs[1]}
+												</a>
+											</c:if>
+										</td>
+									</tr>
+									<tr>
+										<td class="td_content_left">
+											重要:
+										</td>
+										<td class="td_content_right">
+											<c:if test="${secrecyPersonArgs[2] eq 0}">
+												0
+											</c:if>
+											<c:if test="${secrecyPersonArgs[2] ne 0}">
+												<a href="###" onclick="doSecPersonView('${organ.organId}','2')">
+													${secrecyPersonArgs[2]}
+												</a>
+											</c:if>
+										</td>
+									</tr>
+									<tr>
+										<td class="td_content_left">
+											核心:
+										</td>
+										<td class="td_content_right">
+											<c:if test="${secrecyPersonArgs[3] eq 0}">
+												0
+											</c:if>
+											<c:if test="${secrecyPersonArgs[3] ne 0}">
+												<a href="###" onclick="doSecPersonView('${organ.organId}','1')">
+													${secrecyPersonArgs[3]}
+												</a>
+											</c:if>
+										</td>
+									</tr>
+									<tr align="right">
+										<td class="td_total_left">
+											合 计:
+										</td>
+										<td class="td_total_right">
+											<c:if test="${secrecyPersonNum eq 0}">
+												0
+											</c:if>
+											<c:if test="${secrecyPersonNum ne 0}">
+												<a href="###" onclick="doSecView('${ctx}/bmp/secrecyperson/secrecyPerson_allList.action?organ.organId=${organ.organId }', 'secrecyPerson')">
+													${secrecyPersonNum}
+												</a>
+											</c:if>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

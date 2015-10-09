@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="partService" class="com.cdthgk.bmp.keyPart.service.impl.PartServiceImpl" parent="bmpService">
+	</bean>
+
+	<!--要害部位密级变更    服务层-->
+	<bean id="bmp.keyPartChangeService" class="com.cdthgk.bmp.keyPart.service.impl.KeyPartChangeServiceImpl" parent="bmpService">
+	</bean>
+
+	<!--要害部位密级解除    服务层-->
+	<bean id="bmp.keyPartSecrecyClearService" class="com.cdthgk.bmp.keyPart.service.impl.KeyPartSecrecyClearServiceImpl" parent="bmpService">
+	</bean>
+</beans>

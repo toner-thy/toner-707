@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.bmp.info" namespace="/bmp/info" extends="com.cdthgk.project">
+		<!-- 信息上报列表 -->
+		<action name="info_list" class="bm.infoAction" method="list">
+			<result name="list">/bmp/info/borderlayout/view/info_list.jsp</result>
+		</action>
+		<!-- 信息审核列表 -->
+		<action name="info_audit_list" class="bm.infoAction" method="auditList">
+			<result name="auditList">/bmp/info/borderlayout/view/info_audit_list.jsp</result>
+		</action>
+		<!-- 上报信息列表 -->
+		<action name="info_report_list" class="bm.infoAction" method="reportList">
+			<result name="reportList">/bmp/info/borderlayout/view/info_report_list.jsp</result>
+		</action>
+		<!-- 新增信息 -->
+        <action name="info_add" class="bm.infoAction" method="add">
+           <result name="add">/bmp/info/borderlayout/view/info_add.jsp</result>
+        </action>
+        <!-- 新增保存信息 -->
+        <action name="info_adding" class="bm.infoAction" method="adding">
+			<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/info</param>
+				<param name="actionName">info_add</param>
+				<param name="needReload">${needReload }</param>
+			</result>
+        </action>
+        <!-- 编辑信息 -->
+		<action name="info_edit" class="bm.infoAction" method="edit" >
+			<result name="edit">/bmp/info/borderlayout/view/info_edit.jsp</result>
+		</action>
+		<!-- 编辑保存信息 -->
+        <action name="info_editing" class="bm.infoAction" method="editing">
+        	<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<result name="list_action" type="stateRedirectAction">
+	   			<param name="info.infoId">${info.infoId}</param>
+				<param name="namespace">/bmp/info</param>
+				<param name="actionName">info_edit</param>
+				<param name="needReload">${needReload }</param>
+			</result>
+        </action>
+		<!-- 删除信息 -->
+		<action name="info_delete" class="bm.infoAction" method="delete" >
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/info</param>
+				<param name="actionName">info_list</param>
+			</result>
+		</action>
+		<!-- 报审 -->
+		<action name="info_submit" class="bm.infoAction" method="submit" >
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/info</param>
+				<param name="actionName">info_list</param>
+			</result>
+		</action>
+		<!-- 上报 -->
+		<action name="info_report" class="bm.infoAction" method="report" >
+			<result name="report" type="stateRedirectAction">
+				<param name="namespace">/bmp/info</param>
+				<param name="actionName">info_list</param>
+			</result>
+		</action>
+		<!-- 通过 -->
+		<action name="info_pass" class="bm.infoAction" method="pass" >
+			<result name="pass" type="stateRedirectAction">
+				<param name="namespace">/bmp/info</param>
+				<param name="actionName">info_audit_list</param>
+			</result>
+		</action>
+		<!-- 驳回 -->
+		<action name="info_refuse" class="bm.infoAction" method="refuse" />
+			<!-- <result name="refuse" type="stateRedirectAction">
+				<param name="namespace">/bmp/info</param>
+				<param name="actionName">info_audit_list</param>
+			</result>
+		</action>-->
+		<!-- 操作日志记录 -->
+		<action name="info_log" class="bm.infoAction" method="log" >
+			<result name="log">/bmp/info/borderlayout/view/info_log.jsp</result>
+		</action>
+		<!-- 信息详情 -->
+		<action name="info_detail" class="bm.infoAction" method="detail" >
+			<result name="detail">/bmp/info/borderlayout/view/info_detail.jsp</result>
+		</action>
+		<!-- 提醒详情 -->
+		<action name="info_info" class="bm.infoAction" method="info" >
+			<result name="success">/bmp/info/borderlayout/view/info_report_detail.jsp</result>
+		</action>
+		<!-- 提醒通知 -->
+		<action name="info_remind" class="bm.infoAction" method="getUnread"/>
+	</package>
+</struts>

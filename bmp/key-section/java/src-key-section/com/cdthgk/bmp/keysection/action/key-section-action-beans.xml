@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="bmp.keySectionAction" class="com.cdthgk.bmp.keysection.action.KeySectionAction" parent="bmpAction" scope="prototype" >
+		<property name="keySectionModuleService" ref="bmp.keySectionModuleService" />
+
+
+		<property name="partModuleService" ref="partModuleService"></property>
+		<property name="attachmentService" ref="platform.attachmentService" />
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"></property>
+		<property name="keySectionExchanger" ref="keySection.exchanger"/>
+		<property name="serverReportMappingService" ref="platform.exchange.serverReportMappingService"/>
+		<property name="dataSource" ref="dataSource"/>
+
+		<!--要害部门 密级变更的service层注入-->
+		<property name="keySectionChangeService" ref="bmp.keySectionChangeService" />
+		<!--要害部门 密级解除的service层注入-->
+		<property name="keySectionSecrecyClearService" ref="bmp.keySectionSecrecyClearService" />
+		<!--要害部门外部的 服务-->
+		<property name="keySectionService" ref="bmp.keySectionService" />
+		<!--要害部门的 服务-->
+		<property name="partService" ref="partService"/>
+        <!--行政区划  服务层-->
+		<property name="districtService" ref="platform.districtService"/>
+		<property name="organService" ref="platform.organService"/>
+		<property name="dataValidateService" ref="bmp.dataValidateService" ></property>
+	</bean>
+
+	<!--标签查询要害部门-->
+	<bean id="bmp.KeySectionSearchAction" class="com.cdthgk.bmp.keysection.action.KeySectionSearchAction" parent="bmpAction" scope="prototype" >
+		<property name="keySectionModuleService" ref="bmp.keySectionModuleService" />
+	</bean>
+
+</beans>

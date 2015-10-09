@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!-- 		<bean id="permission.webActorLoginStorage" class="com.cdthgk.permission.web.login.WebActorLoginStorageSimpleImpl" /> -->
+		<bean id="permission.validateCodeAuthenticator" class="com.cdthgk.permission.web.authentication.ValidateCodeAuthenticator" />
+
+		<util:list id="uKeyLogin.authenticators" list-class="java.util.ArrayList">
+			<ref bean="permission.validateCodeAuthenticator"/>
+<!-- 			<ref bean="platform.uKeyAuthenticator" /> -->
+			<ref bean="platform.userAuthenticator"/>
+		</util:list>
+		<bean id="platform.uKeyLoginManager" class="com.cdthgk.permission.web.login.WebApplicationLoginManagerImpl">
+			<property name="webActorLoginStorage" ref="permission.webActorLoginStorage"/>
+			<property name="authenticators" ref="uKeyLogin.authenticators"/>
+			<property name="loginListeners" ref="platform.loginListeners"/>
+		</bean>
+</beans>

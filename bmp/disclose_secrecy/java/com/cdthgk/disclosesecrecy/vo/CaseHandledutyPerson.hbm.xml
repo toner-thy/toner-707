@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.disclosesecrecy.vo.CaseHandledutyPerson" table="bm_case_handledutyperson" >
+        <id name="caseHandledutyPersonId" type="java.lang.String">
+            <column name="handledutyperson_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <many-to-one name="disclosesecrecycase" class="com.cdthgk.disclosesecrecy.vo.DiscloseSecrecy" fetch="select">
+            <column name="disclosesecrecycase_id" length="32">
+                <comment>泄密事件id</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="caseCriticalviolation" class="com.cdthgk.disclosesecrecy.vo.CaseCriticalviolation" fetch="select">
+            <column name="criticalviolationcase_id" length="32">
+                <comment>严重违规案件id</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="userInfo" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+			<column name="dutyperson_id" length="39">
+				<comment>责任人ID</comment>
+			</column>
+		</many-to-one>
+        <many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department" fetch="select">
+			<column name="depart_id" length="39">
+				<comment>部门ID</comment>
+			</column>
+		</many-to-one>
+
+        <property name="manageLevel" type="java.lang.Integer">
+            <column name="manage_level" >
+            	<comment>行政级别</comment>
+            </column>
+        </property>
+        <property name="handleType" type="java.lang.Integer">
+            <column name="handle_type" >
+            	<comment>处理形式</comment>
+            </column>
+        </property>
+        <property name="politicalLandscape" type="java.lang.Integer">
+            <column name="political_landscape" >
+            	<comment>政治面貌(中共党员,非中共党员)</comment>
+            </column>
+        </property>
+        <property name="discloseCaseType" type="java.lang.Integer">
+            <column name="disclose_case_type" >
+            	<comment>泄密案件类型(1泄密案件，2严重违规案件)</comment>
+            </column>
+        </property>
+        <property name="dataState" type="java.lang.Integer">
+            <column name="data_state" >
+            	<comment>状态</comment>
+            </column>
+        </property>
+         <property name="createTime" type="java.util.Date">
+            <column name="create_time" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

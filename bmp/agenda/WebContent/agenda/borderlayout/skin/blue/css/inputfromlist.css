@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* Create By Seamoon 卓炼 */
+
+
+/*包含文本框输入和列表选择的容器*/
+.searchNav {
+	margin:0;
+	position:relative;
+	max-width:400px;
+	display: inline-block;
+}
+
+.searchNav:hover
+{
+z-index:2;
+background:none; /*没有这个在IE中不可用*/
+}
+.searchNav .inputwithselect{
+}
+
+.searchNav ul.listforselect , .searchNav div.listforselect { 
+padding: 0;
+margin: 0;
+list-style: none;
+width:280px;
+height:200px;
+overflow:auto;
+/*overflow-x: hidden;*/
+SCROLLBAR-FACE-COLOR: #BED8EB; 
+SCROLLBAR-SHADOW-COLOR: #DDF8FF; 
+SCROLLBAR-HIGHLIGHT-COLOR: #92C0D1; 
+SCROLLBAR-3DLIGHT-COLOR: #DDF8FF; 
+SCROLLBAR-DARKSHADOW-COLOR: #92C0D1; 
+SCROLLBAR-TRACK-COLOR:#ffffff; 
+SCROLLBAR-ARROW-COLOR: #92C0D1 ;
+}
+.searchNav li {
+margin: 0px;
+padding:0px;
+}
+
+/*弹出显示的列表的样式*/
+.searchNav .listforselect { 
+display: none; 
+position:absolute;
+z-index:50;
+top:20px;  /*如果位置不够，调节这里*/
+left:15px;
+border: 1px solid #3366FF;
+background-color: #99CCFF;
+}
+
+
+
+/*当项拥有mouseovershowlist样式后，即代表其下的子元素需要显示*/
+.searchNav li.mouseovershowlist li, .searchNav li.mouseovershowlist div{  
+	display: inline-block ;
+}
+.searchNav .listforselect ul li{
+	text-decoration: none;
+	color: #333;
+	margin-left:3px;
+	text-align:left;
+	height: 18px;
+	margin-right : 3px;
+	padding-top:0;
+	margin-top:0;
+	display:block; /*兼容firefox*/
+}
+
+.searchNav .listforselect a{
+font-size:12px;
+font-family:"宋体", "微软雅黑";
+padding:0 8px ;
+text-decoration: none;
+color: #333;
+height:20px;
+line-height:20px;
+display:block; /*block属性会让a元素自动扩展满剩余的空间，达到类100%显示的效果，注意，直接加width属性设置对a元素是无效的，因为a元素默认是inline内联元素*/
+}
+
+.searchNav .listforselect a:hover{
+font-size:12px;
+background-color: #0099FF;
+color:#FFFFFF;
+height:20px;
+line-height:20px;
+
+}
+.searchNav .listforselect span
+{
+	text-align:left;
+}
+.searchNav .listforselect span a
+{
+	padding-bottom:3px;
+	line-height:25px;
+	height:25px;
+	vertical-align:middle;
+	margin-left:4px;
+	margin-right:3px;
+}
+.searchNav .listforselect span a:hover
+{
+	line-height:25px;
+	height:25px;
+	vertical-align:middle;
+	padding-bottom:3px;
+	background-color: #FF6600;
+}

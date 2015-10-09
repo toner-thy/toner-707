@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="bmp.attachmentAction" class="com.cdthgk.bmp.attachment.action.AttachmentAction" scope="prototype">
+    	<property name="attachmentListService" ref="bmp.attachmentListService"/>
+    	<property name="attachmentQueryService" ref="bmp.attachmentQueryService"/>
+    	<property name="attachmentService" ref="platform.attachmentService"/>
+    </bean>
+
+</beans>

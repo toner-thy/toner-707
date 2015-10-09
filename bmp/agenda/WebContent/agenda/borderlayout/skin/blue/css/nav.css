@@ -1,0 +1,274 @@
+@charset "utf-8";
+/* CSS Document */
+html , body  /*不能指定body元素的高度为100%，否则在某些IE不会出现滚动条*/
+{	
+	width:100%;  /*保证html元素的宽度保持100%大小*/
+	margin:0;
+	border:0;
+	padding:0;
+}
+
+
+
+html /*如果不额外指定body元素，在某些IE可能还是会出现X轴滚动条，因为有些IE默认body元素是overflow-x:auto。在IE6，是不能定义BODY元素的滚动条颜色效果的*/
+{	
+overflow:  auto !important;
+overflow-x: hidden !important;
+SCROLLBAR-FACE-COLOR: #BED8EB; 
+SCROLLBAR-SHADOW-COLOR: #DDF8FF; 
+SCROLLBAR-HIGHLIGHT-COLOR: #92C0D1; 
+SCROLLBAR-3DLIGHT-COLOR: #DDF8FF; 
+SCROLLBAR-DARKSHADOW-COLOR: #92C0D1; 
+SCROLLBAR-TRACK-COLOR:#ffffff; 
+SCROLLBAR-ARROW-COLOR: #92C0D1 ;
+background-color:#99CCFF !important;
+}
+
+* html body /*IE6及IE6以下识别*/ 
+{
+	overflow:  auto !important;
+	overflow-x: hidden !important;
+	SCROLLBAR-FACE-COLOR: #BED8EB; 
+	SCROLLBAR-SHADOW-COLOR: #DDF8FF; 
+	SCROLLBAR-HIGHLIGHT-COLOR: #92C0D1; 
+	SCROLLBAR-3DLIGHT-COLOR: #DDF8FF; 
+	SCROLLBAR-DARKSHADOW-COLOR: #92C0D1; 
+	SCROLLBAR-TRACK-COLOR:#ffffff; 
+	SCROLLBAR-ARROW-COLOR: #92C0D1 ;
+	background-color:#99CCFF;
+}
+
+body
+{
+	overflow-x /*非IE6识别*/: hidden !important;
+}
+
+
+body {
+ font-family: arial, "宋体", serif;
+ font-size:12px;
+ text-align:left;
+}
+
+ul , ul li
+{
+	margin:0;
+	padding:0;
+}
+
+
+
+#nav {
+ width:129px;
+ line-height: 24px; 
+ list-style: none;
+ text-align:left;
+ padding-left:1px;
+
+    /*定义整个ul菜单的行高和背景色*/
+}
+#nav li a img
+{
+	display:inline;
+	border:none;
+	height:24px;
+	margin:0;
+}
+/*==================一级目录===================*/
+#nav a {
+ letter-spacing:0px;
+
+ width: 129px; 
+ display: block;
+ line-height:24px
+ /*Width(一定要)，否则下面的Li会变形*/
+}
+
+#nav li {
+	border-bottom:#FFF 1px solid; /*下面的一条白边*/
+	float:left;
+	color:#FFFFFF;
+	font-weight:bold;
+	background-color: #003399;
+ 	list-style: none;
+	background: url(../oaimg/d1.jpg) repeat-x;
+	padding: 0 !important;
+	list-style: none;
+}
+
+#nav li.menugrbg a.menulevelone{
+ background: url(../oaimg/01.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+ list-style: none;
+}
+#nav li.menugrbg a.menulevelone:hover{
+ background: url(../oaimg/01.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+
+#nav li.menuggsw a.menulevelone{
+ background: url(../oaimg/02.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menuggsw a.menulevelone:hover{
+ background: url(../oaimg/02.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu03 a.menulevelone{
+ background: url(../oaimg/03.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu03 a.menulevelone:hover{
+ background: url(../oaimg/03.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu04 a.menulevelone{
+ background: url(../oaimg/04.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu04 a.menulevelone:hover{
+ background: url(../oaimg/04.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+
+#nav li.menu05 a.menulevelone{
+ background: url(../oaimg/05.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu05 a.menulevelone:hover{
+ background: url(../oaimg/05.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu06 a.menulevelone{
+ background: url(../oaimg/06.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu06 a.menulevelone:hover{
+ background: url(../oaimg/06.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu07 a.menulevelone{
+ background: url(../oaimg/07.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu07 a.menulevelone:hover{
+ background: url(../oaimg/07.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu08 a.menulevelone{
+ background: url(../oaimg/08.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu08 a.menulevelone:hover{
+ background: url(../oaimg/08.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu09 a.menulevelone{
+ background: url(../oaimg/09.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+#nav li.menu09 a.menulevelone:hover{
+ background: url(../oaimg/09.gif) no-repeat 2% 50%;
+ padding-left: 30px  !important;
+}
+
+#nav li ul a{
+ background: none;
+}
+
+#nav li a:hover{
+	background-color: #BDD9F4; /*一级目录onMouseOver显示的背景色*/
+}
+#nav a:link  {
+ color:#FFF; text-decoration:none;
+}
+#nav a:visited  {
+ color:#FFF;text-decoration:none;
+}
+#nav a:hover  {
+ color:#FFF;text-decoration:none;font-weight:bold;
+}
+.menulevelone{
+	padding-left:5px !important;
+}
+
+/*==================二级目录===================*/
+#nav li ul {
+ list-style:none;
+ text-align:left;
+
+ /*margin-left: 3px;  /*突出显示一级菜单的背景大小*/
+}
+#nav li ul li{
+	font-weight:normal;
+	color:#000000;
+	background-color:#E0E9F2;
+	background-image:none;
+	list-style: inside !important ;
+	margin:0;
+
+}
+
+#nav li ul a{
+	 padding-left:30px;
+	 width:129px;  /* padding-left二级目录中文字向右移动，但Width必须重新设置=(总宽度-padding-left)*/
+	 line-height:25px;
+	 height:25px;
+	 vertical-align:middle;
+	 background: url(../oaimg/jt.gif) no-repeat 7% 50%;
+	 margin:0; 
+}
+/*下面是二级目录的链接样式*/
+#nav li ul a:link  {
+ color:#000; text-decoration:none;
+}
+#nav li ul a:visited  {
+ color:#000;text-decoration:none;
+}
+#nav li ul a:hover {
+	color:#073F76;
+	text-decoration:none;
+	font-weight:normal;
+	background: #BDD7F1 url(../oaimg/jt.gif)  no-repeat 7% 50%;
+ /* 二级onmouseover的字体颜色、背景色*/
+}
+
+#nav li ul a.clicked
+{
+	background: #BDD7F1 url(../oaimg/jt.gif)  no-repeat 7% 50%;
+}
+
+/*==============================*/
+#nav li:hover ul {
+ left: auto;
+}
+#nav li.sfhover ul {
+ left: auto;
+}
+#content {
+ clear: left; 
+}
+#nav ul.collapsed {
+ display: none;
+}
+
+#nav ul.expanded {
+ display: block;
+}
+#nav ul.expanded li {
+ list-style: none !important; /*兼容firefox*/
+}
+
+#PARENT{
+ width:100%;
+}
+
+
+
+.anchor
+{
+	width:0 !important;
+	height:0 !important;
+	display:inline !important;
+	line-height:0px !important;
+}

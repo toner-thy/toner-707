@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.bmp.equipment.equipment" extends="com.cdthgk.project">
+		<action name="equipment_*" class="bmp.equipmentAction" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="actionName">equipment_list</param>
+			</result>
+			<result name="success">/bmp/equipment/equipment/borderlayout/view/equipment_{1}.jsp</result>
+			<result name="checkDistrictList" type="stateRedirectAction">
+				<param name="actionName">equipment_checkDistrictList</param>
+			</result>
+			<result name="mailList">/bmp/equipment/equipment/borderlayout/view/equipment_mailList.jsp</result>
+		</action>
+	</package>
+</struts>

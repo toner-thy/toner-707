@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.platform.helptree" namespace="/bmp/helptree" extends="com.cdthgk.project">
+		<action name="helpTree_treeIndex" method="treeIndex" class="bmp.helpTreeAction">
+			<result name="success">/platform/jsp/public/helpTree/view/helpTree_index.jsp</result>
+		</action>
+		<action name="helpTree_treeDaoHangIndex" method="treeDaoHangIndex" class="bmp.helpTreeAction">
+			<result name="success">/platform/jsp/public/helpTree/view/daoHang_index.jsp</result>
+		</action>
+		<action name="helpTree_loadTree" method="loadTree" class="bmp.helpTreeAction">
+		</action>
+		<action name="helpTree_loadDaoHangTree" method="loadDaoHangTree" class="bmp.helpTreeAction">
+			<result name="success">/platform/jsp/public/helpTree/view/daoHang_index2.jsp</result>
+		</action>
+		<action name="helpTree_filterDaoHangTree" method="filterDaoHangTree" class="bmp.helpTreeAction">
+			<result name="success">/platform/jsp/public/helpTree/view/daoHang_index2.jsp</result>
+		</action>
+		<action name="helpTree_filterTree" method="filterTree" class="bmp.helpTreeAction">
+		</action>
+		<action name="helpTree_content" method="content" class="bmp.helpTreeAction">
+			<result name="success">/platform/jsp/public/helpTree/view/helpTree_content.jsp</result>
+		</action>
+	</package>
+</struts>

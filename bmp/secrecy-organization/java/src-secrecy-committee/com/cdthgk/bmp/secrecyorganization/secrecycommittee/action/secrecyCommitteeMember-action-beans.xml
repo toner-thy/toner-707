@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<!-- 保密委成员控制器Spring配置 -->
+	<bean id="secrecyCommitteeMemberAction" class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.action.SecrecyCommitteeMemberAction" parent="bmpAction" scope="prototype">
+		<property name="secrecyCommitteeModuleService" ref="secrecyCommitteeModuleService"/>
+		<property name="secrecyCommitteeMemberModuleService" ref="secrecyCommitteeMemberModuleService"/>
+		<property name="personGroupPositionModuleService" ref="personGroupPositionModuleService"/>
+
+		<property name="secrecyCommitteeMembersChangeService" ref="secrecyCommitteeMembersChangeService"/>
+<!-- 		<property name="secrecyWorkOrganMemberUnitModuleService" ref="secrecyWorkOrganMemberUnitModuleService" /> -->
+<!-- 		<property name="secrecyWorkOrganRelationMemberModuleService" ref="secrecyWorkOrganRelationMemberModuleService" /> -->
+
+	</bean>
+</beans>

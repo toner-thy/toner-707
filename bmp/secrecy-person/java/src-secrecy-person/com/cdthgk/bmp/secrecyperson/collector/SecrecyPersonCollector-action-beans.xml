@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- SimpleTable 统计涉密人员的总个数的配置-->
+	<bean id="secrecyPersonSimpleTableCollector" class="com.cdthgk.bmp.secrecyperson.collector.SecrecyPersonSimpleTableCollector">
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"></property>
+	</bean>
+	<bean id="secrecyPersonSimpleTableStatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTableStatWebView">
+		<property name="collector" ref="secrecyPersonSimpleTableCollector"></property>
+	</bean>
+	<bean id="secrecyPersonSimpleTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTable01StatWebView">
+		<property name="collector" ref="secrecyPersonSimpleTableCollector"></property>
+	</bean>
+
+
+	<!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  涉密人员个数   这里不需要合计-->
+	<bean id="secrecyPersonComplexTableCollector" class="com.cdthgk.bmp.secrecyperson.collector.SecrecyPersonComplexTableCollector">
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"></property>
+	</bean>
+	<bean id="secrecyPersonComplexTableStatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTableStatWebView">
+		<property name="collector" ref="secrecyPersonComplexTableCollector"></property>
+	</bean>
+	<bean id="secrecyPersonComplexTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable01StatWebView">
+		<property name="collector" ref="secrecyPersonComplexTableCollector"></property>
+	</bean>
+	<bean id="secrecyPersonComplexTable02StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable02StatWebView">
+		<property name="collector" ref="secrecyPersonComplexTableCollector"></property>
+	</bean>
+
+
+	<!-- OrganListTable   统计出单位下 涉密人员 的数量  按照密级统计-->
+	<bean id="secrecyPersonOrganListTableCollector" class="com.cdthgk.bmp.secrecyperson.collector.SecrecyPersonOrganListTableCollector">
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"></property>
+	</bean>
+	<bean id="secrecyPersonOrganListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.OrganListTableStatWebView">
+		<property name="collector" ref="secrecyPersonOrganListTableCollector"></property>
+	</bean>
+
+
+	<!-- DistrictListTable 区县综合统计的配置-->
+	<bean id="secrecyPersonDistrictListTableCollector" class="com.cdthgk.bmp.secrecyperson.collector.SecrecyPersonDistrictListTableCollector">
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"></property>
+	</bean>
+	<bean id="secrecyPersonDistrictListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.DistrictListTableStatWebView">
+		<property name="collector" ref="secrecyPersonDistrictListTableCollector"></property>
+	</bean>
+
+	<!-- FashionTable  -->
+	<bean id="secrecyPersonFashionTableCollector" class="com.cdthgk.bmp.secrecyperson.collector.SecrecyPersonFashionTableCollector">
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"></property>
+	</bean>
+	<bean id="secrecyPersonFashionTableStatWebView" class="com.cdthgk.platform.stat.model.impl.FashionTableStatWebView">
+		<property name="collector" ref="secrecyPersonFashionTableCollector"></property>
+	</bean>
+
+
+</beans>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.technologyDefence.vo.TechnologyDefenceType" table="bm_technologyDefenceType">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <property name="name" type="java.lang.String" column="name"/>
+        <property name="type" type="java.lang.Integer">
+        	<column name="type" length="11">
+                <comment>类型</comment>
+            </column>
+        </property>
+		<property name="status" type="java.lang.Integer">
+        	<column name="STATUS" length="11">
+                <comment>0:删除；1：禁用；2：启用</comment>
+            </column>
+        </property>
+        <many-to-one name="parent" class="com.cdthgk.technologyDefence.vo.TechnologyDefenceType">
+            <column name="parentId" length="39">
+                <comment>创建单位</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="CREATE_PERSON" length="39">
+                <comment>输入人员</comment>
+            </column>
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+
+        <set name="childs" inverse="true" cascade="delete,save-update">
+            <key>
+                <column name="id" length="32" />
+            </key>
+            <one-to-many class="com.cdthgk.technologyDefence.vo.TechnologyDefenceType" />
+        </set>
+    </class>
+</hibernate-mapping>

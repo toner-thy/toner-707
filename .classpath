@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="config"/>
+	<classpathentry kind="src" path="bmp/core/java/src-model"/>
+	<classpathentry kind="src" path="bmp/core/java/src-core"/>
+	<classpathentry kind="src" path="bmp/agenda/java/src-agenda"/>
+	<classpathentry kind="src" path="bmp/key-part/java/src-keyPart"/>
+	<classpathentry kind="src" path="bmp/key-section/java/src-key-section"/>
+	<classpathentry kind="src" path="bmp/loginCheck/java/src-loginCheck"/>
+	<classpathentry kind="src" path="bmp/secrecy-organization/java/src-secrecy-committee"/>
+	<classpathentry kind="src" path="bmp/secrecy-person/java/src-secrecy-person"/>
+	<classpathentry kind="src" path="bmp/secrecy-worksummary/java/src-secrecy-worksummary"/>
+	<classpathentry kind="src" path="platform/base/java/src-base"/>
+	<classpathentry kind="src" path="bmp/attachment/java"/>
+	<classpathentry kind="src" path="bmp/notice/java"/>
+	<classpathentry kind="src" path="bmp/secrecy-statistics/java/src-secrecy-statistics"/>
+	<classpathentry kind="src" path="bmp/feedbackInfo/java"/>
+	<classpathentry kind="src" path="bmp/secrecy-system/java/src-secrecy-system"/>
+	<classpathentry kind="src" path="bmp/country_secrecy/java/src-secrecy-country-item"/>
+	<classpathentry kind="src" path="bmp/country_secrecy/java/src-secrecy-products"/>
+	<classpathentry kind="src" path="bmp/country_secrecy/java/src-secrecy-research-project"/>
+	<classpathentry kind="src" path="bmp/disclose_secrecy/java"/>
+	<classpathentry kind="src" path="bmp/devicemgr/java"/>
+	<classpathentry kind="src" path="bmp/externalpidgin/java"/>
+	<classpathentry kind="src" path="bmp/meetingcategory/java"/>
+	<classpathentry kind="src" path="bmp/retireofficial/java"/>
+	<classpathentry kind="src" path="bmp/technictrain/java"/>
+	<classpathentry kind="src" path="bmp/product/java"/>
+	<classpathentry kind="src" path="bmp/bms/plan-summary/java"/>
+	<classpathentry kind="src" path="bmp/bms/publicity-education/java"/>
+	<classpathentry kind="src" path="bmp/bms/security-information-system/java"/>
+	<classpathentry kind="src" path="bmp/bms/state-secret-management/java"/>
+	<classpathentry kind="src" path="bmp/rewardAndPenalty/java"/>
+	<classpathentry kind="src" path="bmp/checkevent/java"/>
+	<classpathentry kind="src" path="bmp/secrecyCarrier/java"/>
+	<classpathentry kind="src" path="bmp/secrecyFullPartTime/java"/>
+	<classpathentry kind="src" path="bmp/setTheDecryption/java"/>
+	<classpathentry kind="src" path="bmp/info/java"/>
+	<classpathentry kind="src" path="bmp/formatFile/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_39_x86"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v6.0"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

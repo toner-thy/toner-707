@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.secrecyResearchProject.action.SecrecyResearchProjectAction" namespace="/bmp/secrecyResearchProject" extends="com.cdthgk.project" >
+		<global-results>
+			<result name="list" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/secrecyResearchProject</param>
+				<param name="actionName">secrecyResearchProject_list</param>
+			</result>
+		</global-results>
+
+		<!-- 涉密科研项目的   主页面 -->
+		<action name="secrecyResearchProject_list" class="bmp.secrecyResearchProjectAction" method="list">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_list.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的   列表页面 -->
+		<action name="secrecyResearchProject_list_list" class="bmp.secrecyResearchProjectAction" method="list_list">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_list_list.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的   密级变更列表页面 -->
+		<action name="secrecyResearchProject_change_list" class="bmp.secrecyResearchProjectAction" method="change_list">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_change_list.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的   密级解除列表页面 -->
+		<action name="secrecyResearchProject_clear_list" class="bmp.secrecyResearchProjectAction" method="clear_list">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_clear_list.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的   新增页面 -->
+		<action name="secrecyResearchProject_add" class="bmp.secrecyResearchProjectAction" method="add">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_add.jsp</result>
+		</action>
+		<!-- 涉密科研项目的   新增保存 -->
+		<action name="secrecyResearchProject_adding" class="bmp.secrecyResearchProjectAction" method="adding">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_add.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的   编辑页面 -->
+		<action name="secrecyResearchProject_edit" class="bmp.secrecyResearchProjectAction" method="edit">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_edit.jsp</result>
+		</action>
+		<!-- 涉密科研项目的   编辑保存 -->
+		<action name="secrecyResearchProject_editing" class="bmp.secrecyResearchProjectAction" method="editing">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_edit.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的   删除 -->
+		<action name="secrecyResearchProject_del" class="bmp.secrecyResearchProjectAction" method="del">
+		</action>
+
+		<!-- 查看涉密科研项目记录  是否被其他的表引用 -->
+		<action name="ajax_relationship_secrecyResearchProject" class="bmp.secrecyResearchProjectAction" method="ajax_relationship">
+		</action>
+
+		<!-- 涉密科研项目的   进入密级变更页-->
+		<action name="secrecyResearchProject_change" class="bmp.secrecyResearchProjectAction" method="change">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_change.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的  密级变更保存 -->
+		<action name="secrecyResearchProject_changeing" class="bmp.secrecyResearchProjectAction" method="changeing">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_change.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的   进入密级解除页-->
+		<action name="secrecyResearchProject_clear" class="bmp.secrecyResearchProjectAction" method="clear">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_clear.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的  密级解除保存 -->
+		<action name="secrecyResearchProject_clearing" class="bmp.secrecyResearchProjectAction" method="clearing">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_clear.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的  明细 -->
+		<action name="secrecyResearchProject_detail" class="bmp.secrecyResearchProjectAction" method="detail">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_detail.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的  密级变更明细 -->
+		<action name="secrecyResearchProject_changeDetial" class="bmp.secrecyResearchProjectAction" method="changeDetial">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_changeDetail.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目的  密级解除明细 -->
+		<action name="secrecyResearchProject_clearDetial" class="bmp.secrecyResearchProjectAction" method="clearDetial">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_clearDetail.jsp</result>
+		</action>
+
+		<!-- 涉密科研项目 导出 -->
+		<action name="secrecyResearchProject_export" class="bmp.secrecyResearchProjectAction" method="export">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_research_project/borderlayout/view/exportExcel_secrecyResearchProjectList_ExprotTemplet.xlsx</param>
+				<param name="fileName">涉密科研项目列表.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 首页统计涉密科研项目     本单位   -->
+		<action name="indexView_SecrecyResearchProject" class="bmp.secrecyResearchProjectAction" method="indexView_SecrecyResearchProject">
+			<result name="success" >/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_indexView.jsp</result>
+		</action>
+		<!-- 首页  涉密科研项目 明细显示   本单位   -->
+		<action name="indexView_DetailList" class="bmp.secrecyResearchProjectAction" method="indexView_DetailList">
+			<result name="success" >/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_indexView_DetailList.jsp</result>
+		</action>
+		<!-- 首页统计涉密科研项目   行政区划   -->
+		<action name="indexView_SecrecyResearchProject_District" class="bmp.secrecyResearchProjectAction" method="indexView_SecrecyResearchProject_District">
+			<result name="success" >/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_indexView_District.jsp</result>
+		</action>
+		<!-- 首页  涉密科研项目 明细显示   行政区划   -->
+		<action name="indexView_DetailList_District" class="bmp.secrecyResearchProjectAction" method="indexView_DetailList_District">
+			<result name="success" >/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_indexView_DetailList_District.jsp</result>
+		</action>
+
+
+		<!--保密  涉密科研项目查询 -->
+		<action name="secrecyResearchProject_query_main" class="bmp.secrecyResearchProjectAction" method="query_main">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_query_main.jsp</result>
+		</action>
+		<action name="secrecyResearchProject_query_list" class="bmp.secrecyResearchProjectAction" method="list">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_list.jsp</result>
+		</action>
+
+
+		<!--综合统计 查询 通过行政区划    查询涉密科研项目个数 的明细列表 包括当前行政区划 和下级行政区划 的涉密科研项目的明细-->
+		<action name="zhtj_query_Detail" class="bmp.secrecyResearchProjectAction" method="zhtj_query_Detail">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/stat/secrecyResearchProject_stat_stat.jsp</result>
+		</action>
+		<!--综合统计 查询 统计行政区划 涉密科研项目   统计行政区下的直辖单位情况  分单位显示-->
+		<action name="zhtj_queryByDistrict" class="bmp.secrecyResearchProjectAction" method="zhtj_queryByDistrict">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/stat/secrecyResearchProject_stat_organList.jsp</result>
+		</action>
+		<!--综合统计      通过行政区划查询 涉密科研项目  本单位的情况   -->
+		<action name="zhtj_DetailList" class="bmp.secrecyResearchProjectAction" method="zhtj_DetailList">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/stat/secrecyResearchProject_stat_DetailList.jsp</result>
+		</action>
+		<!--综合统计       一个单位的数据撰取的功能    -->
+		<action name="zhtj_OrganDetailList" class="bmp.secrecyResearchProjectAction" method="zhtj_OrganDetailList">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_list_list.jsp</result>
+		</action>
+		<!--综合统计 查询 通过行政区划    查询涉密科研项目个数 的明细列表 包括当前行政区划 和下级行政区划 的涉密科研项目的明细-->
+		<action name="zhtj_query" class="bmp.secrecyResearchProjectAction" method="zhtj_query">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/stat/secrecyResearchProject_stat_stat.jsp</result>
+		</action>
+
+			<!-- 综合统计导出统计涉密科研项目   行政区划统计   -->
+		<action name="stat_exportDistrict" class="bmp.secrecyResearchProjectAction" method="stat_exportDistrict">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_research_project/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+				<param name="fileName">行政区划-涉密科研项目统计(综合统计).xlsx</param>
+			</result>
+		</action>
+		<!-- 综合统计导出统计涉密科研项目   行政区下统计   -->
+		<action name="stat_exportLayer" class="bmp.secrecyResearchProjectAction" method="stat_exportLayer">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_research_project/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+				<param name="fileName">行政区内-涉密科研项目统计(综合统计).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="secrecyResearchProject_organIndex" class="bmp.secrecyResearchProjectAction" method="organIndex">
+			<result name="success">/country_secrecy/secrecy_research_project/borderlayout/view/secrecyResearchProject_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="secrecyResearchProject_dataValidate" method="dataValidate" class="bmp.secrecyResearchProjectAction"></action>
+	</package>
+</struts>

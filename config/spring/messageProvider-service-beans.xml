@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:util="http://www.springframework.org/schema/util"
+		xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd" default-lazy-init="false">
+
+	<bean id="message.messager" class="com.cdthgk.platform.notification.messager.Messager">
+		<property name="messageProviders" ref="message.messageProviders"></property>
+	</bean>
+	<!-- 系统消息提醒 -->
+	<util:list id="message.messageProviders">
+		<!-- 未读消息提醒 -->
+		<ref bean="mail.mailMessageProvider"/>
+		<!-- 发文未读消息提醒 -->
+		<ref bean="send.sendMessageProvider"/>
+		<!-- 收文未读消息提醒 -->
+		<ref bean="receive.receiveMessageProvider"/>
+		<!-- 上报提醒 -->
+		<ref bean="info.infoMessageProvider"/>
+	</util:list>
+</beans>

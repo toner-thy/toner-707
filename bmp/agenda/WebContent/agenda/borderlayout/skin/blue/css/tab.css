@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* CSS Document */
+/*标签内表格*/
+#tabs5 .tabtable ,
+#tabs1 .tabtable 
+{
+	padding:0;
+	font-size:12px;
+	font-family:"宋体", "微软雅黑";
+	font-weight:normal;
+	text-align: left;
+	text-decoration: none;
+	border:none !important;
+}
+
+.tabtable td
+{
+	padding-bottom:0;
+}
+
+/*- Menu Tabs 5--------------------------- */
+
+#tabs5 {
+float:left;
+width:100%;
+min-width: 600px;
+background:#E3ECF3;
+font-size:93%;
+line-height:normal;
+padding-top:5px;
+}
+#tabs5 ul {
+	margin:0;
+	padding:0px 10px 0px 20px;
+	list-style:none;
+	border:none !important;
+	white-space:nowrap; /*让li不换行*/
+}
+#tabs5 li {
+	display:inline;
+	/*float:left;*/
+	margin:0;
+	padding:0;
+	white-space:nowrap;
+}
+#tabs5 a {
+	float:left;
+	background:url("../images/tab/tableftF.gif") no-repeat left top;
+	margin:0;
+	padding:0 0 0 4px;
+	text-decoration:none;
+	cursor: pointer;  /*兼容Opera*/
+	font-weight: bold !important;
+
+}
+#tabs5 a span {
+	display:inline-block; /*保证在宽度不够换行时仍然显示正常*/
+	background:url("../images/tab/tabrightF.gif") no-repeat right top;
+	margin:0;
+	padding:5px 12px 4px 5px;
+	color:#666; /*#24618E*/
+	font-weight: bold !important;
+	white-space:nowrap;
+}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs5 a span {
+	float:none;
+}
+/* End IE5-Mac hack */
+#tabs5 a:hover span {
+	color:#FFF;
+}
+#tabs5 a:hover {
+	background-position:0% -42px;
+}
+#tabs5 a:hover span {
+	background-position:100% -42px;
+
+}
+
+/*===可利用.active类动态绑定当前标签页，也可以利用body id与tab页样式类的唯一组合，可标识出当前激活的标签是那个==*/
+#tabs5 .active a ,
+/*按标签位置命名*/
+#menutab1 .menutab1 a,
+#menutab2 .menutab2 a,
+#menutab3 .menutab3 a,
+#menutab4 .menutab4 a,
+#menutab5 .menutab5 a,
+#menutab6 .menutab6 a,
+#menutab7 .menutab7 a,
+#menutab8 .menutab8 a
+{
+	background-position:0% -42px;
+	color:#FFF;
+	font-weight: bold !important;
+	/*cursor:default;*/
+}
+#tabs5 .active a span , 
+/*按标签位置命名*/
+#menutab1 .menutab1 a span,
+#menutab2 .menutab2 a span,
+#menutab3 .menutab3 a span,
+#menutab4 .menutab4 a span,
+#menutab5 .menutab5 a span,
+#menutab6 .menutab6 a span,
+#menutab7 .menutab7 a span,
+#menutab8 .menutab8 a span
+{
+	background-position:100% -42px;
+	color:#FFF;
+	font-weight: bold !important;
+}
+
+#tabs5 .bottomline
+{
+background-color: #6EAFE6;/*#83ACCA;*/
+height:3px;
+}
+
+
+/*- Menu Tabs 1--------------------------- */ 
+
+
+#tabs1 {
+	float:left;
+	width:100%;
+	background:#Ffffff;
+	font-size:93%;
+	line-height:normal;
+	border-bottom:1px solid #BCD2E6;
+}
+#tabs1 ul {
+	margin:0;
+	padding:10px 10px 0 50px;
+	list-style:none;
+	white-space:nowrap; /*让li不换行*/
+}
+#tabs1 li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+#tabs1 a
+{
+	float:left;
+	background:url("../images/tab/tableft1.gif") no-repeat left top;
+	margin:0;
+	padding:0 0 0 4px;
+	text-decoration:none;
+	cursor:pointer;
+}
+#tabs1 a span {
+	float:left;
+	display:inline-block; /*保证在宽度不够换行时仍然显示正常*/
+	background:url("../images/tab/tabright1.gif") no-repeat right top;
+	padding:5px 15px 4px 6px;
+	color:#627EB7;
+}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs1 a span {
+	float:none;
+}
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	color:#627EB7;
+}
+#tabs1 a:hover ,
+#tabs1 .active a
+{
+	background-position:0% -42px;
+}
+#tabs1 .active a span,
+#tabs1 a:hover span {
+	background-position:100% -42px;
+}

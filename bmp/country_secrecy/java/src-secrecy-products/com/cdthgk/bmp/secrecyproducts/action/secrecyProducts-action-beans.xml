@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.secrecyProductsAction" class="com.cdthgk.bmp.secrecyproducts.action.SecrecyProductsAction" parent="bmpAction" scope="prototype" >
+		<!--密品的service层注入-->
+		<property name="secrecyProductsService" ref="bmp.secrecyProductsService" ></property>
+		<!--密品密级变更的service层注入-->
+		<property name="secrecyProductsChangeService" ref="bmp.secrecyProductsChangeService" ></property>
+		<!--密品密级解除的service层注入-->
+		<property name="secrecyProductsClearService" ref="bmp.secrecyProductsClearService" />
+		 <!--行政区划  服务层-->
+		<property name="districtService" ref="platform.districtService"/>
+		<property name="organService" ref="platform.organService"/>
+		<property name="dataValidateService" ref="bmp.dataValidateService" ></property>
+	</bean>
+</beans>

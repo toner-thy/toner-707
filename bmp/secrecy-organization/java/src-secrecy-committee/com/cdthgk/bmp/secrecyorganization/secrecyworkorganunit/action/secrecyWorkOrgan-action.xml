@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 保密工作机构控制器Struts配置 -->
+	<package name="secrecyWorkOrgan" extends="com.cdthgk.project" namespace="/secrecyorganization/secrecyWorkOrgan">
+		<!-- 详情配置 -->
+		<action name="secrecyWorkOrgan_detail" method="detail" class="secrecyWorkOrganAction">
+			<result name="detail">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_detail.jsp</result>
+			<result name="add_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+				<param name="actionName">secrecyWorkOrgan_add</param>
+			</result>
+		</action>
+		<!-- 新增配置-->
+		<action name="secrecyWorkOrgan_add" method="add" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_add.jsp</result>
+		</action>
+		<action name="secrecyWorkOrgan_adding" method="adding" class="secrecyWorkOrganAction">
+			<result name="edit">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_edit.jsp</result>
+		</action>
+
+		<!-- 编辑配置 -->
+		<action name="secrecyWorkOrgan_edit" method="edit" class="secrecyWorkOrganAction">
+			<result name="edit">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_edit.jsp</result>
+		</action>
+		<action name="secrecyWorkOrgan_editing" method="editing" class="secrecyWorkOrganAction">
+			<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+				<param name="actionName">secrecyWorkOrgan_detail</param>
+			</result>
+		</action>
+
+		<!-- 获得保密工作机构成员历史变更人员列表 -->
+		<action name="secrecyWorkOrganRelationMember_historyList" method="historyList" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganRelationMember_historyList.jsp</result>
+		</action>
+
+		<!-- 获得保密工作机构成员历史变更人员列表-变更历史列表 -->
+		<action name="secrecyWorkOrganRelationMember_changedList" method="changedList" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganRelationMember_changedList.jsp</result>
+		</action>
+
+		<!-- 获得保密工作机构 办公室成员历史变更人员列表 -->
+		<action name="secrecyWorkOrganMemberUnit_unitHistoryList" method="unitHistoryList" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganMemberUnit_unitHistoryList.jsp</result>
+		</action>
+
+		<!-- 获得保密工作机构 办公室成员历史变更人员列表-变更历史列表 -->
+		<action name="secrecyWorkOrganMemberUnit_unitChangedList" method="unitChangedList" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganMemberUnit_unitChangedList.jsp</result>
+		</action>
+
+		<!-- 上报 -->
+		<action name="secrecyWorkOrgan_report" method="report" class="secrecyWorkOrganAction">
+			<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+				<param name="actionName">secrecyWorkOrgan_detail</param>
+			</result>
+		</action>
+		<action name="secrecyWorkOrgan_query" method="query" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_add.jsp</result>
+		</action>
+
+		<!-- 导出 -->
+		<action name="secrecyWorkOrgan_exportData" class="secrecyWorkOrganAction" method="exportData">
+			<result name="success" type="excel">
+				<param name="location">/exportExcel/secrecyWorkOrganExprotTemplet.xlsx</param>
+				<param name="fileName">保密工作机构.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 统计部分 -->
+		<!-- 按机构类别统计 -->
+		<!-- 本单位 -->
+		<action name="secrecyWorkOrgan_statisticsByOrganTypeCurrent" method="statisticsByOrganTypeCurrent" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByOrganType.jsp</result>
+		</action>
+		<action name="secrecyWorkOrgan_statisticsByOrganType" method="statisticsByOrganType" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByOrganType.jsp</result>
+		</action>
+		<!-- 行政区划合计 -->
+		<action name="secrecyWorkOrgan_statisticsByAreaOfOrganType" method="statisticsByAreaOfOrganType" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfOrganType.jsp</result>
+		</action>
+		<!-- 行政区划合计 -->
+		<action name="secrecyWorkOrgan_statisticsByLayerOfOrganType" method="statisticsByLayerOfOrganType" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfOrganType.jsp</result>
+		</action>
+		<!-- 子行政区划  列表 -->
+		<action name="secrecyWorkOrgan_statisticsByOrganTypeOfDistrict" method="statisticsByOrganTypeOfDistrict" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfOrganType.jsp</result>
+		</action>
+		<!-- 子单位  列表 -->
+		<action name="secrecyWorkOrgan_statisticsByOrganTypeOfOrgan" method="statisticsByOrganTypeOfOrgan" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByOrganType.jsp</result>
+		</action>
+
+
+		<!-- 按行政级别统计 -->
+		<!-- 本单位 -->
+		<action name="secrecyWorkOrgan_statisticsByAdministrativeLevelCurrent" method="statisticsByAdministrativeLevelCurrent" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByAdministrativeLevel.jsp</result>
+		</action>
+		<action name="secrecyWorkOrgan_statisticsByAdministrativeLevel" method="statisticsByAdministrativeLevel" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByAdministrativeLevel.jsp</result>
+		</action>
+		<!-- 直辖单位合计 -->
+		<action name="secrecyWorkOrgan_statisticsByAreaOfAdministrativeLevel" method="statisticsByAreaOfAdministrativeLevel" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfAdministrativeLevel.jsp</result>
+		</action>
+		<!-- 行政区划合计 -->
+		<action name="secrecyWorkOrgan_statisticsByLayerOfAdministrativeLevel" method="statisticsByLayerOfAdministrativeLevel" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfAdministrativeLevel.jsp</result>
+		</action>
+
+		<!-- 子行政区划统计  列表-->
+		<action name="secrecyWorkOrgan_statisticsByAdministrativeLevelOfDistrict" method="statisticsByAdministrativeLevelOfDistrict" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfAdministrativeLevel.jsp</result>
+		</action>
+		<!-- 子单位统计 列表-->
+		<action name="secrecyWorkOrgan_statisticsByAdministrativeLevelOfOrgan" method="statisticsByAdministrativeLevelOfOrgan" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByAdministrativeLevel.jsp</result>
+		</action>
+
+		<!-- 按编制人数统计 -->
+		<!-- 本单位 -->
+		<action name="secrecyWorkOrgan_statisticsByEstablishmentNumCurrent" method="statisticsByEstablishmentNumCurrent" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByEstablishmentNum.jsp</result>
+		</action>
+		<action name="secrecyWorkOrgan_statisticsByEstablishmentNum" method="statisticsByEstablishmentNum" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByEstablishmentNum.jsp</result>
+		</action>
+		<!-- 直辖单位合计 -->
+		<action name="secrecyWorkOrgan_statisticsByAreaOfEstablishmentNum" method="statisticsByAreaOfEstablishmentNum" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfEstablishmentNum.jsp</result>
+		</action>
+		<!-- 行政区划合计 -->
+		<action name="secrecyWorkOrgan_statisticsByLayerOfEstablishmentNum" method="statisticsByLayerOfEstablishmentNum" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfEstablishmentNum.jsp</result>
+		</action>
+		<!-- 子行政区划 列表 -->
+		<action name="secrecyWorkOrgan_statisticsByEstablishmentNumOfDistrict" method="statisticsByEstablishmentNumOfDistrict" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByLayerOfEstablishmentNum.jsp</result>
+		</action>
+		<!-- 子单位 列表 -->
+		<action name="secrecyWorkOrgan_statisticsByEstablishmentNumOfOrgan" method="statisticsByEstablishmentNumOfOrgan" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_statisticsByEstablishmentNumOrgan.jsp</result>
+		</action>
+
+		<!-- 导出部分 -->
+		<!-- 概览  全省 -->
+		<action name="secrecyOfficeStat_exportOverview" method="exportOverview" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOverviewTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 概览  直辖机构 -->
+		<action name="secrecyOfficeStat_exportOverviewOrgan" method="exportOverviewOrgan" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOverviewTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 分类标签 -->
+		<!-- 按机构类别 -->
+		<action name="secrecyOfficeStat_exportOrganTypeDistrict" method="exportOrganTypeDistrict" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOrganTypeDistrictTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+
+		<action name="secrecyOfficeStat_exportOrganTypeOrgan" method="exportOrganTypeOrgan" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOrganTypeDistrictTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+		<!-- 按行政级别 -->
+		<action name="secrecyOfficeStat_exportAdministrativeLevelDistrict" method="exportAdministrativeLevelDistrict" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOrganTypeDistrictTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+
+		<action name="secrecyOfficeStat_exportAdministrativeLevelOrgan" method="exportAdministrativeLevelOrgan" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOrganTypeDistrictTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 按编制人数 -->
+		<action name="secrecyOfficeStat_doExportEstablishmentNum" method="exportEstablishmentNum" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOrganTypeDistrictTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+
+		<action name="secrecyOfficeStat_doExportEstablishmentNumOrgan" method="exportEstablishmentNumOrgan" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOrganTypeDistrictTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 本单位导出 -->
+		<action name="secrecyOfficeStat_exportCurrent" method="exportCurrent" class="secrecyWorkOrganAction">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganExportOverviewTemplet.xlsx</param>
+				<param name="fileName">保密工作机构统计.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="secrecyWorkOrgan_organIndex" method="organIndex" class="secrecyWorkOrganAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrgan_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="secrecyWorkOrgan_dataValidate" method="dataValidate" class="secrecyWorkOrganAction"></action>
+	</package>
+</struts>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.PersonGroupPosition" table="bm_person_group_position">
+		<id name="personGroupPosition" type="java.lang.String">
+			<column name="PERSON_GROUP_POSITION" length="32" />
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+		</id>
+
+		<property name="positionName" type="java.lang.String">
+			<column name="POSITION_NAME" length="30">
+				<comment>职位名称</comment>
+			</column>
+		</property>
+
+		<property name="orderNo" type="java.lang.Integer">
+			<column name="ORDER_NO">
+				<comment>排序</comment>
+			</column>
+		</property>
+
+		<property name="groupType" type="java.lang.Integer">
+			<column name="GROUP_TYPE">
+				<comment>分组类型1为保密工作领导小组2为保密委员会</comment>
+			</column>
+		</property>
+
+		<set name="personGroupRelations" inverse="true">
+			<key>
+				<column name="USER_GROUP_POSITION_ID" length="39">
+					<comment>人员组职位ID</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.PersonGroupRelation" />
+		</set>
+
+	</class>
+</hibernate-mapping>

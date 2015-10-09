@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:context="http://www.springframework.org/schema/context"
+       	xmlns:util="http://www.springframework.org/schema/util"
+		xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+        default-lazy-init="false">
+
+
+	<!-- 一个dao的代理类 现在暂时支持hibernate 和 ibatis -->
+	<bean id="persistProxy" class="com.thgk.framework.persistent.proxy.PersistDAOProxy">
+		<property name="ormPersistence" ref="hibernatePersistence"></property>
+		<property name="jdbcPersistence" ref="jdbcPersistence"></property>
+	</bean>
+
+	<bean id="dialect" class="com.cdthgk.common.db.dialect.MySqlDialect"></bean>
+	<bean id="simpleORMFactory" class="com.cdthgk.component.sorm.SimpleORMFactory">
+		<!--
+		<property name="dataBase" value="platform-bmp"></property>
+		 -->
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="jdbcPersistence" class="com.cdthgk.persistece.jdbc.JdbcPersistenceImpl" parent="project.persistence">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="dialect" ref="dialect"></property>
+		<property name="simpleORMFactory" ref="simpleORMFactory"></property>
+	</bean>
+
+	<!--BMP和中心需要开放，加人员向邮箱服务器加账号
+	<bean id="mail.mailUserInfoPersistenceListener" class="com.cdthgk.mail.persistence.listener.MailUserInfoPersistenceListener">
+	</bean>
+	-->
+	 <!-- 中心需要开放，加单位向邮箱服务器加账号
+ 	<bean id="mail.mailOrganPersistenceListener" class="com.cdthgk.mail.persistence.listener.MailOrganPersistenceListener">
+	</bean>
+	 -->
+	<!--加部门向邮箱服务器加账号
+	<bean id="mail.mailDeparmentPersistenceListener" class="com.cdthgk.mail.persistence.listener.MailDepartmentPersistenceListener">
+	</bean>
+	-->
+
+
+	<util:list id="persistenceListeners">
+
+		<!-- <ref bean="mail.mailUserInfoPersistenceListener" />
+		<ref bean="mail.mailDeparmentPersistenceListener" />
+		<ref bean="mail.mailOrganPersistenceListener" /> -->
+
+	</util:list>
+	<bean id="project.persistence" abstract="true">
+		<property name="listeners" ref="persistenceListeners"/>
+	</bean>
+
+</beans>

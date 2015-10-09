@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<!-- 映射，key代表domainId,value-ref代表具体的DomainFacotryProxy实现类 -->
+	<util:map id="domainProxyFactoryMappings">
+		<!-- 收文拟办  -->
+		<entry key="ca82caea44b435f80144b4455d6f0000" value-ref="domainProxyFactoryDocReadyClass"/>
+		<!-- 收文批示 -->
+		<entry key="ca82caea44b903bc0144b90d15780000" value-ref="domainProxyFactoryDocReadyClass"/>
+		<!-- 收文分发 -->
+		<entry key="ca82caea44be94630144be9ada000002" value-ref="domainProxyFactoryDocReadyClass"/>
+		<!-- 收文办理 -->
+		<entry key="ca82caea44cee2160144ceee12ae0001" value-ref="domainProxyFactoryDocReadyClass"/>
+		<!-- 收文归档 -->
+		<entry key="ca82cae444d2d45d0144d2dcadc70000" value-ref="domainProxyFactoryDocReadyClass"/>
+
+		<!-- 发文待办 -->
+		<entry key="402881cd36a4941c0136a49dc8a7000f" value-ref="domainProxyFactorySendClass"/>
+
+		<!-- 邮件
+			<entry key="officeMail-2001001d" value-ref="domainProxyFactoryMailClass"/>
+		 （邮件菜单不显示数量，是为了使登陆变快，不需要登陆时收取邮件，收取邮件放在消息提醒前，登陆进入系统后）
+		 -->
+	</util:map>
+	<!-- 这个是默认提供的一个DomainProxyFacotry实现，用于把domainId和具体的DomainProxyFactory进行映射 -->
+	<bean id="domainProxyFactoryBmp" class="com.cdthgk.platform.permission.model.DomainProxyFactoryIdMappingImpl">
+		<property name="mapping" ref="domainProxyFactoryMappings"/>
+	</bean>
+</beans>

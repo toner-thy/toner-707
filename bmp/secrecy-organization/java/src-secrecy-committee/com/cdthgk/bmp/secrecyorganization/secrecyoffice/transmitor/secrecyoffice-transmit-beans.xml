@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<bean id="secrecyOffice.communicateHandler" class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.transmitor.handler.SecrecyOfficeCommunicateHandler">
+		<property name="secrecyOfficeExchanger" ref="secrecyOffice.exchanger"/>
+		<property name="serverReportMappingService" ref="platform.exchange.serverReportMappingService"/>
+		<property name="importor" ref="bmp.mysqlImport"/>
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<util:list id="secrecyOffice.listener" list-class="java.util.ArrayList">
+		<bean class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.transmitor.listener.SecrecyOfficeCommunicateListener"/>
+	</util:list>
+
+	<bean id="secrecyOffice.communicator" class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.transmitor.communicator.SecrecyOfficeHttpJAXB2TextCommunicator" parent="platform.communicator">
+		<property name="handler" ref="secrecyOffice.communicateHandler"/>
+		<property name="listeners" ref="secrecyOffice.listener"/>
+	</bean>
+
+	<bean id="secrecyOffice.exchanger" class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.transmitor.exchange.SecrecyOfficeExchanger" parent="platform.serverOrganMappingExchanger">
+		<property name="communicator" ref="secrecyOffice.communicator"/>
+	</bean>
+</beans>

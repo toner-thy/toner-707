@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-15 9:42:11 by Hibernate Tools 3.4.0.CR1 -->
+
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.keyPart.vo.KeyPartChange" table="bm_key_part_change" >
+        <id name="keyPartSecrecyChangeId" type="java.lang.String">
+            <column name="key_part_secrecy_change_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <many-to-one name="keyPartId" class="com.cdthgk.bmp.keyPart.vo.Part" fetch="select">
+            <column name="key_part_id" length="39">
+                <comment>要害部位</comment>
+            </column>
+        </many-to-one>
+        <property name="beforeLevel" type="java.lang.Integer">
+            <column name="before_level" >
+            	<comment>变更前密级</comment>
+            </column>
+        </property>
+        <property name="afterLevel" type="java.lang.Integer">
+            <column name="after_level" >
+            	<comment>变更后密级</comment>
+            </column>
+        </property>
+        <property name="changeTimeState" type="java.lang.Integer">
+            <column name="change_time_state" >
+           		<comment>保密期限变更</comment>
+            </column>
+        </property>
+        <property name="changeDate" type="java.util.Date">
+            <column name="change_date" length="19" >
+            	<comment>变更时间</comment>
+            </column>
+        </property>
+        <property name="changeReason" type="java.lang.String">
+            <column name="change_reason" length="2000" >
+           	    <comment>变更原因</comment>
+            </column>
+        </property>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="create_person" length="39">
+				<comment>创建人员</comment>
+			</column>
+		</many-to-one>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" length="19">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+    </class>
+</hibernate-mapping>

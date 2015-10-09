@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.info.vo.InfoLog" table="bm_info_log">
+        <id name="infoLogId" type="java.lang.String">
+            <column name="info_log_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+    	<many-to-one name="info" class="com.cdthgk.bmp.info.vo.Info" fetch="select">
+           <column name="info_id" length="39">
+                <comment>信息</comment>
+            </column>
+        </many-to-one>
+		<property name="operateTime" type="java.util.Date">
+			<column name="operate_time">
+				<comment>时间</comment>
+			</column>
+		</property>
+		<many-to-one name="operateOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+           <column name="operate_organ" length="39">
+                <comment>操作人单位</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="operateUser" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+            <column name="operate_user" length="39">
+                <comment>操作人</comment>
+            </column>
+        </many-to-one>
+        <property name="operateStatus" type="java.lang.Integer">
+			<column name="operate_status">
+				<comment>操作状态</comment>
+			</column>
+		</property>
+		<property name="operateDes" type="java.lang.String">
+			<column name="operate_des">
+				<comment>操作备注</comment>
+			</column>
+		</property>
+    </class>
+</hibernate-mapping>

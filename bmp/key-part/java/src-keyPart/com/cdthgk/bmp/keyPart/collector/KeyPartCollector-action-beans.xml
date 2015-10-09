@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- SimpleTable 统计要害部位的总个数的配置-->
+	<bean id="keyPartSimpleTableCollector" class="com.cdthgk.bmp.keyPart.collector.KeyPartSimpleTableCollector">
+		<property name="partService" ref="partService"></property>
+	</bean>
+	<bean id="keyPartSimpleTableStatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTableStatWebView">
+		<property name="collector" ref="keyPartSimpleTableCollector"></property>
+	</bean>
+	<bean id="keyPartSimpleTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTable01StatWebView">
+		<property name="collector" ref="keyPartSimpleTableCollector"></property>
+	</bean>
+
+
+	<!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  要害部位个数   这里不需要合计-->
+	<bean id="keyPartComplexTableCollector" class="com.cdthgk.bmp.keyPart.collector.KeyPartComplexTableCollector">
+		<property name="partService" ref="partService"></property>
+	</bean>
+	<bean id="keyPartComplexTableStatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTableStatWebView">
+		<property name="collector" ref="keyPartComplexTableCollector"></property>
+	</bean>
+	<bean id="keyPartComplexTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable01StatWebView">
+		<property name="collector" ref="keyPartComplexTableCollector"></property>
+	</bean>
+	<bean id="keyPartComplexTable02StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable02StatWebView">
+		<property name="collector" ref="keyPartComplexTableCollector"></property>
+	</bean>
+
+
+	<!-- OrganListTable   统计出单位下 要害部位的数量  按照密级统计-->
+	<bean id="keyPartOrganListTableCollector" class="com.cdthgk.bmp.keyPart.collector.KeyPartOrganListTableCollector">
+		<property name="partService" ref="partService"></property>
+	</bean>
+	<bean id="keyPartOrganListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.OrganListTableStatWebView">
+		<property name="collector" ref="keyPartOrganListTableCollector"></property>
+	</bean>
+
+
+	<!-- DistrictListTable 区县综合统计的配置-->
+	<bean id="keyPartDistrictListTableCollector" class="com.cdthgk.bmp.keyPart.collector.KeyPartDistrictListTableCollector">
+		<property name="partService" ref="partService"></property>
+	</bean>
+	<bean id="keyPartDistrictListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.DistrictListTableStatWebView">
+		<property name="collector" ref="keyPartDistrictListTableCollector"></property>
+	</bean>
+
+	<!-- FashionTable  -->
+	<bean id="keyPartFashionTableCollector" class="com.cdthgk.bmp.keyPart.collector.KeyPartFashionTableCollector">
+		<property name="partService" ref="partService"></property>
+	</bean>
+	<bean id="keyPartFashionTableStatWebView" class="com.cdthgk.platform.stat.model.impl.FashionTableStatWebView">
+		<property name="collector" ref="keyPartFashionTableCollector"></property>
+	</bean>
+
+
+</beans>

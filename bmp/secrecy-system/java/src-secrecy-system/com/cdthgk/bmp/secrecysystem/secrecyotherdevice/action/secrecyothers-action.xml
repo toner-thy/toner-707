@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="secrecyothers" extends="com.cdthgk.project" namespace="/secrecysystem/secrecyothers">
+			<action name="others_main" method="main" class="secrecyOthersAction">
+				<result name="main">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_main.jsp</result>
+			</action>
+
+			<action name="others_list" method="list" class="secrecyOthersAction">
+				<result name="list">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_list.jsp</result>
+			</action>
+			<action name="others_add" method="add" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_add.jsp</result>
+			</action>
+
+			<action name="others_adding" method="adding" class="secrecyOthersAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecysystem/secrecyothers</param>
+					<param name="actionName">others_add</param>
+					<param name="needReload">${needReload}</param>
+				</result>
+			</action>
+
+			<action name="others_edit" method="edit" class="secrecyOthersAction">
+				<result name="edit">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_edit.jsp</result>
+			</action>
+
+			<action name="others_editing" method="editing" class="secrecyOthersAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecysystem/secrecyothers</param>
+					<param name="actionName">others_edit</param>
+					<param name="secrecyOthers.secrecyothersId">${secrecyOthers.secrecyothersId}</param>
+					<param name="needReload">${needReload}</param>
+				</result>
+			</action>
+
+			<action name="others_delete" method="delete" class="secrecyOthersAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecysystem/secrecyothers</param>
+					<param name="actionName">others_main</param>
+				</result>
+			</action>
+
+			<action name="others_detail" method="detail" class="secrecyOthersAction">
+				<result name="detail">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_detail.jsp</result>
+			</action>
+
+			<action name="others_secrecyLevelChangeHistory" method="secrecyLevelChangeHistory" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_secrecyLevelChangeHistory.jsp</result>
+			</action>
+
+			<action name="others_secrecyLevelChange" method="secrecyLevelChange" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_secrecyLevelChange.jsp</result>
+			</action>
+
+			<action name="others_secrecyLevelChanging" method="secrecyLevelChanging" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_secrecyLevelChange.jsp</result>
+			</action>
+
+			<action name="others_declassified" method="declassified" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_declassified.jsp</result>
+			</action>
+
+			<action name="others_declassifieding" method="declassifieding" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_declassified.jsp</result>
+			</action>
+
+			<action name="others_declassifiedHistory" method="declassifiedHistory" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_declassifiedHistory.jsp</result>
+			</action>
+
+			<action name="others_export" method="export" class="secrecyOthersAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_ExportTemplet.xlsx</param>
+					<param name="fileName">其他涉密设备.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 密级变更明细 -->
+			<action name="others_secrecyLevelChangeDetail" method="secrecyLevelChangeDetail" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_secrecyLevelChangeDetail.jsp</result>
+			</action>
+
+			<!-- 解除 明细 -->
+			<action name="others_secrecyDeclassifiedDetail" method="secrecyDeclassifiedDetail" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_secrecyDeclassifiedDetail.jsp</result>
+			</action>
+
+			<!-- 各部分的明细 -->
+			<action name="others_baseDetail" method="baseDetail" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_baseDetail.jsp</result>
+			</action>
+
+			<action name="others_levalChangeDetail" method="levalChangeDetail" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_levalChangeDetail.jsp</result>
+			</action>
+
+			<action name="others_declassifiedDetail" method="declassifiedDetail" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_declassifiedDetail.jsp</result>
+			</action>
+
+			<!-- 主页 其他涉密设备统计 -->
+			<action name="others_indexView" method="indexView" class="secrecyOthersAction">
+				<result name="organView">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_indexView.jsp</result>
+				<result name="layerView">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_indexViewLayer.jsp</result>
+			</action>
+
+			<action name="others_countData" method="countData" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_countData.jsp</result>
+			</action>
+			<action name="others_countSubData" method="countSubData" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_countSubData.jsp</result>
+			</action>
+
+			<!-- 涉密移动存储介质   行政区划树 -->
+			<action name="others_query_main" method="query_main" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_query_main.jsp</result>
+			</action>
+			<!-- 涉密移动存储介质  查询结果列表 -->
+			<action name="others_query_list" method="main" class="secrecyOthersAction">
+				<result name="main">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_main.jsp</result>
+				<!-- <result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_query_list.jsp</result> -->
+			</action>
+
+			<!-- 综合统计 -->
+			<!--综合统计 查询 通过行政区划    查询其他涉密设备个数 的明细列表 包括当前行政区划 和下级行政区划 的其他涉密设备的明细-->
+			<action name="zhtj_query_Detail" class="secrecyOthersAction" method="zhtj_query_Detail">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/others_stat_stat.jsp</result>
+			</action>
+			<!--综合统计 查询 统计行政区划其他涉密设备   统计行政区下的直辖单位情况  分单位显示-->
+			<action name="zhtj_queryByDistrict" class="secrecyOthersAction" method="zhtj_queryByDistrict">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/others_stat_organList.jsp</result>
+			</action>
+			<!--综合统计      通过行政区划查询 其他涉密设备  本单位的情况   -->
+			<action name="zhtj_DetailList" class="secrecyOthersAction" method="zhtj_DetailList">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/others_stat_DetailList.jsp</result>
+			</action>
+
+			<!-- 综合统计导出   行政区划统计   -->
+			<action name="stat_exportDistrict" class="secrecyOthersAction" method="stat_exportDistrict">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+					<param name="fileName">行政区划-其他涉密设备统计(综合统计).xlsx</param>
+				</result>
+			</action>
+			<!-- 综合统计导出  行政区下统计   -->
+			<action name="stat_exportLayer" class="secrecyOthersAction" method="stat_exportLayer">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+					<param name="fileName">行政区内-其他涉密设备统计(综合统计).xlsx</param>
+				</result>
+			</action>
+			<action name="zhtj_query" class="secrecyOthersAction" method="zhtj_query">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/others_stat_stat.jsp</result>
+			</action>
+
+			<!-- 保密工作信息总览获取数据 -->
+			<action name="others_organIndex" method="organIndex" class="secrecyOthersAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/others_organIndex.jsp</result>
+			</action>
+			<!-- 数据填写校验 -->
+			<action name="others_dataValidate" method="dataValidate" class="secrecyOthersAction"></action>
+	</package>
+</struts>

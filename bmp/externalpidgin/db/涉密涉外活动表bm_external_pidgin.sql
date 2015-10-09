@@ -1,0 +1,52 @@
+/*
+MySQL Data Transfer
+Source Host: localhost
+Source Database: bmp
+Target Host: localhost
+Target Database: bmp
+Date: 2013-4-10 14:41:56
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for bm_external_pidgin
+-- ----------------------------
+DROP TABLE IF EXISTS `bm_external_pidgin`;
+CREATE TABLE `bm_external_pidgin` (
+  `EXTERNAL_PIDGIN_ID` varchar(39) NOT NULL,
+  `EXTERNAL_PIDGIN_NO` varchar(20) DEFAULT NULL COMMENT '活动编号',
+  `EXTERNAL_PIDGIN_TYPE` varchar(20) DEFAULT NULL COMMENT '活动种类',
+  `SECRECY_LEVEL` int(11) DEFAULT NULL COMMENT '密级',
+  `ETERNAL_PIDGIN_NAME` varchar(60) DEFAULT NULL COMMENT '活动名称',
+  `START_DATE` datetime DEFAULT NULL COMMENT '开始时间',
+  `END_DATE` datetime DEFAULT NULL COMMENT '结束时间',
+  `PLACE` varchar(100) DEFAULT NULL COMMENT '地点',
+  `MAIN_ORGAN` varchar(100) DEFAULT NULL COMMENT '主办单位',
+  `AIDANCE_ORGAN` varchar(100) DEFAULT NULL COMMENT '协办单位',
+  `KEY_WORD` varchar(50) DEFAULT NULL COMMENT '关键词',
+  `UNDERTAKER` varchar(50) DEFAULT NULL COMMENT '承办人员',
+  `SECRECY_DUTIER` varchar(50) DEFAULT NULL COMMENT '保密责任人',
+  `DUTIER_HEADSHIP` varchar(50) DEFAULT NULL COMMENT '责任人职务',
+  `CONTENT` longtext COMMENT '内容',
+  `ORGAN_ID` varchar(39) DEFAULT NULL COMMENT '单位ID',
+  `DEPARTMENT_ID` varchar(39) DEFAULT NULL COMMENT '部门ID',
+  `CREATE_PERSON` varchar(39) DEFAULT NULL COMMENT '输入人员',
+  `CREATE_TIME` datetime DEFAULT NULL COMMENT '创建时间',
+  `MODIFY_PERSON` varchar(39) DEFAULT NULL COMMENT '修改人员',
+  `MODIFY_TIME` datetime DEFAULT NULL COMMENT '修改时间',
+  `REPORT_ORGAN` varchar(255) DEFAULT NULL,
+  `REPORT_ORGAN_STATE` int(11) DEFAULT NULL,
+  `REPORT_ORGAN_TIME` datetime DEFAULT NULL,
+  `REPORT_STATE` int(11) DEFAULT NULL,
+  `REPORT_TIME` datetime DEFAULT NULL,
+  `TRANSMIT_STATE` int(11) DEFAULT NULL,
+  `INCEPT_TIME` datetime DEFAULT NULL COMMENT '接收时间',
+
+PRIMARY KEY (`EXTERNAL_PIDGIN_ID`),
+  KEY `FK6A22A961E402B565` (`DEPARTMENT_ID`),
+  KEY `FK6A22A9611260E254` (`ORGAN_ID`),
+  
+KEY `FK6A22A961C44B8469` (`MODIFY_PERSON`),
+  KEY `FK6A22A9617B01EDE7` (`CREATE_PERSON`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

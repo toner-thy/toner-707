@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- SimpleTable 涉密网络终端的总个数的配置-->
+	<bean id="secrecyNetworkterminalSimpleTableCollector" class="com.cdthgk.bmp.secrecysystem.secrecynetwork.collector.SecrecyNetworkterminalSimpleTableCollector">
+		<property name="secrecyNetworkterminalService" ref="bmp.secrecyNetworkterminalService"></property>
+	</bean>
+	<bean id="secrecyNetworkterminalSimpleTableStatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTableStatWebView">
+		<property name="collector" ref="secrecyNetworkterminalSimpleTableCollector"></property>
+	</bean>
+	<bean id="secrecyNetworkterminalSimpleTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTable01StatWebView">
+		<property name="collector" ref="secrecyNetworkterminalSimpleTableCollector"></property>
+	</bean>
+
+
+	<!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  涉密计算机个数   这里不需要合计-->
+	<bean id="secrecyNetworkterminalComplexTableCollector" class="com.cdthgk.bmp.secrecysystem.secrecynetwork.collector.SecrecyNetworkterminalComplexTableCollector">
+		<property name="secrecyNetworkterminalService" ref="bmp.secrecyNetworkterminalService"></property>
+	</bean>
+	<bean id="secrecyNetworkterminalComplexTableStatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTableStatWebView">
+		<property name="collector" ref="secrecyNetworkterminalComplexTableCollector"></property>
+	</bean>
+	<bean id="secrecyNetworkterminalComplexTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable01StatWebView">
+		<property name="collector" ref="secrecyNetworkterminalComplexTableCollector"></property>
+	</bean>
+	<bean id="secrecyNetworkterminalComplexTable02StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable02StatWebView">
+		<property name="collector" ref="secrecyNetworkterminalComplexTableCollector"></property>
+	</bean>
+
+
+	<!-- OrganListTable   统计出单位下 涉密计算机 的数量  按照密级统计-->
+	<bean id="secrecyNetworkterminalOrganListTableCollector" class="com.cdthgk.bmp.secrecysystem.secrecynetwork.collector.SecrecyNetworkterminalOrganListTableCollector">
+		<property name="secrecyNetworkterminalService" ref="bmp.secrecyNetworkterminalService"></property>
+	</bean>
+	<bean id="secrecyNetworkterminalOrganListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.OrganListTableStatWebView">
+		<property name="collector" ref="secrecyNetworkterminalOrganListTableCollector"></property>
+	</bean>
+
+
+	<!-- DistrictListTable 区县综合统计的配置-->
+	<bean id="secrecyNetworkterminalDistrictListTableCollector" class="com.cdthgk.bmp.secrecysystem.secrecynetwork.collector.SecrecyNetworkterminalDistrictListTableCollector">
+		<property name="secrecyNetworkterminalService" ref="bmp.secrecyNetworkterminalService"></property>
+	</bean>
+	<bean id="secrecyNetworkterminalDistrictListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.DistrictListTableStatWebView">
+		<property name="collector" ref="secrecyNetworkterminalDistrictListTableCollector"></property>
+	</bean>
+
+	<!-- FashionTable  -->
+	<bean id="secrecyNetworkterminalFashionTableCollector" class="com.cdthgk.bmp.secrecysystem.secrecynetwork.collector.SecrecyNetworkterminalFashionTableCollector">
+		<property name="secrecyNetworkterminalService" ref="bmp.secrecyNetworkterminalService"></property>
+	</bean>
+	<bean id="secrecyNetworkterminalFashionTableStatWebView" class="com.cdthgk.platform.stat.model.impl.FashionTableStatWebView">
+		<property name="collector" ref="secrecyNetworkterminalFashionTableCollector"></property>
+	</bean>
+
+
+</beans>

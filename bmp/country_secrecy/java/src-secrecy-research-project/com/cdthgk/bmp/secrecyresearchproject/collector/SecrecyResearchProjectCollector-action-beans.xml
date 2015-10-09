@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- SimpleTable 统计国家秘密事项的总个数的配置-->
+	<bean id="secrecyResearchProjectSimpleTableCollector" class="com.cdthgk.bmp.secrecyresearchproject.collector.SecrecyResearchProjectSimpleTableCollector">
+		<property name="secrecyResearchProjectService" ref="bmp.secrecyResearchProjectService"></property>
+	</bean>
+	<bean id="secrecyResearchProjectSimpleTableStatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTableStatWebView">
+		<property name="collector" ref="secrecyResearchProjectSimpleTableCollector"></property>
+	</bean>
+	<bean id="secrecyResearchProjectSimpleTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTable01StatWebView">
+		<property name="collector" ref="secrecyResearchProjectSimpleTableCollector"></property>
+	</bean>
+
+
+	<!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  涉密科研项目个数   这里不需要合计-->
+	<bean id="secrecyResearchProjectComplexTableCollector" class="com.cdthgk.bmp.secrecyresearchproject.collector.SecrecyResearchProjectComplexTableCollector">
+		<property name="secrecyResearchProjectService" ref="bmp.secrecyResearchProjectService"></property>
+	</bean>
+	<bean id="secrecyResearchProjectComplexTableStatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTableStatWebView">
+		<property name="collector" ref="secrecyResearchProjectComplexTableCollector"></property>
+	</bean>
+	<bean id="secrecyResearchProjectComplexTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable01StatWebView">
+		<property name="collector" ref="secrecyResearchProjectComplexTableCollector"></property>
+	</bean>
+	<bean id="secrecyResearchProjectComplexTable02StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable02StatWebView">
+		<property name="collector" ref="secrecyResearchProjectComplexTableCollector"></property>
+	</bean>
+
+
+	<!-- OrganListTable   统计出单位下 涉密科研项目 的数量  按照密级统计-->
+	<bean id="secrecyResearchProjectOrganListTableCollector" class="com.cdthgk.bmp.secrecyresearchproject.collector.SecrecyResearchProjectOrganListTableCollector">
+		<property name="secrecyResearchProjectService" ref="bmp.secrecyResearchProjectService"></property>
+	</bean>
+	<bean id="secrecyResearchProjectOrganListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.OrganListTableStatWebView">
+		<property name="collector" ref="secrecyResearchProjectOrganListTableCollector"></property>
+	</bean>
+
+
+	<!-- DistrictListTable 区县综合统计的配置-->
+	<bean id="secrecyResearchProjectDistrictListTableCollector" class="com.cdthgk.bmp.secrecyresearchproject.collector.SecrecyResearchProjectDistrictListTableCollector">
+		<property name="secrecyResearchProjectService" ref="bmp.secrecyResearchProjectService"></property>
+	</bean>
+	<bean id="secrecyResearchProjectDistrictListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.DistrictListTableStatWebView">
+		<property name="collector" ref="secrecyResearchProjectDistrictListTableCollector"></property>
+	</bean>
+
+
+	<!-- FashionTable  -->
+	<bean id="secrecyResearchProjectFashionTableCollector" class="com.cdthgk.bmp.secrecyresearchproject.collector.SecrecyResearchProjectFashionTableCollector">
+		<property name="secrecyResearchProjectService" ref="bmp.secrecyResearchProjectService"></property>
+	</bean>
+	<bean id="secrecyResearchProjectFashionTableStatWebView" class="com.cdthgk.platform.stat.model.impl.FashionTableStatWebView">
+		<property name="collector" ref="secrecyResearchProjectFashionTableCollector"></property>
+	</bean>
+
+
+
+</beans>

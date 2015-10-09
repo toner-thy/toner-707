@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 保密委成员控制器Struts配置 -->
+	<package name="secrecyCommitteeMember" extends="com.cdthgk.project" namespace="/secrecyorganization/secrecycommitteemember">
+		<!-- 通用配置 -->
+			<!-- 详情配置 -->
+			<action name="secrecyCommitteeMember_detail" method="detail" class="secrecyCommitteeMemberAction">
+				<result name="detail">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_detail.jsp</result>
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_edit</param>
+					<param name="secrecyCommittee.secrecyCommitteeId">${secrecyCommittee.secrecyCommitteeId}</param>
+				</result>
+			</action>
+
+			<!-- 新增配置 -->
+			<action name="secrecyCommitteeMember_add" method="add" class="secrecyCommitteeMemberAction">
+				<result name="add">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_add.jsp</result>
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_edit</param>
+					<param name="secrecyCommittee.secrecyCommitteeId">${secrecyCommittee.secrecyCommitteeId}</param>
+				</result>
+			</action>
+			<action name="secrecyCommitteeMember_adding" method="adding" class="secrecyCommitteeMemberAction">
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_edit</param>
+					<param name="secrecyCommittee.secrecyCommitteeId">${secrecyCommittee.secrecyCommitteeId}</param>
+				</result>
+				<result name="success">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_add.jsp</result>
+			</action>
+
+			<!-- 编辑配置 -->
+			<action name="secrecyCommitteeMember_edit" method="edit" class="secrecyCommitteeMemberAction">
+				<result name="edit">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_edit.jsp</result>
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_edit</param>
+					<param name="secrecyCommittee.secrecyCommitteeId">${secrecyCommittee.secrecyCommitteeId}</param>
+				</result>
+			</action>
+			<action name="secrecyCommitteeMember_editing" method="editing" class="secrecyCommitteeMemberAction">
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_edit</param>
+					<param name="secrecyCommittee.secrecyCommitteeId">${secrecyCommittee.secrecyCommitteeId}</param>
+				</result>
+				<result name="success">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_edit.jsp</result>
+			</action>
+
+			<!-- 删除配置 -->
+			<action name="secrecyCommitteeMember_delete" method="delete" class="secrecyCommitteeMemberAction">
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_edit</param>
+					<param name="secrecyCommittee.secrecyCommitteeId">${secrecyCommittee.secrecyCommitteeId}</param>
+				</result>
+			</action>
+
+			<action name="secrecyCommitteeMember_persondetail" method="persondetail" class="secrecyCommitteeMemberAction">
+				<result name="success">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_persondetail.jsp</result>
+			</action>
+
+			<!-- 人员变动 -->
+			<action name="secrecyCommitteeMember_personnelChange" method="personnelChange" class="secrecyCommitteeMemberAction">
+				<result name="success">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_personnelChange.jsp</result>
+			</action>
+
+			<action name="secrecyCommitteeMember_personnelChanging" method="personnelChanging" class="secrecyCommitteeMemberAction">
+				<result name="changed">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_personnelChange.jsp</result>
+			</action>
+
+			<!-- 人员变动历史 -->
+			<action name="secrecyCommitteeMember_historyList" method="historyList" class="secrecyCommitteeMemberAction">
+				<result name="success">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_historyList.jsp</result>
+			</action>
+
+			<action name="secrecyCommitteeMember_changedList" method="changedList" class="secrecyCommitteeMemberAction">
+				<result name="success">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommitteeMember_changedList.jsp</result>
+			</action>
+
+		<!-- 私有配置 -->
+			<!-- 请编写您的配置到这里 -->
+
+	</package>
+</struts>

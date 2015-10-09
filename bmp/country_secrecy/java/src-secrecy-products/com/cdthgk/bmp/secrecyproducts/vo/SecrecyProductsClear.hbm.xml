@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-15 14:28:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyproducts.vo.SecrecyProductsClear" table="bm_secrecy_products_clear" >
+        <id name="clearId" type="java.lang.String">
+            <column name="clear_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <many-to-one name="secrecyProducts" class="com.cdthgk.bmp.secrecyproducts.vo.SecrecyProducts" fetch="select">
+            <column name="secrecyproducts_id" length="39">
+                <comment>密品</comment>
+            </column>
+        </many-to-one>
+        <property name="clearType" type="java.lang.Integer">
+            <column name="clear_type" >
+            	<comment>解除类型</comment>
+            </column>
+        </property>
+        <property name="clearTime" type="java.util.Date">
+            <column name="clear_time" length="19" >
+                <comment>解除时间</comment>
+            </column>
+        </property>
+        <property name="reviewPerson" type="java.lang.String">
+            <column name="review_person" length="39" >
+                <comment>审核人</comment>
+            </column>
+        </property>
+        <property name="cleanReason" type="java.lang.String">
+            <column name="clean_reason" length="2000" >
+                <comment>解除原因</comment>
+            </column>
+        </property>
+
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="create_person" length="39">
+                <comment>创建人</comment>
+            </column>
+        </many-to-one>
+        <property name="createDate" type="java.util.Date">
+            <column name="create_date" length="19">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

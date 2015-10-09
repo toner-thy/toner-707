@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--
+	要害部位实体映射文件
+-->
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.keyPart.vo.Part" table="bm_key_part">
+		<id name="partId" type="java.lang.String">
+			<column name="KEY_PART_ID" length="39" />
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+		</id>
+		<property name="partName" type="java.lang.String">
+			<column name="PART_NAME" length="50">
+				<comment>涉密部位名称</comment>
+			</column>
+		</property>
+		<many-to-one name="person" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+			<!-- 四川省历史库是使用的PERSON_ID
+			<column name="DUTY_PERSON" length="39">
+			-->
+			 <column name="PERSON_ID" length="39">
+				<comment>负责人</comment>
+			</column>
+		</many-to-one>
+		<property name="secrecyLevel" type="java.lang.Integer">
+			<column name="SECRECY_LEVEL">
+				<comment>涉密等级</comment>
+			</column>
+		</property>
+
+		<property name="location" type="java.lang.String">
+			<column name="Location" length="50">
+				<comment>具体位置</comment>
+			</column>
+		</property>
+		<property name="managerRule" type="java.lang.Integer">
+			<column name="MANAGER_RULE">
+				<comment>是否建立保密制度(1.是 2.不是)</comment>
+			</column>
+		</property>
+		<property name="secScope" type="java.lang.String">
+			<column name="SEC_SCOPE" length="500">
+				<comment>涉密工作事项及范围</comment>
+			</column>
+		</property>
+		<property name="skillMeasure" type="java.lang.String">
+			<column name="SKILL_MEASURE" length="100">
+				<comment>技防措施</comment>
+			</column>
+		</property>
+
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
+			<column name="ORGAN_ID" length="39">
+				<comment>单位ID</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="createperson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="CREATEPERSON" length="39">
+				<comment>输入人员</comment>
+			</column>
+		</many-to-one>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19">
+				<comment>输入时间</comment>
+			</column>
+		</property>
+		<many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="MODIFY_PERSON" length="39">
+				<comment>修改人员</comment>
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" length="19">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+		 <many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department">
+			<column name="DEPARTMENT_ID" length="39">
+				<comment>部门</comment>
+			</column>
+		</many-to-one>
+		<property name="phone" type="java.lang.String">
+			<column name="PHONE" length="20">
+				<comment>联系电话</comment>
+			</column>
+		</property>
+		<property name="reportState" type="java.lang.Integer">
+            <column name="REPORT_STATE">
+                <comment>0:未上报；1:已上报;</comment>
+            </column>
+        </property>
+
+
+		<!-- 部门与部位关系 -->
+		<set name="departments" table="bm_key_department_part" cascade="all" >
+			<key>
+				<column name="KEY_PART_ID" length="39" />
+			</key>
+			<many-to-many class="com.cdthgk.platform.organization.department.domain.Department" column="DEPARTMENT_ID"/>
+		</set>
+
+		<!-- 部位人员与部位关系 -->
+		<set name="partPersons" inverse="true" >
+			<key>
+				<column name="KEY_PART_ID" length="39">
+					<comment>要害部位ID</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.keyPart.vo.PartPerson" />
+		</set>
+
+		<property name="secrecyStatus" type="java.lang.Integer">
+            <column name="secrecy_status">
+                <comment>解密状态 1解密    0未解密</comment>
+            </column>
+        </property>
+	</class>
+</hibernate-mapping>

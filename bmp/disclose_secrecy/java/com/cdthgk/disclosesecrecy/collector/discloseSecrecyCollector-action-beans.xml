@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+    <!-- FashionTable-->
+    <!-- 泄密案件-->
+	<bean id="discloseSecrecyFashionTableCollector" class="com.cdthgk.disclosesecrecy.collector.DiscloseSecrecyFashionTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+	<bean id="discloseSecrecyFashionTableStatWebView" class="com.cdthgk.platform.stat.model.impl.FashionTableStatWebView">
+		<property name="collector" ref="discloseSecrecyFashionTableCollector"></property>
+	</bean>
+
+
+
+<!-- 严重泄密案件-->
+	<bean id="caseCriticalviolationFashionTableCollector" class="com.cdthgk.disclosesecrecy.collector.CaseCriticalviolationFashionTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+	<bean id="caseCriticalviolationFashionTableStatWebView" class="com.cdthgk.platform.stat.model.impl.FashionTableStatWebView">
+		<property name="collector" ref="caseCriticalviolationFashionTableCollector"></property>
+	</bean>
+
+
+
+
+
+	<!-- SimpleTable 统计泄密案件的总个数的配置-->
+	<!-- 泄密案件-->
+	<bean id="discloseSecrecySimpleTableCollector" class="com.cdthgk.disclosesecrecy.collector.DiscloseSecrecySimpleTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+
+    <bean id="discloseSecrecySimpleTableStatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTableStatWebView">
+		<property name="collector" ref="discloseSecrecySimpleTableCollector"></property>
+	</bean>
+	<bean id="discloseSecrecySimpleTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTable01StatWebView">
+		<property name="collector" ref="discloseSecrecySimpleTableCollector"></property>
+	</bean>
+	<!-- 严重泄密案件-->
+	<bean id="caseCriticalviolationSimpleTableCollector" class="com.cdthgk.disclosesecrecy.collector.CaseCriticalviolationSimpleTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+
+    <bean id="caseCriticalviolationSimpleTableStatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTableStatWebView">
+		<property name="collector" ref="caseCriticalviolationSimpleTableCollector"></property>
+	</bean>
+	<bean id="caseCriticalviolationSimpleTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTable01StatWebView">
+		<property name="collector" ref="caseCriticalviolationSimpleTableCollector"></property>
+	</bean>
+
+    <!-- ComplexTable 通过行政区划  统计   行政区划和直辖单位的  国家秘密事项个数   这里不需要合计-->
+	<!-- 泄密案件-->
+	<bean id="discloseSecrecyComplexTableCollector" class=" com.cdthgk.disclosesecrecy.collector.DiscloseSecrecyComplexTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+	<bean id="discloseSecrecyComplexTableStatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTableStatWebView">
+		<property name="collector" ref="discloseSecrecyComplexTableCollector"></property>
+	</bean>
+	<bean id="discloseSecrecyComplexTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable01StatWebView">
+		<property name="collector" ref="discloseSecrecyComplexTableCollector"></property>
+	</bean>
+	<bean id="discloseSecrecyComplexTable02StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable02StatWebView">
+		<property name="collector" ref="discloseSecrecyComplexTableCollector"></property>
+	</bean>
+	<!-- 严重泄密案件-->
+	<bean id="caseCriticalviolationComplexTableCollector" class=" com.cdthgk.disclosesecrecy.collector.CaseCriticalviolationComplexTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+	<bean id="caseCriticalviolationComplexTableStatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTableStatWebView">
+		<property name="collector" ref="caseCriticalviolationComplexTableCollector"></property>
+	</bean>
+	<bean id="caseCriticalviolationComplexTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable01StatWebView">
+		<property name="collector" ref="caseCriticalviolationComplexTableCollector"></property>
+	</bean>
+	<bean id="caseCriticalviolationComplexTable02StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable02StatWebView">
+		<property name="collector" ref="caseCriticalviolationComplexTableCollector"></property>
+	</bean>
+
+   <!-- OrganListTable -->
+   <!-- 泄密案件-->
+	<bean id="discloseSecrecyOrganListTableCollector" class="com.cdthgk.disclosesecrecy.collector.DiscloseSecrecyOrganListTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+	<bean id="discloseSecrecyOrganListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.OrganListTableStatWebView">
+		<property name="collector" ref="discloseSecrecyOrganListTableCollector"></property>
+	</bean>
+
+     <!-- 严重违规案件-->
+	<bean id="caseCriticalviolationOrganListTableCollector" class="com.cdthgk.disclosesecrecy.collector.CaseCriticalviolationOrganListTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+	<bean id="caseCriticalviolationOrganListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.OrganListTableStatWebView">
+		<property name="collector" ref="caseCriticalviolationOrganListTableCollector"></property>
+	</bean>
+
+    <!-- DistrictListTable 区县综合统计的配置-->
+    <!-- 泄密案件-->
+	<bean id="discloseSecrecyDistrictListTableCollector" class="com.cdthgk.disclosesecrecy.collector.DiscloseSecrecyDistrictListTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+	<bean id="discloseSecrecyDistrictListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.DistrictListTableStatWebView">
+		<property name="collector" ref="discloseSecrecyDistrictListTableCollector"></property>
+	</bean>
+      <!-- 严重违规案件-->
+	<bean id="caseCriticalviolationDistrictListTableCollector" class="com.cdthgk.disclosesecrecy.collector.CaseCriticalviolationDistrictListTableCollector">
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"></property>
+	</bean>
+	<bean id="caseCriticalviolationDistrictListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.DistrictListTableStatWebView">
+		<property name="collector" ref="caseCriticalviolationDistrictListTableCollector"></property>
+	</bean>
+
+</beans>

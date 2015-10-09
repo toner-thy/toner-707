@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.thgk.bmp.devicemgr"  namespace="/bmp/devicemgr" extends="com.cdthgk.project">
+		<!-- 通用配置 -->
+		<action name="deviceMgrAction_main" method="main" class="deviceMgrAction">
+			<result name="main">/bmp/devicemgr/borderlayout/view/devicemgr_main.jsp</result>
+		</action>
+
+		<action name="deviceMgrAction_list" method="list" class="deviceMgrAction">
+			<result name="list">/bmp/devicemgr/borderlayout/view/devicemgr_list.jsp</result>
+		</action>
+
+		<action name="deviceMgrAction_add" method="add" class="deviceMgrAction">
+			<result name="add">/bmp/devicemgr/borderlayout/view/devicemgr_add.jsp</result>
+		</action>
+		<action name="deviceMgrAction_save" method="save" class="deviceMgrAction">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/devicemgr</param>
+				<param name="actionName">deviceMgrAction_list</param>
+				<param name="secrecyEquipmentCategory.secrecyEquipmentCategoryId">${secrecyEquipmentCategory.secrecyEquipmentCategoryId}</param>
+			</result>
+		</action>
+
+		<action name="deviceMgrAction_edit" method="edit" class="deviceMgrAction">
+			<result name="edit">/bmp/devicemgr/borderlayout/view/devicemgr_edit.jsp</result>
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/devicemgr</param>
+				<param name="actionName">deviceMgrAction_list</param>
+				<param name="secrecyEquipmentCategory.secrecyEquipmentCategoryId">${secrecyEquipmentCategory.secrecyEquipmentCategoryId}</param>
+			</result>
+		</action>
+		<action name="deviceMgrAction_update" method="update" class="deviceMgrAction">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/devicemgr</param>
+				<param name="actionName">deviceMgrAction_list</param>
+				<param name="secrecyEquipmentCategory.secrecyEquipmentCategoryId">${secrecyEquipmentCategory.secrecyEquipmentCategoryId}</param>
+			</result>
+		</action>
+
+		<action name="deviceMgrAction_delete" method="delete" class="deviceMgrAction">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/devicemgr</param>
+				<param name="actionName">deviceMgrAction_list</param>
+				<param name="secrecyEquipmentCategory.secrecyEquipmentCategoryId">${secrecyEquipmentCategory.secrecyEquipmentCategoryId}</param>
+			</result>
+		</action>
+
+		<action name="deviceMgrAction_detail" method="detail" class="deviceMgrAction">
+			<result name="detail">/bmp/devicemgr/borderlayout/view/devicemgr_detail.jsp</result>
+		</action>
+
+		<action name="equipmentTrash_*" method="{1}" class="deviceMgrAction">
+			<result name="trashList_action" type="stateRedirectAction">
+				<param name="actionName">equipmentTrash_trashList</param>
+				<param name="equipmentTrash.secrecyEquipment.secrecyEquipmentId">${equipmentTrash.secrecyEquipment.secrecyEquipmentId}</param>
+			</result>
+			<result name="auditTrash_action" type="stateRedirectAction">
+				<param name="actionName">equipmentTrash_auditTrash</param>
+			</result>
+			<result name="saveTrash">/bmp/devicemgr/borderlayout/view/equipmentTrash_addTrash.jsp</result>
+			<result name="trashList">/bmp/devicemgr/borderlayout/view/equipmentTrash_trashList.jsp</result>
+			<result name="trashPassList">/bmp/devicemgr/borderlayout/view/equipmentTrash_trashPassList.jsp</result>
+			<result name="addTrash">/bmp/devicemgr/borderlayout/view/equipmentTrash_addTrash.jsp</result>
+			<result name="editTrash">/bmp/devicemgr/borderlayout/view/equipmentTrash_editTrash.jsp</result>
+			<result name="top">/bmp/devicemgr/borderlayout/view/equipmentTrash_top.jsp</result>
+			<result name="{1}">/bmp/devicemgr/borderlayout/view/equipmentTrash_{1}.jsp</result>
+		</action>
+		<action name="equipmentLoan_*" method="{1}" class="deviceMgrAction">
+			<result name="loanList_action" type="stateRedirectAction">
+				<param name="actionName">equipmentLoan_loanList</param>
+				<param name="equipmentLoan.secrecyEquipment.secrecyEquipmentId">${equipmentLoan.secrecyEquipment.secrecyEquipmentId}</param>
+			</result>
+			<result name="auditLoan_action" type="stateRedirectAction">
+				<param name="actionName">equipmentLoan_auditLoan</param>
+				<param name="equipmentLoan.equipmentLoanId">${equipmentLoan.equipmentLoanId}</param>
+			</result>
+			<result name="auditLoan1_action" type="stateRedirectAction">
+				<param name="actionName">equipmentLoan_auditLoan1</param>
+				<param name="equipmentLoan.equipmentLoanId">${equipmentLoan.equipmentLoanId}</param>
+			</result>
+			<result name="saveLoan">/bmp/devicemgr/borderlayout/view/equipmentLoan_addLoan.jsp</result>
+			<result name="loanList">/bmp/devicemgr/borderlayout/view/equipmentLoan_loanList.jsp</result>
+			<result name="editLoan">/bmp/devicemgr/borderlayout/view/equipmentLoan_editLoan.jsp</result>
+			<result name="addLoan">/bmp/devicemgr/borderlayout/view/equipmentLoan_addLoan.jsp</result>
+			<result name="auditLoan">/bmp/devicemgr/borderlayout/view/equipmentLoan_auditLoan.jsp</result>
+			<result name="auditLoan1">/bmp/devicemgr/borderlayout/view/equipmentLoan_auditLoan1.jsp</result>
+			<result name="addAuditLoan">/bmp/devicemgr/borderlayout/view/equipmentLoan_addAuditLoan.jsp</result>
+			<result name="addAuditLoan1">/bmp/devicemgr/borderlayout/view/equipmentLoan_addAuditLoan1.jsp</result>
+		</action>
+	</package>
+</struts>

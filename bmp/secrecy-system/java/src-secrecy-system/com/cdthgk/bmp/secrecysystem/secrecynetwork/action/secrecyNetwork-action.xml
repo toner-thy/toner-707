@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.secrecysystem.secrecynetwork"  namespace="/bmp/secrecynetwork" extends="com.cdthgk.project">
+		<action name="secrecyNetwork_main" class="bmp.secrecyNetworkAction" method="main">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_main.jsp</result>
+        </action>
+		<action name="secrecyNetwork_main2" class="bmp.secrecyNetworkAction" method="main">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_main.jsp</result>
+        </action>
+		<action name="secrecyNetwork_mainQuery" class="bmp.secrecyNetworkAction" method="mainQuery">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_mainQuery.jsp</result>
+        </action>
+		<action name="secrecyNetwork_list" class="bmp.secrecyNetworkAction" method="list">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_list.jsp</result>
+        </action>
+
+        <action name="secrecyNetwork_add" class="bmp.secrecyNetworkAction" method="add">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_add.jsp</result>
+        </action>
+
+        <action name="secrecyNetwork_adding" class="bmp.secrecyNetworkAction" method="adding">
+        	<result name="add_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecynetwork</param>
+				<param name="actionName">secrecyNetwork_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+        <action name="secrecyNetwork_edit" class="bmp.secrecyNetworkAction" method="edit">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_edit.jsp</result>
+        </action>
+
+        <action name="secrecyNetwork_editing" class="bmp.secrecyNetworkAction" method="editing">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecynetwork</param>
+				<param name="actionName">secrecyNetwork_edit</param>
+				<param name="needReload">${needReload}</param>
+				<param name="secrecyNetwork.secrecyNetworkId">${secrecyNetwork.secrecyNetworkId}</param>
+			</result>
+        </action>
+
+        <action name="secrecyNetwork_detail" class="bmp.secrecyNetworkAction" method="detail">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_detail.jsp</result>
+        </action>
+        <action name="secrecyNetwork_detailChange" class="bmp.secrecyNetworkAction" method="detailChange">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_detailChange.jsp</result>
+        </action>
+
+        <action name="secrecyNetwork_delete" class="bmp.secrecyNetworkAction" method="delete">
+        	<result name="main_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecynetwork</param>
+				<param name="actionName">secrecyNetwork_main</param>
+			</result>
+        </action>
+        <action name="secrecyNetwork_secrecyChange" class="bmp.secrecyNetworkAction" method="secrecyChange">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_secrecyChange.jsp</result>
+        </action>
+        <!-- 导出 -->
+		<action name="secrecyNetwork_exportData" class="bmp.secrecyNetworkAction" method="exportData">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetworkTemplet.xlsx</param>
+				<param name="fileName">涉密网络.xlsx</param>
+			</result>
+		</action>
+
+
+		<!-- 密级变更-->
+		<action name="secrecyNetwork_secrecyChangeList" method="secrecyChangeList" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_secrecyChangeList.jsp</result>
+		</action>
+		<action name="secrecyNetwork_secrecyChange" method="secrecyChange" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_secrecyLevelChange.jsp</result>
+		</action>
+		<action name="secrecyNetwork_secrecyChanging" method="secrecyChanging" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_secrecyLevelChange.jsp</result>
+		</action>
+		<!-- 密级解除 -->
+		<action name="secrecyNetwork_decryptionList" method="decryptionList" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_decryptionList.jsp</result>
+		</action>
+		<action name="secrecyNetwork_decryption" method="decryption" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_decryption.jsp</result>
+		</action>
+		<action name="secrecyNetwork_decryptioning" method="decryptioning" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_decryption.jsp</result>
+		</action>
+
+		<!--网络 添加和移除计算机 -->
+		<action name="secrecyNetwork_addComputer" method="addComputer" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_addComputer.jsp</result>
+		</action>
+
+		<!-- 查询网络的计算机列表 -->
+		<action name="secrecyNetwork_removeComputer" method="removeComputer" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_removeComputer.jsp</result>
+		</action>
+
+		<!-- 移除计算机 -->
+		<action name="secrecyNetwork_rmcomputer" method="rmcomputer" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_rmcomputer.jsp</result>
+		</action>
+
+		<!-- 查询涉密网络  自动补全 -->
+		<action name="autocomplete" class="bmp.secrecyNetworkAction" method="autocomplete" />
+
+		<!-- 查询涉密网络  页面配置 -->
+		<action name="singelSelect" class="bmp.secrecyNetworkAction" method="singelSelect">
+			<result name="success" type="com.cdthgk.web.templateDispatcher">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_selectSecrecyNetwork.jsp</result>
+		</action>
+
+		<!-- 主页 涉密网络统计 -->
+		<action name="secrecyNetwork_indexView" method="indexView" class="bmp.secrecyNetworkAction">
+			<result name="organView">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_indexView.jsp</result>
+			<result name="layerView">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_indexViewLayer.jsp</result>
+		</action>
+
+		<action name="secrecyNetwork_countData" method="countData" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_countData.jsp</result>
+		</action>
+		<action name="secrecyNetwork_countSubData" method="countSubData" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_countSubData.jsp</result>
+		</action>
+
+		<!-- 综合统计 -->
+		<!--综合统计 查询 通过行政区划    查询涉密网络个数 的明细列表 包括当前行政区划 和下级行政区划 的涉密网络的明细-->
+		<action name="zhtj_query_Detail" class="bmp.secrecyNetworkAction" method="zhtj_query_Detail">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/secrecyNetwork_stat_stat.jsp</result>
+		</action>
+		<!--综合统计 查询 统计行政区划涉密网络   统计行政区下的直辖单位情况  分单位显示-->
+		<action name="zhtj_queryByDistrict" class="bmp.secrecyNetworkAction" method="zhtj_queryByDistrict">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/secrecyNetwork_stat_organList.jsp</result>
+		</action>
+		<!--综合统计      通过行政区划查询 涉密网络  本单位的情况   -->
+		<action name="zhtj_DetailList" class="bmp.secrecyNetworkAction" method="zhtj_DetailList">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/secrecyNetwork_stat_DetailList.jsp</result>
+		</action>
+
+		<!-- 综合统计导出   行政区划统计   -->
+		<action name="stat_exportDistrict" class="bmp.secrecyNetworkAction" method="stat_exportDistrict">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+				<param name="fileName">行政区划-涉密网络统计(综合统计).xlsx</param>
+			</result>
+		</action>
+		<!-- 综合统计导出  行政区下统计   -->
+		<action name="stat_exportLayer" class="bmp.secrecyNetworkAction" method="stat_exportLayer">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+				<param name="fileName">行政区内-涉密网络统计(综合统计).xlsx</param>
+			</result>
+		</action>
+
+		<action name="zhtj_query" class="bmp.secrecyNetworkAction" method="zhtj_query">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/secrecyNetwork_stat_stat.jsp</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="secrecyNetwork_organIndex" method="organIndex" class="bmp.secrecyNetworkAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="secrecyNetwork_dataValidate" method="dataValidate" class="bmp.secrecyNetworkAction"></action>
+  </package>
+</struts>

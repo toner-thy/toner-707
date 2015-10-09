@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.secrecysystem.secrecycomputer"  namespace="/bmp/secrecycomputer" extends="com.cdthgk.project">
+		<action name="secrecyComputer_main" class="bmp.secrecyComputerAction" method="main">
+        	<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_main.jsp</result>
+        </action>
+		<action name="secrecyComputer_main2" class="bmp.secrecyComputerAction" method="main">
+        	<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_main.jsp</result>
+        </action>
+		<action name="secrecyComputer_list" class="bmp.secrecyComputerAction" method="list">
+        	<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_list.jsp</result>
+        </action>
+		<action name="secrecyComputer_mainQuery" class="bmp.secrecyComputerAction" method="mainQuery">
+        	<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_mainQuery.jsp</result>
+        </action>
+
+        <action name="secrecyComputer_add" class="bmp.secrecyComputerAction" method="add">
+        	<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_add.jsp</result>
+        </action>
+
+        <action name="secrecyComputer_adding" class="bmp.secrecyComputerAction" method="adding">
+        	<result name="add_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecycomputer</param>
+				<param name="actionName">secrecyComputer_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+        <action name="secrecyComputer_edit" class="bmp.secrecyComputerAction" method="edit">
+        	<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_edit.jsp</result>
+        </action>
+
+        <action name="secrecyComputer_editing" class="bmp.secrecyComputerAction" method="editing">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecycomputer</param>
+				<param name="actionName">secrecyComputer_edit</param>
+				<param name="needReload">${needReload}</param>
+				<param name="secrecyComputer.secrecycomputerId">${secrecyComputer.secrecycomputerId}</param>
+			</result>
+        </action>
+
+        <action name="secrecyComputer_detail" class="bmp.secrecyComputerAction" method="detail">
+        	<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_detail.jsp</result>
+        </action>
+        <action name="secrecyComputer_detailChange" class="bmp.secrecyComputerAction" method="detailChange">
+        	<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_detailChange.jsp</result>
+        </action>
+
+        <action name="secrecyComputer_delete" class="bmp.secrecyComputerAction" method="delete">
+        	<result name="main_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecycomputer</param>
+				<param name="actionName">secrecyComputer_main</param>
+			</result>
+        </action>
+        <action name="secrecyComputer_secrecyChange" class="bmp.secrecyComputerAction" method="secrecyChange">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_secrecyChange.jsp</result>
+        </action>
+        <!-- 导出 -->
+		<action name="secrecyComputer_exportData" class="bmp.secrecyComputerAction" method="exportData">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputerTemplet.xlsx</param>
+				<param name="fileName">涉密计算机.xlsx</param>
+			</result>
+		</action>
+
+
+		<!-- 密级变更-->
+		<action name="secrecyComputer_secrecyChangeList" method="secrecyChangeList" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_secrecyChangeList.jsp</result>
+		</action>
+		<action name="secrecyComputer_secrecyChange" method="secrecyChange" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_secrecyLevelChange.jsp</result>
+		</action>
+		<action name="secrecyComputer_secrecyChanging" method="secrecyChanging" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_secrecyLevelChange.jsp</result>
+		</action>
+		<!-- 密级解除 -->
+		<action name="secrecyComputer_decryptionList" method="decryptionList" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_decryptionList.jsp</result>
+		</action>
+		<action name="secrecyComputer_decryption" method="decryption" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_decryption.jsp</result>
+		</action>
+		<action name="secrecyComputer_decryptioning" method="decryptioning" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_decryption.jsp</result>
+		</action>
+		<!-- 涉密计算机接入网络 -->
+		<action name="secrecyComputer_addNet" method="addNet" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_addNet.jsp</result>
+		</action>
+		<!-- 涉密计算机移除网络 -->
+		<action name="secrecyComputer_removeNet" method="removeNet" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_removeNet.jsp</result>
+		</action>
+
+		<!-- 查询涉密计算机  自动补全 -->
+		<action name="autocomplete" method="autocomplete" class="bmp.secrecyComputerAction" />
+
+		<!-- 查询涉密计算机  页面配置 -->
+		<action name="singelSelect" method="singelSelect" class="bmp.secrecyComputerAction" >
+			<result name="success" type="com.cdthgk.web.templateDispatcher">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_selectSecrecyComputer.jsp</result>
+		</action>
+
+		<action name="secrecyComputer_ajax_isTerminalOfkeyPart" method="ajax_isTerminalOfkeyPart" class="bmp.secrecyComputerAction"></action>
+		<!-- 验证计算机硬盘序列号唯一性 -->
+		<action name="secrecyComputer_chkDiskSeq" method="chkDiskSeq" class="bmp.secrecyComputerAction"></action>
+		<!-- 验证计算机编号单位内唯一性 -->
+		<action name="secrecyComputer_chkComputerNo" method="chkComputerNo" class="bmp.secrecyComputerAction"></action>
+
+		<!-- 首页面板展示统计  本单位-->
+		<action name="secrecyComputer_indexView" method="indexView" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_indexView.jsp</result>
+		</action>
+		<!-- 首页面板展示统计  保密局-->
+		<action name="secrecyComputer_indexViewDistrict" method="indexViewDistrict" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_indexView.jsp</result>
+		</action>
+
+		<!-- 综合统计 -->
+		<!--综合统计 查询 通过行政区划    查询涉密计算机个数 的明细列表 包括当前行政区划 和下级行政区划 的涉密计算机的明细-->
+		<action name="zhtj_query_Detail" class="bmp.secrecyComputerAction" method="zhtj_query_Detail">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/stat/secrecyComputer_stat_stat.jsp</result>
+		</action>
+		<!--综合统计 查询 统计行政区划涉密计算机   统计行政区下的直辖单位情况  分单位显示-->
+		<action name="zhtj_queryByDistrict" class="bmp.secrecyComputerAction" method="zhtj_queryByDistrict">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/stat/secrecyComputer_stat_organList.jsp</result>
+		</action>
+		<!--综合统计      通过行政区划查询 涉密计算机  本单位的情况   -->
+		<action name="zhtj_DetailList" class="bmp.secrecyComputerAction" method="zhtj_DetailList">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/stat/secrecyComputer_stat_DetailList.jsp</result>
+		</action>
+
+		<!-- 综合统计导出   行政区划统计   -->
+		<action name="stat_exportDistrict" class="bmp.secrecyComputerAction" method="stat_exportDistrict">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+				<param name="fileName">行政区划-涉密计算机统计(综合统计).xlsx</param>
+			</result>
+		</action>
+		<!-- 综合统计导出   行政区下统计   -->
+		<action name="stat_exportLayer" class="bmp.secrecyComputerAction" method="stat_exportLayer">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+				<param name="fileName">行政区内-涉密计算机统计(综合统计).xlsx</param>
+			</result>
+		</action>
+
+		<action name="zhtj_query" class="bmp.secrecyComputerAction" method="zhtj_query">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/stat/secrecyComputer_stat_stat.jsp</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="secrecyComputer_organIndex" method="organIndex" class="bmp.secrecyComputerAction">
+			<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputer_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="secrecyComputer_dataValidate" method="dataValidate" class="bmp.secrecyComputerAction"></action>
+  </package>
+</struts>

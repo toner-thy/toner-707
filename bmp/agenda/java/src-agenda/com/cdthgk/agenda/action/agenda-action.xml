@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="agenda.agendaAction" namespace="/agenda/agenda" extends="com.cdthgk.project">
+		<action name="agenda_list" method="list" class="agenda.agendaAction">
+			<result name="success">/agenda/borderlayout/view/agenda_list.jsp</result>
+		</action>
+		<action name="agenda_add" method="add" class="agenda.agendaAction">
+			<result name="success">/agenda/borderlayout/view/agenda_add.jsp</result>
+		</action>
+		<action name="agenda_addOther" method="addOther" class="agenda.agendaAction">
+			<result name="success">/agenda/borderlayout/view/agenda_add.jsp</result>
+		</action>
+		<action name="agenda_adding" method="adding" class="agenda.agendaAction">
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/agenda/agenda</param>
+				<param name="actionName">agenda_add</param>
+				<param name="needReload">${needReload }</param>
+			</result>
+		</action>
+		<action name="agenda_edit" method="edit" class="agenda.agendaAction">
+			<result name="success">/agenda/borderlayout/view/agenda_edit.jsp</result>
+		</action>
+		<action name="agenda_editing" method="editing" class="agenda.agendaAction">
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/agenda/agenda</param>
+				<param name="actionName">agenda_edit</param>
+				<param name="id">${agenda.agendaId}</param>
+				<param name="needReload">${needReload }</param>
+			</result>
+		</action>
+		<action name="agenda_delete" method="delete" class="agenda.agendaAction">
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/agenda/agenda</param>
+				<param name="actionName">agenda_list</param>
+			</result>
+		</action>
+		<action name="agenda_detail" method="detail" class="agenda.agendaAction">
+			<result name="success">/agenda/borderlayout/view/agenda_detail.jsp</result>
+		</action>
+		<action name="agenda_calendar" method="calendar" class="agenda.agendaAction">
+			<result name="success">/agenda/borderlayout/view/agenda_calendar.jsp</result>
+		</action>
+		<action name="agenda_redictMail" method="redictMail" class="agenda.agendaAction">
+			<result name="success">/agenda/borderlayout/view/agenda_redictMail.jsp</result>
+		</action>
+		<action name="agenda_indexView" method="indexView" class="agenda.agendaAction">
+			<result name="success">/agenda/borderlayout/view/agenda_indexView.jsp</result>
+		</action>
+	</package>
+	</struts>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="secrecymobilestoragemedia" extends="com.cdthgk.project" namespace="/secrecysystem/secrecymobilestoragemedia">
+			<action name="mobilestoragemedia_main" method="main" class="secrecyMobilestoragemediaAction">
+				<result name="main">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_main.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_list" method="list" class="secrecyMobilestoragemediaAction">
+				<result name="list">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_list.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_add" method="add" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_add.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_adding" method="adding" class="secrecyMobilestoragemediaAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecysystem/secrecymobilestoragemedia</param>
+					<param name="actionName">mobilestoragemedia_add</param>
+					<param name="needReload">${needReload}</param>
+				</result>
+			</action>
+
+			<action name="mobilestoragemedia_edit" method="edit" class="secrecyMobilestoragemediaAction">
+				<result name="edit">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_edit.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_editing" method="editing" class="secrecyMobilestoragemediaAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecysystem/secrecymobilestoragemedia</param>
+					<param name="actionName">mobilestoragemedia_edit</param>
+					<param name="secrecyMobilestoragemedia.secrecymobilestoragemediaId">${secrecyMobilestoragemedia.secrecymobilestoragemediaId}</param>
+					<param name="needReload">${needReload}</param>
+				</result>
+			</action>
+
+			<action name="mobilestoragemedia_delete" method="delete" class="secrecyMobilestoragemediaAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecysystem/secrecymobilestoragemedia</param>
+					<param name="actionName">mobilestoragemedia_main</param>
+				</result>
+			</action>
+
+			<action name="mobilestoragemedia_detail" method="detail" class="secrecyMobilestoragemediaAction">
+				<result name="detail">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_detail.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_secrecyLevelChangeHistory" method="secrecyLevelChangeHistory" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_secrecyLevelChangeHistory.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_secrecyLevelChange" method="secrecyLevelChange" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_secrecyLevelChange.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_secrecyLevelChanging" method="secrecyLevelChanging" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_secrecyLevelChange.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_declassified" method="declassified" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_declassified.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_declassifieding" method="declassifieding" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_declassified.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_declassifiedHistory" method="declassifiedHistory" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_declassifiedHistory.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_export" method="export" class="secrecyMobilestoragemediaAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_ExportTemplet.xlsx</param>
+					<param name="fileName">涉密移动存储介质.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 密级变更明细 -->
+			<action name="mobilestoragemedia_secrecyLevelChangeDetail" method="secrecyLevelChangeDetail" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_secrecyLevelChangeDetail.jsp</result>
+			</action>
+
+			<!-- 解除 明细 -->
+			<action name="mobilestoragemedia_secrecyDeclassifiedDetail" method="secrecyDeclassifiedDetail" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_secrecyDeclassifiedDetail.jsp</result>
+			</action>
+
+			<!-- 各部分的明细 -->
+			<action name="mobilestoragemedia_baseDetail" method="baseDetail" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_baseDetail.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_levalChangeDetail" method="levalChangeDetail" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_levalChangeDetail.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_declassifiedDetail" method="declassifiedDetail" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_declassifiedDetail.jsp</result>
+			</action>
+
+			<!-- 主页涉密移动存储介质统计 -->
+			<action name="mobilestoragemedia_indexView" method="indexView" class="secrecyMobilestoragemediaAction">
+				<result name="organView">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_indexView.jsp</result>
+				<result name="layerView">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_indexViewLayer.jsp</result>
+			</action>
+
+			<action name="mobilestoragemedia_countData" method="countData" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_countData.jsp</result>
+			</action>
+			<action name="mobilestoragemedia_countSubData" method="countSubData" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_countSubData.jsp</result>
+			</action>
+
+			<!-- 涉密移动存储介质   行政区划树 -->
+			<action name="mobilestoragemedia_query_main" method="query_main" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_query_main.jsp</result>
+			</action>
+			<!-- 涉密移动存储介质  查询结果列表 -->
+			<action name="mobilestoragemedia_query_list" method="main" class="secrecyMobilestoragemediaAction">
+				<result name="main">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_main.jsp</result>
+				<!-- <result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_query_list.jsp</result> -->
+			</action>
+
+			<!-- 综合统计 -->
+			<!--综合统计 查询 通过行政区划    查询涉密计算机个数 的明细列表 包括当前行政区划 和下级行政区划 的涉密计算机的明细-->
+			<action name="zhtj_query_Detail" class="secrecyMobilestoragemediaAction" method="zhtj_query_Detail">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/mobilestoragemedia_stat_stat.jsp</result>
+			</action>
+			<!--综合统计 查询 统计行政区划涉密计算机   统计行政区下的直辖单位情况  分单位显示-->
+			<action name="zhtj_queryByDistrict" class="secrecyMobilestoragemediaAction" method="zhtj_queryByDistrict">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/mobilestoragemedia_stat_organList.jsp</result>
+			</action>
+			<!--综合统计      通过行政区划查询 涉密计算机  本单位的情况   -->
+			<action name="zhtj_DetailList" class="secrecyMobilestoragemediaAction" method="zhtj_DetailList">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/mobilestoragemedia_stat_DetailList.jsp</result>
+			</action>
+
+			<!-- 综合统计导出   行政区划统计   -->
+			<action name="stat_exportDistrict" class="secrecyMobilestoragemediaAction" method="stat_exportDistrict">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+					<param name="fileName">行政区划-涉密移动存储介质统计(综合统计).xlsx</param>
+				</result>
+			</action>
+			<!-- 综合统计导出  行政区下统计   -->
+			<action name="stat_exportLayer" class="secrecyMobilestoragemediaAction" method="stat_exportLayer">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+					<param name="fileName">行政区内-涉密移动存储介质统计(综合统计).xlsx</param>
+				</result>
+			</action>
+
+			<action name="zhtj_query" class="secrecyMobilestoragemediaAction" method="zhtj_query">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/stat/mobilestoragemedia_stat_stat.jsp</result>
+			</action>
+
+			<!-- 保密工作信息总览获取数据 -->
+			<action name="mobilestoragemedia_organIndex" method="organIndex" class="secrecyMobilestoragemediaAction">
+				<result name="success">/bmp/secrecy-system/secrecy-otherdevice/borderlayout/view/mobilestoragemedia_organIndex.jsp</result>
+			</action>
+			<!-- 数据填写校验 -->
+			<action name="mobilestoragemedia_dataValidate" method="dataValidate" class="secrecyMobilestoragemediaAction"></action>
+	</package>
+</struts>

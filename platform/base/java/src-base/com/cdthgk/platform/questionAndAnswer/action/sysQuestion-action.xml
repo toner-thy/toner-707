@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bmp.sysQuestion" namespace="/bmp/sysQuestion" extends="com.cdthgk.project">
+		<action name="sysQuestion_list" method="list" class="bmp.sysQuestionAction">
+			<result name="success">/platform/jsp/public/questionAndAnswer/sysQuestion_list.jsp</result>
+		</action>
+
+		<action name="sysQuestion_listAll" method="listAll" class="bmp.sysQuestionAction">
+			<result name="success">/platform/jsp/public/questionAndAnswer/sysQuestion_listAll.jsp</result>
+		</action>
+
+		<action name="sysQuestion_findAnswer" method="findAnswer" class="bmp.sysQuestionAction"></action>
+
+		<action name="sysQuestion_add" method="add" class="bmp.sysQuestionAction">
+			<result name="success">/platform/jsp/public/questionAndAnswer/sysQuestion_add.jsp</result>
+		</action>
+
+		<action name="sysQuestion_adding" method="adding" class="bmp.sysQuestionAction">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/sysQuestion</param>
+				<param name="actionName">sysQuestion_list</param>
+			</result>
+		</action>
+
+		<action name="sysQuestion_edit" method="edit" class="bmp.sysQuestionAction">
+			<result name="success">/platform/jsp/public/questionAndAnswer/sysQuestion_edit.jsp</result>
+		</action>
+
+		<action name="sysQuestion_editing" method="editing" class="bmp.sysQuestionAction">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/sysQuestion</param>
+				<param name="actionName">sysQuestion_list</param>
+			</result>
+		</action>
+
+		<action name="sysQuestion_detail" method="detail" class="bmp.sysQuestionAction">
+			<result name="success">/platform/jsp/public/questionAndAnswer/sysQuestion_detail.jsp</result>
+		</action>
+
+		<action name="sysQuestion_delete" class="bmp.sysQuestionAction" method="delete">
+        	<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/sysQuestion</param>
+				<param name="actionName">sysQuestion_list</param>
+			</result>
+        </action>
+	</package>
+</struts>

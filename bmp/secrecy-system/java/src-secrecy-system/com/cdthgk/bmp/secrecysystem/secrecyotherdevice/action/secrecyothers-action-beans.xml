@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="secrecyOthersAction" class="com.cdthgk.bmp.secrecysystem.secrecyotherdevice.action.SecrecyOthersAction" parent="bmpAction" scope="prototype">
+		<property name="secrecyOthersService" ref="secrecyOthersService"/>
+		<property name="secrecyOthersChangeService" ref="secrecyOthersChangeService"/>
+		<property name="secrecyOthersClearService" ref="secrecyOthersClearService"/>
+		<property name="districtService" ref="platform.districtService"/>
+		<property name="dataValidateService" ref="bmp.dataValidateService" ></property>
+	</bean>
+</beans>

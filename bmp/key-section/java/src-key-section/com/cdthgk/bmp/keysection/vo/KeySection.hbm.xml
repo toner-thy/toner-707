@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.keysection.vo.KeySection" table="bm_key_section">
+		<id name="keySectionId" type="java.lang.String">
+			<column name="KEY_SECTION_ID" />
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+		</id>
+		<many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department">
+			<column name="DEPARTMENT_ID" length="39">
+				<comment>部门</comment>
+			</column>
+		</many-to-one>
+		<property name="secrecyLevel" type="java.lang.Integer">
+			<column name="SECRECY_LEVEL" >
+				<comment>密级</comment>
+			</column>
+		</property>
+		<property name="authorizeOrgan" type="java.lang.String">
+			<column name="AUTHORIZE_ORGAN">
+				<comment>批准机关</comment>
+			</column>
+		</property>
+		<property name="authorizeDate" type="java.util.Date">
+			<column name="AUTHORIZE_DATE">
+				<comment>批准日期</comment>
+			</column>
+		</property>
+		<property name="importance" type="java.lang.Integer">
+			<column name="IMPORTANCE" >
+				<comment>重要性</comment>
+			</column>
+		</property>
+		<property name="secScope" type="java.lang.String">
+			<column name="SEC_SCOPE" >
+				<comment>涉密工作事项及范围</comment>
+			</column>
+		</property>
+		<property name="annulPerson" type="com.cdthgk.platform.permission.user.domain.User">
+			<column name="ANNUL_PERSON" >
+				<comment>撤销人</comment>
+			</column>
+		</property>
+		<property name="annulDate" type="java.util.Date">
+			<column name="ANNUL_DATE" >
+				<comment>撤销日期</comment>
+			</column>
+		</property>
+		<property name="annulCause" type="java.lang.String">
+			<column name="ANNUL_CAUSE" >
+				<comment>撤销原因</comment>
+			</column>
+		</property>
+		<property name="remark" type="java.lang.String">
+			<column name="REMARK" >
+				<comment>备注</comment>
+			</column>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="STATUS" >
+				<comment>状态</comment>
+			</column>
+		</property>
+		<property name="tankNum" type="java.lang.Integer">
+			<column name="TANK_NUM" >
+				<comment>存放涉密载体铁轨数量</comment>
+			</column>
+		</property>
+		<property name="passwordFileTankNum" type="java.lang.Integer">
+			<column name="PASSWORD_FILE_TANK_NUM" >
+				<comment>存放涉密载体密码文件柜数量</comment>
+			</column>
+		</property>
+		<property name="secrecyCarrierTankNum" type="java.lang.Integer">
+			<column name="SECRECY_CARRIER_TANK_NUM" >
+				<comment>存放涉密载体保险柜数量</comment>
+			</column>
+		</property>
+		<property name="secrecyCarrierDisTurbNum" type="java.lang.Integer">
+			<column name="SECRECY_CARRIER_DISTURB_NUM" >
+				<comment>存放涉密载体密码文件柜数量</comment>
+			</column>
+		</property>
+		<property name="mainArea" type="java.lang.String">
+			<column name="MAIN_AREA" >
+				<comment>所在办公室环境</comment>
+			</column>
+		</property>
+		<property name="personNum" type="java.lang.Integer">
+			<column name="PERSON_NUM" >
+				<comment>涉密工作事项及范围</comment>
+			</column>
+		</property>
+		<many-to-one name="principal" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+			<column name="PRINCIPAL" >
+				<comment>负责人</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
+			<column name="ORGAN_ID" >
+				<comment>单位</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="CREATE_PERSON">
+				<comment>创建人</comment>
+			</column>
+		</many-to-one>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" >
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="MODIFY_PERSON" >
+				<comment>修改人</comment>
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" >
+				<comment>修改时间</comment>
+			</column>
+		</property>
+		<property name="phone" type="java.lang.String">
+			<column name="PHONE" >
+				<comment>联系电话</comment>
+			</column>
+		</property>
+		<property name="reportState" type="java.lang.Integer">
+            <column name="REPORT_STATE">
+                <comment>0:未上报；1:已上报;</comment>
+            </column>
+        </property>
+
+        <property name="secrecyStatus" type="java.lang.Integer">
+            <column name="secrecy_status">
+                <comment>解密状态 1解密    0未解密</comment>
+            </column>
+        </property>
+
+	</class>
+</hibernate-mapping>

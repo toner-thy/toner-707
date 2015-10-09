@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<bean id="bmp.renamePolicy" class="com.cdthgk.standard.file.rename.UUIDRenamePolicy" >
+	</bean>
+
+	<bean id="bmp.fileStorage" class="com.cdthgk.standard.file.storage.ProjectModuleDateDirStorage"
+		parent="project.attachment.fileStorage">
+		<property name="relativeDir" value="/upload"/>
+		<property name="renamePolicy" ref="bmp.renamePolicy"/>
+	</bean>
+
+	<bean id="bmp.fileSizeUploadPolicy" class="com.cdthgk.web.upload.policy.FileSizeUploadPolicy">
+		<property name="maxSize" value="102400000"/>
+	</bean>
+
+	<bean id="bmp.contentTypeUploadPolicy" class="com.cdthgk.web.upload.policy.ExtNameUploadPolicy">
+		<property name="whiteList">
+			<util:list>
+				<value>doc</value>
+				<value>docx</value>
+				<value>xls</value>
+				<value>xlsx</value>
+				<value>pdf</value>
+				<value>rar</value>
+				<value>zip</value>
+				<value>txt</value>
+				<value>jpg</value>
+				<value>png</value>
+				<value>jpeg</value>
+				<value>cebx</value>
+			</util:list>
+		</property>
+	</bean>
+
+	<util:list id="bmp.uploadPolicys">
+		<ref bean="bmp.fileSizeUploadPolicy" />
+		<ref bean="bmp.contentTypeUploadPolicy" />
+	</util:list>
+
+	<bean id="bmpUploadBehavior" class="com.cdthgk.web.upload.UploadBehavior">
+		<property name="fileStorage" ref="bmp.fileStorage"/>
+		<property name="uploadPolicys" ref="bmp.uploadPolicys"/>
+	</bean>
+
+	<bean id="loginAttachmentUploadBehavior" class="com.cdthgk.web.upload.UploadBehavior">
+		<property name="fileStorage" ref="bmp.fileStorage"/>
+	</bean>
+</beans>

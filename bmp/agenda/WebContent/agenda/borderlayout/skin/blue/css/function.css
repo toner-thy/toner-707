@@ -1,0 +1,374 @@
+@charset "utf-8";
+/* CSS Document */
+
+.navbackward
+{
+	padding:0 0 0 15px;
+	margin-left:3px;
+	background: url(../images/backward.gif) no-repeat left center;
+	font-size:12px;
+}
+
+.navforward
+{
+	padding:0 15px 0 0;
+	margin-left:3px;
+	background: url(../images/forward.gif) no-repeat right center;
+	font-size:12px;
+}
+
+.navbackward:hover , .navforward:hover
+{
+	color: #FF0000;
+	font-size:12px;
+}
+
+/*添加次级功能列表，通常是居右的*/
+ul.subfuncmenu  
+{
+	/*border-bottom: solid 3px #CC6600;
+	padding-bottom: 2px;*/
+	margin-right:0px;
+	max-width:700px;
+	margin-left:0px;
+	float:right;
+	white-space:nowrap; /*让li不换行*/
+	min-width:100px;/*不能指定实际宽度*/
+}
+ul.subfuncmenu li
+{
+	/*border-top: solid 1px #0066FF;
+	border-right: solid 1px #0066FF;
+	border-bottom: solid 1px #0066FF;*/
+	list-style:none;
+	padding: 0px 0 0px 5px;
+	white-space:nowrap;
+	/*float:left; 会自动把元素转为display:block*/
+	display:inline;
+}
+ul.subfuncmenu li.first  
+{
+	/*border-left: solid 1px #0066FF;/*第一个元素需要补加左侧线*/
+}
+
+/*面板区样式*/ 
+
+
+.panelcontainer {
+	float:left;
+	margin:0 3px;
+	clear:both;
+}
+.panel { /*可以在panel内最后位置添加一个空DIV元素，清除浮动，以自动扩大本面板高度，<div class="clearfloat"></div>  */
+	clear:both;  /*防止overlay*/
+}
+.panel .nr {
+	height:100%;
+	min-height: 130px;  /*FireFox 、 Opera浏览器才有效*/
+	border:1px solid #F3F3F3;
+	margin:3px;
+	clear:both;
+}
+.panel .nr .tablesearch { 
+	padding:0px;
+	margin:auto;
+	height:auto;
+}
+
+.nr:after /*兼容Firefox和Opera, 利用该伪类在现有元素内容内未尾处添加清除浮动，以自动扩大容器面板高度，这样就无需在容器内未尾位置添加<div class="clearfloat"></div> */
+{
+	content:".";
+	height:0;
+	visibility:hidden;
+	display:block;
+	clear:both;
+}
+
+
+.panelhead {
+	background: url(../images/list.gif) no-repeat #ECF9FF left center;
+	vertical-align:middle;
+	padding-top:5px;
+	padding-left:20px;
+	font-size:14px;
+	height:25px;
+	line-height:25px; /*让垂直居中*/
+}
+.panelheadoper , .panelheaddatadefine {
+	background: url(../images/oper.gif) no-repeat #ECF9FF left center; /*#ECF9FF*/
+	vertical-align:middle;
+	padding-top:5px;
+	padding-left:20px;
+	font-size:14px;
+	height:25px;
+	line-height:25px;
+}
+.panelheadsearch {
+	background: url(../images/search_mini.GIF) no-repeat #ECF9FF left center;
+	vertical-align:middle;
+	padding-top:5px;
+	padding-left:20px;
+	font-size:14px;
+	height:25px;
+	line-height:25px;
+}
+.panelheadsum {
+	background: url(../images/sum_mini.GIF) no-repeat #ECF9FF left center;
+	vertical-align:middle;
+	padding-top:5px;
+	padding-left:20px;
+	font-size:14px;
+	height:25px;
+	line-height:25px;
+}
+.panelheadquicklink {
+	background: url(../images/list.gif) no-repeat #ECF9FF left center;
+	vertical-align:middle;
+	padding-top:5px;
+	padding-left:20px;
+	height:25px;
+	font-size:14px;
+	line-height:25px;
+}
+.nr a {
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight:normal;
+	color: #0066FF;
+	text-decoration: none;
+	padding: 3px 0px 10px 3px;
+}
+.nr a:hover {
+	font-family: "宋体";
+	color: #005A08;
+	text-decoration: none;
+	position:relative;
+	top: 1.5px;
+	left: 1.5px;
+}
+
+
+li.add {
+}
+li.add a {
+	background: url(../images/add.gif) no-repeat;
+	padding-left: 18px;
+}
+.addmorerow /*追加一行数据输入行时用*/
+{
+	
+}
+
+li.edit {
+}
+li.edit a {
+	background: url(../images/edit.gif) no-repeat;
+	padding-left: 18px;
+}
+li.del {
+}
+li.del a {
+	background: url(../images/del.gif) no-repeat;
+	padding-left: 18px;
+}
+.detail
+{
+}
+li.detail a {
+	background: url(../images/detail.gif) no-repeat;
+	padding-left: 18px;
+}
+
+
+li.import {
+}
+li.import a {
+	background: url(../images/import.gif) no-repeat;
+	padding-left: 18px;
+}
+li.export {
+}
+li.export a {
+	background: url(../images/export.gif) no-repeat;
+	padding-left: 18px;
+}
+
+li.clearinput {
+}
+li.clearinput a {
+	background: url(../images/clear.gif) no-repeat;
+	padding-left: 18px;
+}
+li.prevrecord {
+}
+li.prevrecord a {
+	background: url(../images/prevrecord.gif) no-repeat left center;
+	padding-left: 18px;
+}
+li.nextrecord {
+}
+li.nextrecord a {
+	background: url(../images/nextrecord.gif) no-repeat left center;
+	padding-left: 18px;
+}
+li.showmms {
+}
+li.showmms a {
+	background: url(../images/showmms.gif) no-repeat;
+	padding-left: 18px;
+}
+
+li.showcakygram {
+}
+li.showcakygram a {
+	background: url(../images/showcakygram.gif) no-repeat;
+	padding-left: 18px;
+}
+li.showhistogram {
+}
+li.showhistogram a {
+	background: url(../images/showhistogram.gif) no-repeat;
+	padding-left: 18px;
+}
+
+li.addpreventfake {
+}
+li.addpreventfake a {
+	background: url(../images/addpreventfake.gif) no-repeat;
+	padding-left: 18px;
+}
+li.addpreventflee {
+}
+li.addpreventflee a {
+	background: url(../images/addpreventflee.gif) no-repeat;
+	padding-left: 18px;
+}
+
+li.datadefine {
+}
+li.datadefine a {
+	background: url(../images/datadefine.gif) no-repeat;
+	padding-left: 18px;
+}
+
+li.chatmsg {
+}
+li.chatmsg a {
+	background: url(../images/chatmsg.gif) no-repeat;
+	padding-left: 18px;
+}
+li.arrangejob {
+}
+li.arrangejob a {
+	background: url(../images/arrangejob.gif) no-repeat;
+	padding-left: 18px;
+}
+li.sendmms {
+}
+li.sendmms a {
+	background: url(../images/sendmms.gif) no-repeat;
+	padding-left: 18px;
+}
+
+/*========提示===========*/
+#poptips {
+padding-right: 25px;
+border:solid 2px #3399FF;
+background-color: #FFFFCC;
+margin-bottom: 5px;
+/*position: absolute;
+top:250px;*/
+}
+
+/*==========主内容区============*/
+.contenttitle td
+{
+clear:right;
+}
+
+.sorttitle , .SortTitle /*批序或面板伸缩*/
+{
+	text-decoration: none;
+}
+
+/*=========论坛区=================*/
+.forumtable {
+	border:solid 1px #D0E8FA;
+	border-top:solid 3px #2986D6 !important;
+	padding:0px;
+	margin-top:8px;
+	border-spacing:0px;
+}
+.forumhead
+{
+	border:solid 1px #D0E8FA;
+	background-color:#E7F5FF;
+	color:#0061AE;
+}
+.forumhead h3
+{
+	font-size:16px;
+	font-weight:bold;
+	margin:0;
+	padding:0;
+	color:#FF6600;
+	display:inline;
+}
+
+.forumtable td {
+	padding-top:5px;
+	padding-bottom:5px;
+	border:solid 1px #D0E8FA;
+	border-spacing:0px;
+	/*padding:2px;*/
+	margin:0px;
+}
+.forumhead_sub
+{
+	border:solid 1px #D0E8FA;
+	border-top:solid 3px #D0E8FA !important;
+	background-color:#E7F5FF;
+	color:#0061AE;
+}
+.forumhead_sub h3
+{
+	font-size:14px;
+	font-weight:bold;
+	margin:0;
+	padding:0;
+	color:#000;
+	display:inline;
+}
+
+.forumfoot, .forumfoot td , .forumperson , .forumperson td
+{
+	border:none;
+	padding:0px 8px;
+	height:18px;
+}
+
+table tr.fixtablehead
+{
+	position:relative; 
+	top:expression(this.offsetParent.scrollTop);
+	background-color:#dddddd;
+	
+}
+
+.prioritylist
+{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	height:300px;
+	width:100%;
+	overflow:auto;
+	/*overflow-x: hidden;*/
+	scrollbar-face-color:#C0C0C0; /*（表面） */ 
+	scrollbar-highlight-color:#FFFFFF;/*（亮边）*/  
+	scrollbar-3dlight-color:#B1B1B1;/*（3D亮边） */ 
+	scrollbar-darkshadow-color:#B1B1B1;/* （3D暗边）  */
+	scrollbar-Shadow-color:#B1B1B1;/*（阴影）  */
+	scrollbar-arrow-color:#000000; /*（箭头） */ 
+	scrollbar-track-color:#E0E0E0;/*（滚动区）*/
+}

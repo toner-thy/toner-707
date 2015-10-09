@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-6-4 9:49:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.platform.questionAndAnswer.vo.SysAnswer" table="sys_answer">
+        <id name="answerId" type="string">
+            <column name="ANSWER_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <many-to-one name="sysQuestion" class="com.cdthgk.platform.questionAndAnswer.vo.SysQuestion" fetch="select">
+            <column name="QUESTION" length="39">
+                <comment>����������</comment>
+            </column>
+        </many-to-one>
+        <property name="answerContent" type="string">
+            <column name="ANSWER_CONTENT" length="65535">
+                <comment>������</comment>
+            </column>
+        </property>
+        <property name="state" type="java.lang.Integer">
+            <column name="STATE">
+                <comment>״̬��1�����ã�0�����ã�</comment>
+            </column>
+        </property>
+		<many-to-one name="createperson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="CREATE_PERSON" length="39">
+			</column>
+		</many-to-one>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19">
+			</column>
+		</property>
+		<many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="MODIFY_PERSON" length="39">
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" length="19">
+			</column>
+		</property>
+    </class>
+</hibernate-mapping>

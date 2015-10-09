@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="secrecyPerson" extends="com.cdthgk.project" namespace="/bmp/secrecyperson">
+		<!-- 通用配置 -->
+			<!-- 列表配置 -->
+			<action name="secrecyPerson_list" method="list" class="secrecyPersonAction">
+				<result name="list">/bmp/secrecy-person/borderlayout/view/secrecyPerson_list.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_list_list" method="list_list" class="secrecyPersonAction">
+				<result name="list">/bmp/secrecy-person/borderlayout/view/secrecyPerson_list_list.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_allList" method="allList" class="secrecyPersonAction">
+				<result name="list">/bmp/secrecy-person/borderlayout/view/secrecyPerson_allList.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_layerList" method="layerList" class="secrecyPersonAction">
+				<result name="list">/bmp/secrecy-person/borderlayout/view/secrecyPerson_layerList.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_organSecPersonData" method="organSecPersonData" class="secrecyPersonAction">
+				<result name="demand">/bmp/secrecy-person/borderlayout/view/secrecyPerson_organSecPersonData.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_layerSecPersonData" method="layerSecPersonData" class="secrecyPersonAction">
+				<result name="demand">/bmp/secrecy-person/borderlayout/view/secrecyPerson_layerSecPersonData.jsp</result>
+			</action>
+
+			<!-- 新增配置 -->
+			<action name="secrecyPerson_add" method="add" class="secrecyPersonAction">
+				<result name="add">/bmp/secrecy-person/borderlayout/view/secrecyPerson_add.jsp</result>
+			</action>
+			<action name="keySectionSecrecyPerson_add" method="add" class="secrecyPersonAction">
+				<result name="add">/bmp/secrecy-person/borderlayout/view/keySectionSecrecyPerson_add.jsp</result>
+			</action>
+			<action name="secrecyPerson_adding" method="adding" class="secrecyPersonAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/bmp/secrecyperson</param>
+					<param name="actionName">secrecyPerson_add</param>
+ 					<param name="departmentId">${departmentId}</param>
+ 					<param name="partId">${partId}</param>
+ 					<param name="needReload">${needReload}</param>
+ 					<param name="nestedflag">${nestedflag}</param>
+				</result>
+			</action>
+
+			<!-- 编辑配置 -->
+			<action name="secrecyPerson_edit" method="edit" class="secrecyPersonAction">
+				<result name="edit">/bmp/secrecy-person/borderlayout/view/secrecyPerson_edit.jsp</result>
+			</action>
+			<action name="keySectionSecrecyPerson_edit" method="edit" class="secrecyPersonAction">
+				<result name="edit">/bmp/secrecy-person/borderlayout/view/keySectionSecrecyPerson_edit.jsp</result>
+			</action>
+			<action name="secrecyPerson_editing" method="editing" class="secrecyPersonAction">
+	        	<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="secrecyPerson.secrecyPersonId">${secrecyPerson.secrecyPersonId}</param>
+					<param name="namespace">/bmp/secrecyperson</param>
+					<param name="actionName">secrecyPerson_edit</param>
+ 					<param name="departmentId">${departmentId}</param>
+ 					<param name="partId">${partId}</param>
+					<param name="needReload">${needReload}</param>
+					<param name="nestedflag">${nestedflag}</param>
+				</result>
+			</action>
+
+			<!-- 删除配置 -->
+			<action name="secrecyPerson_delete" method="delete" class="secrecyPersonAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/bmp/secrecyperson</param>
+					<param name="actionName">secrecyPerson_list</param>
+					<param name="nestedflag">${nestedflag}</param>
+				</result>
+			</action>
+
+			<!-- 导入配置 -->
+			<action name="secrecyPerson_importSecrecyPerson" method="importSecrecyPerson" class="secrecyPersonAction">
+				<result name="import">/bmp/secrecy-person/borderlayout/view/secrecyPerson_import.jsp</result>
+			</action>
+			<action name="secrecyPerson_importingSecrecyPerson" method="importingSecrecyPerson" class="secrecyPersonAction">
+				<interceptor-ref name="platformUploadStack"/>
+				<result name="import">/bmp/secrecy-person/borderlayout/view/secrecyPerson_import.jsp</result>
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/bmp/secrecyperson</param>
+					<param name="actionName">secrecyPerson_list</param>
+				</result>
+			</action>
+
+			<!-- 详情配置 -->
+			<action name="secrecyPerson_detail" method="detail" class="secrecyPersonAction">
+				<result name="detail">/bmp/secrecy-person/borderlayout/view/secrecyPerson_detail.jsp</result>
+			</action>
+			<action name="keySectionSecrecyPerson_detail" method="detail" class="secrecyPersonAction">
+				<result name="detail">/bmp/secrecy-person/borderlayout/view/keySectionSecrecyPerson_detail.jsp</result>
+			</action>
+
+			<!-- 行政区划 查询配置 -->
+			<action name="secrecyPerson_*" method="{1}" class="secrecyPersonAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/bmp/secrecyperson</param>
+					<param name="actionName">secrecyPerson_list</param>
+				</result>
+				<result name="main">/bmp/secrecy-person/borderlayout/view/secrecyPerson_main.jsp</result>
+				<result name="districtQueryList">/bmp/secrecy-person/borderlayout/view/secrecyPerson_districtList.jsp</result>
+			</action>
+
+			<!-- 获取新增页面用户信息配置 -->
+			<action name="secrecyPerson_addViewUserInfo" method="addViewUserInfo" class="secrecyPersonAction"></action>
+			<!-- 获取编辑页面用户信息配置 -->
+			<action name="secrecyPerson_editViewUserInfo" method="editViewUserInfo" class="secrecyPersonAction"></action>
+
+			<!-- 检查userInfo 姓名重复 -->
+			<action name="secrecyPerson_checkUserInfoName" method="checkUserInfoName" class="secrecyPersonAction"></action>
+
+			<!-- 导入  <interceptor-ref name="platformUploadStack"/>-->
+			<action name="secrecyPerson_importWord" class="secrecyPersonAction" method="importWord">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_import.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_importWording" class="secrecyPersonAction" method="importWording">
+				 <interceptor-ref name="platformUploadStack"/>
+				<param name="uploadBehavior">bmpUploadBehavior</param>
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_import.jsp</result>
+				<result name="list_action" type="stateRedirectAction">
+					<param name="namespace">/bmp/secrecyperson</param>
+					<param name="actionName">secrecyPerson_list</param>
+				</result>
+			</action>
+
+			<!-- 主页涉密人员统计 -->
+			<action name="secrecyPerson_indexView" method="indexView" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_indexView.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_indexViewLayer" method="indexViewLayer" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_indexViewLayer.jsp</result>
+			</action>
+
+			<!-- 上报 -->
+			<action name="secrecyPerson_report" method="report" class="secrecyPersonAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/bmp/secrecyperson</param>
+					<param name="actionName">secrecyPerson_list</param>
+				</result>
+			</action>
+			<!-- 导出 -->
+			<action name="secrecyPerson_exportData" class="secrecyPersonAction" method="exportData">
+				<result name="success" type="excel">
+					<param name="location">/exportExcel/secrecyPersonExprotTemplet.xlsx</param>
+					<param name="fileName">涉密人员.xlsx</param>
+				</result>
+			</action>
+
+			<!--新的导出-->
+			<action name="exportExcel_List" class="secrecyPersonAction" method="exportExcel_List">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/excel_SecrecyPersonList_ExprotTemplet.xlsx</param>
+					<param name="fileName">涉密人员.xlsx</param>
+				</result>
+
+			</action>
+
+			<!-- 人员密级变更 -->
+			<action name="secrecyPerson_secrecyLevelChange" method="secrecyLevelChange" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_secrecyLevelChange.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_secrecyLevelChanging" method="secrecyLevelChanging" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_secrecyLevelChange.jsp</result>
+			</action>
+
+			<!-- 人员密级变更历史 -->
+			<action name="secrecyPerson_secrecyLevelChangeHistory" method="secrecyLevelChangeHistory" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_secrecyLevelChangeHistory.jsp</result>
+			</action>
+
+			<!-- 人员脱密 -->
+			<action name="secrecyPerson_decryption" method="decryption" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_decryption.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_decryptioning" method="decryptioning" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_decryption.jsp</result>
+			</action>
+
+			<!-- 人员脱密历史 -->
+			<action name="secrecyPerson_decryptionHistory" method="decryptionHistory" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_decryptionHistory.jsp</result>
+			</action>
+
+			<!-- 人员明细相关界面  人员信息界面-->
+			<action name="secrecyPerson_personSecrecyLevelChangeHis" method="personSecrecyLevelChangeHis" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_personSecrecyLevelChangeHis.jsp</result>
+			</action>
+
+			<!-- 人员明细相关界面  密级变更历史 -->
+			<action name="secrecyPerson_personMsg" method="personMsg" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_personMsg.jsp</result>
+			</action>
+
+			<!-- 人员明细相关界面  脱密历史信息界面-->
+			<action name="secrecyPerson_personDecryptionHis" method="personDecryptionHis" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_personDecryptionDetail.jsp</result>
+			</action>
+
+			<!-- 密级变更 明细 -->
+			<action name="secrecyPerson_secrecyLevelChangedetail" method="secrecyLevelChangedetail" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_secrecyLevelChangeDetail.jsp</result>
+			</action>
+
+			<!-- 涉密人员脱密信息详情 -->
+			<action name="secrecyPerson_secrecyDecryptionDetail" method="secrecyDecryptionDetail" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_secrecyDecryptionDetail.jsp</result>
+			</action>
+
+			<!-- 涉密人员查询  行政区划树 -->
+			<action name="secrecyPerson_query_main" method="query_main" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_query_main.jsp</result>
+			</action>
+
+			<!-- 涉密人员查询  列表 -->
+			<action name="secrecyPerson_query_list" method="list" class="secrecyPersonAction">
+				<result name="list">/bmp/secrecy-person/borderlayout/view/secrecyPerson_list.jsp</result>
+				<!-- <result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_query_list.jsp</result> -->
+			</action>
+
+			<!-- 统计部分 -->
+
+			<!-- 按年龄结构统计 -->
+			<action name="secrecyPerson_statisticsByAgeCurrent" method="statisticsByAgeCurrent" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAge.jsp</result>
+			</action>
+			<!-- <action name="secrecyPerson_statisticsByAgeCurrent" method="statisticsByAgeCurrent" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAge.jsp</result>
+			</action> -->
+
+			<action name="secrecyPerson_statisticsByAge" method="statisticsByAge" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAge.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLayerOfAge" method="statisticsByLayerOfAge" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAge.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByAgeOfAll" method="statisticsByAgeOfAll" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAgeOfAll.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByAgeOfDistrict" method="statisticsByAgeOfDistrict" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAgeOfDistrict.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByAgeOfOrgan" method="statisticsByAgeOfOrgan" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAgeOfOrgan.jsp</result>
+			</action>
+
+			<!-- 按民族结构统计 -->
+			<action name="secrecyPerson_statisticsByNationCurrent" method="statisticsByNationCurrent" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByNation.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByNation" method="statisticsByNation" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByNation.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLayerOfNation" method="statisticsByLayerOfNation" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByNation.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByNationOfAll" method="statisticsByNationOfAll" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByNationOfAll.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByNationOfDistrict" method="statisticsByNationOfDistrict" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByNationOfDistrict.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByNationOfOrgan" method="statisticsByNationOfOrgan" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByNationOfOrgan.jsp</result>
+			</action>
+
+
+			<!-- 按学历结构统计 -->
+			<action name="secrecyPerson_statisticsByLeanLevelCurrent" method="statisticsByLeanLevelCurrent" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByLeanLevel.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLeanLevel" method="statisticsByLeanLevel" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByLeanLevel.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLayerOfLeanLevel" method="statisticsByLayerOfLeanLevel" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByLeanLevel.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLearnLevelOfAll" method="statisticsByLearnLevelOfAll" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByLearnLevelOfAll.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLearnLevelOfDistrict" method="statisticsByLearnLevelOfDistrict" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByLearnLevelOfDistrict.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLearnLevelOfOrgan" method="statisticsByLearnLevelOfOrgan" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByLearnLevelOfOrgan.jsp</result>
+			</action>
+
+			<!-- 按政治面貌统计 -->
+			<action name="secrecyPerson_statisticsByPolityCurrent" method="statisticsByPolityCurrent" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPolity.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByPolity" method="statisticsByPolity" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPolity.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLayerOfPolity" method="statisticsByLayerOfPolity" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPolity.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByPolityOfAll" method="statisticsByPolityOfAll" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPolityOfAll.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByPolityOfDistrict" method="statisticsByPolityOfDistrict" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPolityOfDistrict.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByPolityOfOrgan" method="statisticsByPolityOfOrgan" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPolityOfOrgan.jsp</result>
+			</action>
+
+			<!-- 按职级结构统计 -->
+			<action name="secrecyPerson_statisticsByAdminTechLevelCurrent" method="statisticsByAdminTechLevelCurrent" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAdminTechLevel.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByAdminTechLevel" method="statisticsByAdminTechLevel" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAdminTechLevel.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLayerOfAdminTechLevel" method="statisticsByLayerOfAdminTechLevel" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAdminTechLevel.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByAdminTechLevelOfAll" method="statisticsByAdminTechLevelOfAll" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAdminTechLevelOfAll.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByAdminTechLevelOfDistrict" method="statisticsByAdminTechLevelOfDistrict" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAdminTechLevelOfDistrict.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByAdminTechLevelOfOrgan" method="statisticsByAdminTechLevelOfOrgan" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByAdminTechLevelOfOrgan.jsp</result>
+			</action>
+
+			<!-- 按人员类型统计 -->
+			<action name="secrecyPerson_statisticsByPersonTypeCurrent" method="statisticsByPersonTypeCurrent" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPersonType.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByPersonType" method="statisticsByPersonType" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPersonType.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByLayerOfPersonType" method="statisticsByLayerOfPersonType" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPersonType.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByPersonTypeOfAll" method="statisticsByPersonTypeOfAll" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPersonTypeOfAll.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByPersonTypeOfDistrict" method="statisticsByPersonTypeOfDistrict" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPersonTypeOfDistrict.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsByPersonTypeOfOrgan" method="statisticsByPersonTypeOfOrgan" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsByPersonTypeOfOrgan.jsp</result>
+			</action>
+
+			<!-- 涉密人员  概览 -->
+			<action name="secrecyPerson_statisticsOverView" method="statisticsOverView" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsOverView.jsp</result>
+			</action>
+			<action name="secrecyPerson_statisticsOverViewPart" method="statisticsOverView" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsOverViewPart.jsp</result>
+			</action>
+
+			<action name="secrecyPerson_statisticsOverViewOgran" method="statisticsOverViewOgran" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_statisticsOverViewOgran.jsp</result>
+			</action>
+
+			<!-- 导出配置 -->
+			<!-- 概览导出 -->
+			<action name="secrecyPerson_exportOverviewDistrict" method="exportOverviewDistrict" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+			<action name="secrecyPerson_exportOverviewOrgan" method="exportOverviewOrgan" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<action name="secrecyPerson_exportOverviewOrganCurrent" method="exportOverviewOrganCurrent" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_current.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+
+			<action name="secrecyPerson_exportOverView" method="exportOverView" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_all.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<action name="secrecyPerson_exportOverViewPart" method="exportOverView" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_current.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 本单位导出 -->
+			<action name="secrecyPerson_exportCurrent" method="exportCurrent" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 各分标签导出 -->
+			<action name="secrecyPerson_exportCurrentAge" method="exportCurrent" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_age.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<action name="secrecyPerson_exportCurrentNation" method="exportCurrent" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_nation.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<action name="secrecyPerson_exportCurrentLearnLevel" method="exportCurrent" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_learnlevel.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<action name="secrecyPerson_exportCurrentPolity" method="exportCurrent" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_polity.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<action name="secrecyPerson_exportCurrentAT" method="exportCurrent" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_AT.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<action name="secrecyPerson_exportCurrentPersonType" method="exportCurrent" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOverviewTemplet_persontype.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+
+			<!-- 年龄结构导出 -->
+			<action name="secrecyPerson_exportAgeDistrict" method="exportAgeDistrict" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+			<action name="secrecyPerson_exportAgeOrgan" method="exportAgeOrgan" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOneTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 民族结构导出 -->
+			<action name="secrecyPerson_exportNationDistrict" method="exportNationDistrict" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+			<action name="secrecyPerson_exportNationOrgan" method="exportNationOrgan" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOneTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 学历结构导出 -->
+			<action name="secrecyPerson_exportLearnLevelDistrict" method="exportLearnLevelDistrict" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+			<action name="secrecyPerson_exportLearnLevelOrgan" method="exportLearnLevelOrgan" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOneTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 政治面貌导出 -->
+			<action name="secrecyPerson_exportPolityDistrict" method="exportPolityDistrict" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+			<action name="secrecyPerson_exportPolityOrgan" method="exportPolityOrgan" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOneTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 职级结构导出 -->
+			<action name="secrecyPerson_exportAdminTechDistrict" method="exportAdminTechDistrict" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportTemplet_AT.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+			<action name="secrecyPerson_exportAdminTechOrgan" method="exportAdminTechOrgan" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOneTemplet_AT.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 人员类型导出 -->
+			<action name="secrecyPerson_exportPersonTypeDistrict" method="exportPersonTypeDistrict" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+			<action name="secrecyPerson_exportAPersonTypeOrgan" method="exportAPersonTypeOrgan" class="secrecyPersonAction">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/secrecyPersonExportOneTemplet.xlsx</param>
+					<param name="fileName">涉密人员统计.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 综合统计 -->
+			<!--综合统计 查询 通过行政区划    查询涉密人员个数 的明细列表 包括当前行政区划 和下级行政区划 的涉密人员的明细-->
+			<action name="zhtj_query_Detail" class="secrecyPersonAction" method="zhtj_query_Detail">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/stat/secrecyPerson_stat_stat.jsp</result>
+			</action>
+			<!--综合统计 查询 统计行政区划涉密人员   统计行政区下的直辖单位情况  分单位显示-->
+			<action name="zhtj_queryByDistrict" class="secrecyPersonAction" method="zhtj_queryByDistrict">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/stat/secrecyPerson_stat_organList.jsp</result>
+			</action>
+			<!--综合统计      通过行政区划查询 涉密人员  本单位的情况   -->
+			<action name="zhtj_DetailList" class="secrecyPersonAction" method="zhtj_DetailList">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/stat/secrecyPerson_stat_DetailList.jsp</result>
+			</action>
+
+			<!-- 综合统计导出统涉密人员   行政区划统计   -->
+			<action name="stat_exportDistrict" class="secrecyPersonAction" method="stat_exportDistrict">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+					<param name="fileName">行政区划-涉密人员统计(综合统计).xlsx</param>
+				</result>
+			</action>
+			<!-- 综合统计导出统计涉密人员   行政区下统计   -->
+			<action name="stat_exportLayer" class="secrecyPersonAction" method="stat_exportLayer">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-person/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+					<param name="fileName">行政区内-涉密人员统计(综合统计).xlsx</param>
+				</result>
+			</action>
+
+			<action name="zhtj_query" class="secrecyPersonAction" method="zhtj_query">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/stat/secrecyPerson_stat_stat.jsp</result>
+			</action>
+
+			<!-- 保密工作信息总览获取数据 -->
+			<action name="secrecyPerson_organIndex" method="organIndex" class="secrecyPersonAction">
+				<result name="success">/bmp/secrecy-person/borderlayout/view/secrecyPerson_organIndex.jsp</result>
+			</action>
+			<!-- 数据填写校验 -->
+			<action name="secrecyPerson_dataValidate" method="dataValidate" class="secrecyPersonAction"></action>
+	</package>
+
+	<!-- 涉密人员自动补全Struts配置 -->
+	<package name="secrecyPersonSearch" extends="com.cdthgk.project" namespace="/bmp/secrecyperson/query">
+		<action name="autocomplete" class="secrecyPersonSearchAction" method="autocomplete"></action>
+		<!-- 获取涉密人员信息配置 -->
+		<action name="showSecrecyPersonInfo" method="showSecrecyPersonInfo" class="secrecyPersonSearchAction"></action>
+	</package>
+
+	<!-- 需要涉密人员Struts配置 -->
+	<package name="secrecyPersonList" extends="com.cdthgk.project" namespace="/bmp/secrecyperson/nested">
+		<!-- 通用配置 -->
+			<!-- 列表配置 -->
+			<action name="secrecyPersonList_list" method="list" class="bmp.secrecyPersonListAction">
+				<result name="list">/bmp/secrecy-person/borderlayout/view/secrecyPerson_nestedList.jsp</result>
+			</action>
+			<!-- 删除配置 -->
+			<action name="secrecyPersonList_delete" method="delete" class="bmp.secrecyPersonListAction">
+			</action>
+	</package>
+
+		<!-- 单选选择器 -->
+	<package name="bmp.secrecyps" namespace="/bmp/secrecyPersonSearch" extends="com.cdthgk.bmp.keySection">
+		<!-- 查询涉密人员  自动补全 -->
+		<action name="autocomplete" class="bmp.secrecyPersonSearchAction" method="autocomplete" />
+
+		<!-- 页面配置 -->
+		<action name="singelSelect" class="bmp.secrecyPersonSearchAction" method="singelSelect" >
+			<result name="success" type="com.cdthgk.web.templateDispatcher">/bmp/secrecy-person/borderlayout/view/secrecyPerson_searchList.jsp</result>
+		</action>
+	</package>
+
+</struts>

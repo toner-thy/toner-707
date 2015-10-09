@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.planSndSummary.annualPlan.action.AnnualPlanSelectAction" namespace="/bmp/annualPlanSelect" extends="com.cdthgk.project" >
+		<!-- 查询  自动补全 -->
+		<action name="autocomplete" class="bmp.annualPlanSelectAction" method="autocomplete" />
+
+		<!-- 页面配置 -->
+		<action name="singelSelect" class="bmp.annualPlanSelectAction" method="singelSelect" >
+			<result name="success" type="com.cdthgk.web.templateDispatcher">/bms/plan-summary/annual-plan/borderlayout/view/annualPlanSelect_list.jsp</result>
+		</action>
+	</package>
+</struts>

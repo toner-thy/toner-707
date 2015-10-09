@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="destructionScrapService"
+	class="com.cdthgk.secrecyCarrier.service.impl.DestructionScrapServiceImpl"
+	parent="platform.service">
+	</bean>
+	<bean id="secrecyBorrowService"
+	class="com.cdthgk.secrecyCarrier.service.impl.SecrecyBorrowServiceImpl"
+	 parent="platform.service">
+	</bean>
+	<bean id="secrecyPrintService"
+	 class="com.cdthgk.secrecyCarrier.service.impl.SecrecyPrintServiceImpl"
+	 parent="platform.service">
+	</bean>
+	<bean id="secrecyTechnologyPreventionService"
+	 class="com.cdthgk.secrecyCarrier.service.impl.SecrecyTechnologyPreventionServiceImpl"
+	 parent="platform.service">
+	</bean>
+	<bean id="secrecyMaintainService"
+	 class="com.cdthgk.secrecyCarrier.service.impl.SecrecyMaintainServiceImpl"
+	 parent="platform.service">
+	</bean>
+	<bean id="secrecyCopyService"
+	 class="com.cdthgk.secrecyCarrier.service.impl.SecrecyCopyServiceImpl"
+	 parent="platform.service">
+	</bean>
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.equipmentAction" class="com.cdthgk.bmp.equipment.equipment.action.EquipmentAction" scope="prototype">
+		<property name="equipmentService" ref="equipmentService"/>
+		<property name="equipmentTypeService" ref="equipmentTypeService"/>
+		<!-- <property name="organService" ref="organService"/> -->
+		<!-- <property name="initParamsService" ref="initParamsService"></property> -->
+		<!-- <property name="equipmentTransmitWsClient" ref="equipmentTransmitWsClient"></property> -->
+		<!-- <property name="districtService" ref="districtService"/> -->
+	</bean>
+</beans>

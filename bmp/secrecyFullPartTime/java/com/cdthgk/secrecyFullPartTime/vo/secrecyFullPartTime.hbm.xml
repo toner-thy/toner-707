@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.secrecyFullPartTime.vo.SecrecyFullPartTime" table="bm_secrecyFullPartTime">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="39" />
+            <generator class="uuid"></generator>
+        </id>
+         <property name="date" type="java.util.Date">
+            <column name="date" length="19">
+                <comment>接受保密培训时间</comment>
+            </column>
+        </property>
+        <property name="position" type="java.lang.String">
+            <column name="position" length="100">
+                <comment>职务</comment>
+            </column>
+        </property>
+        <property name="degree" type="java.lang.Integer">
+            <column name="degree" length="11">
+                <comment>文化程度</comment>
+            </column>
+        </property>
+        <property name="isFull" type="java.lang.Integer">
+            <column name="isFull" length="11">
+                <comment>专职或者兼职 0：专职 1：兼职；</comment>
+            </column>
+        </property>
+        <property name="isTrain" type="java.lang.Integer">
+            <column name="isTrain" length="11">
+                <comment>是否介绍保密培训 0：接受 1 ：没有</comment>
+            </column>
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" length="100">
+                <comment>接受保密培训内容</comment>
+            </column>
+        </property>
+        <property name="workYear" type="java.lang.String">
+            <column name="workYear" length="500">
+                <comment>从事保密工作年限</comment>
+            </column>
+        </property>
+        <many-to-one name="name" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="name" length="39">
+                <comment>姓名</comment>
+            </column>
+        </many-to-one>
+        <property name="description" type="java.lang.String">
+            <column name="description" length="200">
+                <comment>备注</comment>
+            </column>
+        </property>
+
+        <property name="state" type="java.lang.Integer">
+            <column name="STATE" length="11">
+                <comment>状态：0：使用1：删除</comment>
+            </column>
+        </property>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <many-to-one name="organId" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="CREATE_ORGAN" length="39">
+                <comment>创建单位</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="CREATE_PERSON" length="39">
+                <comment>输入人员</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

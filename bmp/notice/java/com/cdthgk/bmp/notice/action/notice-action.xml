@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.notice"  namespace="/bmp/notice" extends="com.cdthgk.project">
+  		<action name="notice_indexList" class="bmp.noticeAction" method="indexList">
+        	<result name="success">/bmp/notice/borderlayout/view/notice_indexList.jsp</result>
+        	<interceptor-ref name="cdthgkStrutsStack"></interceptor-ref>
+        </action>
+
+  		<action name="notice_indexAll" class="bmp.noticeAction" method="indexAll">
+        	<result name="success">/bmp/notice/borderlayout/view/notice_indexAll.jsp</result>
+        	<interceptor-ref name="cdthgkStrutsStack"></interceptor-ref>
+        </action>
+
+        <action name="notice_detail" class="bmp.noticeAction" method="detail">
+        	<result name="success">/bmp/notice/borderlayout/view/notice_detail.jsp</result>
+        	<interceptor-ref name="cdthgkStrutsStack"></interceptor-ref>
+        </action>
+
+		<action name="notice_list" class="bmp.noticeAction" method="list">
+        	<result name="success">/bmp/notice/borderlayout/view/notice_list.jsp</result>
+        </action>
+
+        <action name="notice_add" class="bmp.noticeAction" method="add">
+        	<result name="success">/bmp/notice/borderlayout/view/notice_add.jsp</result>
+        </action>
+
+        <action name="notice_adding" class="bmp.noticeAction" method="adding">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/notice</param>
+				<param name="actionName">notice_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+        <action name="notice_edit" class="bmp.noticeAction" method="edit">
+        	<result name="success">/bmp/notice/borderlayout/view/notice_edit.jsp</result>
+        	<result name="failure" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/notice</param>
+				<param name="actionName">notice_list</param>
+			</result>
+        </action>
+
+        <action name="notice_editing" class="bmp.noticeAction" method="editing">
+        	<result name="success">/bmp/notice/borderlayout/view/notice_edit.jsp</result>
+			<result name="edit">/bmp/notice/borderlayout/view/notice_edit.jsp</result>
+        </action>
+
+        <action name="notice_delete" class="bmp.noticeAction" method="delete">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/notice</param>
+				<param name="actionName">notice_list</param>
+			</result>
+        </action>
+  </package>
+</struts>

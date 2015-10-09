@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.undertaketaskAction" class="com.cdthgk.bmp.publicityEducation.undertaketask.action.UndertaketaskAction" parent="bmpAction" scope="prototype" >
+		<!--service层注入-->
+		<property name="undertaketaskService" ref="bmp.undertaketaskService" ></property>
+		<property name="dataValidateService" ref="bmp.dataValidateService" ></property>
+	</bean>
+</beans>

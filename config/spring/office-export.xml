@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:context="http://www.springframework.org/schema/context" 
+		xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.1.xsd" default-lazy-init="false" >
+
+	
+	<!-- word导出组件 -->
+	<bean id="wordExtractor" class="com.thgk.framework.ext.word.WordExtractor" init-method="init">
+	<property name="outPutPath" value="wordfile/liaoqian.doc"></property>
+		<property name="gridCreator" ref="grid"></property>
+	</bean>
+	<bean id="grid" class="com.thgk.framework.ext.word.GridCreator">
+		<property name="tempPath" value="word/word.tmplets,word/word1.tmplets"></property>
+		<property name="headMap">
+			<map>
+				<entry key="tk_id" value="主键"></entry>
+				<entry key="tk_name" value="名字"></entry>
+				<entry key="tk_password" value="密码"></entry>
+				
+				<entry key="tk_ids" value="主键ming"></entry>
+				<entry key="tk_names" value="名字名"></entry>
+				<entry key="tk_passwords" value="密码名"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="excelBean" class="com.thgk.framework.ext.excel.ExcelBean">
+		<property name="pagin" value="false"></property>
+		<property name="sheetName" value="分页"></property>
+		<property name="outPutName" value="EXCEL导出"></property>
+		<property name="path" value="download/excel"></property>
+		<property name="pageSize" value="5"></property>
+		<property name="excelHeadMap">
+			<map>
+				<entry key="name" value=" 姓 名 "></entry>
+				<entry key="password" value=" 密 码 "></entry>
+				<entry key="you" value=" 对方姓名 "></entry>
+			</map>
+		</property>
+	</bean> 
+	<bean id="excelExcutor" class="com.thgk.framework.ext.excel.ExcelExtractor" init-method="init">
+		<property name="excelBean" ref="excelBean"></property>
+	</bean>
+</beans>

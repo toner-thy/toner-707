@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="cdthgk-thgk-platform builder" default="build" basedir="."
+	 xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:ecf="antlib:com.cdthgk.ace">
+	<!-- 注意：每当增加一个模块，需要对ant修改增加相应模块部署目录 -->
+
+
+	<!-- 版本名称 -->
+	<property name="version" value="4" />
+	<property name="subVersion" value="4" />
+	<property name="reversion" value="11-20131024" />
+	<property name="pubVersion" value="${version}.${subVersion}.${reversion}" />
+	<!-- 项目名称 -->
+	<property name="projectName" value="bmp"/>
+	<!-- 编译临时目录 -->
+	<property name="buildTempDir" location="build_temp" />
+	<property name="runtimeDir" location="runtime_temp"/>
+
+	<property name="class" location="${buildTempDir}/class" />
+	<property name="lib" location="${buildTempDir}/lib" />
+	<property name="tags" location="${buildTempDir}/tags" />
+
+    <property name="ivy.lib.dir" value="${lib}" />
+	<property name="releaseZipFile" value="${projectName}-${pubVersion}.zip" />
+	<!-- DB更新文件 -->
+	<property name="dbUpdate" value="${basedir}/db/4.4.x/bmp_4.4.10_update.sql" />
+	<property name="dbInit" value="${basedir}/db/4.4.x/bmp_4.4.10_alpha_init.sql" />
+
+
+    <!-- paths used for compilation and run  -->
+    <path id="classpath">
+        <fileset dir="${lib}" includes="**/*.jar"/>
+	</path>
+
+	<!-- 删除编译临时目录 -->
+	<target name="deleteFold">
+		<tstamp />
+		<delete dir="${buildTempDir}" />
+		<delete dir="${runtimeDir}" />
+	</target>
+
+	<!-- 创建web项目放 类文件(.class) 目录 -->
+	<target name="createFold" depends="deleteFold">
+		<tstamp />
+		<mkdir dir="${buildTempDir}" />
+		<mkdir dir="${runtimeDir}"/>
+		<mkdir dir="${runtimeDir}/db"/>
+	</target>
+
+	<!-- 复制java原文件和配置文件到临时编译目录 -->
+
+	<target name="resolve">
+		<ivy:configure file="E:/runtime/ivy/settings/ivysettings.xml"/>
+		<ivy:settings id="settings" file="E:/runtime/ivy/settings/ivysettings.xml"/>
+		<ivy:resolve file="ivy-build.xml" conf ="${ivy.configurations}" revision="${pubVersion}"/>
+		<ivy:retrieve pattern="${ivy.retrieve.pattern}" conf="${ivy.configurations}"/>
+    </target>
+
+	<!-- 编译java原文件 并复制到的相应目录 -->
+	<target name="compile" depends="resolve">
+		<tstamp />
+		<javac srcdir="${src}" destdir="${bin}" encoding="utf-8" includejavaruntime="true">
+			<classpath refid="classpath" />
+			<compilerarg value="-g"/>
+		</javac>
+	</target>
+
+	<target name="antCopyBin" depends="createFold,resolve">
+		<!-- 复制编译文件、tld、xml文件-->
+		<copy todir="${buildTempDir}/WEB-INF">
+			<fileset dir="${basedir}/WebContent/WEB-INF">
+				<include name="*.tld"/>
+				<include name="*.xml"/>
+			</fileset>
+		</copy>
+		<copy todir="${buildTempDir}/WEB-INF/lib">
+			<fileset dir="${lib}">
+				<exclude name="*-sources.jar"/>
+				<exclude name="*-javadoc.jar"/>
+				<exclude name="jsp-api-2.0.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="${buildTempDir}/WEB-INF/classes">
+			<fileset dir="${basedir}/bin"></fileset>
+		</copy>
+		<copy todir="${buildTempDir}/WEB-INF/tags">
+			<fileset dir="${basedir}/WebContent/WEB-INF/tags">
+				<include name="*.*"/>
+			</fileset>
+		</copy>
+		<copy todir="${buildTempDir}/WEB-INF/tags/styles">
+			<fileset dir="${basedir}/WebContent/WEB-INF/tags/styles">
+				<include name="*.*"/>
+			</fileset>
+		</copy>
+		<copy todir="${buildTempDir}/WEB-INF/tags/yearStat">
+			<fileset dir="${basedir}/WebContent/WEB-INF/tags/yearStat">
+				<include name="*.*"/>
+			</fileset>
+		</copy>
+
+		<!-- 复制页面-->
+		<!-- 复制模块页面 到根目录-->
+		<copy todir="${buildTempDir}/exception">
+			<fileset dir="${basedir}/WebContent/exception" />
+		</copy>
+		<copy todir="${buildTempDir}/exportExcel">
+			<fileset dir="${basedir}/WebContent/exportExcel" />
+		</copy>
+		<copy todir="${buildTempDir}/platform/css">
+			<fileset dir="${basedir}/platform/css/platform/css">
+			</fileset>
+		</copy>
+		<copy todir="${buildTempDir}/map">
+			<fileset dir="${basedir}/platform/images/map">
+			</fileset>
+		</copy>
+		<copy todir="${buildTempDir}/platform/jsp">
+			<fileset dir="${basedir}/platform/jsp">
+			</fileset>
+		</copy>
+		<copy todir="${buildTempDir}/resources">
+			<fileset dir="${basedir}/resources/FCKeditor" >
+			</fileset>
+		</copy>
+		<copy todir="${buildTempDir}/agenda">
+			<fileset dir="${basedir}/bmp/agenda/WebContent/agenda" />
+		</copy>
+		<copy todir="${buildTempDir}/country_secrecy">
+			<fileset dir="${basedir}/bmp/country_secrecy/WebContent/country_secrecy" />
+		</copy>
+		<!-- 复制模块页面到BMP目录-->
+		<copy todir="${buildTempDir}/bmp/attachment">
+			<fileset dir="${basedir}/bmp/attachment/WebContent/bmp/attachment" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/borderlayout">
+			<fileset dir="${basedir}/bmp/core/WebContent/bmp/borderlayout" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/disclose_secrecy">
+			<fileset dir="${basedir}/bmp/disclose_secrecy/WebContent/bmp/disclose_secrecy" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/feedbackInfo">
+			<fileset dir="${basedir}/bmp/feedbackInfo/WebContent/bmp/feedbackInfo" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/images">
+			<fileset dir="${basedir}/bmp/images/bmp/images" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/keypart">
+			<fileset dir="${basedir}/bmp/key-part/WebContent/bmp/keypart" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/key-section">
+			<fileset dir="${basedir}/bmp/key-section/WebContent/bmp/key-section" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/notice">
+			<fileset dir="${basedir}/bmp/notice/WebContent/bmp/notice" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/secrecy-organization">
+			<fileset dir="${basedir}/bmp/secrecy-organization/WebContent/bmp/secrecy-organization" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/secrecy-person">
+			<fileset dir="${basedir}/bmp/secrecy-person/WebContent/bmp/secrecy-person" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/secrecy-statistics">
+			<fileset dir="${basedir}/bmp/secrecy-statistics/WebContent/bmp/secrecy-statistics" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/secrecy-system">
+			<fileset dir="${basedir}/bmp/secrecy-system/WebContent/bmp/secrecy-system" />
+		</copy>
+		<copy todir="${buildTempDir}/bmp/secrecy-worksummary">
+			<fileset dir="${basedir}/bmp/secrecy-worksummary/WebContent/bmp/secrecy-worksummary" />
+		</copy>
+
+		<delete dir="${lib}" />
+		<copy todir="${runtimeDir}/bmp">
+			<fileset dir="${buildTempDir}" >
+			</fileset>
+		</copy>
+		<copy todir="${runtimeDir}/db">
+			<fileset file="${dbUpdate}"></fileset>
+			<fileset file="${dbInit}"></fileset>
+		</copy>
+	</target>
+
+
+	 <target name="zip" depends="antCopyBin">
+	 	<zip destfile="${releaseZipFile}" encoding="UTF-8">
+			<fileset dir="${basedir}">
+				<include name="发布日志.txt"/>
+			</fileset>
+			<fileset dir="${runtimeDir}">
+			</fileset>
+		</zip>
+    </target>
+
+	<!-- 删除编译临时目录 -->
+	<target name="clear" >
+		<tstamp />
+		<delete dir="${buildTempDir}" />
+		<delete dir="${runtimeDir}" />
+	</target>
+
+	<target name="build" depends="clear"/>
+
+</project>

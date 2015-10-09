@@ -1,0 +1,1 @@
+define({ajax_timeout:"网络超时","bad survey response":"您提交的数据格式异常，请刷新页面重新填写或换个浏览器试试","deny by response filter":"提交失败！（同IP或电脑不允许多次重复填写）",checking:"检查 ...",correct:"正确",incorrect:"错误",datepicker:{dayNamesMin:["日","一","二","三","四","五","六"],monthNamesShort:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],currentText:"今天",closeText:"确定",nextText:"下一月",prevText:"上一月"}});

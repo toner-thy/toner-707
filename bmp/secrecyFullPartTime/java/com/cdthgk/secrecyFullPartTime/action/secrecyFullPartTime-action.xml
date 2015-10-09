@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <!--  -->
+	<package name="com.cdthgk.secrecyFullPartTime"  namespace="/bmp/secrecyFullPartTime" extends="com.cdthgk.project">
+		<action name="secrecyFullPartTime_*" class="secrecyFullPartTime" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyFullPartTime</param>
+				<param name="actionName">secrecyFullPartTime_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyFullPartTime</param>
+				<param name="actionName">secrecyFullPartTime_edit</param>
+				<param name="secrecyFullPartTime.id">${secrecyFullPartTime.id}</param>
+			</result>
+			<result name="print">/bmp/secrecyFullPartTime/borderlayout/view/secrecyFullPartTime_print.jsp</result>
+			<result name="success">/bmp/secrecyFullPartTime/borderlayout/view/secrecyFullPartTime_{1}.jsp</result>
+		</action>
+		 <action name="secrecyFullPartTime_save" class="secrecyFullPartTime" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyFullPartTime</param>
+				<param name="actionName">secrecyFullPartTime_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="secrecyFullPartTime_update" class="secrecyFullPartTime" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyFullPartTime</param>
+				<param name="actionName">secrecyFullPartTime_edit</param>
+				<param name="secrecyFullPartTime.id">${secrecyFullPartTime.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="secrecyFullPartTime_allList" class="secrecyFullPartTime" method="allList" >
+			<result name="allList">/bmp/secrecyFullPartTime/borderlayout/view/secrecyFullPartTime_allList.jsp</result>
+		</action>
+
+		<action name="secrecyFullPartTime_organIndex" class="secrecyFullPartTime" method="organIndex">
+			<result name="success">/bmp/secrecyFullPartTime/borderlayout/view/secrecyFullPartTime_organIndex.jsp</result>
+		</action>
+			 <!-- 数据填写校验 -->
+		<action name="secrecyFullPartTime_dataValidate" method="dataValidate" class="secrecyFullPartTime"></action>
+	</package>
+</struts>

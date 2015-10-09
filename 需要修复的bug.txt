@@ -1,0 +1,9 @@
+1. 平台中的提示信息 没有显示
+	action中设置this.addActionMessage("当前行政区划已经有保密委，请勿新增。"); return this.redirectActionResult("detail");
+	页面设置<s:actionmessage theme="messages"/>
+	但页面没有显示提示
+
+
+
+
+2.

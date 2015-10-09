@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.secrecyCountryItemAction" class="com.cdthgk.bmp.secrecycountryitem.action.SecrecyCountryItemAction" parent="bmpAction" scope="prototype" >
+
+		<!--国家秘密事项的service层注入-->
+		<property name="secrecyCountryItemService" ref="bmp.secrecyCountryItemService" ></property>
+		<!--国家秘密事项密级变更的service层注入-->
+		<property name="secrecyCountryItemChangeService" ref="bmp.secrecyCountryItemChangeService" ></property>
+		<!--国家秘密事项密级解除的service层注入-->
+		<property name="secrecyCountryItemClearService" ref="bmp.secrecyCountryItemClearService" />
+
+		<!--要害部门的service层注入-->
+		<property name="keySectionModuleService" ref="bmp.keySectionModuleService" />
+		 <!--行政区划  服务层-->
+		<property name="districtService" ref="platform.districtService"/>
+		<property name="organService" ref="platform.organService"/>
+		<property name="dataValidateService" ref="bmp.dataValidateService" ></property>
+	</bean>
+</beans>

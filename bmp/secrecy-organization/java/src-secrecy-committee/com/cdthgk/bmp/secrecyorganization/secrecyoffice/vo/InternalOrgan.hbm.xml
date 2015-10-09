@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-16 15:34:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.InternalOrgan" table="bm_internal_organ">
+        <id name="internalOrganId" type="string">
+            <column name="internal_organ_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <many-to-one name="secrecyOffice" class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.SecrecyOffice" fetch="select">
+			<column name="SECRECY_OFFICE_ID" length="39">
+				<comment>保密办（保密局）</comment>
+			</column>
+		</many-to-one>
+        <property name="internalDeptname" type="string">
+            <column name="internal_deptname" length="50" />
+        </property>
+        <property name="internalWorkNum" type="java.lang.Integer">
+            <column name="internal_work_num" />
+        </property>
+        <property name="internalRealNum" type="java.lang.Integer">
+            <column name="internal_real_num" />
+        </property>
+        <property name="internalAdminLevel" type="java.lang.Integer">
+            <column name="internal_admin_level" />
+        </property>
+        <property name="internalType" type="java.lang.Integer">
+            <column name="internal_type">
+            	<comment>1、内设机构设置情况2、参照管理事业单位机构设置情况3、事业单位设置情况</comment>
+            </column>
+        </property>
+        <property name="sort" type="java.lang.Integer">
+            <column name="sort">
+            	<comment>排序</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

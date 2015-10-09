@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.secrecyCarrier.vo.SecrecyMaintain" table="bm_secrecyMaintain">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="39" />
+            <generator class="uuid"></generator>
+        </id>
+         <property name="date" type="java.util.Date">
+            <column name="date" length="19">
+                <comment>送修时间</comment>
+            </column>
+        </property>
+        <property name="type" type="java.lang.String">
+            <column name="type" length="100">
+                <comment>设备类型(品牌型号)</comment>
+            </column>
+        </property>
+        <property name="leaderIdea" type="java.lang.String">
+            <column name="leaderIdea" length="100">
+                <comment>领导审批意见</comment>
+            </column>
+        </property>
+        <property name="depIdea" type="java.lang.String">
+            <column name="depIdea" length="100">
+                <comment>部门意见</comment>
+            </column>
+        </property>
+        <property name="reason" type="java.lang.String">
+            <column name="reason" length="100">
+                <comment>维修原因</comment>
+            </column>
+        </property>
+        <property name="secrecyLevel" type="java.lang.Integer">
+            <column name="secrecyLevel" length="11">
+                <comment>密级</comment>
+            </column>
+        </property>
+        <many-to-one name="useDepartment" class="com.cdthgk.platform.organization.department.domain.Department">
+            <column name="useDepartment" length="39">
+                <comment>使用部门</comment>
+            </column>
+        </many-to-one>
+
+          <many-to-one name="seeUserInfo" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="seeUserInfo" length="39">
+                <comment>监修人</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="maintainOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+            <column name="maintainOrgan" length="39">
+                <comment>维修单位</comment>
+            </column>
+        </many-to-one>
+
+        <property name="description" type="java.lang.String">
+            <column name="description" length="200">
+                <comment>备注</comment>
+            </column>
+        </property>
+
+        <property name="state" type="java.lang.Integer">
+            <column name="STATE" length="11">
+                <comment>状态：0：使用1：删除</comment>
+            </column>
+        </property>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <many-to-one name="organId" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="CREATE_ORGAN" length="39">
+                <comment>创建单位</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="CREATE_PERSON" length="39">
+                <comment>输入人员</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

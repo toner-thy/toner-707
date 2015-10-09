@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<bean id="secrecyWorkOrgan.communicateHandler" class="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.transmitor.handler.SecrecyWorkOrganCommunicateHandler">
+		<property name="secrecyWorkOrganExchanger" ref="secrecyWorkOrgan.exchanger"/>
+		<property name="serverReportMappingService" ref="platform.exchange.serverReportMappingService"/>
+		<property name="attachmentService" ref="platform.attachmentService" />
+		<property name="importor" ref="bmp.mysqlImport"/>
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<util:list id="secrecyWorkOrgan.listener" list-class="java.util.ArrayList">
+		<bean class="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.transmitor.listener.SecrecyWorkOrganCommunicateListener"/>
+	</util:list>
+
+	<bean id="secrecyWorkOrgan.communicator" class="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.transmitor.communicator.SecrecyWorkOrganHttpJAXB2TextCommunicator" parent="platform.communicator">
+		<property name="handler" ref="secrecyWorkOrgan.communicateHandler"/>
+		<property name="listeners" ref="secrecyWorkOrgan.listener"/>
+	</bean>
+
+	<bean id="secrecyWorkOrgan.exchanger" class="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.transmitor.exchange.SecrecyWorkOrganExchanger" parent="platform.serverOrganMappingExchanger">
+		<property name="communicator" ref="secrecyWorkOrgan.communicator"/>
+	</bean>
+</beans>

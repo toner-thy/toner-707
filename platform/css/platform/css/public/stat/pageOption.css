@@ -1,0 +1,48 @@
+body {}
+div {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px
+}
+li {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px
+}
+ul {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px
+}
+h2 {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px
+}
+.topic_nav_block_wrapper {
+	border-bottom: #B5CBD9 1px solid;border-top:#fff 1px solid;border-right:#fff 1px solid;
+}
+.application_title {
+	padding-left: 10px; font-size: 18px; background: url('../img/panel/titleBackPic.gif') no-repeat left 4px; padding-bottom: 10px; border-top-style: none; border-right-style: none; border-left-style: none; border-bottom-style: none
+}
+.topic_nav_block {
+	font-size: 14px; float: left; margin-bottom: -1px; WIDTH: 99%;color: #0A7EC7;
+}
+.topic_nav_block li {
+	float: left; margin-right: 3px
+}
+.topic_nav_block a:link {
+	border-right: #B5CBD9 1px solid; padding-right: 10px; border-top: #B5CBD9 1px solid; padding-left: 10px; float: left; padding-bottom: 4px; border-left: #B5CBD9 1px solid; padding-top: 5px; border-bottom: #B5CBD9 1px solid; letter-spacing: 1px; background-color: #F0F4F7; text-decoration: none;color: #0A7EC7;
+}
+.topic_nav_block a:visited {
+	border-right: #B5CBD9 1px solid; padding-right: 10px; border-top: #B5CBD9 1px solid; padding-left: 10px; float: left; padding-bottom: 4px; border-left: #B5CBD9 1px solid; padding-top: 5px; border-bottom: #B5CBD9 1px solid; letter-spacing: 1px; background-color: #F0F4F7; text-decoration: none;color: #0A7EC7;
+}
+.topic_nav_block a:active {
+	border-right: #B5CBD9 1px solid; padding-right: 10px; border-top: #B5CBD9 1px solid; padding-left: 10px; float: left; padding-bottom: 4px; border-left: #B5CBD9 1px solid; padding-top: 5px; border-bottom: #B5CBD9 1px solid; letter-spacing: 1px; background-color: #F0F4F7; text-decoration: none;color: #0A7EC7;f
+}
+.topic_nav_block a.current_nav:link {
+	padding-right: 10px; margin-top: 0px; padding-left: 10px; padding-bottom: 4px; CURSOR: default; padding-top: 5px; border-bottom: white 1px solid; letter-spacing: 0px; background-color: white;color: #0A7EC7;font-weight: 700;
+}
+.topic_nav_block a.current_nav:visited {
+	padding-right: 10px; margin-top: 0px; padding-left: 10px; padding-bottom: 4px; CURSOR: default; padding-top: 5px; border-bottom: white 1px solid; letter-spacing: 0px; background-color: white;color: #0A7EC7;font-weight: 700;
+}
+.topic_nav_block a.current_nav:active {
+	padding-right: 10px; margin-top: 0px; padding-left: 10px; padding-bottom: 4px; CURSOR: default; padding-top: 5px; border-bottom: white 1px solid; letter-spacing: 0px; background-color: white;color: #0A7EC7;font-weight: 700;
+}
+.clear {
+	clear: both
+}
+#mainTables div{ display:none;}
+

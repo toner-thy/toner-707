@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.secrecyFoundTrain"  namespace="/bmp/secrecyFoundTrain" extends="com.cdthgk.project">
+		<!-- 增加 -->
+  		<action name="secrecyFoundTrain_add" class="bmp.secrecyFoundTrainAction" method="add">
+        	<result name="success">/bmp/secrecy-net/secrecyfoundtrain/borderlayout/view/secrecyfoundtrain_add.jsp</result>
+        </action>
+		<!-- 保存 -->
+        <action name="secrecyFoundTrain_save" class="bmp.secrecyFoundTrainAction" method="save">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyFoundTrain</param>
+				<param name="actionName">secrecyFoundTrain_add</param>
+			</result>
+        </action>
+       <!-- 详情 -->
+		<action name="secrecyFoundTrain_detail" method="detail" class="bmp.secrecyFoundTrainAction">
+			<result name="success">/bmp/secrecy-net/secrecyfoundtrain/borderlayout/view/secrecyfoundtrain_detail.jsp</result>
+		</action>
+  </package>
+</struts>

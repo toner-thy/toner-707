@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.vo.SecrecyWorkOrganMemberUnit" table="bm_secrecy_work_organ_members_unit">
+		<id name="secrecyWorkUnitMemberId" type="java.lang.String">
+			<column name="SECRECY_WORK_ORGAN_MEMBERS_ID" length="39"/>
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+		</id>
+
+		<many-to-one name="secrecyWorkOrgan" class="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.vo.SecrecyWorkOrgan" fetch="select">
+			<column name="PERSON_GROUP_ID" length="39">
+				<comment>单位保密工作机构</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="person" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+			<column name="PERSON_ID" length="39">
+				<comment>单位保密办成员</comment>
+			</column>
+		</many-to-one>
+
+		<property name="isSoleDuty" type="java.lang.Integer">
+			<column name="IS_SOLE_DUTY" length="11">
+				<comment>是否专职</comment>
+			</column>
+		</property>
+
+		<property name="otherDuty" type="java.lang.String">
+			<column name="OTHER_DUTY" length="500">
+				<comment>其他职务</comment>
+			</column>
+		</property>
+
+		<property name="secrecyWorkStart" type="java.util.Date">
+			<column name="SECRECY_WORK_START" length="11">
+				<comment>何时从事保密工作</comment>
+			</column>
+		</property>
+
+		<property name="sort" type="java.lang.Integer">
+			<column name="SORT" length="11">
+				<comment>人员排序字段</comment>
+			</column>
+		</property>
+
+		<property name="remark" type="java.lang.String">
+			<column name="REMARK" length="1000">
+				<comment>备注</comment>
+			</column>
+		</property>
+        <property name="secrecyStatus" type="java.lang.Integer">
+			<column name="SECRECY_STATUS">
+				<comment>变更状态</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

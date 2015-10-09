@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<!-- 上传行为配置 -->
+	<bean id="oa.uploadBehavior" class="com.cdthgk.web.upload.UploadBehavior">
+		<property name="fileStorage" ref="oa.fileStorage"/>
+		<property name="uploadPolicys" ref="oa.uploadPolicys"/>
+	</bean>
+
+	<!-- 上传存储配置 -->
+	<bean id="oa.fileStorage" class="com.cdthgk.standard.file.storage.ProjectModuleDateDirStorage"
+		parent="project.attachment.fileStorage">
+		<property name="module" value="/oa"/>
+		<property name="renamePolicy" ref="oa.renamePolicy"/>
+	</bean>
+	<!-- 上传重命名配置 -->
+	<bean id="oa.renamePolicy" class="com.cdthgk.standard.file.rename.TimestampRenamePolicy" >
+	</bean>
+
+	<!-- 上传规则 -->
+	<util:list id="oa.uploadPolicys">
+		<ref bean="oa.fileSizeUploadPolicy" />
+		<ref bean="oa.extNameUploadPolicy" />
+	</util:list>
+	<!-- 大小规则 -->
+	<bean id="oa.fileSizeUploadPolicy" class="com.cdthgk.web.upload.policy.FileSizeUploadPolicy">
+		<property name="maxSize" value="102400000"/>
+	</bean>
+	<!-- 后缀名规则 -->
+	<bean id="oa.extNameUploadPolicy" class="com.cdthgk.web.upload.policy.ExtNameUploadPolicy">
+		<property name="whiteList">
+			<util:list>
+				<value>doc</value>
+				<value>docx</value>
+				<value>xls</value>
+				<value>xlsx</value>
+				<value>jpg</value>
+				<value>jpeg</value>
+				<value>gif</value>
+				<value>png</value>
+				<value>rar</value>
+				<value>zip</value>
+			</util:list>
+		</property>
+	</bean>
+</beans>

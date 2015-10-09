@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.PaperPresented"  namespace="/bmp/paperPresented" extends="com.cdthgk.project">
+		<action name="paperPresented_*" class="paperPresented" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/paperPresented</param>
+				<param name="actionName">paperPresented_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/paperPresented</param>
+				<param name="actionName">paperPresented_edit</param>
+				<param name="paperPresented.id">${paperPresented.id}</param>
+			</result>
+			<result name="print">/bmp/rewardAndPenalty/borderlayout/view/paperPresented_print.jsp</result>
+			<result name="success">/bmp/rewardAndPenalty/borderlayout/view/paperPresented_{1}.jsp</result>
+		</action>
+		 <action name="paperPresented_save" class="paperPresented" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/paperPresented</param>
+				<param name="actionName">paperPresented_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="paperPresented_update" class="paperPresented" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/paperPresented</param>
+				<param name="actionName">paperPresented_edit</param>
+				<param name="paperPresented.id">${paperPresented.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="paperPresented_allList" class="paperPresented" method="allList" >
+			<result name="allList">/bmp/rewardAndPenalty/borderlayout/view/paperPresented_allList.jsp</result>
+		</action>
+	</package>
+</struts>

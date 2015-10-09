@@ -1,0 +1,5 @@
+base中的action和service提供给通用插件、标签、功能组件等后台的基类。
+使用该这些基类，可以分离业务与框架的代码。例如做功能“可配置文本”，其中需要编写的action、service等就不需要关联到具体的业务基类（如bmpAction、bmpService等）。
+
+案例如：
+    cpc标签中“/cdthgk-bmp/platform/tag/src-common-page-components/java/com/cdthgk/platform/tag/commonPageComponents”中的各种文件与配置

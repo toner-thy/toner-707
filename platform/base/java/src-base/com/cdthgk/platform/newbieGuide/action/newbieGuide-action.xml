@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.platform.newbieGuide.action.NewbieGuideAction" namespace="/bmp/newbieGuide" extends="com.cdthgk.project">
+		<action name="newbieGuide_index" method="index" class="bmp.newbieGuideAction">
+			<result name="success">/platform/jsp/public/newbieGuide/view/newbieGuide_index.jsp</result>
+		</action>
+		<action name="newbieGuide_main" method="main" class="bmp.newbieGuideAction">
+			<result name="success">/platform/jsp/public/newbieGuide/view/newbieGuide_main.jsp</result>
+		</action>
+		<action name="newbieGuide_mainList" method="mainList" class="bmp.newbieGuideAction">
+			<result name="success">/platform/jsp/public/newbieGuide/view/newbieGuide_mainList.jsp</result>
+		</action>
+
+	</package>
+</struts>

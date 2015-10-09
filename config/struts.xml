@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"/>
+
+	<constant name="struts.action.extension" value="action,do"/>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="false" />
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="true"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+	<constant name="struts.enable.SlashesInActionNames" value="false"/>
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<!-- 9000000000 约为900M -->
+	<constant name="struts.multipart.maxSize" value="9000000000"/>
+
+	<package name="com.cdthgk.project" extends="com.cdthgk.platform">
+		<result-types>
+			<result-type name="stateRedirectAction" class="com.cdthgk.web.mvc.struts2.result.StateServletActionRedirectResult"></result-type>
+			<result-type name="chart" class="org.apache.struts2.dispatcher.ChartResult">
+    			<param name="height">150</param>
+    			<param name="width">200</param>
+    		</result-type>
+		</result-types>
+
+		<!-- 全局结果 -->
+		<global-results>
+			<result name="exception">/exception/exception.jsp</result>
+			<result name="errors">/exception/exception.jsp</result>
+		</global-results>
+		<!--  全局异常映射  -->
+		<global-exception-mappings>
+			<exception-mapping exception="com.cdthgk.standard.exception.StandardException" result="errors">
+			</exception-mapping>
+			<exception-mapping result="exception" exception="java.lang.Exception">
+			</exception-mapping>
+		</global-exception-mappings>
+	</package>
+	<!--
+	<include file="com/cdthgk/component/configuration/action/configurationAction-action.xml"></include>
+	 -->
+	<include file="classpath*:com/cdthgk/**/*-action.xml"></include>
+	<include file="com/thgk/**/*-action.xml"></include>
+	<!-- 引入action配置文件
+	<include file="classpath*:com/thgk/**/*-action.xml"></include>
+	-->
+</struts>

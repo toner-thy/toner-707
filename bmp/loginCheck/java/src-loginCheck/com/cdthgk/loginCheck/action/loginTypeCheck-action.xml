@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="loginTypeCheck" extends="com.cdthgk.project" namespace="/bmp/loginCheck">
+		<action name="loginType" method="loginType" class="loginTypeCheckAction"></action>
+	</package>
+</struts>

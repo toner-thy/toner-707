@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.discloseSecrecyService" class="com.cdthgk.disclosesecrecy.service.impl.DiscloseSecrecyServiceImpl"  parent="platform.service">
+		<property name="persistProxy" ref="persistProxy" />
+	</bean>
+
+	<!--泄密事件密级变更    服务层-->
+	<bean id="bmp.discloseSecrecyChangeService" class="com.cdthgk.disclosesecrecy.service.impl.DiscloseSecrecyChangeServiceImpl" parent="bmpService">
+	</bean>
+
+	<!--泄密事件密级解除    服务层-->
+	<bean id="bmp.discloseSecrecyClearService" class="com.cdthgk.disclosesecrecy.service.impl.DiscloseSecrecyClearServiceImpl" parent="bmpService">
+	</bean>
+
+	<!--泄密事件密级解除    服务层-->
+	<bean id="bmp.caseHandledutyPersonService" class="com.cdthgk.disclosesecrecy.service.impl.CaseHandledutyPersonServiceImpl" parent="bmpService">
+	</bean>
+
+</beans>

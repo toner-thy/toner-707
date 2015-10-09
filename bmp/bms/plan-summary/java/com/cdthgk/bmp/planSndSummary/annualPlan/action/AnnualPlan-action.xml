@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.planSndSummary.annualPlan.action.AnnualPlanAction" namespace="/bmp/annualPlan" extends="com.cdthgk.project" >
+
+		<!-- 查询主界面 -->
+		<action name="annualPlan_main" class="bmp.annualPlanAction" method="main">
+			<result name="success">/bms/plan-summary/annual-plan/borderlayout/view/annualPlan_main.jsp</result>
+		</action>
+		<!-- 查询list界面 -->
+		<action name="annualPlan_listQuery" class="bmp.annualPlanAction" method="list">
+			<result name="success">/bms/plan-summary/annual-plan/borderlayout/view/annualPlan_listQuery.jsp</result>
+		</action>
+
+		<!-- list页面 -->
+		<action name="annualPlan_list" class="bmp.annualPlanAction" method="list">
+			<result name="success">/bms/plan-summary/annual-plan/borderlayout/view/annualPlan_list.jsp</result>
+		</action>
+
+		<!-- add界面 -->
+		<action name="annualPlan_add" class="bmp.annualPlanAction" method="add">
+			<result name="success">/bms/plan-summary/annual-plan/borderlayout/view/annualPlan_add.jsp</result>
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/annualPlan</param>
+				<param name="actionName">annualPlan_list</param>
+			</result>
+		</action>
+
+		<action name="annualPlan_adding" class="bmp.annualPlanAction" method="adding">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/annualPlan</param>
+				<param name="actionName">annualPlan_list</param>
+			</result>
+		</action>
+
+		<action name="annualPlan_edit" class="bmp.annualPlanAction" method="edit">
+			<result name="success">/bms/plan-summary/annual-plan/borderlayout/view/annualPlan_edit.jsp</result>
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/annualPlan</param>
+				<param name="actionName">annualPlan_list</param>
+			</result>
+		</action>
+
+		<action name="annualPlan_editing" class="bmp.annualPlanAction" method="editing">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/annualPlan</param>
+				<param name="actionName">annualPlan_list</param>
+			</result>
+		</action>
+
+		<action name="annualPlan_quote" class="bmp.annualPlanAction" method="quote">
+			<result name="success">/bms/plan-summary/annual-plan/borderlayout/view/annualPlan_add.jsp</result>
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/annualPlan</param>
+				<param name="actionName">annualPlan_list</param>
+			</result>
+		</action>
+
+		<action name="annualPlan_delete" class="bmp.annualPlanAction" method="delete">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/annualPlan</param>
+				<param name="actionName">annualPlan_list</param>
+			</result>
+		</action>
+
+		<action name="annualPlan_detail" class="bmp.annualPlanAction" method="detail">
+			<result name="success">/bms/plan-summary/annual-plan/borderlayout/view/annualPlan_detail.jsp</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="annualPlan_organIndex" class="bmp.annualPlanAction" method="organIndex" >
+			<result name="success">/bms/plan-summary/annual-plan/borderlayout/view/annualPlan_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="annualPlan_dataValidate" method="dataValidate" class="bmp.annualPlanAction"></action>
+	</package>
+</struts>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.statinfoService" class="com.cdthgk.bmp.statinfo.service.impl.StatinfoServiceImpl" parent="platform.service">
+		<property name="secrecyWorkOrganModuleService" ref="secrecyWorkOrganModuleService"/>
+		<property name="secrecyWorkOrganRelationMemberModuleService" ref="secrecyWorkOrganRelationMemberModuleService"/>
+		<property name="keySectionModuleService" ref="bmp.keySectionModuleService" />
+		<property name="partModuleService" ref="partModuleService"></property>
+		<property name="secrecyMobilestoragemediaService" ref="secrecyMobilestoragemediaService"/>
+		<property name="secrecyComputerService" ref="bmp.secrecyComputerService"/>
+		<property name="annualPlanService" ref="bmp.annualPlanService" ></property>
+		<property name="annualSummaryService" ref="bmp.annualSummaryService" ></property>
+		<property name="undertaketaskService" ref="bmp.undertaketaskService" ></property>
+		<property name="publicityeducationService" ref="bmp.publicityeducationService" ></property>
+		<property name="informationReviewService" ref="bmp.informationReviewService" ></property>
+		<property name="departmentWebsiteService" ref="bmp.departmentWebsiteService" ></property>
+		<property name="secrecyInstitutionService" ref="bmp.secrecyInstitutionService"/>
+		<property name="meetingService" ref="meetingService"></property>
+		<property name="secrecyCheckEventService" ref="secrecyCheckEventService"></property>
+		<property name="rewardAndPenaltyService" ref="rewardAndPenaltyService"></property>
+		<property name="receiveConfidentialService" ref="bmp.receiveConfidentialService" ></property>
+		<property name="contactSecretPersonService" ref="bmp.contactSecretPersonService" ></property>
+		<property name="destructionScrapService" ref="destructionScrapService"></property>
+		<property name="secrecyBorrowService" ref="secrecyBorrowService"></property>
+		<property name="secrecyPrintService" ref="secrecyPrintService"></property>
+		<property name="secrecyMaintainService" ref="secrecyMaintainService"></property>
+		<property name="secrecyTechnologyPreventionService" ref="secrecyTechnologyPreventionService"></property>
+		<property name="secrecyCountryItemService" ref="bmp.secrecyCountryItemService" ></property>
+		<property name="secrecyCopyService" ref="secrecyCopyService"></property>
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"/>
+		<property name="secrecyProductsService" ref="bmp.secrecyProductsService" ></property>
+		<property name="secrecyResearchProjectService" ref="bmp.secrecyResearchProjectService" ></property>
+    	<property name="secrecyNetworkService" ref="bmp.secrecyNetworkService"/>
+		<property name="secrecyOthersService" ref="secrecyOthersService"/>
+		<property name="secrecyFullPartTimeService" ref="secrecyFullPartTimeService"/>
+		<property name="setTheDecryptionService" ref="setTheDecryptionService"/>
+		<property name="discloseSecrecyService" ref="bmp.discloseSecrecyService"/>
+
+	</bean>
+</beans>

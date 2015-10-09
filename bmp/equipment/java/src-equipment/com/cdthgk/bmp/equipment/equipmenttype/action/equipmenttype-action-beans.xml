@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.equipmentTypeAction" class="com.cdthgk.bmp.equipment.equipmenttype.action.EquipmentTypeAction" scope="prototype">
+		<property name="equipmentService" ref="equipmentService"/>
+		<property name="equipmentTypeService" ref="equipmentTypeService"/>
+		<!-- <property name="organService" ref="organService"/> -->
+		<!-- <property name="moduleContactService" ref="moduleContactService"/> -->
+	</bean>
+</beans>

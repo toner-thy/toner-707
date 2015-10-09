@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="part" extends="com.cdthgk.project" namespace="/bmp/part">
+		<!-- 通用配置 -->
+		<global-results>
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_list</param>
+			</result>
+		</global-results>
+
+		<!-- 列表配置 -->
+		<action name="part_list" method="list" class="partAction">
+			<result name="list">/bmp/keypart/borderlayout/view/keypart/keyPart_list.jsp</result>
+		</action>
+
+		<action name="part_list_list" method="list_list" class="partAction">
+			<result name="list">/bmp/keypart/borderlayout/view/keypart/keyPart_list_list.jsp</result>
+		</action>
+
+
+		<!-- 密级变更列表配置 -->
+		<action name="keyPart_list_change" method="list_change" class="partAction">
+			<result name="list">/bmp/keypart/borderlayout/view/keypart/keyPart_list_secrecy_change.jsp</result>
+		</action>
+
+		<!-- 密级解除列表配置 -->
+		<action name="keyPart_list_clear" method="list_clear" class="partAction">
+			<result name="list">/bmp/keypart/borderlayout/view/keypart/keyPart_list_secrecy_clear.jsp</result>
+		</action>
+
+		<action name="part_allList" method="allList" class="partAction">
+			<result name="list">/bmp/keypart/borderlayout/view/keypart/keyPart_allList.jsp</result>
+		</action>
+
+
+
+
+		<!-- 新增配置 -->
+		<action name="part_add" method="add" class="partAction">
+			<result name="add">/bmp/keypart/borderlayout/view/keypart/keyPart_add.jsp</result>
+		</action>
+		<action name="part_adding" method="adding" class="partAction">
+			<result name="edit">/bmp/keypart/borderlayout/view/keypart/keyPart_add.jsp</result>
+		</action>
+
+		<!-- 编辑配置 -->
+		<action name="part_edit" method="edit" class="partAction">
+			<result name="edit">/bmp/keypart/borderlayout/view/keypart/keyPart_edit.jsp</result>
+		</action>
+		<action name="part_editing" method="editing" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_edit</param>
+				<param name="needReload">${needReload}</param>
+				<param name="part.partId">${part.partId}</param>
+				<param name="nestedflag">${nestedflag}</param>
+			</result>
+			<result name="success_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_edit</param>
+				<param name="needReload">${needReload}</param>
+				<param name="part.partId">${part.partId}</param>
+				<param name="nestedflag">${nestedflag}</param>
+			</result>
+		</action>
+
+		<!-- 删除配置 -->
+		<action name="part_delete" method="delete" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_list</param>
+			</result>
+		</action>
+
+		<!-- 详情配置 -->
+		<action name="part_detail" method="detail" class="partAction">
+			<result name="detail">/bmp/keypart/borderlayout/view/keypart/keyPart_detail.jsp</result>
+		</action>
+
+		<!-- 部位查询跳转配置 -->
+		<action name="part_main" method="main" class="partAction">
+			<result name="main">/bmp/keypart/borderlayout/view/keypart/keyPart_checkmain.jsp</result>
+		</action>
+
+		<action name="part_allOrganList" method="allOrganList" class="partAction">
+			<result name="allOrganList">/bmp/keypart/borderlayout/view/keypart/keyPart_allOrganList.jsp</result>
+		</action>
+
+		<action name="part_organPartlist" method="organPartlist" class="partAction">
+			<result name="organPartlist">/bmp/keypart/borderlayout/view/keypart/keyPart_organ_list.jsp</result>
+		</action>
+
+		<!-- 部位涉密人员配置 -->
+		<!-- 部位涉密人员列表配置 -->
+		<action name="part_secPersonList" method="secPersonList" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_edit</param>
+				<param name="part.partId">${part.partId}</param>
+			</result>
+		</action>
+
+		<!-- 新增部位涉密人员跳转配置 -->
+		<action name="part_addPerson" method="addPerson" class="partAction">
+			<result name="addPerson">/bmp/keypart/borderlayout/view/keypart/keyPart_secrecyPerson_add.jsp</result>
+		</action>
+		<!-- 新增部位涉密人员操作配置 -->
+		<action name="part_addPersoning" method="addPersoning" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_edit</param>
+				<param name="part.partId">${part.partId}</param>
+				<param name="secrecyPerson.userInfo.userInfoId">${secrecyPerson.userInfo.userInfoId}</param>
+			</result>
+		</action>
+
+		<!-- 编辑部位涉密人员跳转配置 -->
+		<action name="part_editPerson" method="editPerson" class="partAction">
+			<result name="editPerson">/bmp/keypart/borderlayout/view/keypart/keyPart_secrecyPerson_edit.jsp</result>
+		</action>
+		<!-- 编辑部位涉密人员操作配置 -->
+		<action name="part_editPersoning" method="editPersoning" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_edit</param>
+				<param name="part.partId">${part.partId}</param>
+				<param name="secrecyPerson.userInfo.userInfoId">${secrecyPerson.userInfo.userInfoId}</param>
+			</result>
+		</action>
+
+		<!-- 删除部位涉密人员配置 -->
+		<action name="part_deletePerson" method="deletePerson" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_edit</param>
+				<param name="part.partId">${part.partId}</param>
+			</result>
+		</action>
+
+		<!-- 部位涉密人员详情配置 -->
+		<action name="part_detailPerson" method="detailPerson" class="partAction">
+			<result name="detailPerson">/bmp/keypart/borderlayout/view/keypart/keyPart_secrecyPerson_detail.jsp</result>
+		</action>
+
+		<!-- 附件的私有配置 -->
+		<action name="part_download" method="download" class="partAction">
+
+		</action>
+		<!-- 删除附件 -->
+		<action name="part_deleteAttachment" method="deleteAttachment" class="partAction">
+		</action>
+
+		<!-- 请编写您的配置到这里 -->
+
+
+		<!-- 主页要害部位统计 本单位-->
+		<action name="part_indexView" method="indexView" class="partAction">
+			<result name="success">/bmp/keypart/borderlayout/view/keypart/keyPart_indexView.jsp</result>
+		</action>
+		<action name="part_organPartData" method="organPartData" class="partAction">
+			<result name="demand">/bmp/keypart/borderlayout/view/keypart/keyPart_organPartData.jsp</result>
+		</action>
+		<!-- 主页要害部位统计   保密局-->
+		<action name="indexView_District" method="indexView_District" class="partAction">
+			<result name="success">/bmp/keypart/borderlayout/view/keypart/keyPart_indexView_District.jsp</result>
+		</action>
+		<action name="organPartData_District" method="organPartData_District" class="partAction">
+			<result name="demand">/bmp/keypart/borderlayout/view/keypart/keyPart_organPartData_District.jsp</result>
+		</action>
+
+
+
+		<!-- 上报 -->
+		<action name="part_report" method="report" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">part_list</param>
+			</result>
+		</action>
+
+		<!-- 导出 -->
+		<action name="part_exportData" class="partAction" method="exportData">
+			<result name="success" type="excel">/exportExcel/keyPartExprotTemplet.xlsx</result>
+		</action>
+
+		<!--要害部位密级变更-->
+		<action name="part_change" class="partAction" method="change">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keyPart_Secrecy_Change.jsp</result>
+		</action>
+
+		<!--要害部位密级变更 保存-->
+		<action name="part_changeing" class="partAction" method="changeing">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keyPart_Secrecy_Change.jsp</result>
+		</action>
+
+		<!--要害部位密级解除-->
+		<action name="part_secrecyClear" class="partAction" method="secrecyClear">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keyPart_Secrecy_Clear.jsp</result>
+		</action>
+
+		<!--要害部位密级解除 保存-->
+		<action name="part_secrecyClearing" class="partAction" method="secrecyClearing">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keyPart_Secrecy_Clear.jsp</result>
+		</action>
+
+		<!--要害部位密级变更 详情-->
+		<action name="part_changeDetail" class="partAction" method="changeDetail">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keyPart_Secrecy_ChangeDetail.jsp</result>
+		</action>
+
+		<!--要害部位密级解除  详情-->
+		<action name="part_clearDetail" class="partAction" method="clearDetail">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keyPart_Secrecy_ClearDetail.jsp</result>
+		</action>
+
+		<!-- 本单位要害部位统计 -->
+		<action name="keyPart_org_CountKeyPartBySecrecyLevel" class="partAction" method="org_CountKeyPartBySecrecyLevel">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keypart_Org_CountKeyPartBySecrecyLevel.jsp</result>
+		</action>
+
+		<!-- 保密局要害部位统计 行政区划-->
+		<action name="keypart_Org_CountKeyPartBySecrecyLevel_District" class="partAction" method="org_CountKeyPartBySecrecyLevel_District">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keypart_Org_CountKeyPartBySecrecyLevel_District.jsp</result>
+		</action>
+
+		<!-- 保密局要害部位统计    直辖单位-->
+		<action name="keypart_Org_CountKeyPartBySecrecyLevel_Layer" class="partAction" method="org_CountKeyPartBySecrecyLevel_Layer">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keypart_Org_CountKeyPartBySecrecyLevel_Layer.jsp</result>
+		</action>
+
+		<!-- 保密局要害部位统计 各个单位明细-->
+		<action name="keypart_Org_CountKeyPartBySecrecyLevel_OrganDetail" class="partAction" method="org_CountKeyPartBySecrecyLevel_OrganDetail">
+			<result name="success" >/bmp/keypart/borderlayout/view/keypart/keypart_Org_CountKeyPartBySecrecyLevel_OrganDetail.jsp</result>
+		</action>
+
+		<!-- 保密局的保密要害部位 统计  行政区划 导出-->
+		<action name="keypart_exportExcel_PartCount_District" class="partAction" method="exportExcel_PartCount_District">
+			<result name="success" type="excel">
+				<param name="location">/bmp/keypart/borderlayout/view/keypart/partCount_District_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部位统计(行政区划).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密局的保密要害部位 统计  直辖单位 导出-->
+		<action name="keypart_exportExcel_PartCount_Layer" class="partAction" method="exportExcel_PartCount_Layer">
+			<result name="success" type="excel">
+				<param name="location">/bmp/keypart/borderlayout/view/keypart/partCount_Layer_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部位统计(直辖单位).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密局的保密要害部位 统计  单位明细 导出-->
+		<action name="keypart_exportExcel_PartCount_OrganDetail" class="partAction" method="exportExcel_PartCount_OrganDetail">
+			<result name="success" type="excel">
+				<param name="location">/bmp/keypart/borderlayout/view/keypart/partCount_OrganDetail_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部位统计(单位明细).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密局的保密要害部位 统计  本单位 导出-->
+		<action name="exportExcel_PartCount" class="partAction" method="exportExcel_PartCount">
+			<result name="success" type="excel">
+				<param name="location">/bmp/keypart/borderlayout/view/keypart/exportExcel_PartCount_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部位统计(本单位 ).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 导出保密要害部位 列表信息 -->
+		<action name="exportExcel_List" class="partAction" method="exportExcel_List">
+			<result name="success" type="excel">
+				<param name="location">/bmp/keypart/borderlayout/view/keypart/exportExcel_PartCountList_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部位列表.xlsx</param>
+			</result>
+		</action>
+
+		 <!-- ajax获取保密要害部位是否有关联-->
+		<action name="ajax_keyPart" class="partAction" method="ajax_keyPart"></action>
+
+		<!-- 通过partid获取相关部门信息 -->
+		<action name="ajax_departmentOfkeyPart" method="ajax_departmentOfkeyPart" class="partAction"></action>
+
+
+		<!--保密要害部位查询 -->
+		<action name="keypart_query_main" class="partAction" method="query_main">
+			<result name="success">/bmp/keypart/borderlayout/view/keypart/keypart_query_main.jsp</result>
+		</action>
+		<action name="keypart_query_list" class="partAction" method="list">
+			<result name="list">/bmp/keypart/borderlayout/view/keypart/keyPart_list.jsp</result>
+		</action>
+
+
+		<!--综合统计       查询 通过行政区划    查询要害部位个数 的明细列表 包括当前行政区划 和下级行政区划 的要害部位的明细-->
+		<action name="zhtj_query_Detail" class="partAction" method="zhtj_query_Detail">
+			<result name="success">/bmp/keypart/borderlayout/view/stat/keyPart_stat_stat.jsp</result>
+		</action>
+		<!--综合统计       查询 统计行政区划 要害部位   统计行政区下的直辖单位情况  分单位显示-->
+		<action name="zhtj_queryByDistrict" class="partAction" method="zhtj_queryByDistrict">
+			<result name="success">/bmp/keypart/borderlayout/view/stat/keyPart_stat_organList.jsp</result>
+		</action>
+		<!--综合统计      通过行政区划查询 要害部位  本单位的情况   -->
+		<action name="zhtj_DetailList" class="partAction" method="zhtj_DetailList">
+			<result name="success">/bmp/keypart/borderlayout/view/stat/keyPart_stat_DetailList.jsp</result>
+		</action>
+		<!--综合统计       一个单位的数据撰取的功能    -->
+		<action name="zhtj_OrganDetailList" class="partAction" method="zhtj_OrganDetailList">
+			<result name="success">/bmp/keypart/borderlayout/view/keypart/keyPart_list_list.jsp</result>
+		</action>
+		<!--综合统计       查询 通过行政区划    查询要害部位个数 的明细列表 包括当前行政区划 和下级行政区划 的要害部位的明细-->
+		<action name="zhtj_query" class="partAction" method="zhtj_query">
+			<result name="success">/bmp/keypart/borderlayout/view/stat/keyPart_stat_stat.jsp</result>
+		</action>
+
+
+		<!-- 综合统计导出统计要害部位   行政区划统计   -->
+		<action name="stat_exportDistrict" class="partAction" method="stat_exportDistrict">
+			<result name="success" type="excel">
+				<param name="location">/bmp/keypart/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+				<param name="fileName">行政区划-要害部位(综合统计).xlsx</param>
+			</result>
+		</action>
+		<!-- 综合统计导出统计要害部位   行政区下统计   -->
+		<action name="stat_exportLayer" class="partAction" method="stat_exportLayer">
+			<result name="success" type="excel">
+				<param name="location">/bmp/keypart/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+				<param name="fileName">行政区内-要害部位(综合统计).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="keypart_organIndex" class="partAction" method="organIndex">
+			<result name="success">/bmp/keypart/borderlayout/view/keypart/keypart_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="keypart_dataValidate" method="dataValidate" class="partAction"></action>
+	</package>
+
+
+	<!-- 单选选择器 -->
+	<package name="KeyPartSearchAction" namespace="/bmp/keyPartSearch" extends="part">
+		<!-- 查询保密要害部门  自动补全 -->
+		<action name="autocomplete" class="bmp.KeyPartSearchAction" method="autocomplete" />
+
+		<!-- 页面配置 -->
+		<action name="singelSelect" class="bmp.KeyPartSearchAction" method="singelSelect" >
+			<result name="success" type="com.cdthgk.web.templateDispatcher">/bmp/keypart/borderlayout/view/keypart/keyPart_list_select.jsp</result>
+		</action>
+	</package>
+</struts>

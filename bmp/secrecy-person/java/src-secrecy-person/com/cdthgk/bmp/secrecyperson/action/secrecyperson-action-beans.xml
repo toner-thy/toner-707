@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="secrecyPersonAction" class="com.cdthgk.bmp.secrecyperson.action.SecrecyPersonAction" parent="bmpAction" scope="prototype">
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"/>
+		<property name="userInfoService" ref="platform.userInfoService" />
+		<property name="districtService" ref="platform.districtService"/>
+		<property name="secrecyPersonExchanger" ref="secrecyPerson.exchanger"/>
+		<property name="serverReportMappingService" ref="platform.exchange.serverReportMappingService"/>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="secrecyPersonLevelChangeService" ref="secrecyPersonLevelChangeService" />
+		<property name="secrecyPersonDecryptionService" ref="secrecyPersonDecryptionService" />
+		<property name="partPersonModuleService" ref="partPersonModuleService" />
+		<property name="dataValidateService" ref="bmp.dataValidateService" ></property>
+	</bean>
+
+	<bean id="secrecyPersonSearchAction" class="com.cdthgk.bmp.secrecyperson.query.SecrecyPersonSearchAction" scope="prototype" parent="bmpAction">
+		<property name="secrecyPersonSearchService" ref="secrecyPersonSearchService"/>
+	</bean>
+
+	<bean id="bmp.secrecyPersonListAction" class="com.cdthgk.bmp.secrecyperson.action.SecrecyPersonListAction" parent="bmpAction" scope="prototype">
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"></property>
+	</bean>
+
+	<bean id="bmp.secrecyPersonSearchAction" class="com.cdthgk.bmp.secrecyperson.action.SecrecyPersonSearchAction" parent="bmpAction" scope="prototype">
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"></property>
+	</bean>
+
+</beans>

@@ -1,0 +1,36 @@
+.td_img_left{
+	text-align: right;
+	width: 90px;
+	vertical-align: top;
+}
+.td_img_right{
+	text-align : left;
+}
+.td_content_left{
+	color: #666666;
+	padding-left: 12px;
+	width: 50px;
+	text-align: left;
+}
+.td_content_right{
+	color: #666666;
+	padding-left: 5px;
+	text-align: right;
+}
+.td_total_left{
+	color: #F27D00;
+	padding-left: 12px;
+	font-weight: bold;
+	border-top: 1px solid #95B8C9;
+	width: 50px;
+	text-align: left;
+}
+.td_total_right{
+	color: #F27D00;
+	font-weight: bold;
+	border-top: 1px solid #95B8C9;
+	text-align: right;
+}
+
+
+

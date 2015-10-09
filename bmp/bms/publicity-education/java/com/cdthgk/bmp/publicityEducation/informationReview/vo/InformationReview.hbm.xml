@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-5 10:29:06 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.publicityEducation.informationReview.vo.InformationReview" table="bm_information_review">
+        <id name="informationReviewId" type="string">
+            <column name="INFORMATION_REVIEW_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <property name="title" type="string">
+            <column name="TITLE" length="500">
+                <comment>����</comment>
+            </column>
+        </property>
+        <property name="content" type="string">
+            <column name="CONTENT" length="65535">
+                <comment>��Ϣ����</comment>
+            </column>
+        </property>
+        <property name="informationSources" type="string">
+            <column name="INFORMATION_SOURCES" length="200">
+                <comment>��Ϣ��Դ���ֵ���ѡ��</comment>
+            </column>
+        </property>
+<!--         <property name="undertakingDepartment" type="string"> -->
+<!--             <column name="UNDERTAKING_DEPARTMENT" length="39"> -->
+<!--                 <comment>�а첿��</comment> -->
+<!--             </column> -->
+<!--         </property> -->
+
+		<many-to-one name="undertakingDepartment" class="com.cdthgk.platform.organization.department.domain.Department" fetch="select">
+            <column name="UNDERTAKING_DEPARTMENT" length="39" />
+        </many-to-one>
+
+
+        <property name="releaseWay" type="string">
+            <column name="RELEASE_WAY" length="200">
+                <comment>����;��(�ֵ���ѡ)</comment>
+            </column>
+        </property>
+        <property name="initialOpinions" type="string">
+            <column name="INITIAL_OPINIONS" length="2000">
+                <comment>���ų������</comment>
+            </column>
+        </property>
+        <property name="professionalOpinion" type="string">
+            <column name="PROFESSIONAL_OPINION" length="2000">
+                <comment>רҵ�����������</comment>
+            </column>
+        </property>
+        <property name="unitLeadersOpinions" type="string">
+            <column name="UNIT_LEADERS_OPINIONS" length="2000">
+                <comment>��λ�쵼ǩ�����</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="3000">
+                <comment>备注</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="STATUS">
+                <comment>״̬</comment>
+            </column>
+        </property>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+            <column name="CREATE_PERSON" length="39" />
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+        </property>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>39</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19" />
+        </property>
+        <many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+            <column name="CREATE_ORGAN" length="39" />
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>

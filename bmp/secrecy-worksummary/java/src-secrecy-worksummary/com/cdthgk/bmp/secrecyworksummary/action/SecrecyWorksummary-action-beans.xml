@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.secrecyWorksummaryAction" class="com.cdthgk.bmp.secrecyworksummary.action.SecrecyWorksummaryAction" parent="bmpAction" scope="prototype">
+		<property name="secrecyWorksummaryModuleService" ref="bmp.secrecyWorksummaryModuleService"/>
+		<property name="secrecyWorkOrganModuleService" ref="secrecyWorkOrganModuleService"/>
+		<property name="secrecyWorkOrganRelationMemberModuleService" ref="secrecyWorkOrganRelationMemberModuleService"/>
+		<property name="secrecyWorkOrganMemberUnitModuleService" ref="secrecyWorkOrganMemberUnitModuleService"/>
+		<property name="attachmentService" ref="platform.attachmentService" />
+		<property name="keySectionModuleService" ref="bmp.keySectionModuleService" />
+		<property name="partModuleService" ref="partModuleService"></property>
+		<property name="secrecyPersonModuleService" ref="secrecyPersonModuleService"/>
+	</bean>
+</beans>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.secrecyStatisticsModuleService" class="com.cdthgk.bmp.secrecyStatistics.service.impl.SecrecyStatisticsServiceImpl" parent="platform.service">
+		<property name="secrecyStatisticsSql">
+			<value>select(
+					SELECT count( bpg.PERSON_GROUP_ID ) as '保密工作机构信息已录入' from bm_person_group bpg LEFT JOIN sys_organization so ON bpg.ORGAN_ID = so.ORGAN_ID where bpg.ORGAN_ID IN
+					(
+						select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+					) and so.organ_id = :organId
+				) as 'num_secreyWorkOrgan_entering',
+				(
+					SELECT count( bpg.PERSON_GROUP_ID ) as '保密工作机构信息已录入' from bm_person_group bpg LEFT JOIN sys_organization so ON bpg.ORGAN_ID = so.ORGAN_ID where bpg.REPORT_STATE = '1' AND bpg.ORGAN_ID IN
+					(
+						select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+					) and so.organ_id = :organId
+				) as 'num_secreyWorkOrgan_report',
+				(
+					select count(so.organ_name) as '保密办成员' from bm_secrecy_work_organ_members_unit r
+						left join bm_person_group g on r.person_group_id = g.person_group_id
+						left join sys_organization so on so.organ_id = g.organ_id
+				 		where r.person_group_id in
+					(
+						select bpg.person_group_id from bm_person_group bpg where bpg.organ_id in
+						(
+							select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+						)
+					) and so.organ_id = :organId
+				) as "num_secrecyWorkOrganMember" ,
+				(
+					select count(so.organ_name) as '保密工作机构成员' from bm_person_group_relation r
+						left join bm_person_group g on r.PERSON_GROUP_RELATION_ID = g.person_group_id
+						left join sys_organization so on so.organ_id = g.organ_id
+				 		where r.PERSON_GROUP_RELATION_ID in
+					(
+						select bpg.person_group_id from bm_person_group bpg where bpg.organ_id in
+						(
+							select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+						)
+					) and so.organ_id = :organId
+				) as "num_personGroupMember",
+				(
+					select count(so.organ_name) as '要害部门已录入' from bm_key_section s left join sys_organization so on so.organ_id = s.organ_id where s.organ_id in
+					(
+						select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+					)   and so.organ_id = :organId
+				) as "num_keysection_entering" ,
+				(
+					select count(so.organ_name) as '要害部门已上报' from bm_key_section s left join sys_organization so on so.organ_id = s.organ_id where s.REPORT_STATE = '1' and s.organ_id in
+					(
+						select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+					)   and so.organ_id = :organId
+				) as "num_keysection_report" ,
+				(
+					select count(so.organ_name) as '要害部位已录入' from bm_key_part k left join sys_organization so on so.organ_id = k.organ_id where k.organ_id in
+					(
+						select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+					) 	and so.organ_id = :organId
+				) as "num_keyPart_entering",
+				(
+					select count(so.organ_name) as '要害部位已上报' from bm_key_part k left join sys_organization so on so.organ_id = k.organ_id where k.REPORT_STATE = '1' and k.organ_id in
+					(
+						select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+					) 	and so.organ_id = :organId
+				) as "num_keyPart_reprot",
+				(
+					select count(so.organ_name) as '机关涉密人员已录入' from bm_secrecy_person sp left join sys_organization so on so.organ_id = sp.organ_id where sp.organ_id in
+					(
+						select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+					) 	and so.organ_id = :organId
+				) as  "num_secrecyPerson_entering",
+				(
+					select count(so.organ_name) as '机关涉密人员已汇报' from bm_secrecy_person sp left join sys_organization so on so.organ_id = sp.organ_id where sp.REPORT_STATE = '1' and sp.organ_id in
+					(
+						select o.organ_id from sys_organization o left join sys_district d on o.district_code = d.district_code where d.district_code = :districtCode
+					) 	and so.organ_id = :organId
+				) as  "num_secrecyPerson_report" from sys_organization ooo where ooo.organ_id = :organId
+			</value>
+		</property>
+	</bean>
+</beans>

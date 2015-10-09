@@ -1,0 +1,32 @@
+1.logo位置：/bmp/borderlayout/skin/blue/img/index/logo.gif
+2.login页面位置：/bmp/borderlayout/view/login.jsp
+3.index - 首页的访问地址:/workbench/workbench/index.action
+4.邮件附件上传目录：/bmp/attachment/mail
+     邮件上传大小50MB;
+     邮件正文内容保存在tomcat部署所在盘符根目录/mail
+5.BMP附件上传目录：
+	tomcat部署所在盘符根目录/bmp/attachment
+	例如：/bmp/attachment/secrecyCommittee
+		  /bmp/attachment/mail
+		  /bmp/attachment/upload
+	上传附件大小限制为：102400000 （约为97.65兆）
+	没有单独设置上传规则的放在/bmp/attachment/upload下。
+
+6.	/*抽题规则：1、该用户有角色和行业则抽该角色相关题库、基本题库和行业题库下的题目。
+				2、该用户没有角色和行业则抽基本题库的题目。
+				3、该用户没有角色，则抽基本题库和行业题库下的题目。
+				（各大题库下的子题库）*/
+
+
+权限说明：
+1、admin初始化角色权限
+	BMP---基础权限（角色自动指派否，共享给单位自动指派否）
+	BMP普通用户角色（角色自动指派是，共享给单位自动指派是）：即新增用户（BMP\BMS）默认该角色权限；单位已存在人员默认该权限；
+	BMP领导角色（角色自动指派否，共享给单位自动指派否）：即新增用户（BMP\BMS）和该单位已存在人员都没有该权限；
+	BMS---基础权限（角色自动指派否，共享给单位自动指派否）
+2、将以上角色共享给单位
+	BMP---基础权限、BMP普通用户角色、BMP领导角色：共享给所有保密局
+	BMS---基础权限：共享给所有机关单位
+3、BMS只有一个账号（即机关单位人员只能使用该账号登陆）
+
+

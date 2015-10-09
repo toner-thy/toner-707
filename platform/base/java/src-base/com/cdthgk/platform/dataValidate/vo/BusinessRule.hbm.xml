@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-28 11:02:30 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.platform.dataValidate.vo.BusinessRule" table="bm_business_rule">
+        <id name="businessRuleId" type="string">
+            <column name="BUSINESS_RULE_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <property name="businessModuleId" type="string">
+            <column name="BUSINESS_MODULE_ID" length="39" not-null="true">
+
+            </column>
+        </property>
+        <property name="isWrite" type="java.lang.Integer">
+            <column name="IS_WRITE">
+
+            </column>
+        </property>
+        <property name="minRecordNum" type="java.lang.Integer">
+            <column name="MIN_RECORD_NUM">
+
+            </column>
+        </property>
+        <property name="isRecentlyChanged" type="java.lang.Integer">
+            <column name="IS_RECENTLY_CHANGED">
+
+            </column>
+        </property>
+        <property name="verificationValue" type="java.lang.Integer">
+            <column name="VERIFICATION_VALUE">
+
+            </column>
+        </property>
+        <property name="moduleUrl" type="string">
+            <column name="MODULE_URL" length="1000">
+
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

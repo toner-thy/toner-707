@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<!--
+	<constants class="com.cdthgk.component.constant.configuration.ConstantParameter">
+		<constant name="basePackeges" value="com.thgk,com.cdthgk"/>
+	</constants>
+	 -->
+	 <!--可配置常量组件  -->
+	<constants class="com.cdthgk.component.constant.configuration.ConstantParameter">
+		<constant name="parsers">
+			com.cdthgk.component.constant.parse.ClassParser
+			,com.cdthgk.component.constant.parse.ConstantParser
+			,com.cdthgk.component.constant.parse.JsonParser
+			,com.cdthgk.component.ioc.parse.IocParser
+		</constant>
+		<constant name="reParse" value="true"/>
+		<constant name="devMode" value="false"/>
+	</constants>
+
+	<!-- 信息代码  -->
+	<constants class="com.cdthgk.component.mc.MessageCodeConstant">
+		<constant name="configFiles" value="ApplicationMessage.properties,constant/Constants.properties,error/ApplicationError.properties,error/ApplicationError_platform.propertie"/>
+	</constants>
+
+	<!-- 配置信息组件 信息 -->
+	<constants class="com.cdthgk.component.configuration.constant.ConfigurationConstant">
+		<constant name="configurationPersistenceFactory" value="com.cdthgk.component.configuration.persistence.ConfigurationPersistenceFactoryIocImpl"/>
+	</constants>
+	<!-- 模板 -->
+	<constants class="com.cdthgk.component.easytag.constant.EasyTagConstant">
+		<!--  是否重新加载模板   生产运行环境（客户现场）需要修改为false    开发环境改为true -->
+		<constant name="reloadTemplate" value="true"/>
+	</constants>
+	<!-- 远程附件配置信息 -->
+	<constants class="com.cdthgk.platform.attachment.constant.AttachmentConstant">
+		<constant name="storeRemote" value="false"/>
+	</constants>
+	<!-- 邮件系统配置信息
+	<constants class="com.cdthgk.mail.constant.MailConstant">
+		<constant name="httpHost" value="74.2.74.98"/>
+		<constant name="httpPort" value="4556"/>
+		<constant name="httpContextPath" value="mail"/>
+		<constant name="wsRelativePath" value="ws"/>
+		<constant name="smtpHost" value="74.2.74.98"/>
+		<constant name="pop3Host" value="74.2.74.98"/>
+		<constant name="domain" value="bmpbms.com"/>
+	</constants>-->
+
+	<constants class="com.cdthgk.permission.constant.PermissionConstant">
+		<!-- uk登录信息 -->
+<!-- 		<constant name="loginManager" value="ioc:platform.uKeyLoginManager"/> -->
+	 	<!-- IMS登录登出监听-->
+<!-- 		<constant name="loginListeners" value="ioc:ims.imsUserLoginOutListener"/> -->
+	 	<!-- 邮件和系统登陆登出监听 -->
+<!-- 		<constant name="loginListeners" value="ioc:mail.loginMailListener,platform.loginInfoLoginListener"/> -->
+	 	<!-- 系统登陆登出监听 -->
+		<constant name="loginListeners" value="ioc:platform.loginInfoLoginListener"/>
+
+	</constants>
+
+
+	<!-- 登陆修改为桌面后，取消消息提醒，故这里注释 -->
+	<!-- 所有消息提醒器 -->
+<!-- 	<constants class="com.cdthgk.platform.notification.messager.constant.MesseagerConstant"> -->
+<!-- 		<constant name="messager" value="ioc:message.messager"/> -->
+<!-- 	</constants> -->
+
+	<constants class="com.cdthgk.component.visitor.constant.VisitorConstant">
+		<constant name="registors">
+		class:com.cdthgk.component.visitor.impl.ConstantVisitorRegistor
+		,com.cdthgk.component.configuration.visitor.ConfigurationVisiotrRegistor
+		,com.cdthgk.component.configuration.visitor.text.ConfigurationTextVisiotrRegistor
+		,com.cdthgk.platform.permission.visitor.LoginUserVisitorRegistor
+		</constant>
+	</constants>
+
+	<constants class="com.cdthgk.web.mvc.struts2.constant.Struts2Constant">
+		<constant name="webComponentActionMappingRegistors">
+			class:com.cdthgk.platform.web.component.struts2.registor.WebComponentActionMappingRegistorImpl
+		</constant>
+	</constants>
+</application>

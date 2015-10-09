@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bmp.sysAnswer" namespace="/bmp/sysAnswer" extends="com.cdthgk.project">
+<!-- 		<action name="businessRule_list" method="list" class="bmp.dataValidateAction"> -->
+<!-- 			<result name="success">/platform/jsp/public/dataValidate/view/businessRule_list.jsp</result> -->
+<!-- 		</action> -->
+	</package>
+</struts>

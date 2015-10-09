@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 保密委成员控制器Struts配置 -->
+	<package name="secrecyWorkOrganMemberUnit" extends="com.cdthgk.project" namespace="/secrecyorganization/secrecyWorkOrganMemberUnit">
+		<!-- 通用配置 -->
+			<!-- 详情配置 -->
+			<action name="secrecyWorkOrganMemberUnit_detail" method="detail" class="secrecyWorkOrganMemberUnitAction">
+				<result name="detail">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyCommitteeMember_detail.jsp</result>
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecyWorkOrganMemberUnit</param>
+					<param name="actionName">secrecyWorkOrganMemberUnit_edit</param>
+					<param name="secrecyWorkOrganMemberUnit.secrecyWorkOrganMemberUnitId">${secrecyWorkOrganMemberUnit.secrecyWorkOrganMemberUnitId}</param>
+				</result>
+			</action>
+
+			<!-- 新增配置 -->
+			<action name="secrecyWorkOrganMemberUnit_add" method="add" class="secrecyWorkOrganMemberUnitAction">
+				<result name="add">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganMemberUnit_add.jsp</result>
+			</action>
+			<action name="secrecyWorkOrganMemberUnit_adding" method="adding" class="secrecyWorkOrganMemberUnitAction">
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+					<param name="actionName">secrecyWorkOrgan_edit</param>
+					<param name="secrecyWorkOrgan.secrecyWorkOrganId">${secrecyWorkOrgan.secrecyWorkOrganId}</param>
+				</result>
+			</action>
+
+			<!-- 编辑配置 -->
+			<action name="secrecyWorkOrganMemberUnit_edit" method="edit" class="secrecyWorkOrganMemberUnitAction">
+				<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganMemberUnit_edit.jsp</result>
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+					<param name="actionName">secrecyWorkOrgan_edit</param>
+					<param name="secrecyWorkOrgan.secrecyWorkOrganId">${secrecyWorkOrgan.secrecyWorkOrganId}</param>
+				</result>
+			</action>
+
+			<action name="secrecyWorkOrganMemberUnit_editing" method="editing" class="secrecyWorkOrganMemberUnitAction">
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+					<param name="actionName">secrecyWorkOrgan_edit</param>
+					<param name="secrecyWorkOrgan.secrecyWorkOrganId">${secrecyWorkOrgan.secrecyWorkOrganId}</param>
+				</result>
+			</action>
+
+			<action name="secrecyWorkOrganMemberUnit_delete" method="delete" class="secrecyWorkOrganMemberUnitAction">
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+					<param name="actionName">secrecyWorkOrgan_edit</param>
+					<param name="secrecyWorkOrgan.secrecyWorkOrganId">${secrecyWorkOrgan.secrecyWorkOrganId}</param>
+				</result>
+			</action>
+
+			<action name="secrecyWorkOrganMemberUnit_list" method="list" class="secrecyWorkOrganMemberUnitAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+						<param name="actionName">secrecyWorkOrgan_edit</param>
+						<param name="secrecyWorkOrgan.secrecyWorkOrganId">${secrecyWorkOrgan.secrecyWorkOrganId}</param>
+				</result>
+			</action>
+
+			<action name="secrecyWorkOrganMemberUnit_detailList" method="detailList" class="secrecyWorkOrganMemberUnitAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecyWorkOrgan</param>
+						<param name="actionName">secrecyWorkOrgan_detail</param>
+						<param name="secrecyWorkOrgan.secrecyWorkOrganId">${secrecyWorkOrgan.secrecyWorkOrganId}</param>
+				</result>
+			</action>
+
+			<!-- 人员变动 -->
+			<action name="secrecyWorkOrganMemberUnit_personnelChange" method="personnelChange" class="secrecyWorkOrganMemberUnitAction">
+				<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganMemberUnit_personnelChange.jsp</result>
+			</action>
+
+			<action name="secrecyWorkOrganRelationMember_personnelChanging" method="personnelChanging" class="secrecyWorkOrganMemberUnitAction">
+				<result name="changed">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganMemberUnit_personnelChange.jsp</result>
+			</action>
+
+			<!-- 成员明细查看 -->
+			<action name="secrecyWorkOrganMemberUnit_memberdetail" method="memberdetail" class="secrecyWorkOrganMemberUnitAction">
+				<result name="success">/bmp/secrecy-organization/secrecy-workorgan/borderlayout/view/secrecyWorkOrganMemberUnit_memberdetail.jsp</result>
+			</action>
+
+		<!-- 私有配置 -->
+			<!-- 请编写您的配置到这里 -->
+
+	</package>
+</struts>

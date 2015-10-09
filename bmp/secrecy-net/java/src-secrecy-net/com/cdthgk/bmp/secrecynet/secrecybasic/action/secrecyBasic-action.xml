@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.secrecyBasic"  namespace="/net/secrecyBasic" extends="com.cdthgk.project">
+
+        <action name="secrecyBasic_list" class="bmp.secrecyBasicAction" method="list">
+        	<result name="success">/bmp/secrecy-net/secrecy-basic/borderlayout/view/secrecyBasic_list.jsp</result>
+        </action>
+        <action name="secrecyBasic_add" class="bmp.secrecyBasicAction" method="add">
+        	<result name="success">/bmp/secrecy-net/secrecy-basic/borderlayout/view/secrecyBasic_add.jsp</result>
+        </action>
+        <action name="secrecyBasic_add2" class="bmp.secrecyBasicAction" method="add2">
+        	<result name="success">/bmp/secrecy-net/secrecy-basic/borderlayout/view/secrecyBasic_add.jsp</result>
+        </action>
+
+        <action name="secrecyBasic_adding" class="bmp.secrecyBasicAction" method="adding">
+        	<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/net/secrecyBasic</param>
+				<param name="actionName">secrecyBasic_list</param>
+			</result>
+        </action>
+        <action name="secrecyBasic_edit" class="bmp.secrecyBasicAction" method="edit">
+        	<result name="success">/bmp/secrecy-net/secrecy-basic/borderlayout/view/secrecyBasic_add.jsp</result>
+        </action>
+        <action name="secrecyBasic_editing" class="bmp.secrecyBasicAction" method="editing">
+        	<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/net/secrecyBasic</param>
+				<param name="actionName">secrecyBasic_list</param>
+			</result>
+        </action>
+        <action name="secrecyBasic_del" class="bmp.secrecyBasicAction" method="del">
+        	<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/net/secrecyBasic</param>
+				<param name="actionName">secrecyBasic_list</param>
+			</result>
+        </action>
+
+         <action name="secrecyBasic_detail" class="bmp.secrecyBasicAction" method="detail">
+        	<result name="success">/bmp/secrecy-net/secrecy-basic/borderlayout/view/secrecyBasic_detail.jsp</result>
+        </action>
+
+  </package>
+</struts>

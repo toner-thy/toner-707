@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-15 14:28:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyproducts.vo.SecrecyProducts" table="bm_secrecy_products" >
+        <id name="secrecyproductsId" type="java.lang.String">
+            <column name="secrecyproducts_id" length="39" >
+            	<comment>密品id</comment>
+            </column>
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <property name="secrecyproductsName" type="java.lang.String">
+            <column name="secrecyproducts_name" length="300">
+                <comment>密品名称</comment>
+            </column>
+        </property>
+        <many-to-one name="formulatesecrecyPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="formulatesecrecy_person" length="39">
+                <comment>定密负责人</comment>
+            </column>
+        </many-to-one>
+        <property name="secrecyLevel" type="java.lang.Integer">
+            <column name="secrecy_level">
+                <comment>密级(3秘密，2机密，1绝密)</comment>
+            </column>
+        </property>
+        <property name="secrecyLimit" type="java.lang.Integer">
+            <column name="secrecy_limit">
+                <comment>保密期限</comment>
+            </column>
+        </property>
+        <property name="limitType" type="java.lang.Integer">
+            <column name="limit_type">
+                <comment>期限单位（1年，2月，3日）</comment>
+            </column>
+        </property>
+        <property name="secrecyLimitBegindate" type="java.util.Date">
+            <column name="secrecy_limit_begindate" length="19">
+                <comment>保密期限起</comment>
+            </column>
+        </property>
+        <property name="secrecyLimitEnddate" type="java.util.Date">
+            <column name="secrecy_limit_enddate" length="19">
+                <comment>保密期限止</comment>
+            </column>
+        </property>
+        <property name="fileNo" type="java.lang.String">
+            <column name="file_no" length="100">
+                <comment>文号</comment>
+            </column>
+        </property>
+        <property name="vectorform" type="java.lang.Integer">
+            <column name="vectorform">
+                <comment>载体形式</comment>
+            </column>
+        </property>
+        <property name="vectorformNum" type="java.lang.Integer">
+            <column name="vectorform_num">
+                <comment>数量</comment>
+            </column>
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="content" length="2000">
+                <comment>内容</comment>
+            </column>
+        </property>
+        <many-to-one name="departId" class="com.cdthgk.platform.organization.department.domain.Department">
+            <column name="depart_id" length="39">
+                <comment>部门</comment>
+            </column>
+        </many-to-one>
+        <property name="secrecyStatus" type="java.lang.Integer">
+            <column name="secrecy_status">
+                <comment>解密状态</comment>
+            </column>
+        </property>
+
+
+         <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="create_person" length="39">
+                <comment>创建人</comment>
+            </column>
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" length="19">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="create_organ" length="39">
+                <comment>创建单位</comment>
+            </column>
+        </many-to-one>
+
+        <many-to-one name="modifyPerson"  class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="modify_person" length="39">
+                <comment>修改人</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="modify_time" length="19">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <many-to-one name="modifyOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="modify_organ" length="39">
+                <comment>修改人单位</comment>
+            </column>
+        </many-to-one>
+        <property name="dataState" type="java.lang.Integer">
+            <column name="data_state">
+                <comment>单据状态</comment>
+            </column>
+        </property>
+
+        <set name="secrecyProductsChanges" table="bm_secrecy_products_change" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="secrecyproducts_id" length="39">
+                    <comment>密品</comment>
+                </column>
+            </key>
+            <one-to-many class="com.cdthgk.bmp.secrecyproducts.vo.SecrecyProductsChange" />
+        </set>
+        <set name="secrecyProductsClears" table="bm_secrecy_products_clear" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="secrecyproducts_id" length="39">
+                    <comment>密品</comment>
+                </column>
+            </key>
+            <one-to-many class="com.cdthgk.bmp.secrecyproducts.vo.SecrecyProductsClear" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecynet.secrecyfoundtrain.vo.SecrecyFoundTrain" table="bm_net_secrecy_found_train">
+        <!-- 主键ID -->
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="39" />
+            <generator class="uuid" />
+        </id>
+		<property name="year" type="java.lang.Integer">
+			<column name="YEAR" length="11">
+				<comment>年</comment>
+			</column>
+		</property>
+		<many-to-one name="reportUser" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="REPORT_USER" >
+				<comment>汇报人</comment>
+			</column>
+		</many-to-one>
+		<property name="reportDate" type="java.util.Date">
+			<column name="REPORT_DATE" >
+				<comment>汇报时间</comment>
+			</column>
+		</property>
+		<many-to-one name="reportDepartment" class="com.cdthgk.platform.organization.department.domain.Department">
+			<column name="REPORT_DEPARTMENT" >
+				<comment>汇报部门</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="reportOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+			<column name="REPORT_ORGAN" >
+				<comment>汇报单位</comment>
+			</column>
+		</many-to-one>
+
+        <property name="secrecyCadreNum" type="java.lang.Integer">
+            <column name="SECRECY_CADRE_NUM" length="11">
+                <comment>保密干部人数</comment>
+            </column>
+        </property>
+
+        <property name="doctorNum" type="java.lang.Integer">
+            <column name="DOCTOR_NUM" length="11">
+                <comment>博士生人数</comment>
+            </column>
+        </property>
+
+        <property name="masterNum" type="java.lang.Integer">
+            <column name="MASTER_NUM" length="11">
+                <comment>硕士生人数</comment>
+            </column>
+        </property>
+
+        <property name="undergraduateNum" type="java.lang.Integer">
+            <column name="UNDERGRADUATE_NUM" length="11">
+                <comment>本科生人数</comment>
+            </column>
+        </property>
+
+        <property name="juniorNum" type="java.lang.Integer">
+            <column name="JUNIOR_NUM" length="11">
+                <comment>大专生人数</comment>
+            </column>
+        </property>
+
+        <property name="signalCommuNum" type="java.lang.Integer">
+            <column name="SIGNAL_COMMU_NUM" length="11">
+                <comment>计算机及通信人员</comment>
+            </column>
+        </property>
+
+        <property name="otherNum" type="java.lang.Integer">
+            <column name="OTHER_NUM" length="11">
+                <comment>其他人员</comment>
+            </column>
+        </property>
+
+        <property name="lessThanNum" type="java.lang.Integer">
+            <column name="LESS_THAN_NUM" length="11">
+                <comment>低于45岁人员</comment>
+            </column>
+        </property>
+
+        <property name="greateThanNum" type="java.lang.Integer">
+            <column name="GREATE_THAN_NUM" length="11">
+                <comment>高于45岁人员</comment>
+            </column>
+        </property>
+
+        <property name="problemAdvice" type="java.lang.String">
+            <column name="PROBLEM_ADVICE" length="4000">
+                <comment>问题及建议</comment>
+            </column>
+        </property>
+
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="CREATE_PERSON" length="39">
+                <comment>创建人员</comment>
+            </column>
+        </many-to-one>
+
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="18">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="18">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+
+        <many-to-one name="createDepartment" class="com.cdthgk.platform.organization.department.domain.Department">
+            <column name="CREATE_DEPARTMENT" length="39">
+                <comment>创建部门</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="CREATE_ORGAN" length="39">
+                <comment>创建单位</comment>
+            </column>
+        </many-to-one>
+
+       <!--  <set name="secrecyFoundTrainContentSet" inverse="true" cascade="delete,save-update">
+            <key>
+                <column name="ID" length="32">
+                    <comment>保密队伍建设和培训情况子表</comment>
+                </column>
+            </key>
+            <one-to-many class="com.cdthgk.bmp.secrecynet.secrecyfoundtrain.vo.SecrecyFoundTrainContent" />
+        </set> -->
+    </class>
+</hibernate-mapping>

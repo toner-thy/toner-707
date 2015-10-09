@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.secrecyperson.vo.SecrecyPerson" table="bm_secrecy_person">
+		<id name="secrecyPersonId" type="java.lang.String">
+			<!-- 四川省历史库是使用的person_id
+			<column name="secrecy_person_id" length="39">
+			-->
+			<column name="person_id" length="32"/>
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+		</id>
+		<many-to-one name="userInfo" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" cascade="none">
+			<!-- 四川省历史库是使用的USER_INFO_ID
+			<column name="PERSON_ID" length="39">
+			-->
+			<column name="USER_INFO_ID" length="39">
+				<comment>用户</comment>
+			</column>
+		</many-to-one>
+		<property name="officeDuty" type="java.lang.String">
+			<column name="office_duty" length="20">
+				<comment>行政职务</comment>
+			</column>
+		</property>
+		<property name="firstWorkDate" type="java.util.Date">
+			<column name="first_work_date" length="19">
+				<comment>参加工作日期</comment>
+			</column>
+		</property>
+		<property name="inNowPostTime" type="java.util.Date">
+			<column name="in_now_post_time" length="19">
+				<comment>进入现岗位日期</comment>
+			</column>
+		</property>
+		<property name="foreignLanguage" type="java.lang.String">
+			<column name="foreign_language" length="20">
+				<comment>掌握外语</comment>
+			</column>
+		</property>
+		<property name="familiarGrade" type="java.lang.String">
+			<column name="familiar_grade" length="20">
+				<comment>熟悉程度</comment>
+			</column>
+		</property>
+		<property name="npPoliceStation" type="java.lang.String">
+			<column name="np_police_station" length="100">
+				<comment>户籍派出所</comment>
+			</column>
+		</property>
+		<property name="secrecyPersonLevel" type="java.lang.Integer">
+			<column name="secrecy_person_level">
+				<comment>涉密程度</comment>
+			</column>
+		</property>
+		<property name="secrecyWorkDate" type="java.lang.Integer">
+			<column name="secrecy_work_date">
+				<comment>涉密工作年限</comment>
+			</column>
+		</property>
+		<property name="topSecrecyLevel" type="java.lang.Integer">
+			<column name="top_secrecy_level">
+				<comment>接触最高密级</comment>
+			</column>
+		</property>
+		<property name="signSecrecyTreaty" type="java.lang.Integer">
+			<column name="sign_secrecy_treaty">
+				<comment>是否签订保密协议</comment>
+			</column>
+		</property>
+		<property name="secrecyTreatyDate" type="java.util.Date">
+			<column name="secrecy_treaty_date" length="19">
+				<comment>签订保密协议日期</comment>
+			</column>
+		</property>
+		<property name="fillDate" type="java.util.Date">
+			<column name="fill_date" length="19">
+				<comment>填表日期</comment>
+			</column>
+		</property>
+		<property name="outSecrecyYears" type="java.lang.Integer">
+			<column name="out_secrecy_years">
+				<comment>脱密期年限</comment>
+			</column>
+		</property>
+		<property name="transOutDate" type="java.util.Date">
+			<column name="trans_out_date" length="19">
+				<comment>调离日期</comment>
+			</column>
+		</property>
+		<property name="politicalStatus" type="java.lang.String">
+			<column name="political_status" length="50">
+				<comment>政治面貌</comment>
+			</column>
+		</property>
+		<property name="politicalType" type="java.lang.String">
+			<column name="political_type" length="50">
+				<comment>政治面貌选取字段</comment>
+			</column>
+		</property>
+
+		<property name="hasQualifCard" type="java.lang.String">
+			<column name="has_qualif_card" length="50">
+				<comment>上岗证编号</comment>
+			</column>
+		</property>
+		<property name="resume" type="java.lang.String">
+			<column name="resume" length="2000">
+				<comment>个人简介</comment>
+			</column>
+		</property>
+		<property name="otherInfo" type="java.lang.String">
+			<column name="other_info" length="500">
+				<comment>其他说明情况</comment>
+			</column>
+		</property>
+		<property name="secWorkInfo" type="java.lang.String">
+			<column name="sec_work_info" length="500">
+				<comment>从事涉密工作情况</comment>
+			</column>
+		</property>
+		<property name="organCheckOpinion" type="java.lang.String">
+			<column name="organ_check_opinion" length="500">
+				<comment>单位审察意见</comment>
+			</column>
+		</property>
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="organ_id" length="39">
+				<comment>所在单位ID</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department" fetch="select">
+			<column name="department_id" length="39">
+				<comment>所在部门ID</comment>
+			</column>
+		</many-to-one>
+		<property name="officePhone" type="java.lang.String">
+			<column name="office_phone" length="50">
+				<comment>办公室电话</comment>
+			</column>
+		</property>
+		<property name="postTrainTime" type="java.util.Date">
+			<column name="post_train_time" length="19">
+				<comment>持证上岗时间</comment>
+			</column>
+		</property>
+		<property name="signDimissionTreaty" type="java.lang.Integer">
+			<column name="sign_dimission_treaty">
+				<comment>是否签订离岗保密协议书</comment>
+			</column>
+		</property>
+		<property name="post" type="java.lang.String">
+			<column name="post" length="40">
+				<comment>岗位</comment>
+			</column>
+		</property>
+		<property name="secrecyStatus" type="java.lang.Integer">
+			<column name="secrecy_status">
+				<comment>涉密状态</comment>
+			</column>
+		</property>
+		<property name="secSignBookTime" type="java.util.Date">
+			<column name="sec_sign_book_time" length="19">
+				<comment>签订保密书时间</comment>
+			</column>
+		</property>
+		<property name="secUppostTime" type="java.util.Date">
+			<column name="sec_uppost_time" length="19">
+				<comment>取得上岗证书时间</comment>
+			</column>
+		</property>
+		<property name="personType" type="java.lang.Integer">
+			<column name="person_type">
+				<comment>人员类型</comment>
+			</column>
+		</property>
+		<property name="isSecrecyDepWorker" type="java.lang.Integer">
+			<column name="is_secrecy_dep_worker">
+				<comment>是否属于要害部门工作人员(0:否;1:是;)</comment>
+			</column>
+		</property>
+		<property name="responsiblePerson" type="java.lang.Integer">
+			<column name="responsible_person">
+				<comment>是否为定密责任人</comment>
+			</column>
+		</property>
+
+		<!-- 通用字段 -->
+		<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="create_person" length="39">
+				<comment>创建用户</comment>
+			</column>
+		</many-to-one>
+		<property name="createTime" type="java.util.Date">
+			<column name="create_time" length="19">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="modify_person" length="39">
+				<comment>修改用户</comment>
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="modify_time" length="19">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+		<property name="reportState" type="java.lang.Integer">
+			<column name="REPORT_STATE">
+				<comment>0:未上报；1:已上报;</comment>
+			</column>
+		</property>
+		<set name="receiveOrgans" table="BM_SECRECY_PERSON_RECEIVE" inverse="false" cascade="save-update" batch-size="20">
+			<key>
+				<column name="PERSON_ID" length="32">
+					<comment>人员ID</comment>
+				</column>
+			</key>
+			<many-to-many entity-name="com.cdthgk.platform.organization.organ.domain.Organ">
+				<column name="RECEIVE_ORGAN_ID" length="39">
+					<comment>接收单位主键ID</comment>
+				</column>
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

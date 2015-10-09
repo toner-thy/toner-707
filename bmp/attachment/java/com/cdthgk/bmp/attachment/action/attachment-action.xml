@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.attachment"  namespace="/bmp/attachment" extends="com.cdthgk.project">
+        <action name="attachment_indexList" class="bmp.attachmentAction" method="indexList">
+        	<result name="success">/bmp/attachment/borderlayout/view/attachment_indexList.jsp</result>
+        	<interceptor-ref name="cdthgkStrutsStack"></interceptor-ref>
+        </action>
+
+        <action name="attachment_indexAll" class="bmp.attachmentAction" method="indexAll">
+        	<result name="success">/bmp/attachment/borderlayout/view/attachment_indexAll.jsp</result>
+        	<interceptor-ref name="cdthgkStrutsStack"></interceptor-ref>
+        </action>
+
+        <action name="attachment_myList" class="bmp.attachmentAction" method="myList">
+        	<result name="success">/bmp/attachment/borderlayout/view/attachment_myList.jsp</result>
+        </action>
+
+        <action name="attachment_allList" class="bmp.attachmentAction" method="allList">
+        	<result name="success">/bmp/attachment/borderlayout/view/attachment_allList.jsp</result>
+        </action>
+
+        <action name="attachment_organList" class="bmp.attachmentAction" method="organList">
+        	<result name="success">/bmp/pages/attachment/attachment_organList.jsp</result>
+        </action>
+
+        <action name="attachment_districtList" class="bmp.attachmentAction" method="districtList">
+        	<result name="success">/bmp/pages/attachment/attachment_districtList.jsp</result>
+        </action>
+
+        <action name="attachment_add" class="bmp.attachmentAction" method="add">
+        	<result name="success">/bmp/attachment/borderlayout/view/attachment_add.jsp</result>
+        </action>
+
+        <action name="attachment_save" class="bmp.attachmentAction" method="save">
+        	<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/attachment</param>
+				<param name="actionName">attachment_myList</param>
+			</result>
+			<result name="failure">/bmp/attachment/borderlayout/view/attachment_edit.jsp</result>
+        </action>
+
+        <action name="attachment_edit" class="bmp.attachmentAction" method="edit">
+        	<result name="success">/bmp/attachment/borderlayout/view/attachment_edit.jsp</result>
+        </action>
+
+        <action name="attachment_editing" class="bmp.attachmentAction" method="editing">
+        	<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/attachment</param>
+				<param name="actionName">attachment_myList</param>
+			</result>
+			<result name="failure">/bmp/attachment/borderlayout/view/attachment_add.jsp</result>
+        </action>
+
+        <action name="attachment_update" class="bmp.attachmentAction" method="update">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/attachment</param>
+				<param name="actionName">attachment_myList</param>
+			</result>
+        </action>
+
+        <action name="attachment_download" class="bmp.attachmentAction" method="download">
+        	<!-- <result name="download" type="ftpDownload">
+				<param name="upLoadUtils">attachment</param>
+			</result> -->
+        </action>
+
+         <action name="attachment_delete" class="bmp.attachmentAction" method="delete">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/attachment</param>
+				<param name="actionName">attachment_myList</param>
+			</result>
+        </action>
+  </package>
+</struts>

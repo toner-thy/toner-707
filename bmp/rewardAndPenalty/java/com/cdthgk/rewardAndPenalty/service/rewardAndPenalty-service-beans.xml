@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="rewardAndPenaltyService" class="com.cdthgk.rewardAndPenalty.service.impl.RewardAndPenaltyServiceImpl" parent="platform.service">
+	</bean>
+	<bean id="paperPresentedService" class="com.cdthgk.rewardAndPenalty.service.impl.PaperpresentedServiceImpl" parent="platform.service">
+	</bean>
+</beans>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.meetingcategory.vo.Meeting" table="bm_meeting">
+        <id name="meetingId" type="java.lang.String">
+            <column name="MEETING_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <property name="meetingTime" type="java.util.Date" column="MEETING_TIME"/>
+        <property name="meetingName" type="java.lang.String" column="MEETING_NAME"/>
+        <property name="place" type="java.lang.String" column="place"/>
+        <property name="content" type="java.lang.String" column="content"/>
+        <property name="scope" type="java.lang.String" column="scope"/>
+        <property name="situation" type="java.lang.String" column="situation"/>
+        <property name="attendUserInfos" type="java.lang.String" column="attendUserInfos"/>
+        <property name="holdDepartment" type="java.lang.String" column="holdDepartment"/>
+        <property name="holdOrgans" type="java.lang.String" column="holdOrgans"/>
+        <property name="measure" type="java.lang.String" column="measure"/>
+
+
+        <many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="ORGAN_ID" length="39">
+                <comment>创建单位</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="presenter" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="presenter_ID" length="39">
+                <comment>主持人</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="recorder" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="recorder_ID" length="39">
+                <comment>记录人</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="CREATE_PERSON" length="39">
+                <comment>输入人员</comment>
+            </column>
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+
+        <property name="status" type="java.lang.Integer">
+        	<column name="STATUS" length="11">
+                <comment>//删除时候0:删除了；1：显示</comment>
+            </column>
+        </property>
+        <property name="secrecyLevel" type="java.lang.Integer">
+        	<column name="secrecyLevel" length="11">
+                <comment>涉密等级</comment>
+            </column>
+        </property>
+         <many-to-one name="meetingCategory" class="com.cdthgk.meetingcategory.vo.MeetingCategory" fetch="select">
+            <column name="MEETING_CATEGORY_ID" length="32" />
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>

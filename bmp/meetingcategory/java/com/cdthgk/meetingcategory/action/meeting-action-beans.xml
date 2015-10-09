@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="meetingAction" class="com.cdthgk.meetingcategory.action.MeetingAction" scope="prototype">
+		<property name="meetingService" ref="meetingService"></property>
+		<property name="meetingCategoryService" ref="meetingCategoryService"/>
+		<property name="departmentService" ref="platform.departmentService"/>
+		<property name="dataValidateService" ref="bmp.dataValidateService" ></property>
+	</bean>
+	<bean id="attendMeetingAction" class="com.cdthgk.meetingcategory.action.AttendMeetingAction" scope="prototype">
+		<property name="attendMeetingService" ref="attendMeetingService"/>
+	</bean>
+    <bean id="meetingCategoryAction" class="com.cdthgk.meetingcategory.action.MeetingCategoryAction" scope="prototype">
+		<property name="meetingService" ref="meetingService"/>
+		<property name="meetingCategoryService" ref="meetingCategoryService"/>
+	</bean>
+</beans>

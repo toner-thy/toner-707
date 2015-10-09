@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.thgk.action.DiscloseSecrecy" namespace="/bmp/discloseSecrecy" extends="com.cdthgk.project">
+		<!--跳转到泄密事件主面板  -->
+		<action name="discloseSecrecy_listMain" class="bmp.discloseSecrecyAction" method="listMain">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_main.jsp</result>
+        </action>
+        <!--泄密事件保密局查询列表首次跳转  -->
+		<action name="discloseSecrecy_selectList" class="bmp.discloseSecrecyAction" method="selectList">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_query_main.jsp</result>
+        </action>
+          <!--泄密事件保密局查询列表查询跳转  -->
+		<action name="discloseSecrecy_selectListing2" class="bmp.discloseSecrecyAction" method="selectListing">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_list.jsp</result>
+        </action>
+          <!--泄密事件保密局查询列表查询跳转中间页  -->
+		<action name="discloseSecrecy_selectListing" class="bmp.discloseSecrecyAction" method="queryMain">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_query_list.jsp</result>
+        </action>
+        <!--泄密事件列表  -->
+		<action name="discloseSecrecy_list" class="bmp.discloseSecrecyAction" method="list">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_list.jsp</result>
+        </action>
+        <!--cms 台账信息  -->
+		<action name="discloseSecrecy_organIndex" class="bmp.discloseSecrecyAction" method="organIndex">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_organIndex.jsp</result>
+        </action>
+        <!-- 数据填写校验 -->
+		<action name="discloseSecrecy_dataValidate" method="dataValidate" class="bmp.discloseSecrecyAction"></action>
+
+
+
+         <!-- 本单位的泄密事件 泄密事件统计 -->
+		<action name="countDiscloseSecrecyBySecrecyLevel" class="bmp.discloseSecrecyAction" method="countDiscloseSecrecyBySecrecyLevel">
+			<result name="success" >/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_indexView.jsp</result>
+		</action>
+
+		<!-- 本单位的泄密事件查处结果 统计 -->
+		<action name="discloseSecrecy_org_CountDiscloseSecrecyByDealResult" class="bmp.discloseSecrecyAction" method="org_CountDiscloseSecrecyByDealResult">
+			<result name="yichajie">/bmp/disclose_secrecy/borderlayout/view/yichajie_countDiscloseSecrecy.jsp</result>
+			<result name="weichajie">/bmp/disclose_secrecy/borderlayout/view/weichajie_countDiscloseSecrecy.jsp</result>
+		</action>
+
+		<!-- 保密局的泄密事件查处结果 统计 -->
+		<action name="discloseSecrecy_org_CountDiscloseSecrecyDistrictByDealResult" class="bmp.discloseSecrecyAction" method="org_CountDiscloseSecrecyDistrictByDealResult">
+			<result name="yichajie">/bmp/disclose_secrecy/borderlayout/view/yichajie_countDiscloseSecrecyDistrict.jsp</result>
+			<result name="weichajie">/bmp/disclose_secrecy/borderlayout/view/weichajie_countDiscloseSecrecyDistrict.jsp</result>
+		</action>
+		<!-- 直辖单位的泄密事件查处结果 统计 -->
+		<action name="zhixiadanwei_CountDiscloseSecrecyByDealResult" class="bmp.discloseSecrecyAction" method="zhixiadanwei_CountDiscloseSecrecyByDealResult">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/countDiscloseSecrecyDistrictByDealResult.jsp</result>
+		</action>
+
+		<!-- 本单位的责任人处理 统计 -->
+		<action name="discloseSecrecy_org_countcountCaseHandledutyPerson" class="bmp.discloseSecrecyAction" method="org_CountcountCaseHandledutyPerson">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/baomiju_countCaseHandledutyPerson.jsp</result>
+		</action>
+		<!-- 保密局的责任人处理 统计 -->
+		<action name="baomiju_countCaseHandledutyPersoDistrict" class="bmp.discloseSecrecyAction" method="org_countCaseHandledutyPersoDistrict">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/baomiju_countCaseHandledutyPerson.jsp</result>
+		</action>
+		<!-- 直辖区的责任人处理 统计 -->
+		<action name="zhixia_countCaseHandledutyPersoDistrict" class="bmp.discloseSecrecyAction" method="zhixia_countCaseHandledutyPersoDistrict">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/zhixia_countCaseHandledutyPerson.jsp</result>
+		</action>
+		<!-- 本单位处理结果统计导出  -->
+		<action name="bendanwei_exportExcel_dealResult" class="bmp.discloseSecrecyAction" method="bendanweiExportExcelDealResult">
+			<result name="success" type="excel">
+				<param name="location">/bmp/disclose_secrecy/borderlayout/view/statisticsByDealResultExportTemplet.xlsx</param>
+				<param name="fileName">处理结果统计.xlsx</param>
+			</result>
+		</action>
+		<!-- 保密局处理结果统计导出  -->
+		<action name="baomiju_exportExcel_dealResult" class="bmp.discloseSecrecyAction" method="baomijuExportExcelDealResult">
+			<result name="success" type="excel">
+				<param name="location">/bmp/disclose_secrecy/borderlayout/view/statisticsByDealResultExportTemplet.xlsx</param>
+				<param name="fileName">处理结果统计.xlsx</param>
+			</result>
+		</action>
+		<!-- 直辖单位处理结果统计导出  -->
+		<action name="zhixiadanwei_exportExcel_dealResult" class="bmp.discloseSecrecyAction" method="zhixiadanweiExportExcelDealResult">
+			<result name="success" type="excel">
+				<param name="location">/bmp/disclose_secrecy/borderlayout/view/statisticsByDealResultExportTemplet.xlsx</param>
+				<param name="fileName">处理结果统计.xlsx</param>
+			</result>
+		</action>
+		<!-- 本单位责任人统计导出  -->
+		<action name="bendanwei_exportExcel_dutyPerson" class="bmp.discloseSecrecyAction" method="bendanweiExportExcelDutyPerson">
+			<result name="success" type="excel">
+				<param name="location">/bmp/disclose_secrecy/borderlayout/view/statisticsByDutyPersonExportTemplet.xlsx</param>
+				<param name="fileName">责任人统计统计.xlsx</param>
+			</result>
+		</action>
+		<!-- 保密局责任人统计导出  -->
+		<action name="baomiju_exportExcel_dutyPerson" class="bmp.discloseSecrecyAction" method="baomijuExportExcelDutyPerson">
+			<result name="success" type="excel">
+				<param name="location">/bmp/disclose_secrecy/borderlayout/view/statisticsByDutyPersonExportTemplet.xlsx</param>
+				<param name="fileName">责任人统计.xlsx</param>
+			</result>
+		</action>
+
+        <!--泄密事件密级变更列表,本单位  -->
+		<action name="discloseSecrecy_list_change"  class="bmp.discloseSecrecyAction" method="list_change">
+			<result name="list">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_list_change.jsp</result>
+		</action>
+        <!--泄密事件密级变更列表,保密局查询  -->
+		<action name="discloseSecrecy_select_change"  class="bmp.discloseSecrecyAction" method="select_change">
+			<result name="list">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_list_change.jsp</result>
+		</action>
+        <!-- 泄密事件密级变更添加页面 -->
+        <action name="discloseSecrecy_change" class="bmp.discloseSecrecyAction" method="change">
+			<result name="success" >/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_change.jsp</result>
+		</action>
+        <!-- 泄密事件密级变更处理 -->
+        <action name="discloseSecrecy_changeing" class="bmp.discloseSecrecyAction" method="changeing">
+			<result name="success" >/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_change.jsp</result>
+		</action>
+        <!-- 泄密事件密级解除列表页面，本单位 -->
+        <action name="discloseSecrecy_list_clear" class="bmp.discloseSecrecyAction" method="list_clear">
+			<result name="list">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_list_clear.jsp</result>
+		</action>
+        <!-- 泄密事件密级解除列表页面，保密局查询 -->
+        <action name="discloseSecrecy_select_clear" class="bmp.discloseSecrecyAction" method="select_clear">
+			<result name="list">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_list_clear.jsp</result>
+		</action>
+        <!-- 泄密事件密级解除 添加页面-->
+        <action name="discloseSecrecy_clear" class="bmp.discloseSecrecyAction" method="clear">
+			<result name="success" >/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_clear.jsp</result>
+		</action>
+        <!-- 泄密事件密级解除处理 -->
+        <action name="discloseSecrecy_clearing" class="bmp.discloseSecrecyAction" method="clearing">
+			<result name="success" >/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_clear.jsp</result>
+		</action>
+        <!-- 泄密事件密级解除详情-->
+	    <action name="discloseSecrecy_clear_detail"  class="bmp.discloseSecrecyAction" method="clearDetail">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_clear_detail.jsp</result>
+		</action>
+
+        <!-- 泄密事件添加页面-->
+		<action name="discloseSecrecy_add" class="bmp.discloseSecrecyAction" method="add">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_add.jsp</result>
+        </action>
+         <!-- 泄密事件点击处理action-->
+        <action name="discloseSecrecy_adding"  class="bmp.discloseSecrecyAction" method="adding">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/discloseSecrecy</param>
+				<param name="actionName">discloseSecrecy_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+
+		<action name="exportExcel_List" class="bmp.discloseSecrecyAction" method="exportExcel_List">
+			<result name="success" type="excel">
+				<param name="location">/bmp/disclose_secrecy/borderlayout/view/exportExcel_DiscloseSecrecyCountList_ExprotTemplet.xlsx</param>
+				<param name="fileName">泄密事件.xlsx</param>
+			</result>
+		</action>
+        <!-- 泄密事件负责人添加页面 -->
+		<action name="caseHandledutyPerson_add" class="bmp.discloseSecrecyAction" method="add_CaseHandledutyPerson">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseHandledutyPerson_add.jsp</result>
+        </action>
+        <!-- 泄密事件处理人添加处理action -->
+        <action name="caseHandledutyPerson_adding"  class="bmp.discloseSecrecyAction" method="adding_CaseHandledutyPerson">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="discloseSecrecy.name">${discloseSecrecy.name}</param>
+				<param name="discloseSecrecy.disclosesecrecycaseId">${discloseSecrecy.disclosesecrecycaseId}</param>
+				<param name="namespace">/bmp/discloseSecrecy</param>
+				<param name="actionName">caseHandledutyPerson_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <!-- 泄密事件处理人编辑页面 -->
+		<action name="caseHandledutyPerson_edit" class="bmp.discloseSecrecyAction" method="edit_CaseHandledutyPerson">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseHandledutyPerson_edit.jsp</result>
+        </action>
+        <!-- 泄密事件处理人编辑处理action -->
+        <action name="caseHandledutyPerson_editing"  class="bmp.discloseSecrecyAction" method="editing_CaseHandledutyPerson">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="caseHandledutyPerson.caseHandledutyPersonId">${caseHandledutyPerson.caseHandledutyPersonId}</param>
+				<param name="discloseSecrecy.disclosesecrecycaseId">${discloseSecrecy.disclosesecrecycaseId}</param>
+				<param name="namespace">/bmp/discloseSecrecy</param>
+				<param name="actionName">caseHandledutyPerson_edit</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+        <!-- 泄密事件处理人删除action-->
+		<action name="caseHandledutyPerson_del"  class="bmp.discloseSecrecyAction" method="del_CaseHandledutyPerson">
+			<result name="success" type="stateRedirectAction">
+				<param name="discloseSecrecy.disclosesecrecycaseId">${discloseSecrecy.disclosesecrecycaseId}</param>
+				<param name="namespace">/bmp/discloseSecrecy</param>
+				<param name="actionName">discloseSecrecy_edit</param>
+			</result>
+		</action>
+        <!-- 泄密事件处理人详情-->
+		<action name="caseHandledutyPerson_detail"  class="bmp.discloseSecrecyAction" method="detail_CaseHandledutyPerson">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_change_detail.jsp</result>
+		</action>
+        <!-- 泄密事件编辑页面 -->
+		<action name="discloseSecrecy_edit" class="bmp.discloseSecrecyAction" method="edit">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_edit.jsp</result>
+        </action>
+        <!-- 泄密事件编辑处理action-->
+        <action name="discloseSecrecy_editing" class="bmp.discloseSecrecyAction" method="editing" >
+			<result name="list_action" type="stateRedirectAction">
+				<param name="discloseSecrecy.disclosesecrecycaseId">${discloseSecrecy.disclosesecrecycaseId}</param>
+				<param name="namespace">/bmp/discloseSecrecy</param>
+				<param name="actionName">discloseSecrecy_edit</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+        <!-- 泄密事件删除action-->
+		<action name="discloseSecrecy_del" class="bmp.discloseSecrecyAction"  method="del">
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/discloseSecrecy</param>
+				<param name="actionName">discloseSecrecy_listMain</param>
+			</result>
+		</action>
+        <!-- 泄密事件详情页面-->
+		<action name="discloseSecrecyDetail"  class="bmp.discloseSecrecyAction" method="detail">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_detail.jsp</result>
+		</action>
+        <!-- 泄密事件密级变更详情页面-->
+		<action name="discloseSecrecyChangeDetail"  class="bmp.discloseSecrecyAction" method="changeDetail">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/discloseSecrecy_change_detail.jsp</result>
+		</action>
+		 <!-- ajax获取保密要害部位是否有关联-->
+		<action name="ajax_discloseSecrecy" class="bmp.discloseSecrecyAction" method="ajax_discloseSecrecy"></action>
+
+		<!-- 综合统计  通过行政区划查询泄密事件个数   查询明细  -->
+		<action name="zhtj_query_Detail" class="bmp.discloseSecrecyStatAction" method="zhtj_query_Detail">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/stat/discloseSecrecy_statistical.jsp</result>
+		</action>
+			<!-- 综合统计  通过行政区划查询泄密事件个数   直辖单位 -->
+		<action name="zhtj_queryByDistrict" class="bmp.discloseSecrecyStatAction" method="zhtj_queryByDistrict">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/stat/discloseSecrecy_stat_organList.jsp</result>
+		</action>
+        <action name="zhtj_export" class="bmp.discloseSecrecyStatAction" method="export">
+			<result name="discloseSecrecy" type="excel">
+				<param name="location">/bmp/disclose_secrecy/borderlayout/view/exportExcel_statistical_exprotTemplet.xlsx</param>
+				<param name="fileName">泄密案件.xlsx</param>
+			</result>
+			<result name="case" type="excel">
+				<param name="location">/bmp/disclose_secrecy/borderlayout/view/exportExcel_statistical_exprotTemplet.xlsx</param>
+				<param name="fileName">严重违规案件.xlsx</param>
+			</result>
+		</action>
+
+		<action name="zhtj_query" class="bmp.discloseSecrecyStatAction" method="zhtj_query">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/stat/discloseSecrecy_statistical.jsp</result>
+		</action>
+
+	</package>
+</struts>

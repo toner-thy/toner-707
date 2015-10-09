@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="secrecyPersonModuleService" class="com.cdthgk.bmp.secrecyperson.service.impl.SecrecyPersonServiceImpl" parent="bmpService">
+	</bean>
+	<!-- 涉密人员自动补全service -->
+	<bean id="secrecyPersonSearchService" class="com.cdthgk.bmp.secrecyperson.service.impl.SecrecyPersonSearchServiceImpl" parent="bmpService"></bean>
+
+	<!-- 人员密级变更service -->
+	<bean id="secrecyPersonLevelChangeService" class="com.cdthgk.bmp.secrecyperson.service.impl.SecrecyPersonLevelChangeServiceImpl" parent="bmpService"></bean>
+
+	<!-- 人员脱密 service -->
+	<bean id="secrecyPersonDecryptionService" class="com.cdthgk.bmp.secrecyperson.service.impl.SecrecyPersonDecryptionServiceImpl" parent="bmpService"></bean>
+
+</beans>

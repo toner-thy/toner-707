@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 保密办（保密局）控制器Struts配置 -->
+	<package name="secrecyOffice" extends="com.cdthgk.project" namespace="/secrecyorganization/secrecyoffice">
+		<!-- 详情配置 -->
+		<action name="secrecyOffice_detail" method="detail" class="bmp.secrecyOfficeAction">
+			<result name="detail">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOffice_detail.jsp</result>
+			<result name="add_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_add</param>
+			</result>
+		</action>
+
+		<!-- 新增配置-->
+		<action name="secrecyOffice_add" method="add" class="bmp.secrecyOfficeAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOffice_add.jsp</result>
+		</action>
+		<action name="secrecyOffice_adding" method="adding" class="bmp.secrecyOfficeAction">
+			<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_edit</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+			</result>
+		</action>
+
+		<!-- 编辑配置-->
+		<action name="secrecyOffice_edit" method="edit" class="bmp.secrecyOfficeAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOffice_edit.jsp</result>
+		</action>
+		<action name="secrecyOffice_editing" method="editing" class="bmp.secrecyOfficeAction">
+			<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_detail</param>
+			</result>
+		</action>
+
+
+		<action name="secrecyOffice_list" method="list" class="bmp.secrecyOfficeAction">
+			<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_detail</param>
+				<param name="district.districtCode">${district.districtCode}</param>
+				<param name="va">1</param>
+				<param name="editable">0</param>
+			</result>
+		</action>
+		<action name="secrecyOffice_main" method="main" class="bmp.secrecyOfficeAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOffice_main.jsp</result>
+		</action>
+
+		<!-- 人员编制构成情况 -->
+		<action name="secrecyOffice_editEstablishSituation" method="editEstablishSituation" class="bmp.secrecyOfficeAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOffice_editEstablishSituation.jsp</result>
+		</action>
+		<action name="secrecyOffice_editEstablishSituationing" method="editEstablishSituationing" class="bmp.secrecyOfficeAction">
+			<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_edit</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+			</result>
+		</action>
+		<!--  内设机构基本情况 -->
+		<action name="secrecyOffice_editInternalOrgan" method="editInternalOrgan" class="bmp.secrecyOfficeAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOffice_editInternalOrgan.jsp</result>
+		</action>
+		<action name="secrecyOffice_editInternalOrganing" method="editInternalOrganing" class="bmp.secrecyOfficeAction">
+			<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_edit</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+			</result>
+		</action>
+		<!--  基础设施建设 -->
+		<action name="secrecyOffice_editInfrastructure" method="editInfrastructure" class="bmp.secrecyOfficeAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOffice_editInfrastructure.jsp</result>
+		</action>
+		<action name="secrecyOffice_editInfrastructureing" method="editInfrastructureing" class="bmp.secrecyOfficeAction">
+			<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_edit</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+			</result>
+		</action>
+
+
+
+		<!-- 上报 -->
+		<action name="secrecyOffice_report" method="report" class="bmp.secrecyOfficeAction">
+			<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_detail</param>
+			</result>
+		</action>
+
+		<!-- 导出 -->
+		<action name="secrecyOffice_exportData" class="bmp.secrecyOfficeAction" method="exportData">
+			<result name="success" type="excel">
+				<param name="location">/exportExcel/secrecyOfficeExprotTemplet.xlsx</param>
+				<param name="fileName">保密办（保密局）.xlsx</param>
+			</result>
+		</action>
+	</package>
+</struts>

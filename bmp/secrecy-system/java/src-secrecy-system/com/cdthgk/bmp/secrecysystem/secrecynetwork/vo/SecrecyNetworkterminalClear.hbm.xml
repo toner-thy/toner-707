@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-30 16:31:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecysystem.secrecynetwork.vo.SecrecyNetworkterminalClear" table="bm_secrecy_networkterminal_clear">
+        <id name="networkterminalClearId" type="string">
+            <column name="networkterminal_clear_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <many-to-one name="secrecyNetworkterminal" class="com.cdthgk.bmp.secrecysystem.secrecynetwork.vo.SecrecyNetworkterminal" fetch="select">
+            <column name="secrecynetworkterminal_id" length="39">
+            </column>
+        </many-to-one>
+        <property name="clearType" type="java.lang.Integer">
+            <column name="clear_type" />
+        </property>
+        <property name="clearTime" type="java.util.Date">
+            <column name="clear_time" length="19" />
+        </property>
+		<many-to-one name="reviewPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="review_person" length="39">
+			</column>
+		</many-to-one>
+        <property name="cleanReason" type="string">
+            <column name="clean_reason" length="2000" />
+        </property>
+		<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="CREATE_Person" length="39">
+				<comment>创建用户</comment>
+			</column>
+		</many-to-one>
+        <property name="createDate" type="java.util.Date">
+            <column name="create_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

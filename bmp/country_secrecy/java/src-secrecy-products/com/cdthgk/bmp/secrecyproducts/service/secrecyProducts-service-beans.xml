@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!--密品 -->
+	<bean id="bmp.secrecyProductsService" class="com.cdthgk.bmp.secrecyproducts.service.impl.SecrecyProductsServiceImpl" parent="bmpService">
+	</bean>
+
+	<!--密品 密级变更-->
+	<bean id="bmp.secrecyProductsChangeService" class="com.cdthgk.bmp.secrecyproducts.service.impl.SecrecyProductsChangeServiceImpl" parent="bmpService">
+	</bean>
+
+	<!--密品 密级解除-->
+	<bean id="bmp.secrecyProductsClearService" class="com.cdthgk.bmp.secrecyproducts.service.impl.SecrecyProductsClearServiceImpl" parent="bmpService">
+	</bean>
+</beans>

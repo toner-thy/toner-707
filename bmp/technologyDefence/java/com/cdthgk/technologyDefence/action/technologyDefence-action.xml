@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.technologyDefence" namespace="/bmp/technologyDefence" extends="com.cdthgk.project">
+		<action name="technologyDefence_*" class="technologyDefenceAction" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/pCheck</param>
+				<param name="actionName">technologyDefence_list</param>
+				<param name="checkProject.checkProjectId">${checkProject.checkProjectId}</param>
+			</result>
+			<result name="list">/bmp/technologyDefence/borderlayout/view/technologyDefence_list.jsp</result>
+			<result name="add" >/bmp/technologyDefence/borderlayout/view/technologyDefence_add.jsp</result>
+			<result name="adding" type="stateRedirectAction">
+				<param name="namespace">/bmp/pCheck</param>
+				<param name="actionName">technologyDefence_add</param>
+				<param name="needReload">${needReload}</param>
+				<param name="checkProject.checkProjectId">${checkProject.checkProjectId}</param>
+			</result>
+			<result name="editing" type="stateRedirectAction">
+				<param name="namespace">/bmp/pCheck</param>
+				<param name="actionName">technologyDefence_edit</param>
+				<param name="needReload">${needReload}</param>
+				<param name="checkProject.checkProjectId">${checkProject.checkProjectId}</param>
+				<param name="checkRule.checkRuleId">${checkRule.checkRuleId}</param>
+			</result>
+			<result name="edit">/bmp/technologyDefence/borderlayout/view/technologyDefence_edit.jsp</result>
+			<result name="view">/bmp/technologyDefence/borderlayout/view/technologyDefence_view.jsp</result>
+		</action>
+	</package>
+</struts>

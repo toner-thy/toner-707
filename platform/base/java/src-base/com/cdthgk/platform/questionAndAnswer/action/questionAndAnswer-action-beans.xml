@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.sysQuestionAction" class="com.cdthgk.platform.questionAndAnswer.action.SysQuestionAction"  parent="bmpAction" scope="prototype">
+		<property name="sysQuestionService" ref="bmp.sysQuestionService"></property>
+		<property name="sysAnswerService" ref="bmp.sysAnswerService"></property>
+		<property name="attachmentService" ref="platform.attachmentService" />
+	</bean>
+	<bean id="bmp.sysAnswerAction" class="com.cdthgk.platform.questionAndAnswer.action.SysAnswerAction"  parent="bmpAction" scope="prototype">
+		<property name="sysAnswerService" ref="bmp.sysAnswerService"></property>
+	</bean>
+</beans>

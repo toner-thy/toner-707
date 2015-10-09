@@ -1,0 +1,11 @@
+1、login.jsp
+2、com.cdthgk.platform.permission.login.action.LoginAction.logining()
+3、platform/webflow/borderlayout/view/home.jsp(此页面加载消息提示)
+4、/bmp/platform/desktop/virtual.action（主页地址）
+5、/platform/desktop/borderlayout/view/virtual_desktop.jsp
+6、com.cdthgk.platform.webflow.action.WebFlowAction.layout()
+7、重定向到默认布局（/platform/layout/borderlayout）
+	com.cdthgk.platform.layout.action.BorderlayoutAction.index()
+8、/platform/layout/borderlayout/view/index.jsp(此页面加载遮罩层，包含内容页面顶部菜单，左侧菜单)
+9、com.cdthgk.platform.layout.action.BorderlayoutAction.content()
+10、/platform/layout/borderlayout/view/content.jsp(此页面加载新手引导，即以前的首页选项卡)

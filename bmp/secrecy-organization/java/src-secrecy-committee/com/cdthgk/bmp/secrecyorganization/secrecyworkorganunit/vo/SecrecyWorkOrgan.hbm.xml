@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.vo.SecrecyWorkOrgan" table="bm_person_group">
+		<id name="secrecyWorkOrganId" type="java.lang.String">
+			<column name="PERSON_GROUP_ID" length="39" />
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+		</id>
+		<property name="code" type="java.lang.String">
+			<column name="CODE" length="20">
+				<comment>编号</comment>
+			</column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" length="70">
+				<comment>名称</comment>
+			</column>
+		</property>
+		<property name="setupDate" type="java.sql.Date">
+			<column name="SETUP_DATE" length="19">
+				<comment>成立日期</comment>
+			</column>
+		</property>
+		<property name="adjustDate" type="java.sql.Date">
+			<column name="ADJUST_DATE" length="19">
+				<comment>调整日期</comment>
+			</column>
+		</property>
+		<property name="dutyMemberWork" type="java.lang.String">
+			<column name="ORGAN_DESC" length="4000">
+				<comment>组织描述</comment>
+			</column>
+		</property>
+		<property name="telephone" type="java.lang.String">
+			<column name="TELEPHONE" length="20">
+				<comment>手机号</comment>
+			</column>
+		</property>
+
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="ORGAN_ID" length="39">
+				<comment>所在单位</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department" fetch="select">
+			<column name="DEPARTMENT_ID" length="39">
+				<comment>保密组织机构设在</comment>
+			</column>
+		</many-to-one>
+
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19">
+				<comment>创建时间（添加数据的时间，自动记录）</comment>
+			</column>
+		</property>
+
+		<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="CREATE_PERSON" length="39">
+				<comment>创建人员</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="MODIFY_PERSON" length="39">
+				<comment>修改人员</comment>
+			</column>
+		</many-to-one>
+
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" length="19">
+				<comment>修改时间（修改数据的时间，自动记录）</comment>
+			</column>
+		</property>
+
+		<property name="secrecyOrgan" type="java.lang.String">
+			<column name="SECRECY_ORGAN" length="32">
+				<comment>保密工作机构</comment>
+			</column>
+		</property>
+
+		<many-to-one name="organPrincipal" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+        	 <column name="ORGAN_PRINCIPAL" length="39">
+                <comment>保密工作机构负责人</comment>
+            </column>
+        </many-to-one>
+
+		<property name="principalPhone" type="java.lang.String">
+			<column name="PRINCIPAL_PHONE" length="20">
+				<comment>负责人电话</comment>
+			</column>
+		</property>
+
+		<property name="principalDuty" type="java.lang.String">
+			<column name="PRINCIPAL_DUTY" length="32">
+				<comment>负责人职务</comment>
+			</column>
+		</property>
+
+		<property name="groupType" type="java.lang.Integer">
+			<column name="GROUP_TYPE">
+				<comment>机构类型</comment>
+			</column>
+		</property>
+
+		<property name="address" type="java.lang.String">
+			<column name="ADDRESS" length="50">
+				<comment>地址</comment>
+			</column>
+		</property>
+
+		<property name="fax" type="java.lang.String">
+			<column name="FAX" length="50">
+				<comment>传真</comment>
+			</column>
+		</property>
+
+		<property name="zipCode" type="java.lang.String">
+			<column name="ZIPCODE" length="50">
+				<comment>邮编</comment>
+			</column>
+		</property>
+		<property name="docNo" type="java.lang.String">
+			<column name="DOC_NO" length="50">
+				<comment>发文编号</comment>
+			</column>
+		</property>
+		<property name="reportState" type="java.lang.Integer">
+			<column name="REPORT_STATE">
+				<comment>0:未上报；1:已上报;</comment>
+			</column>
+		</property>
+
+		<property name="organType" type="java.lang.Integer">
+			<column name="ORGAN_TYPE">
+				<comment>机构类别</comment>
+			</column>
+		</property>
+
+		<property name="organAdminLevel" type="java.lang.Integer">
+			<column name="ORGAN_ADMIN_LEVEL">
+				<comment>行政级别</comment>
+			</column>
+		</property>
+
+		<property name="organAdminPostLevel" type="java.lang.Integer">
+			<column name="ORGAN_ADMIN_POST_LEVEL">
+				<comment>负责人行政级别</comment>
+			</column>
+		</property>
+
+		<property name="establishmentNum" type="java.lang.Integer">
+			<column name="ESTABLISHMENT_NUM">
+				<comment>编制人数</comment>
+			</column>
+		</property>
+
+		<set name="secrecyWorkOrganMemberUnitSet" inverse="true">
+            <key>
+                <column name="PERSON_GROUP_ID" length="39">
+                    <comment>保密办成员关系ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.vo.SecrecyWorkOrganMemberUnit" />
+        </set>
+        <set name="personGroupRelations" inverse="true"	cascade="delete">
+			<key>
+				<column name="PERSON_GROUP_RELATION_ID" length="32">
+					<comment>成员关系ID</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecyworkorganunit.vo.SecrecyWorkOrganRelationMember" />
+		</set>
+	</class>
+</hibernate-mapping>

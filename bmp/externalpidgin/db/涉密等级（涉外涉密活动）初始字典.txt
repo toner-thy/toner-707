@@ -1,0 +1,7 @@
+﻿INSERT INTO `sys_dictionary_field` VALUES ('402881a23df69b3e013df6ca677e0000', 'secrecy_level_externalpidgin', '涉密等级（涉外活动）', '0', '4', 'bmp');
+INSERT INTO `sys_dictionary_option` VALUES ('402881a23df69b3e013df6cba8990001', '绝密', '1', '1', '1', '402881a23df69b3e013df6ca677e0000', null);
+INSERT INTO `sys_dictionary_option` VALUES ('402881a23df69b3e013df6cbe8fd0002', '机密', '2', '2', '1', '402881a23df69b3e013df6ca677e0000', null);
+INSERT INTO `sys_dictionary_option` VALUES ('402881a23df69b3e013df6cc1f300003', '秘密', '3', '3', '1', '402881a23df69b3e013df6ca677e0000', null);
+INSERT INTO `sys_dictionary_option` VALUES ('402881a23df69b3e013df6cc55b20004', '工作秘密', '4', '4', '1', '402881a23df69b3e013df6ca677e0000', null);
+INSERT INTO `sys_dictionary_option` VALUES ('402881a23df69b3e013df6cc84d00005', '内部', '5', '5', '1', '402881a23df69b3e013df6ca677e0000', null);
+INSERT INTO `sys_dictionary_option` VALUES ('402881a23df69b3e013df6ccb2e50006', '非密', '6', '6', '1', '402881a23df69b3e013df6ca677e0000', null);

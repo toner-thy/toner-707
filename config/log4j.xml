@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{dd HH:mm:ss,SSS\} %-5p] [%t] %C.%M Line:%L - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="errorlog"
+		class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/cdthgk-bmp/cdthgk-bmp.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{MMdd HH:mm:ss SSS\} %-5p] [%t] %C.%M Line:%L - %m%n" />
+		</layout>
+	</appender>
+	<!--  -->
+	<logger name="com.cdthgk" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+	<logger name="com.thgk.bmp" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+	 <logger name="com.thgk.sys" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+	 <logger name="com.thgk.platform" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+	<!--
+	<logger name="com.thgk.component" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+	 -->
+	<logger name="com.thgk.framework" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+	<logger name="org.featherfly" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+	<!--
+	<logger name="org.hibernate.SQL" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+
+	<logger name="org.hibernate.type" additivity="false">
+		<level value="debug"/>
+		<appender-ref ref="console"/>
+	</logger>
+	 -->
+
+	<root>
+		<level value="error"/>
+		<appender-ref ref="console"/>
+	</root>
+</log4j:configuration>

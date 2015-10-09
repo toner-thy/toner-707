@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<bean id="hibernatePersistenceStateless" class="com.cdthgk.persistece.hibernate.HibernatePersistenceStatelessImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="secrecyPerson.communicateHandler" class="com.cdthgk.bmp.secrecyperson.transmitor.handler.SecrecyPersonCommunicateHandler">
+		<property name="secrecyPersonExchanger" ref="secrecyPerson.exchanger"/>
+		<property name="serverReportMappingService" ref="platform.exchange.serverReportMappingService"/>
+		<property name="importor" ref="bmp.mysqlImport"/>
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<util:list id="secrecyPerson.listener" list-class="java.util.ArrayList">
+		<bean class="com.cdthgk.bmp.secrecyperson.transmitor.listener.SecrecyPersonCommunicateListener"/>
+	</util:list>
+
+	<bean id="secrecyPerson.communicator" class="com.cdthgk.bmp.secrecyperson.transmitor.communicator.SecrecyPersonHttpJAXB2TextCommunicator" parent="platform.communicator">
+		<property name="handler" ref="secrecyPerson.communicateHandler"/>
+		<property name="listeners" ref="secrecyPerson.listener"/>
+	</bean>
+
+	<bean id="secrecyPerson.exchanger" class="com.cdthgk.bmp.secrecyperson.transmitor.exchange.SecrecyPersonExchanger" parent="platform.serverOrganMappingExchanger">
+		<property name="communicator" ref="secrecyPerson.communicator"/>
+	</bean>
+</beans>

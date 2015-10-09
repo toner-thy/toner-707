@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.thgk.bmp.equipmentcheck" namespace="/bmp/equipmentcheck" extends="com.cdthgk.project">
+		<action name="equipmentCheck_list" class="bmp.equipmentCheckAction" method="list">
+			<result name="list">/bmp/equipment/equipmentcheck/borderlayout/view/equipmentCheck_list.jsp</result>
+		</action>
+		<action name="equipmentCheck_add" class="bmp.equipmentCheckAction" method="add">
+			<result name="add">/bmp/equipment/equipmentcheck/borderlayout/view/equipmentCheck_add.jsp</result>
+		</action>
+		<action name="equipmentCheck_adding" class="bmp.equipmentCheckAction" method="adding">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/equipmentcheck</param>
+				<param name="actionName">equipmentCheck_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+			<!-- <interceptor-ref name="ftpStack"></interceptor-ref> -->
+		</action>
+		<action name="equipmentCheck_detail" class="bmp.equipmentCheckAction" method="detail">
+			<result name="detail">/bmp/equipment/equipmentcheck/borderlayout/view/equipmentCheck_detail.jsp</result>
+		</action>
+		<action name="equipmentCheck_del" class="bmp.equipmentCheckAction" method="del">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/equipmentcheck</param>
+				<param name="actionName">equipmentCheck_list</param>
+			</result>
+		</action>
+		<action name="equipmentCheck_edit" class="bmp.equipmentCheckAction" method="edit">
+			<result name="edit">/bmp/equipment/equipmentcheck/borderlayout/view/equipmentCheck_edit.jsp</result>
+		</action>
+		<action name="equipmentCheck_editing" class="bmp.equipmentCheckAction" method="editing">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/equipmentcheck</param>
+				<param name="actionName">equipmentCheck_edit</param>
+				<param name="equipmentCheck.equipmentCheckId">${equipmentCheck.equipmentCheckId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+			<!-- <interceptor-ref name="ftpStack"></interceptor-ref> -->
+		</action>
+	</package>
+</struts>

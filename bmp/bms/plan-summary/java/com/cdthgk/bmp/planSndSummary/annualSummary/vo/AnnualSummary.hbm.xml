@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-4-29 10:31:39 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.planSndSummary.annualSummary.vo.AnnualSummary" table="bm_annual_summary">
+        <id name="annualSummaryId" type="string">
+            <column name="ANNUAL_SUMMARY_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <many-to-one name="bmAnnualPlan" class="com.cdthgk.bmp.planSndSummary.annualPlan.vo.AnnualPlan" fetch="select">
+            <column name="ANNUAL_SUMMARY_PLAN" length="39">
+                <comment>��ȹ����ƻ� ID</comment>
+            </column>
+        </many-to-one>
+        <property name="annualSummaryTitle" type="string">
+            <column name="ANNUAL_SUMMARY_TITLE" length="200">
+                <comment>��ȹ����ܽ����</comment>
+            </column>
+        </property>
+        <property name="annualSummaryYear" type="java.lang.Integer">
+            <column name="ANNUAL_SUMMARY_YEAR">
+                <comment>���</comment>
+            </column>
+        </property>
+        <property name="annualSummaryContent" type="string">
+            <column name="ANNUAL_SUMMARY_CONTENT" length="65535">
+                <comment>��ȹ����ܽ�����</comment>
+            </column>
+        </property>
+        <property name="annualSummaryContentPre" type="string">
+            <column name="ANNUAL_SUMMARY_CONTENT_PRE" length="65535">
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="STATUS">
+                <comment>״̬</comment>
+            </column>
+        </property>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+            <column name="CREATE_PERSON" length="39" />
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19" />
+        </property>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>39</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19" />
+        </property>
+        <many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+            <column name="CREATE_ORGAN" length="39" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

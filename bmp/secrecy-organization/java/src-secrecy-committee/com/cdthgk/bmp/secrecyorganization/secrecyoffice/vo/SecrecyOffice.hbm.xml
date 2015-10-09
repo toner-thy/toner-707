@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.SecrecyOffice" table="bm_secrecy_office">
+		<id name="secrecyOfficeId" type="java.lang.String">
+			<column name="SECRECY_OFFICE_ID" length="39"/>
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+		</id>
+
+		<many-to-one name="secrecyCommittee" class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.SecrecyCommittee" fetch="select">
+			<column name="SECRECY_COMMITTEE_ID" length="39">
+				<comment>保密委</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="mainOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="main_organ" length="39">
+				<comment>主管单位</comment>
+			</column>
+		</many-to-one>
+		<property name="establishTime" type="java.util.Date">
+			<column name="establish_time" length="7">
+			</column>
+		</property>
+		<property name="administrativeLevel" type="java.lang.Integer">
+			<column name="administrative_level" precision="22" scale="0" not-null="true">
+				<comment>1、正省部级2、副省部级3、正厅局级4、副厅局级5、正县处级6、	副县处级7、正乡科级8、副乡科级</comment>
+			</column>
+		</property>
+		<property name="fundsSource" type="java.lang.String">
+			<column name="funds_source" length="200">
+			</column>
+		</property>
+		<property name="govSequence" type="java.lang.Integer">
+			<column name="gov_sequence" precision="22" scale="0" not-null="true">
+				<comment>0、否1、是</comment>
+			</column>
+		</property>
+		<property name="organType" type="java.lang.Integer">
+			<column name="organ_type" precision="22" scale="0" not-null="true">
+				<comment>1、专门机构2、挂靠机构</comment>
+			</column>
+		</property>
+
+		<property name="name" type="java.lang.String">
+			<column name="NAME" length="50">
+				<comment>保密办（保密局）名称</comment>
+			</column>
+		</property>
+
+		<many-to-one name="director" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+			<column name="DIRECTOR" length="39">
+				<comment>主任(局长)</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="dept" class="com.cdthgk.platform.organization.department.domain.Department" fetch="select">
+			<column name="dept" length="39">
+				<comment>办公室</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="person" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+			<column name="PERSON" length="39">
+				<comment>负责人</comment>
+			</column>
+		</many-to-one>
+
+		<property name="telephone" type="java.lang.String">
+			<column name="TELEPHONE" length="20">
+				<comment>联系电话</comment>
+			</column>
+		</property>
+		<property name="fax" type="java.lang.String">
+			<column name="FAX" length="30">
+				<comment>传 真</comment>
+			</column>
+		</property>
+		<property name="postcode" type="java.lang.String">
+			<column name="POSTCODE" length="6">
+				<comment>邮 编</comment>
+			</column>
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="ADDRESS" length="100">
+				<comment>地 址</comment>
+			</column>
+		</property>
+		<property name="dutyMemberWork" type="java.lang.String">
+			<column name="DUTY_MEMBER_WORK" length="1000">
+				<comment>职责与成员分工</comment>
+			</column>
+		</property>
+
+		<set name="secrecyOfficeMemberSet" inverse="true">
+			<key>
+				<column name="SECRECY_OFFICE_ID" length="39">
+					<comment>保密办（保密局）</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.SecrecyOfficeMember" />
+		</set>
+		<set name="employPersonSet" inverse="true">
+			<key>
+				<column name="SECRECY_OFFICE_ID" length="39">
+					<comment>聘用人员</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.EmployPerson" />
+		</set>
+		<set name="establishSituationSet" inverse="true">
+			<key>
+				<column name="SECRECY_OFFICE_ID" length="39">
+					<comment>编制构成情况</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.EstablishSituation" />
+		</set>
+		<set name="leaderStaffSet" inverse="true">
+			<key>
+				<column name="SECRECY_OFFICE_ID" length="39">
+					<comment>领导职数</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.LeaderStaff" />
+		</set>
+		<set name="internalOrganSet" inverse="true">
+			<key>
+				<column name="SECRECY_OFFICE_ID" length="39">
+					<comment>内设机构</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.InternalOrgan" />
+		</set>
+		<set name="infrastructureSet" inverse="true">
+			<key>
+				<column name="SECRECY_OFFICE_ID" length="39">
+					<comment>基础设施建设</comment>
+				</column>
+			</key>
+			<one-to-many class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.Infrastructure" />
+		</set>
+
+		<!-- 通用字段 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<many-to-one name="createUser" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="CREATE_USER" length="39">
+				<comment>创建用户</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="CREATE_ORGAN" length="39">
+				<comment>创建单位</comment>
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" length="7">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+		<many-to-one name="modifyUser" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="MODIFY_USER" length="39">
+				<comment>修改用户</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="modifyOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="MODIFY_ORGAN" length="39">
+				<comment>修改单位</comment>
+			</column>
+		</many-to-one>
+		<property name="enable" type="java.lang.Integer">
+			<column name="ENABLE" precision="22" scale="0" not-null="true">
+				<comment>0:未启用;1:启用</comment>
+			</column>
+		</property>
+		<property name="reportState" type="java.lang.Integer">
+			<column name="REPORT_STATE">
+				<comment>0:未上报；1:已上报;</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

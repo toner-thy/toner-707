@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="bmp.dataValidateAction" class="com.cdthgk.platform.dataValidate.action.DataValidateAction"  parent="bmpAction" scope="prototype">
+		<property name="dataValidateService" ref="bmp.dataValidateService"></property>
+		<property name="businessRuleService" ref="bmp.businessRuleService"></property>
+		<property name="dataValidateLogService" ref="bmp.dataValidateLogService"></property>
+	</bean>
+</beans>

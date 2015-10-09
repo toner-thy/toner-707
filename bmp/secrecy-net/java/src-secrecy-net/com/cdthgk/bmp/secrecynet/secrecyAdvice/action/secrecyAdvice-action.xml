@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="secrecyAdvice" extends="com.cdthgk.project" namespace="/bmp/secrecyadvice">
+		<action name="secrecyAdvice_add" class="secrecyAdviceAction" method="add">
+        	<result name="add">/bmp/secrecy-net/secrecyadvice/borderlayout/view/secrecyAdvice_add.jsp</result>
+        </action>
+		<action name="secrecyAdvice_detail" class="secrecyAdviceAction" method="detail">
+        	<result name="add">/bmp/secrecy-net/secrecyadvice/borderlayout/view/secrecyAdvice_detail.jsp</result>
+        </action>
+        <action name="secrecyAdvice_adding" class="secrecyAdviceAction" method="adding">
+        	<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/bmp/secrecyadvice</param>
+					<param name="actionName">secrecyAdvice_add</param>
+ 					<param name="secrecyAdvice.id">${secrecyAdvice.id}</param>
+				</result>
+        </action>
+	</package>
+</struts>

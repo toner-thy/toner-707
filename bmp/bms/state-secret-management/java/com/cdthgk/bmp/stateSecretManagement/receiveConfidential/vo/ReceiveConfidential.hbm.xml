@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-9 15:11:03 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.stateSecretManagement.receiveConfidential.vo.ReceiveConfidential" table="bm_receive_confidential">
+        <id name="receiveConfidentialId" type="string">
+            <column name="RECEIVE_CONFIDENTIAL_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <property name="confidentialName" type="string">
+            <column name="CONFIDENTIAL_NAME" length="300" not-null="true">
+                <comment>�ܼ����</comment>
+            </column>
+        </property>
+        <property name="confidentialContent" type="string">
+            <column name="CONFIDENTIAL_CONTENT" length="65535" not-null="true">
+                <comment>�ܼ�����</comment>
+            </column>
+        </property>
+        <property name="securityLevel" type="int">
+            <column name="SECURITY_LEVEL" not-null="true">
+                <comment>�ܼ�</comment>
+            </column>
+        </property>
+        <property name="receiverTime" type="java.util.Date">
+            <column name="RECEIVER_TIME" length="10" not-null="true">
+                <comment>ʱ��</comment>
+            </column>
+        </property>
+        <property name="docNum" type="string">
+            <column name="DOC_NUM" length="300" not-null="true">
+                <comment>�ĺ�</comment>
+            </column>
+        </property>
+        <property name="carrierFormat" type="int">
+            <column name="CARRIER_FORMAT" not-null="true">
+                <comment>������ʽ</comment>
+            </column>
+        </property>
+        <property name="fileNum" type="int">
+            <column name="FILE_NUM" not-null="true">
+                <comment>����</comment>
+            </column>
+        </property>
+        <property name="status" type="int">
+            <column name="STATUS" not-null="true">
+                <comment>״̬</comment>
+            </column>
+        </property>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+            <column name="CREATE_PERSON" length="39">
+                <comment>������</comment>
+            </column>
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19">
+                <comment>����ʱ��</comment>
+            </column>
+        </property>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>�޸���</comment>
+            </column>
+        </many-to-one>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19">
+                <comment>�޸�ʱ��</comment>
+            </column>
+        </property>
+        <many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+            <column name="CREATE_ORGAN" length="39">
+                <comment>������λ</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

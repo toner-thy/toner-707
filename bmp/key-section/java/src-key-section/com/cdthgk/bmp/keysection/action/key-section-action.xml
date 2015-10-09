@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.keySection" namespace="/bmp/keySection" extends="com.cdthgk.project">
+		<global-results>
+			<result name="list" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/keySection</param>
+				<param name="actionName">keySection_list</param>
+			</result>
+		</global-results>
+
+		<!-- 列表配置 -->
+		<action name="keySection_list" class="bmp.keySectionAction" method="list">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_list.jsp</result>
+		</action>
+
+		<action name="keySection_list_list" class="bmp.keySectionAction" method="list_list">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_list_list.jsp</result>
+		</action>
+
+		<!-- 密级变更列表配置 -->
+		<action name="keySection_list_change" class="bmp.keySectionAction" method="list_change">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_list_secrecy_change.jsp</result>
+		</action>
+
+		<!-- 密级解除列表配置 -->
+		<action name="keySection_list_clear" class="bmp.keySectionAction" method="list_clear">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_list_secrecy_clear.jsp</result>
+		</action>
+
+		<action name="keySection_allList" class="bmp.keySectionAction" method="allList">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_allList.jsp</result>
+		</action>
+
+
+
+		<!-- 详情配置 -->
+		<action name="keySection_detail" class="bmp.keySectionAction" method="detail">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_detail.jsp</result>
+		</action>
+
+		<!-- 新增配置 -->
+		<action name="keySection_add" class="bmp.keySectionAction" method="add">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_add.jsp</result>
+		</action>
+		<action name="keySection_adding" class="bmp.keySectionAction" method="adding">
+			<result name="add_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/keySection</param>
+				<param name="actionName">keySection_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_add.jsp</result>
+		</action>
+
+		<!-- 编辑配置 -->
+		<action name="keySection_edit" class="bmp.keySectionAction" method="edit">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_edit.jsp</result>
+		</action>
+		<action name="keySection_editing" class="bmp.keySectionAction" method="editing">
+			<result name="list">/bmp/key-section/borderlayout/view/keySection_edit.jsp</result>
+		</action>
+
+		<!-- 删除配置 -->
+		<action name="keySection_delete" class="bmp.keySectionAction" method="delete">
+		</action>
+
+		<!-- 查询配置 -->
+		<action name="keySection_query" class="bmp.keySectionAction" method="query">
+		</action>
+
+		<!-- 查询部门配置 -->
+		<action name="keySection_searchDepartment" class="bmp.keySectionAction" method="searchDepartment">
+		</action>
+
+
+
+		<!-- 首页统计  本单位-->
+		<action name="keySection_indexView" class="bmp.keySectionAction" method="indexView">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_indexView.jsp</result>
+		</action>
+		<action name="keySection_organSectionData" class="bmp.keySectionAction" method="organSectionData">
+			<result name="organSectionData">/bmp/key-section/borderlayout/view/keySection_organSectionData.jsp</result>
+		</action>
+		<!-- 首页统计 保密局-->
+		<action name="indexView_District" class="bmp.keySectionAction" method="indexView_District">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_indexView_District.jsp</result>
+		</action>
+		<action name="keySection_organSectionData_District" class="bmp.keySectionAction" method="indexView_SectionData_District">
+			<result name="organSectionData">/bmp/key-section/borderlayout/view/keySection_organSectionData_District.jsp</result>
+		</action>
+
+
+
+
+
+		<!-- 上报 -->
+		<action name="keySection_report" method="report" class="bmp.keySectionAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/keySection</param>
+				<param name="actionName">keySection_list</param>
+			</result>
+		</action>
+
+		<!-- 导出 -->
+		<action name="keySection_exportData" class="bmp.keySectionAction" method="exportData">
+			<result name="success" type="excel">
+				<param name="location">/exportExcel/keySectionExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部门列表.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 密级变更 -->
+		<action name="keySection_secrecyChange" class="bmp.keySectionAction" method="secrecyChange">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_secrecy_level_change.jsp</result>
+		</action>
+		<!-- 密级变更 保存-->
+		<action name="keySection_secrecyChangeing" class="bmp.keySectionAction" method="secrecyChangeing">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_secrecy_level_change.jsp</result>
+		</action>
+		<!-- 解密 -->
+		<action name="keySection_secrecyClear" class="bmp.keySectionAction" method="secrecyClear">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_secrecy_clear.jsp</result>
+		</action>
+
+		<!-- 解密保存 -->
+		<action name="keySection_secrecyClearing" class="bmp.keySectionAction" method="secrecyClearing">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_secrecy_clear.jsp</result>
+		</action>
+
+		<!-- 变更详情 -->
+		<action name="keySection_changeDetail" class="bmp.keySectionAction" method="changeDetail">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_secrecy_changeDetail.jsp</result>
+		</action>
+
+		<!-- 解密详情 -->
+		<action name="keySection_clearDetail" class="bmp.keySectionAction" method="clearDetail">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_secrecy_clearDetail.jsp</result>
+		</action>
+
+        <!-- 本单位的保密要害部门 统计 -->
+		<action name="keySection_org_CountKeySectionBySecrecyLevel" class="bmp.keySectionAction" method="org_CountKeySectionBySecrecyLevel">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_Org_CountKeySectionBySecrecyLevel.jsp</result>
+		</action>
+
+		<!-- 保密局的保密要害部门 统计  行政区划 -->
+		<action name="keySection_org_CountKeySectionBySecrecyLevel_District" class="bmp.keySectionAction" method="org_CountKeySectionBySecrecyLevel_District">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_Org_CountKeySectionBySecrecyLevel_District.jsp</result>
+		</action>
+
+	    <!-- 保密局的保密要害部门 统计  行政区内 直辖单位-->
+		<action name="keySection_org_CountKeySectionBySecrecyLevel_Layer" class="bmp.keySectionAction" method="org_CountKeySectionBySecrecyLevel_Layer">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_Org_CountKeySectionBySecrecyLevel_Layer.jsp</result>
+		</action>
+
+		 <!-- 保密局的保密要害部门 统计  行政区内 各个单位的明细-->
+		<action name="keySection_org_CountKeySectionBySecrecyLevel_OrganDetail" class="bmp.keySectionAction" method="org_CountKeySectionBySecrecyLevel_OrganDetail">
+			<result name="success" >/bmp/key-section/borderlayout/view/keySection_Org_CountKeySectionBySecrecyLevel_OrganDetail.jsp</result>
+		</action>
+
+	   <!-- 保密局的保密要害部门 统计   行政区划  导出-->
+		<action name="exportExcel_KeySectionCount_District" class="bmp.keySectionAction" method="exportExcel_KeySectionCount_District">
+			<result name="success" type="excel">
+				<param name="location">/bmp/key-section/borderlayout/view/KeySectionCount_District_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部门统计(行政区划).xlsx</param>
+			</result>
+		</action>
+
+		 <!-- 保密局的保密要害部门 统计   直辖单位  导出-->
+		<action name="exportExcel_KeySectionCount_Layer" class="bmp.keySectionAction" method="exportExcel_KeySectionCount_Layer">
+			<result name="success" type="excel">
+				<param name="location">/bmp/key-section/borderlayout/view/KeySectionCount_Layer_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部门统计(直辖单位).xlsx</param>
+			</result>
+		</action>
+
+		 <!-- 保密局的保密要害部门 统计   单位明细  导出-->
+		<action name="exportExcel_KeySectionCount_OrganDetail" class="bmp.keySectionAction" method="exportExcel_KeySectionCount_OrganDetail">
+			<result name="success" type="excel">
+				<param name="location">/bmp/key-section/borderlayout/view/KeySectionCount_OrganDetail_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部门统计(单位明细).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密局的保密要害部门 统计  本单位 导出-->
+		<action name="exportExcel_KeySectionCount" class="bmp.keySectionAction" method="exportExcel_KeySectionCount">
+			<result name="success" type="excel">
+				<param name="location">/bmp/key-section/borderlayout/view/exportExcel_KeySectionCount_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部门统计(本单位).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 导出保密要害部门  列表页面的信息  -->
+		<action name="exportExcel_List" class="bmp.keySectionAction" method="exportExcel_List">
+			<result name="success" type="excel">
+				<param name="location">/bmp/key-section/borderlayout/view/exportExcel_KeySectionList_ExprotTemplet.xlsx</param>
+				<param name="fileName">保密要害部门列表.xlsx</param>
+			</result>
+		</action>
+
+	    <!-- ajax获取保密要害部门是否有关联-->
+		<action name="ajax_keySection" class="bmp.keySectionAction" method="ajax_keySection"></action>
+
+		<!--保密要害部门查询 -->
+		<action name="keySection_query_main" class="bmp.keySectionAction" method="query_main">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_query_main.jsp</result>
+		</action>
+		<action name="keySection_query_list" class="bmp.keySectionAction" method="list">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_list.jsp</result>
+		</action>
+
+
+		<!-- 综合统计  通过行政区划查询要害部门个数   查询明细  -->
+		<action name="zhtj_query_Detail" class="bmp.keySectionAction" method="zhtj_query_Detail">
+			<result name="success">/bmp/key-section/borderlayout/view/stat/keySection_Stat_stat.jsp</result>
+		</action>
+		<!--综合统计 查询 统计行政区划要害部门   统计行政区下的直辖单位情况  分单位显示-->
+		<action name="zhtj_queryByDistrict" class="bmp.keySectionAction" method="zhtj_queryByDistrict">
+			<result name="success">/bmp/key-section/borderlayout/view/stat/keySection_stat_organList.jsp</result>
+		</action>
+		<!--综合统计      通过行政区划查询要害部门  本单位的情况   -->
+		<action name="zhtj_DetailList" class="bmp.keySectionAction" method="zhtj_DetailList">
+			<result name="success">/bmp/key-section/borderlayout/view/stat/keySection_stat_DetailList.jsp</result>
+		</action>
+		<!--综合统计       一个单位的数据撰取的功能    -->
+		<action name="zhtj_OrganDetailList" class="bmp.keySectionAction" method="zhtj_OrganDetailList">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_list_list1.jsp</result>
+		</action>
+		<!-- 综合统计  通过行政区划查询要害部门个数   查询明细  -->
+		<action name="zhtj_query" class="bmp.keySectionAction" method="zhtj_query">
+			<result name="success">/bmp/key-section/borderlayout/view/stat/keySection_Stat_stat.jsp</result>
+		</action>
+
+		<!-- 综合统计导出统计要害部门   行政区划统计   -->
+		<action name="stat_exportDistrict" class="bmp.keySectionAction" method="stat_exportDistrict">
+			<result name="success" type="excel">
+				<param name="location">/bmp/key-section/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+				<param name="fileName">行政区划-要害部门(综合统计).xlsx</param>
+			</result>
+		</action>
+		<!-- 综合统计导出统计要害部门   行政区下统计   -->
+		<action name="stat_exportLayer" class="bmp.keySectionAction" method="stat_exportLayer">
+			<result name="success" type="excel">
+				<param name="location">/bmp/key-section/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+				<param name="fileName">行政区内-要害部门(综合统计).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="keySection_organIndex" class="bmp.keySectionAction" method="organIndex">
+			<result name="success">/bmp/key-section/borderlayout/view/keySection_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="keySection_dataValidate" method="dataValidate" class="bmp.keySectionAction"></action>
+	</package>
+
+
+	<!-- 单选选择器 -->
+	<package name="com.cdthgk.bmp.keysection.KeySectionSearchAction" namespace="/bmp/keySectionSearch" extends="com.cdthgk.bmp.keySection">
+		<!-- 查询保密要害部门  自动补全 -->
+		<action name="autocomplete" class="bmp.KeySectionSearchAction" method="autocomplete" />
+
+		<!-- 页面配置 -->
+		<action name="singelSelect" class="bmp.KeySectionSearchAction" method="singelSelect" >
+			<result name="success" type="com.cdthgk.web.templateDispatcher">/bmp/key-section/borderlayout/view/keySection_list_list.jsp</result>
+		</action>
+	</package>
+
+
+</struts>

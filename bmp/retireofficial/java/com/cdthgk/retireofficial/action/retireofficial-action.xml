@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.retireofficial" namespace="/bmp/retireofficial" extends="com.cdthgk.project">
+		<action name="retireofficial_list" method="list" class="retireOfficialAction">
+			<result name="success">/bmp/retireofficial/borderlayout/view/retireOfficial_list.jsp</result>
+		</action>
+		<action name="retireofficial_add" method="add" class="retireOfficialAction">
+			<result name="success">/bmp/retireofficial/borderlayout/view/retireOfficial_add.jsp</result>
+		</action>
+		<action name="retireofficial_save" method="save" class="retireOfficialAction">
+			<result name="success" type="redirectAction">
+				<param name="retireOfficial.retireOfficialId">${retireOfficial.retireOfficialId}</param>
+				<param name="namespace">/bmp/retireofficial</param>
+				<param name="actionName">retireofficial_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="retireofficial_edit" method="edit" class="retireOfficialAction">
+			<result name="success">/bmp/retireofficial/borderlayout/view/retireOfficial_edit.jsp</result>
+		</action>
+		<action name="retireofficial_update" method="update" class="retireOfficialAction">
+			<result name="success" type="redirectAction">
+				<param name="id">${retireOfficial.retireOfficialId}</param>
+				<param name="namespace">/bmp/retireofficial</param>
+				<param name="actionName">retireofficial_edit</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="retireofficial_del" method="del" class="retireOfficialAction">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/bmp/retireofficial</param>
+				<param name="actionName">retireofficial_list</param>
+			</result>
+		</action>
+		<action name="retireofficial_detail" method="detail" class="retireOfficialAction">
+			<result name="success">/bmp/retireofficial/borderlayout/view/retireOfficial_detail.jsp</result>
+		</action>
+		<action name="retireofficial_print" method="print" class="retireOfficialAction">
+			<result name="success">/bmp/retireofficial/borderlayout/view/retireOfficial_print.jsp</result>
+		</action>
+	</package>
+</struts>

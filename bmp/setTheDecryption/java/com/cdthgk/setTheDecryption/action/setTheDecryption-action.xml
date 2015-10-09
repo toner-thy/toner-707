@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <!--  -->
+	<package name="com.cdthgk.setTheDecryption"  namespace="/bmp/setTheDecryption" extends="com.cdthgk.project">
+		<action name="setTheDecryption_*" class="setTheDecryption" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/setTheDecryption</param>
+				<param name="actionName">setTheDecryption_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/setTheDecryption</param>
+				<param name="actionName">setTheDecryption_edit</param>
+				<param name="setTheDecryption.id">${setTheDecryption.id}</param>
+			</result>
+			<result name="print">/bmp/setTheDecryption/borderlayout/view/setTheDecryption_print.jsp</result>
+			<result name="success">/bmp/setTheDecryption/borderlayout/view/setTheDecryption_{1}.jsp</result>
+		</action>
+		 <action name="setTheDecryption_save" class="setTheDecryption" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/setTheDecryption</param>
+				<param name="actionName">setTheDecryption_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="setTheDecryption_update" class="setTheDecryption" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/setTheDecryption</param>
+				<param name="actionName">setTheDecryption_edit</param>
+				<param name="setTheDecryption.id">${setTheDecryption.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="setTheDecryption_allList" class="setTheDecryption" method="allList" >
+			<result name="allList">/bmp/setTheDecryption/borderlayout/view/setTheDecryption_allList.jsp</result>
+		</action>
+
+		<action name="setTheDecryption_organIndex" class="setTheDecryption" method="organIndex">
+			<result name="success">/bmp/setTheDecryption/borderlayout/view/setTheDecryption_organIndex.jsp</result>
+		</action>
+
+		 <!-- 数据填写校验 -->
+		<action name="setTheDecryption_dataValidate" method="dataValidate" class="setTheDecryption"></action>
+	</package>
+</struts>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="nestedPart" extends="com.cdthgk.project" namespace="/bmp/part">
+		<!-- 通用配置 -->
+
+		<!-- 列表配置 -->
+		<action name="nestedpart_list" method="list" class="bmp.nestedPartAction">
+			<result name="list">/bmp/keypart/borderlayout/view/keypart/keyPart_nestedlist.jsp</result>
+		</action>
+		<!-- 删除配置 -->
+		<action name="nestedpart_delete" method="delete" class="bmp.nestedPartAction">
+		</action>
+
+		<!-- 新增配置 -->
+		<action name="nestedpart_add" method="add" class="bmp.nestedPartAction">
+			<result name="add">/bmp/keypart/borderlayout/view/keypart/nestedKeyPart_add.jsp</result>
+		</action>
+		<action name="nestedpart_adding" method="adding" class="bmp.nestedPartAction">
+			<result name="edit" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">nestedpart_edit</param>
+				<param name="part.partId">${part.partId}</param>
+				<param name="needReload">${needReload}</param>
+				<param name="needReload2">${needReload2}</param>
+			</result>
+		</action>
+
+		<!--  部门部位新增涉密人员操作配置 -->
+		<action name="keySectionPart_addPerson" method="addPerson" class="partAction">
+			<result name="addPerson">/bmp/keypart/borderlayout/view/keypart/keySectionSecrecyPerson_add.jsp</result>
+		</action>
+		<action name="keySectionPart_addPersoning" method="addPersoning" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">nestedpart_edit</param>
+				<param name="part.partId">${part.partId}</param>
+				<param name="needReload">${needReload}</param>
+				<param name="secrecyPerson.userInfo.userInfoId">${secrecyPerson.userInfo.userInfoId}</param>
+			</result>
+		</action>
+
+		<!-- 编辑配置 -->
+		<action name="nestedpart_edit" method="edit" class="bmp.nestedPartAction">
+			<result name="edit">/bmp/keypart/borderlayout/view/keypart/nestedKeyPart_edit.jsp</result>
+			<param name="needReload">${needReload}</param>
+			<param name="needReload2">${needReload2}</param>
+		</action>
+		<action name="nestedpart_editing" method="editing" class="bmp.nestedPartAction">
+			 <interceptor-ref name="platformUploadStack"/>
+			<result name="list" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">nestedpart_edit</param>
+				<param name="needReload">${needReload}</param>
+				<param name="part.partId">${part.partId}</param>
+			</result>
+		</action>
+
+		<!--  部门部位编辑涉密人员操作配置 -->
+		<action name="keySectionPart_editPerson" method="editPerson" class="partAction">
+			<result name="editPerson">/bmp/keypart/borderlayout/view/keypart/keySectionSecrecyPerson_edit.jsp</result>
+		</action>
+		<action name="keySectionPart_editPersoning" method="editPersoning" class="partAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/part</param>
+				<param name="actionName">nestedpart_edit</param>
+				<param name="part.partId">${part.partId}</param>
+				<param name="secrecyPerson.userInfo.userInfoId">${secrecyPerson.userInfo.userInfoId}</param>
+			</result>
+		</action>
+
+		<!--  部门部位涉密人员详情配置 -->
+		<action name="keyPart_detailPerson" method="detailPerson" class="partAction">
+			<result name="detailPerson">/bmp/keypart/borderlayout/view/keypart/keyPartSecrecyPerson_detail.jsp</result>
+		</action>
+	</package>
+</struts>

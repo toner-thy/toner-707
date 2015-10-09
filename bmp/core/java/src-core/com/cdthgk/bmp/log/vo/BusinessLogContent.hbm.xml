@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.log.vo.BusinessLogContent" table="bm_business_log_content">
+        <id name="logContentId" column="log_content_id" type="java.lang.String">
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+		<many-to-one name="log" class="com.cdthgk.bmp.log.vo.BusinessLog" fetch="select">
+        	 <column name="log_id" length="39">
+                <comment>主日志</comment>
+            </column>
+        </many-to-one>
+		<property name="filedName" type="java.lang.String">
+            <column name="filed_name" length="100">
+                <comment>业务表-字段名称</comment>
+            </column>
+        </property>
+		<property name="tbkey" type="java.lang.String">
+            <column name="tbkey" length="200">
+                <comment>业务表-字段属性名称</comment>
+            </column>
+        </property>
+		<property name="tbvalue" type="java.lang.String">
+            <column name="tbvalue" length="65535">
+                <comment>业务表-字段对应值</comment>
+            </column>
+        </property>
+		<property name="currentTbvalue" type="java.lang.String">
+            <column name="current_tbvalue" length="65535">
+                <comment>业务表-字段当前值</comment>
+            </column>
+        </property>
+		<property name="tbkeyDesc" type="java.lang.String">
+            <column name="tbkey_desc" length="200">
+                <comment>业务表-字段描述</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,2 @@
+﻿INSERT INTO `sys_config_text_info` VALUES ('bm_externalPidgin_list', '主要涉密涉外活动备案', '【主要涉密涉外活动备案】对本单位产生的涉密涉外事件进行统一备案管理。通过上报功能可以将涉密涉外信息上报到上级保密行政管理部门。', '主要涉密涉外活动备案', '主要涉密涉外活动备案', '1', '2013-02-22 17:37:22', '1', null, null, null, '1');
+INSERT INTO `sys_config_text_info` VALUES ('bm_externalPidgin_query', '主要涉密涉外活动查询', '【主要涉密涉外活动查询】保密行政管理部门对已上报的涉密涉外活动信息统一管理。', '主要涉密涉外活动查询', '主要涉密涉外活动查询', '1', '2013-02-22 17:37:22', '1', null, null, null, '1');

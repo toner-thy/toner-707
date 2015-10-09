@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-16 15:13:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.SecrecyCommitteeMembersChange" table="bm_secrecy_committee_members_change">
+        <id name="secrecyCommitteeMembersChangeId" type="string">
+            <column name="SECRECY_COMMITTEE_MEMBERS_CHANGE_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <many-to-one name="secrecyCommitteeMemberId" class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.SecrecyCommitteeMember" fetch="select">
+			<column name="SECRECY_COMMITTEE_MEMBER_ID" length="39">
+				<comment>保密委成员</comment>
+			</column>
+		</many-to-one>
+        <property name="changeType" type="java.lang.Integer">
+            <column name="CHANGE_TYPE" />
+        </property>
+        <property name="changeDate" type="timestamp">
+            <column name="CHANGE_DATE" length="19" />
+        </property>
+        <property name="changeReason" type="string">
+            <column name="CHANGE_REASON" length="2000" />
+        </property>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="CREATE_PERSON" length="39">
+				<comment>创建人员</comment>
+			</column>
+		</many-to-one>
+        <property name="createDate" type="timestamp">
+            <column name="CREATE_DATE" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

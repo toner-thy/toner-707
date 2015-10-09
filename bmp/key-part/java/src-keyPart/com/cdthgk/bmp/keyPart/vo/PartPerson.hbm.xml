@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--
+	要害部位涉密人员实体映射文件
+-->
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.keyPart.vo.PartPerson" table="bm_key_part_person">
+		<id name="id" type="java.lang.String">
+			<column name="PART_PERSON_ID" length="39" />
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"></generator>
+		</id>
+		<many-to-one name="secrecyPerson" class="com.cdthgk.bmp.secrecyperson.vo.SecrecyPerson" fetch="select">
+			<column name="person_id" length="39">
+				<comment>涉密人员ID</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="part" class="com.cdthgk.bmp.keyPart.vo.Part"  fetch="select">
+			<column name="KEY_PART_ID" length="39">
+				<comment>要害部位ID</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.secrecysystem.statistics" extends="com.cdthgk.project" namespace="/secrecysystem/statistics">
+			<!--本单位   涉密计算机总数   统计-->
+			<action name="secrecyComputerCount" method="secrecyComputerCount" class="bmp.secrecySystemStatisticsAction">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/stat_secrecyComputerCount.jsp</result>
+			</action>
+			<action name="export_secrecyComputerCount" class="bmp.secrecySystemStatisticsAction" method="export_secrecyComputerCount">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/export_secrecyComputerCount.xlsx</param>
+					<param name="fileName">涉密计算机总数统计.xlsx</param>
+				</result>
+			</action>
+
+			<!--行政区划   涉密计算机总数   统计-->
+			<action name="secrecyComputerCount_District" method="secrecyComputerCount_District" class="bmp.secrecySystemStatisticsAction">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputerCount_District.jsp</result>
+			</action>
+			<action name="export_secrecyComputerCount_District" class="bmp.secrecySystemStatisticsAction" method="export_secrecyComputerCount_District">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/export_secrecyComputerCount.xlsx</param>
+					<param name="fileName">涉密计算机总数统计.xlsx</param>
+				</result>
+			</action>
+
+				<!--单位明细   涉密计算机总数   统计-->
+			<action name="secrecyComputerCount_OrganDetail" method="secrecyComputerCount_OrganDetail" class="bmp.secrecySystemStatisticsAction">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyComputerCount_OrganDetail.jsp</result>
+			</action>
+
+			<!--本单位       移动存储介质        统计统计统计统计 -->
+			<action name="secrecyMediaCount_CurrentOrgan" class="bmp.secrecySystemStatisticsAction" method="secrecyMediaCount_CurrentOrgan">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyMediaCount_CurrentOrgan.jsp</result>
+			</action>
+			<!--行政区划     移动存储介质     统计统计统计统计 -->
+			<action name="secrecyMediaCount_District" class="bmp.secrecySystemStatisticsAction" method="secrecyMediaCount_District">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyMediaCount_District.jsp</result>
+			</action>
+			<!--直辖单位    移动存储介质      统计 统计统计统计-->
+			<action name="secrecyMediaCount_Layer" class="bmp.secrecySystemStatisticsAction" method="secrecyMediaCount_Layer">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyMediaCount_Layer.jsp</result>
+			</action>
+			<!--本单位       移动存储介质       导出导出导出导出 -->
+			<action name="export_MobileStorageMediaCurrentOrgan" class="bmp.secrecySystemStatisticsAction" method="export_MobileStorageMediaCurrentOrgan">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/export_MobileStorageMediaCurrentOrgan.xlsx</param>
+					<param name="fileName">涉密移动存储介质统计.xlsx</param>
+				</result>
+			</action>
+			<!--行政区划     移动存储介质    导出导出导出导出 -->
+			<action name="export_MobileStorageMediaDistrict" class="bmp.secrecySystemStatisticsAction" method="export_MobileStorageMediaDistrict">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/export_MobileStorageMediaDistrict.xlsx</param>
+					<param name="fileName">涉密移动存储介质统计.xlsx</param>
+				</result>
+			</action>
+			<!--直辖单位    移动存储介质     导出导出导出导出 -->
+			<action name="export_MobileStorageMediaLayer" class="bmp.secrecySystemStatisticsAction" method="export_MobileStorageMediaLayer">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/export_MobileStorageMediaLayer.xlsx</param>
+					<param name="fileName">涉密移动存储介质统计.xlsx</param>
+				</result>
+			</action>
+
+
+
+			<!--本单位       其他涉密设备       统计统计统计统计 -->
+			<action name="secrecyOthersCount_CurrentOrgan" class="bmp.secrecySystemStatisticsAction" method="secrecyOthersCount_CurrentOrgan">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyOthersCount_CurrentOrgan.jsp</result>
+			</action>
+			<!--行政区划     其他涉密设备    统计统计统计统计 -->
+			<action name="secrecyOthersCount_District" class="bmp.secrecySystemStatisticsAction" method="secrecyOthersCount_District">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyOthersCount_District.jsp</result>
+			</action>
+			<!--直辖单位    其他涉密设备     统计统计统计统计-->
+			<action name="secrecyOthersCount_Layer" class="bmp.secrecySystemStatisticsAction" method="secrecyOthersCount_Layer">
+				<result name="success">/bmp/secrecy-system/secrecy-computer/borderlayout/view/secrecyOthersCount_Layer.jsp</result>
+			</action>
+			<!--本单位       其他涉密设备      导出导出导出导出 -->
+			<action name="export_OthersCurrentOrgan" class="bmp.secrecySystemStatisticsAction" method="export_OthersCurrentOrgan">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/export_OthersCurrentOrgan.xlsx</param>
+					<param name="fileName">其他涉密设备统计.xlsx</param>
+				</result>
+			</action>
+			<!--行政区划    其他涉密设备    导出导出导出导出 -->
+			<action name="export_OthersDistrict" class="bmp.secrecySystemStatisticsAction" method="export_OthersDistrict">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/export_OthersDistrict.xlsx</param>
+					<param name="fileName">其他涉密设备统计.xlsx</param>
+				</result>
+			</action>
+			<!--直辖单位   其他涉密设备     导出导出导出导出 -->
+			<action name="export_OthersLayer" class="bmp.secrecySystemStatisticsAction" method="export_OthersLayer">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-computer/borderlayout/view/export_OthersLayer.xlsx</param>
+					<param name="fileName">其他涉密设备统计.xlsx</param>
+				</result>
+			</action>
+			<!-- 本单位  涉密网络  统计  -->
+			<action name="secrecyNetwork_CurrentOrgan" class="bmp.secrecySystemStatisticsAction" method="secrecyNetwork_CurrentOrgan">
+				<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_CurrentOrgan.jsp</result>
+			</action>
+
+			<action name="secrecyNetwork_CurrentOrganExport" class="bmp.secrecySystemStatisticsAction" method="secrecyNetwork_CurrentOrganExport">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_ExportTemplet.xlsx</param>
+					<param name="fileName">涉密网络.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 行政区划 涉密网络  统计 -->
+			<action name="secrecyNetwork_District" class="bmp.secrecySystemStatisticsAction" method="secrecyNetwork_District">
+				<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_District.jsp</result>
+			</action>
+
+			<action name="secrecyNetwork_DistrictExport" class="bmp.secrecySystemStatisticsAction" method="secrecyNetwork_DistrictExport">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_ExportTemplet.xlsx</param>
+					<param name="fileName">涉密网络.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 直辖单位 涉密网络 统计 -->
+			<action name="secrecyNetwork_Layer" class="bmp.secrecySystemStatisticsAction" method="secrecyNetwork_Layer">
+				<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_Layer.jsp</result>
+			</action>
+
+			<action name="secrecyNetwork_LayerExport" class="bmp.secrecySystemStatisticsAction" method="secrecyNetwork_LayerExport">
+				<result name="success" type="excel">
+					<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetwork_ExportTemplet.xlsx</param>
+					<param name="fileName">涉密网络.xlsx</param>
+				</result>
+			</action>
+
+	</package>
+</struts>

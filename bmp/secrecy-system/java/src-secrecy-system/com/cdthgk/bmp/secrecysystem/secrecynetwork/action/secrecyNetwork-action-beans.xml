@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="bmp.secrecyNetworkAction" class="com.cdthgk.bmp.secrecysystem.secrecynetwork.action.SecrecyNetworkAction" scope="prototype">
+    	<property name="secrecyNetworkService" ref="bmp.secrecyNetworkService"/>
+    	<property name="secrecyNetworkChangeService" ref="bmp.secrecyNetworkChangeService"/>
+    	<property name="secrecyNetworkClearService" ref="bmp.secrecyNetworkClearService"/>
+    	<property name="secrecyNetworkterminalService" ref="bmp.secrecyNetworkterminalService"/>
+    	<property name="districtService" ref="platform.districtService"/>
+    	<property name="dataValidateService" ref="bmp.dataValidateService" ></property>
+    </bean>
+
+</beans>

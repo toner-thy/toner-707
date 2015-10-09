@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-6-4 9:49:15 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.platform.questionAndAnswer.vo.SysQuestion" table="sys_question">
+        <id name="questionId" type="string">
+            <column name="QUESTION_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <property name="questionCategory" type="java.lang.Integer">
+            <column name="QUESTION_CATEGORY">
+                <comment>�������0:δ���ࣩ</comment>
+            </column>
+        </property>
+        <property name="questionTitle" type="string">
+            <column name="QUESTION_TITLE" length="2000">
+                <comment>�������</comment>
+            </column>
+        </property>
+        <property name="questionContent" type="string">
+            <column name="QUESTION_CONTENT" length="65535">
+                <comment>��������</comment>
+            </column>
+        </property>
+        <property name="state" type="java.lang.Integer">
+            <column name="STATE">
+                <comment>״̬��1�����ã�0�����ã�</comment>
+            </column>
+        </property>
+		<many-to-one name="createperson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="CREATE_PERSON" length="39">
+			</column>
+		</many-to-one>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="19">
+			</column>
+		</property>
+		<many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="MODIFY_PERSON" length="39">
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" length="19">
+			</column>
+		</property>
+        <set name="sysAnswers" inverse="true">
+            <key>
+                <column name="QUESTION" length="39">
+                    <comment>����������</comment>
+                </column>
+            </key>
+            <one-to-many class="com.cdthgk.platform.questionAndAnswer.vo.SysAnswer" />
+        </set>
+    </class>
+</hibernate-mapping>

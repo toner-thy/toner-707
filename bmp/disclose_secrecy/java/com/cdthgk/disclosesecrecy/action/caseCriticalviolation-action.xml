@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.disclosesecrecy.action.CaseCriticalviolationAction" namespace="/bmp/caseCriticalviolation" extends="com.cdthgk.project">
+		<!--跳转到严重违规案件主面板  -->
+		<action name="caseCriticalviolation_listMain" class="bmp.caseCriticalviolationAction" method="listMain">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_main.jsp</result>
+        </action>
+        <!--严重违规案件列表  -->
+		<action name="caseCriticalviolation_list" class="bmp.caseCriticalviolationAction" method="list">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_list.jsp</result>
+        </action>
+        <!--严重违规案件保密局查询列表首次跳转  -->
+		<action name="caseCriticalviolation_selectList" class="bmp.caseCriticalviolationAction" method="selectList">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_query_main.jsp</result>
+        </action>
+        <!--严重违规案件保密局查询列表查询跳转，中间跳转页面  -->
+		<action name="caseCriticalviolation_selectListing" class="bmp.caseCriticalviolationAction" method="queryMain">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_query_list.jsp</result>
+        </action>
+        <!--严重违规案件保密局查询列表查询跳转  -->
+		<action name="caseCriticalviolation_selectListing2" class="bmp.caseCriticalviolationAction" method="selectListing">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_list.jsp</result>
+        </action>
+        <!--严重违规案件密级变更列表  -->
+		<action name="caseCriticalviolation_list_change" class="bmp.caseCriticalviolationAction"  method="list_change">
+			<result name="list">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_list_change.jsp</result>
+		</action>
+        <!--严重违规案件密级变更列表 保密局查询 -->
+		<action name="caseCriticalviolation_select_change" class="bmp.caseCriticalviolationAction"  method="select_change">
+			<result name="list">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_list_change.jsp</result>
+		</action>
+        <!-- 严重违规案件密级变更添加页面 -->
+        <action name="caseCriticalviolation_change" class="bmp.caseCriticalviolationAction" method="change">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_change.jsp</result>
+		</action>
+        <!-- 严重违规案件密级变更处理 -->
+        <action name="caseCriticalviolation_changeing" class="bmp.caseCriticalviolationAction" method="changeing">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_change.jsp</result>
+		</action>
+        <!-- 严重违规案件密级解除列表页面 -->
+        <action name="caseCriticalviolation_list_clear" class="bmp.caseCriticalviolationAction" method="list_clear">
+			<result name="list">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_list_clear.jsp</result>
+		</action>
+        <!-- 严重违规案件密级解除列表页面，保密局查询 -->
+        <action name="caseCriticalviolation_select_clear" class="bmp.caseCriticalviolationAction" method="select_clear">
+			<result name="list">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_list_clear.jsp</result>
+		</action>
+        <!-- 严重违规案件密级解除 添加页面-->
+        <action name="caseCriticalviolation_clear" class="bmp.caseCriticalviolationAction" method="clear">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_clear.jsp</result>
+		</action>
+        <!-- 严重违规案件密级解除处理 -->
+        <action name="caseCriticalviolation_clearing" class="bmp.caseCriticalviolationAction" method="clearing">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_clear.jsp</result>
+		</action>
+
+		 <!-- 严重违规案件密级解除详情-->
+	    <action name="caseCriticalviolation_detail"  class="bmp.caseCriticalviolationAction" method="detail">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_detail.jsp</result>
+		</action>
+        <!-- 严重违规案件密级解除详情-->
+	    <action name="caseCriticalviolation_clear_detail"  class="bmp.caseCriticalviolationAction" method="clearDetail">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_clear_detail.jsp</result>
+		</action>
+
+        <!-- 严重违规案件添加页面-->
+		<action name="caseCriticalviolation_add" class="bmp.caseCriticalviolationAction" method="add">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_add.jsp</result>
+        </action>
+         <!-- 严重违规案件点击处理action-->
+        <action name="caseCriticalviolation_adding"  class="bmp.caseCriticalviolationAction" method="adding">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/caseCriticalviolation</param>
+				<param name="actionName">caseCriticalviolation_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+
+        <!-- 严重违规案件负责人添加页面 -->
+		<action name="caseHandledutyPerson_add" class="bmp.caseCriticalviolationAction" method="add_CaseHandledutyPerson">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/ccv_caseHandledutyPerson_add.jsp</result>
+        </action>
+        <!-- 严重违规案件处理人添加处理action -->
+        <action name="caseHandledutyPerson_adding"  class="bmp.caseCriticalviolationAction" method="adding_CaseHandledutyPerson">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="caseCriticalviolation.name">${caseCriticalviolation.name}</param>
+				<param name="caseCriticalviolation.caseCriticalviolationId">${caseCriticalviolation.caseCriticalviolationId}</param>
+				<param name="namespace">/bmp/caseCriticalviolation</param>
+				<param name="actionName">caseHandledutyPerson_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <!-- 严重违规案件处理人编辑页面 -->
+		<action name="caseHandledutyPerson_edit" class="bmp.caseCriticalviolationAction" method="edit_CaseHandledutyPerson">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/ccv_caseHandledutyPerson_edit.jsp</result>
+        </action>
+        <!-- 严重违规案件处理人编辑处理action -->
+        <action name="caseHandledutyPerson_editing"  class="bmp.caseCriticalviolationAction" method="editing_CaseHandledutyPerson">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="caseHandledutyPerson.caseHandledutyPersonId">${caseHandledutyPerson.caseHandledutyPersonId}</param>
+				<param name="caseCriticalviolation.caseCriticalviolationId">${caseCriticalviolation.caseCriticalviolationId}</param>
+				<param name="namespace">/bmp/caseCriticalviolation</param>
+				<param name="actionName">caseHandledutyPerson_edit</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+        <!-- 严重违规案件处理人删除action-->
+		<action name="caseHandledutyPerson_del"  class="bmp.caseCriticalviolationAction" method="del_CaseHandledutyPerson">
+			<result name="success" type="stateRedirectAction">
+				<param name="caseCriticalviolation.caseCriticalviolationId">${caseCriticalviolation.caseCriticalviolationId}</param>
+				<param name="namespace">/bmp/caseCriticalviolation</param>
+				<param name="actionName">caseCriticalviolation_edit</param>
+			</result>
+		</action>
+        <!-- 严重违规案件处理人详情-->
+		<action name="caseHandledutyPerson_detail"  class="bmp.caseCriticalviolationAction" method="detail_CaseHandledutyPerson">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_change_detail.jsp</result>
+		</action>
+        <!-- 严重违规案件编辑页面 -->
+		<action name="caseCriticalviolation_edit" class="bmp.caseCriticalviolationAction" method="edit">
+	       	<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_edit.jsp</result>
+        </action>
+        <!-- 严重违规案件编辑处理action-->
+        <action name="caseCriticalviolation_editing" class="bmp.caseCriticalviolationAction" method="editing" >
+			<result name="list_action" type="stateRedirectAction">
+				<param name="caseCriticalviolation.caseCriticalviolationId">${caseCriticalviolation.caseCriticalviolationId}</param>
+				<param name="namespace">/bmp/caseCriticalviolation</param>
+				<param name="actionName">caseCriticalviolation_edit</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+        <!-- 严重违规案件删除action-->
+		<action name="caseCriticalviolation_del" class="bmp.caseCriticalviolationAction"  method="del">
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/caseCriticalviolation</param>
+				<param name="actionName">caseCriticalviolation_listMain</param>
+			</result>
+		</action>
+        <!-- 严重违规案件密级变更详情页面-->
+		<action name="caseCriticalviolationChangeDetail"  class="bmp.caseCriticalviolationAction" method="changeDetail">
+			<result name="success">/bmp/disclose_secrecy/borderlayout/view/caseCriticalviolation_change_detail.jsp</result>
+		</action>
+
+		<action name="ajax_caseCriticalviolation" class="bmp.caseCriticalviolationAction" method="ajax_caseCriticalviolation"></action>
+        <action name="exportExcel_List" class="bmp.caseCriticalviolationAction" method="exportExcel_List">
+			<result name="success" type="excel">
+					<param name="location">/bmp/disclose_secrecy/borderlayout/view/exportExcel_caseCriticalviolation_exprotTemplet.xlsx</param>
+					<param name="fileName">严重违规案件.xlsx</param>
+			</result>
+		</action>
+    </package>
+</struts>

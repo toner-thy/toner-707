@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.technictrain"  namespace="/bmp/technicTrain" extends="com.cdthgk.project">
+
+		<action name="technicTrain_*" class="technicTrainAction" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/technicTrain</param>
+				<param name="actionName">technicTrain_list</param>
+				<param name="technicTrainList_crd">${technicTrainList_crd}</param>
+				<param name="technicTrainList_p">${technicTrainList_p}</param>
+			</result>
+			<result name="list">/bmp/technictrain/borderlayout/view/technicTrain_list.jsp</result>
+			<result name="allList">/bmp/technictrain/borderlayout/view/technicTrain_allList.jsp</result>
+			<result name="add">/bmp/technictrain/borderlayout/view/technicTrain_add.jsp</result>
+			<result name="edit">/bmp/technictrain/borderlayout/view/technicTrain_edit.jsp</result>
+			<result name="view">/bmp/technictrain/borderlayout/view/technicTrain_view.jsp</result>
+			<result name="listView">/bmp/technictrain/borderlayout/view/technicTrain_listView.jsp</result>
+			<result name="main">/bmp/technictrain/borderlayout/view/technicTrain_main.jsp</result>
+			<result name="tabcard">/bmp/technictrain/borderlayout/view/technicTrain_tabcard.jsp</result>
+		</action>
+		<action name="technicTrain_add" class="technicTrainAction" method="add" >
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/technicTrain</param>
+				<param name="actionName">technicTrain_addBefore</param>
+				<param name="technicTrainList_crd">${technicTrainList_crd}</param>
+				<param name="technicTrainList_p">${technicTrainList_p}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="technicTrain_edit" class="technicTrainAction" method="edit" >
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/technicTrain</param>
+				<param name="actionName">technicTrain_editBefore</param>
+				<param name="technicTrainList_crd">${technicTrainList_crd}</param>
+				<param name="technicTrainList_p">${technicTrainList_p}</param>
+				<param name="needReload">${needReload}</param>
+				<param name="technicTrain.technicTrainingId">${technicTrain.technicTrainingId}</param>
+			</result>
+		</action>
+	</package>
+</struts>

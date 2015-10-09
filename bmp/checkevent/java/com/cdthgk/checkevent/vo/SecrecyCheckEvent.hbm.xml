@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.checkevent.vo.SecrecyCheckEvent" table="bm_secrecy_check_event">
+        <id name="secrecyCheckEventId" type="java.lang.String">
+            <column name="SECRECY_CHECK_EVENT_ID" length="32" />
+            <generator class="uuid"></generator>
+        </id>
+        <property name="eventName" type="java.lang.String">
+            <column name="EVENT_NAME" length="100">
+                <comment>检查事件名</comment>
+            </column>
+        </property>
+        <property name="eventDescription" type="java.lang.String">
+            <column name="EVENT_DESCRIPTION" length="200">
+                <comment>检查事件说明</comment>
+            </column>
+        </property>
+        <property name="eventDate" type="java.util.Date">
+            <column name="EVENT_DATE" length="19">
+                <comment>检查日期</comment>
+            </column>
+        </property>
+        <property name="disposeIdea" type="java.lang.String">
+            <column name="DISPOSE_IDEA" length="1000">
+                <comment>处理意见</comment>
+            </column>
+        </property>
+        <property name="checkedDepartment" type="java.lang.String">
+            <column name="CHECKED_DEPARTMENT" length="1000">
+                <comment>受检部门</comment>
+            </column>
+        </property>
+        <property name="checkPosition" type="java.lang.String">
+        	<column name="check_position" length="1000">
+        		<comment>检查位置</comment>
+        	</column>
+        </property>
+        <property name="checkPerson" type="java.lang.String">
+        	<column name="check_person" length="200">
+        		<comment>检查人员</comment>
+        	</column>
+        </property>
+        <property name="checkCircs" type="java.lang.String">
+            <column name="CHECK_CIRCS" length="1000">
+                <comment>检查情况</comment>
+            </column>
+        </property>
+        <property name="checkMeans" type="java.lang.String">
+            <column name="CHECK_MEANS" length="1000">
+                <comment>检查手段</comment>
+            </column>
+        </property>
+        <property name="rectification" type="java.lang.String">
+            <column name="rectification" length="1000">
+                <comment>检查手段</comment>
+            </column>
+        </property>
+        <property name="joinNumber" type="java.lang.Integer">
+            <column name="joinNumber" length="11">
+                <comment>参加人数</comment>
+            </column>
+        </property>
+        <many-to-one name="checkedOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="CHECKED_ORGAN" length="39">
+                <comment>受检单位（外键）</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="departmentId" class="com.cdthgk.platform.organization.department.domain.Department">
+            <column name="DEPARTMENT_ID" length="39">
+                <comment>部门ID</comment>
+            </column>
+        </many-to-one>
+
+        <property name="type" type="java.lang.Integer">
+            <column name="type" />
+        </property>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <many-to-one name="organId" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="ORGAN_ID" length="39">
+                <comment>单位ID</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="CREATE_PERSON" length="39">
+                <comment>输入人员</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

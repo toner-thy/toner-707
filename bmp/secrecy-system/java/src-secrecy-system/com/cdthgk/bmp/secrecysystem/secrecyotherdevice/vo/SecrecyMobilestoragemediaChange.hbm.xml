@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-30 16:31:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecysystem.secrecyotherdevice.vo.SecrecyMobilestoragemediaChange" table="bm_secrecy_mobilestoragemedia_change">
+        <id name="mobilestoragemediaChangeId" type="string">
+            <column name="secrecymobilestoragemedia_change_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <many-to-one name="secrecyMobilestoragemedia" class="com.cdthgk.bmp.secrecysystem.secrecyotherdevice.vo.SecrecyMobilestoragemedia" fetch="select">
+            <column name="secrecymobilestoragemedia_id" length="39">
+            </column>
+        </many-to-one>
+        <property name="beforeLevel" type="java.lang.Integer">
+            <column name="before_level" />
+        </property>
+        <property name="afterLevel" type="java.lang.Integer">
+            <column name="after_level" />
+        </property>
+        <property name="changeTimeState" type="java.lang.Integer">
+            <column name="change_time_state" />
+        </property>
+        <property name="changeDate" type="java.util.Date">
+            <column name="change_date" length="19" />
+        </property>
+        <property name="changeReason" type="string">
+            <column name="change_reason" length="2000" />
+        </property>
+		<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="CREATE_Person" length="39">
+				<comment>创建用户</comment>
+			</column>
+		</many-to-one>
+        <property name="createDate" type="java.util.Date">
+            <column name="create_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

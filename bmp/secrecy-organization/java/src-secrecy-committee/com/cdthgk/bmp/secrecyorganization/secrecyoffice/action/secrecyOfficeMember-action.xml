@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 保密办（保密局）成员控制器Struts配置 -->
+	<package name="secrecyOfficeMember" extends="com.cdthgk.project" namespace="/secrecyorganization/secrecyofficemember">
+		<!-- 详情配置 -->
+		<action name="secrecyOfficeMember_detail" method="detail" class="bmp.secrecyOfficeMemberAction">
+			<result name="detail">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_detail.jsp</result>
+		</action>
+
+		<!-- 新增配置-->
+		<action name="secrecyOfficeMember_add" method="add" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_add.jsp</result>
+			<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyofficemember</param>
+				<param name="actionName">secrecyOffice_edit</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+			</result>
+		</action>
+		<action name="secrecyOfficeMember_adding" method="adding" class="bmp.secrecyOfficeMemberAction">
+			<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_edit</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+				<param name="district.districtCode">${district.districtCode}</param>
+			</result>
+		</action>
+
+
+		<!-- 编辑配置-->
+		<action name="secrecyOfficeMember_edit" method="edit" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_edit.jsp</result>
+			<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyofficemember</param>
+				<param name="actionName">secrecyOffice_edit</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+			</result>
+		</action>
+		<action name="secrecyOfficeMember_editing" method="editing" class="bmp.secrecyOfficeMemberAction">
+			<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyoffice</param>
+				<param name="actionName">secrecyOffice_edit</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+				<param name="district.districtCode">${district.districtCode}</param>
+			</result>
+		</action>
+
+
+		<!-- 删除配置-->
+		<action name="secrecyOfficeMember_delete" method="delete" class="bmp.secrecyOfficeMemberAction">
+			<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/secrecyorganization/secrecyofficemember</param>
+				<param name="actionName">secrecyOfficeMember_list</param>
+				<param name="secrecyOffice.secrecyOfficeId">${secrecyOffice.secrecyOfficeId}</param>
+			</result>
+		</action>
+		<action name="secrecyOfficeMember_list" method="list" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_list.jsp</result>
+		</action>
+		<action name="secrecyOfficeMember_catchUserInfo" method="catchUserInfo" class="bmp.secrecyOfficeMemberAction"></action>
+
+		<!-- 密级变更-->
+		<action name="secrecyOfficeMember_secrecyChangeList" method="secrecyChangeList" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_secrecyChangeList.jsp</result>
+		</action>
+		<action name="secrecyOfficeMember_secrecyChange" method="secrecyChange" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_secrecyLevelChange.jsp</result>
+		</action>
+		<action name="secrecyOfficeMember_secrecyChanging" method="secrecyChanging" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_secrecyLevelChange.jsp</result>
+		</action>
+		<!-- 脱密-->
+		<action name="secrecyOfficeMember_decryptionList" method="decryptionList" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_decryptionList.jsp</result>
+		</action>
+		<action name="secrecyOfficeMember_decryption" method="decryption" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_decryption.jsp</result>
+		</action>
+		<action name="secrecyOfficeMember_decryptioning" method="decryptioning" class="bmp.secrecyOfficeMemberAction">
+			<result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeMember_decryption.jsp</result>
+		</action>
+	</package>
+</struts>

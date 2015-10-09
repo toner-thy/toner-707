@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-18 11:27:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.Infrastructure" table="bm_infrastructure">
+        <id name="infrastructureId" type="string">
+            <column name="infrastructure_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <many-to-one name="secrecyOffice" class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.SecrecyOffice" fetch="select">
+			<column name="SECRECY_OFFICE_ID" length="39">
+				<comment>保密办（保密局）</comment>
+			</column>
+		</many-to-one>
+        <property name="organName" type="string">
+            <column name="organ_name" length="50" />
+        </property>
+        <property name="infrastructureType" type="java.lang.Integer">
+            <column name="infrastructure_type" />
+        </property>
+        <property name="area" type="java.lang.Float">
+            <column name="area" precision="12" scale="0" />
+        </property>
+        <property name="finance" type="java.lang.Float">
+            <column name="finance" precision="12" scale="0" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="100" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.SecrecyCommitteeMember" table="bm_secrecy_committee_members">
+		<id name="secrecyCommitteeMemberId" type="java.lang.String">
+			<column name="SECRECY_COMMITTEE_MEMBER_ID" length="39"/>
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+		</id>
+
+		<many-to-one name="secrecyCommittee" class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.SecrecyCommittee" fetch="select">
+			<column name="SECRECY_COMMITTEE" length="39">
+				<comment>所属保密委</comment>
+			</column>
+		</many-to-one>
+
+	<!-- 	<many-to-one name="person" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+			<column name="PERSON" length="39">
+				<comment>保密委成员</comment>
+			</column>
+		</many-to-one> -->
+		<property name="person" type="java.lang.String">
+			<column name="PERSON" length="39">
+				<comment>姓名</comment>
+			</column>
+		</property>
+		<many-to-one name="personGroupPosition" class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.PersonGroupPosition" fetch="select">
+			<column name="PERSON_GROUP_POSITION" length="32">
+				<comment>保密委员会职务</comment>
+			</column>
+		</many-to-one>
+		<property name="organName" type="java.lang.String">
+			<column name="ORGAN_NAME" length="50">
+				<comment>单位</comment>
+			</column>
+		</property>
+		<property name="personDuty" type="java.lang.String">
+			<column name="PERSON_DUTY" length="50">
+				<comment>职务</comment>
+			</column>
+		</property>
+		<property name="personPhone" type="java.lang.String">
+			<column name="PERSON_PHONE" length="32">
+				<comment>电话</comment>
+			</column>
+		</property>
+		<property name="secrecyWorkStart" type="java.util.Date">
+			<column name="SECRECY_WORK_START" length="7">
+				<comment>何时从事保密工作</comment>
+			</column>
+		</property>
+		<property name="isSoleDuty" type="java.lang.Integer">
+			<column name="IS_SOLE_DUTY" length="11">
+				<comment>是否专职</comment>
+			</column>
+		</property>
+		<property name="otherDuty" type="java.lang.String">
+			<column name="OTHER_DUTY" length="2000">
+				<comment>兼任其他任务情况</comment>
+			</column>
+		</property>
+		<property name="administrativeLevel" type="java.lang.Integer">
+			<column name="ADMINISTRATIVE_LEVEL" length="11">
+				<comment>行政级别</comment>
+			</column>
+		</property>
+		<property name="technicalTitle" type="java.lang.Integer">
+			<column name="TECHNICAL_TITLE" length="11">
+				<comment>技术职称</comment>
+			</column>
+		</property>
+		<property name="secrecyStatus" type="java.lang.Integer">
+			<column name="SECRECY_STATUS" length="11">
+				<comment>人员变动状态</comment>
+			</column>
+		</property>
+		<property name="sex" type="java.lang.Integer">
+			<column name="SEX" length="11">
+				<comment>性别</comment>
+			</column>
+		</property>
+		<property name="birthdate" type="java.util.Date">
+			<column name="BIRTHDATE" length="7">
+				<comment>生日</comment>
+			</column>
+		</property>
+		<property name="nation" type="java.lang.Integer">
+			<column name="NATION" length="11">
+				<comment>民族</comment>
+			</column>
+		</property>
+		<property name="educationBackground" type="java.lang.Integer">
+			<column name="EDUCATION_BACKGROUND" length="11">
+				<comment>学历</comment>
+			</column>
+		</property>
+		<property name="degree" type="java.lang.Integer">
+			<column name="DEGREE" length="11">
+				<comment>学位</comment>
+			</column>
+		</property>
+		<property name="politicalStatus" type="java.lang.Integer">
+			<column name="POLITICAL_STATUS" length="11">
+				<comment>政治面貌</comment>
+			</column>
+		</property>
+		<property name="major" type="java.lang.Integer">
+			<column name="MAJOR" length="11">
+				<comment>专业</comment>
+			</column>
+		</property>
+		<property name="adminPost" type="java.lang.String">
+			<column name="ADMIN_POST" length="11">
+				<comment>行政职务</comment>
+			</column>
+		</property>
+		<property name="departmentName" type="java.lang.String">
+			<column name="DEPARTMENT_NAME" length="1000">
+				<comment>部门名称</comment>
+			</column>
+		</property>
+
+		<property name="sort" type="java.lang.Integer">
+			<column name="SORT" length="11">
+				<comment>人员排序字段</comment>
+			</column>
+		</property>
+
+		<property name="remark" type="java.lang.String">
+			<column name="REMARK" length="1000">
+				<comment>备注</comment>
+			</column>
+		</property>
+
+		<!-- 通用字段 -->
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" length="7">
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<many-to-one name="createUser" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="CREATE_USER" length="39">
+				<comment>创建用户</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="CREATE_ORGAN" length="39">
+				<comment>创建单位</comment>
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" length="7">
+				<comment>修改时间</comment>
+			</column>
+		</property>
+		<many-to-one name="modifyUser" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="MODIFY_USER" length="39">
+				<comment>修改用户</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="modifyOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+			<column name="MODIFY_ORGAN" length="39">
+				<comment>修改单位</comment>
+			</column>
+		</many-to-one>
+		<property name="enable" type="java.lang.Integer">
+			<column name="ENABLE" precision="22" scale="0" not-null="true">
+				<comment>0:未启用;1:启用</comment>
+			</column>
+		</property>
+	</class>
+</hibernate-mapping>

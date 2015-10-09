@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.PersonGroupRelation" table="bm_person_group_relation">
+		<id name="bmPersonGroupRelationId" type="java.lang.String">
+			<column name="BM_PERSON_GROUP_RELATION_ID" length="39" />
+			<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+		</id>
+
+		<many-to-one name="sysUserInfo" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select" >
+			<column name="PERSON_ID" length="39">
+				<comment>用户ID</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="bmPersonGroupPosition" class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.PersonGroupPosition" fetch="select" >
+			<column name="USER_GROUP_POSITION_ID" length="39">
+				<comment>人员组职位ID</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="bmPersonGroup" class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.vo.PersonGroup" fetch="select">
+			<column name="PERSON_GROUP_RELATION_ID" length="39">
+				<comment>保密组织ID</comment>
+			</column>
+		</many-to-one>
+
+		<property name="secrecyStatus" type="java.lang.Integer">
+            <column name="SECRECY_STATUS">
+                <comment>解密状态</comment>
+            </column>
+        </property>
+
+	</class>
+</hibernate-mapping>

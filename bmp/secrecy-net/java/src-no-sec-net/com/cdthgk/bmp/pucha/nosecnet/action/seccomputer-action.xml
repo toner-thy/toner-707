@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.pucha.noSecNet" extends="com.cdthgk.project" namespace="/bmp/pucha/noSecNet">
+		<!-- 填报页面 -->
+		<action name="save" method="save" class="bmp.noSecNetAction">
+			<result name="success">/bmp/secrecy-net/nosecnet/borderlayout/view/nosecnet_save.jsp</result>
+		</action>
+		<!-- 详情页面 -->
+		<action name="detail" method="detail" class="bmp.noSecNetAction">
+			<result name="success">/bmp/secrecy-net/nosecnet/borderlayout/view/nosecnet_detail.jsp</result>
+		</action>
+		<!-- 列表配置 -->
+		<action name="saveing" method="saveing" class="bmp.noSecNetAction">
+			<result name="success" type="stateRedirectAction">
+				<param name="actionName">save</param>
+				<param name="namespace">/bmp/pucha/noSecNet</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-15 14:28:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyresearchproject.vo.SecrecyResearchProjectChange" table="bm_secrecy_researchproject_change" >
+        <id name="changeId" type="java.lang.String">
+            <column name="change_id" length="39" >
+            	<comment>涉密科研项目密级变更id</comment>
+            </column>
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <many-to-one name="secrecyResearchProject" class="com.cdthgk.bmp.secrecyresearchproject.vo.SecrecyResearchProject" fetch="select">
+            <column name="secrecyresearchproject_id" length="39">
+                <comment>涉密科研项目</comment>
+            </column>
+        </many-to-one>
+        <property name="beforeLevel" type="java.lang.Integer">
+            <column name="before_level" >
+                <comment>变更前密级</comment>
+            </column>
+        </property>
+        <property name="afterLevel" type="java.lang.Integer">
+            <column name="after_level" >
+             	<comment>变更后密级</comment>
+            </column>
+        </property>
+        <property name="changeTimeState" type="java.lang.Integer">
+            <column name="change_time_state" >
+             	<comment>保密期限变更</comment>
+            </column>
+        </property>
+        <property name="changeDate" type="java.util.Date">
+            <column name="change_date" length="19" >
+             	<comment>变更日期</comment>
+            </column>
+        </property>
+        <property name="changeReason" type="java.lang.String">
+            <column name="change_reason" length="2000" >
+             	<comment>变更原因</comment>
+            </column>
+        </property>
+
+         <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="create_person" length="39">
+                <comment>创建人</comment>
+            </column>
+        </many-to-one>
+        <property name="createDate" type="java.util.Date">
+            <column name="create_date" length="19">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

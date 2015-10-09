@@ -1,0 +1,4 @@
+INSERT INTO `sys_dictionary_field` (`FIELD_ID`, `FIELD_CODE`, `FIELD_NAME`, `IS_EXTRA`, `ORDER_NO`, `TABLE_ID`) VALUES ('ca82cae445f481fb0145f4ad8ae30002', 'network_manager_type', '网络三员', 0, 1, 'bmp');
+INSERT INTO `sys_dictionary_option` (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`, `PID`) VALUES ('ca82cae445f481fb0145f4ade97e0003', '网络管理员', 1, 1, 1, 'ca82cae445f481fb0145f4ad8ae30002', NULL);
+INSERT INTO `sys_dictionary_option` (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`, `PID`) VALUES ('ca82cae445f481fb0145f4ae28aa0004', '安全管理员', 2, 1, 1, 'ca82cae445f481fb0145f4ad8ae30002', NULL);
+INSERT INTO `sys_dictionary_option` (`OPTION_ID`, `OPTION_TEXT`, `OPTION_VALUE`, `ORDER_NO`, `STATUS`, `FIELD_ID`, `PID`) VALUES ('ca82cae445f481fb0145f4ae67490005', '安全审计员', 3, 1, 1, 'ca82cae445f481fb0145f4ad8ae30002', NULL);

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.secrecycountryitem.action.SecrecyCountryItemAction" namespace="/bmp/secrecycountryitem" extends="com.cdthgk.project" >
+		<global-results>
+			<result name="list" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/secrecycountryitem</param>
+				<param name="actionName">secrecyCountryItem_list</param>
+			</result>
+		</global-results>
+
+		<!-- 国家秘密事项的   主页面 -->
+		<action name="secrecyCountryItem_list" class="bmp.secrecyCountryItemAction" method="list">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_list.jsp</result>
+		</action>
+		<!-- 国家秘密事项的   列表页面 -->
+		<action name="secrecyCountryItem_list_list" class="bmp.secrecyCountryItemAction" method="list_list">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_list_list.jsp</result>
+		</action>
+		<!-- 国家秘密事项的   密级变更列表页面 -->
+		<action name="secrecyCountryItem_change_list" class="bmp.secrecyCountryItemAction" method="change_list">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_change_list.jsp</result>
+		</action>
+		<!-- 国家秘密事项的   密级解除列表页面 -->
+		<action name="secrecyCountryItem_clear_list" class="bmp.secrecyCountryItemAction" method="clear_list">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_clear_list.jsp</result>
+		</action>
+
+
+
+		<!-- 国家秘密事项的   新增页面 -->
+		<action name="secrecyCountryItem_add" class="bmp.secrecyCountryItemAction" method="add">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_add.jsp</result>
+		</action>
+		<!-- 国家秘密事项的   新增保存 -->
+		<action name="secrecyCountryItem_adding" class="bmp.secrecyCountryItemAction" method="adding">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_add.jsp</result>
+		</action>
+
+
+
+		<!-- 国家秘密事项的   编辑页面 -->
+		<action name="secrecyCountryItem_edit" class="bmp.secrecyCountryItemAction" method="edit">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_edit.jsp</result>
+		</action>
+		<!-- 国家秘密事项的   编辑保存 -->
+		<action name="secrecyCountryItem_editing" class="bmp.secrecyCountryItemAction" method="editing">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_edit.jsp</result>
+		</action>
+
+
+		<!-- 国家秘密事项的   删除 -->
+		<action name="secrecyCountryItem_del" class="bmp.secrecyCountryItemAction" method="del">
+		</action>
+		<!-- 查看国家秘密事项记录  是否被其他的表引用 -->
+		<action name="ajax_relationship_secrecyCountryItem" class="bmp.secrecyCountryItemAction" method="ajax_relationship">
+		</action>
+
+
+
+		<!-- 国家秘密事项的   进入密级变更页-->
+		<action name="secrecyCountryItem_change" class="bmp.secrecyCountryItemAction" method="change">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_change.jsp</result>
+		</action>
+		<!-- 国家秘密事项的  密级变更保存 -->
+		<action name="secrecyCountryItem_changeing" class="bmp.secrecyCountryItemAction" method="changeing">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_change.jsp</result>
+		</action>
+
+
+
+		<!-- 国家秘密事项的   进入密级解除页-->
+		<action name="secrecyCountryItem_clear" class="bmp.secrecyCountryItemAction" method="clear">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_clear.jsp</result>
+		</action>
+		<!-- 国家秘密事项的  密级解除保存 -->
+		<action name="secrecyCountryItem_clearing" class="bmp.secrecyCountryItemAction" method="clearing">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_clear.jsp</result>
+		</action>
+
+
+		<!-- 国家秘密事项的  明细 -->
+		<action name="secrecyCountryItem_detail" class="bmp.secrecyCountryItemAction" method="detail">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_detail.jsp</result>
+		</action>
+		<!-- 国家秘密事项的  密级变更明细 -->
+		<action name="secrecyCountryItem_changeDetial" class="bmp.secrecyCountryItemAction" method="changeDetial">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_changeDetail.jsp</result>
+		</action>
+		<!-- 国家秘密事项的  密级解除明细 -->
+		<action name="secrecyCountryItem_clearDetial" class="bmp.secrecyCountryItemAction" method="clearDetial">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_clearDetail.jsp</result>
+		</action>
+
+
+
+		<!-- 国家秘密事项 导出 -->
+		<action name="secrecyCountryItem_export" class="bmp.secrecyCountryItemAction" method="export">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/exportExcel_secrecyCountryItemList_ExprotTemplet.xlsx</param>
+				<param name="fileName">国家秘密事项列表.xlsx</param>
+			</result>
+		</action>
+
+
+	    <!-- 统计国家秘密     按照单位显示     本单位   -->
+		<action name="count_Organ_CountrySecrecy" class="bmp.secrecyCountryItemAction" method="count_Organ_CountrySecrecy">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_Organ_CountrySecrecy.jsp</result>
+		</action>
+		<!-- 统计新增国家秘密     本单位   -->
+		<action name="count_Organ_CountrySecrecy_Add" class="bmp.secrecyCountryItemAction" method="count_Organ_CountrySecrecy_Add">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_Organ_CountrySecrecy_Add.jsp</result>
+		</action>
+		<!-- 统计新解国家秘密     本单位   -->
+		<action name="count_Organ_CountrySecrecy_Clear" class="bmp.secrecyCountryItemAction" method="count_Organ_CountrySecrecy_Clear">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_Organ_CountrySecrecy_Clear.jsp</result>
+		</action>
+
+
+
+		<!-- 统计国家秘密导出     按照单位显示     本单位   -->
+		<action name="export_Organ_CountrySecrecy" class="bmp.secrecyCountryItemAction" method="export_Organ_CountrySecrecy">
+			<result name="success"  type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_Organ_CountrySecrecy.xlsx</param>
+				<param name="fileName">国家秘密事项(本单位).xlsx</param>
+			</result>
+		</action>
+		<!-- 统计新增国家秘密导出     本单位   -->
+		<action name="export_Organ_CountrySecrecy_Add" class="bmp.secrecyCountryItemAction" method="export_Organ_CountrySecrecy_Add">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_Organ_CountrySecrecy_Add.xlsx</param>
+				<param name="fileName">新增国家秘密事项(本单位).xlsx</param>
+			</result>
+		</action>
+		<!-- 统计新解国家秘密导出     本单位   -->
+		<action name="export_Organ_CountrySecrecy_Clear" class="bmp.secrecyCountryItemAction" method="export_Organ_CountrySecrecy_Clear">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_Organ_CountrySecrecy_Clear.xlsx</param>
+				<param name="fileName">新解国家秘密事项(本单位).xlsx</param>
+			</result>
+		</action>
+
+
+
+		<!-- 统计国家秘密         行政区划   -->
+		<action name="count_CountrySecrecy_District" class="bmp.secrecyCountryItemAction" method="count_CountrySecrecy_District">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_CountrySecrecy_District.jsp</result>
+		</action>
+		<!-- 统计国家秘密         直辖单位   -->
+		<action name="count_CountrySecrecy_Layer" class="bmp.secrecyCountryItemAction" method="count_CountrySecrecy_Layer">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_CountrySecrecy_Layer.jsp</result>
+		</action>
+		<!-- 统计国家秘密         单位明细   -->
+		<action name="count_CountrySecrecy_OrganDetail" class="bmp.secrecyCountryItemAction" method="count_CountrySecrecy_OrganDetail">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_CountrySecrecy_OrganDetail.jsp</result>
+		</action>
+	    <!-- 统计新增国家秘密         行政区划   -->
+		<action name="count_AddCountrySecrecy_District" class="bmp.secrecyCountryItemAction" method="count_AddCountrySecrecy_District">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_AddCountrySecrecy_District.jsp</result>
+		</action>
+		<!-- 统计新增国家秘密         直辖单位   -->
+		<action name="count_AddCountrySecrecy_Layer" class="bmp.secrecyCountryItemAction" method="count_AddCountrySecrecy_Layer">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_AddCountrySecrecy_Layer.jsp</result>
+		</action>
+		<!-- 统计新解国家秘密         行政区划   -->
+		<action name="count_ClearCountrySecrecy_District" class="bmp.secrecyCountryItemAction" method="count_ClearCountrySecrecy_District">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_ClearCountrySecrecy_District.jsp</result>
+		</action>
+		<!-- 统计新解国家秘密         直辖单位   -->
+		<action name="count_ClearCountrySecrecy_Layer" class="bmp.secrecyCountryItemAction" method="count_ClearCountrySecrecy_Layer">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/count/count_ClearCountrySecrecy_Layer.jsp</result>
+		</action>
+
+
+
+		<!-- 导出统计国家秘密         行政区划   -->
+		<action name="export_CountrySecrecy_District" class="bmp.secrecyCountryItemAction" method="export_CountrySecrecy_District">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_CountrySecrecy_District.xlsx</param>
+				<param name="fileName">国家秘密(行政区划).xlsx</param>
+			</result>
+		</action>
+		<!-- 导出统计国家秘密         直辖单位   -->
+		<action name="export_CountrySecrecy_Layer" class="bmp.secrecyCountryItemAction" method="export_CountrySecrecy_Layer">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_CountrySecrecy_Layer.xlsx</param>
+				<param name="fileName">国家秘密(直辖单位).xlsx</param>
+			</result>
+		</action>
+		<!-- 导出统计国家秘密         单位明细   -->
+		<action name="export_CountrySecrecy_OrganDetail" class="bmp.secrecyCountryItemAction" method="export_CountrySecrecy_OrganDetail">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_CountrySecrecy_OrganDetail.xlsx</param>
+				<param name="fileName">国家秘密(单位明细).xlsx</param>
+			</result>
+		</action>
+	    <!-- 导出统计新增国家秘密         行政区划   -->
+		<action name="export_AddCountrySecrecy_District" class="bmp.secrecyCountryItemAction" method="export_AddCountrySecrecy_District">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_AddCountrySecrecy_District.xlsx</param>
+				<param name="fileName">新增国家秘密(行政区划).xlsx</param>
+			</result>
+		</action>
+		<!-- 导出统计新增国家秘密         直辖单位   -->
+		<action name="export_AddCountrySecrecy_Layer" class="bmp.secrecyCountryItemAction" method="export_AddCountrySecrecy_Layer">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_AddCountrySecrecy_Layer.xlsx</param>
+				<param name="fileName">新增国家秘密(直辖单位).xlsx</param>
+			</result>
+		</action>
+		<!-- 导出统计新解国家秘密         行政区划   -->
+		<action name="export_ClearCountrySecrecy_District" class="bmp.secrecyCountryItemAction" method="export_ClearCountrySecrecy_District">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_ClearCountrySecrecy_District.xlsx</param>
+				<param name="fileName">新解国家秘密(行政区划).xlsx</param>
+			</result>
+		</action>
+		<!-- 导出统计新解国家秘密         直辖单位   -->
+		<action name="export_ClearCountrySecrecy_Layer" class="bmp.secrecyCountryItemAction" method="export_ClearCountrySecrecy_Layer">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_ClearCountrySecrecy_Layer.xlsx</param>
+				<param name="fileName">新解国家秘密(直辖单位).xlsx</param>
+			</result>
+		</action>
+
+
+		 <!-- 统计国家秘密事项         行政区划   -->
+		<action name="count_SecrecyCountryItim_District" class="bmp.secrecyCountryItemAction" method="count_SecrecyCountryItim_District">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/count/count_SecrecyCountryItim_District.jsp</result>
+		</action>
+		<!-- 导出统计国家秘密事项         行政区划   -->
+		<action name="export_SecrecyCountryItim_District" class="bmp.secrecyCountryItemAction" method="export_SecrecyCountryItim_District">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_SecrecyCountryItim_District.xlsx</param>
+				<param name="fileName">国家秘密事项(行政区划).xlsx</param>
+			</result>
+		</action>
+		<!-- 统计国家秘密事项        直辖单位   -->
+		<action name="count_SecrecyCountryItim_Layer" class="bmp.secrecyCountryItemAction" method="count_SecrecyCountryItim_Layer">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/count/count_SecrecyCountryItim_Layer.jsp</result>
+		</action>
+		<!-- 导出统计国家秘密事项         直辖单位   -->
+		<action name="export_SecrecyCountryItim_Layer" class="bmp.secrecyCountryItemAction" method="export_SecrecyCountryItim_Layer">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_SecrecyCountryItim_Layer.xlsx</param>
+				<param name="fileName">国家秘密事项(直辖单位).xlsx</param>
+			</result>
+		</action>
+		<!-- 统计国家秘密事项        本单位   -->
+		<action name="count_OrganSecrecyCountryItim" class="bmp.secrecyCountryItemAction" method="count_OrganSecrecyCountryItim">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/count/count_OrganSecrecyCountryItim.jsp</result>
+		</action>
+		<!-- 导出统计国家秘密事项         本单位   -->
+		<action name="export_OrganSecrecyCountryItim" class="bmp.secrecyCountryItemAction" method="export_OrganSecrecyCountryItim">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/count/export_OrganSecrecyCountryItim.xlsx</param>
+				<param name="fileName">国家秘密事项(本单位).xlsx</param>
+			</result>
+		</action>
+
+
+		<!-- 首页 统计国家秘密事项    本单位   -->
+		<action name="indexView_SecrecyCountryItim" class="bmp.secrecyCountryItemAction" method="indexView_SecrecyCountryItim">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_indexView.jsp</result>
+		</action>
+		<!-- 首页  统计国家秘密事项    明细显示   本单位   -->
+		<action name="indexView_DetailList" class="bmp.secrecyCountryItemAction" method="indexView_DetailList">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_indexView_DetailList.jsp</result>
+		</action>
+		<!-- 首页  统计国家秘密事项     行政区划   -->
+		<action name="indexView_SecrecyCountryItim_District" class="bmp.secrecyCountryItemAction" method="indexView_SecrecyCountryItim_District">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_indexView_District.jsp</result>
+		</action>
+		<!-- 首页  统计国家秘密事项     明细显示   行政区划   -->
+		<action name="indexView_DetailList_District" class="bmp.secrecyCountryItemAction" method="indexView_DetailList_District">
+			<result name="success" >/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_indexView_DetailList_District.jsp</result>
+		</action>
+
+
+		<!--保密国家秘密事项查询 -->
+		<action name="secrecyCountryItem_query_main" class="bmp.secrecyCountryItemAction" method="query_main">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_query_main.jsp</result>
+		</action>
+		<action name="secrecyCountryItem_query_list" class="bmp.secrecyCountryItemAction" method="list">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_list.jsp</result>
+		</action>
+
+		<!--综合统计 查询 通过行政区划    查询国家秘密事项个数 的明细列表 包括当前行政区划 和下级行政区划 的国家秘密事项的明细-->
+		<action name="zhtj_query_Detail" class="bmp.secrecyCountryItemAction" method="zhtj_query_Detail">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/stat/secrecyCountryItem_stat_stat.jsp</result>
+		</action>
+		<!--综合统计 查询 统计行政区划 国家秘密事项   统计行政区下的直辖单位情况  分单位显示-->
+		<action name="zhtj_queryByDistrict" class="bmp.secrecyCountryItemAction" method="zhtj_queryByDistrict">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/stat/secrecyCountryItem_stat_organList.jsp</result>
+		</action>
+		<!--综合统计      通过行政区划查询 国家秘密事项  本单位的情况   -->
+		<action name="zhtj_DetailList" class="bmp.secrecyCountryItemAction" method="zhtj_DetailList">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/stat/secrecyCountryItem_stat_DetailList.jsp</result>
+		</action>
+		<!--综合统计       一个单位的数据撰取的功能    -->
+		<action name="zhtj_OrganDetailList" class="bmp.secrecyCountryItemAction" method="zhtj_OrganDetailList">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_list_list.jsp</result>
+		</action>
+		<!--综合统计 查询 通过行政区划    查询国家秘密事项个数 的明细列表 包括当前行政区划 和下级行政区划 的国家秘密事项的明细-->
+		<action name="zhtj_query" class="bmp.secrecyCountryItemAction" method="zhtj_query">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/stat/secrecyCountryItem_stat_stat.jsp</result>
+		</action>
+
+
+
+		<!-- 综合统计导出统计国家秘密事项   行政区划统计   -->
+		<action name="stat_exportDistrict" class="bmp.secrecyCountryItemAction" method="stat_exportDistrict">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+				<param name="fileName">行政区划-国家秘密事项统计(综合统计).xlsx</param>
+			</result>
+		</action>
+		<!-- 综合统计导出统计国家秘密事项   行政区下统计   -->
+		<action name="stat_exportLayer" class="bmp.secrecyCountryItemAction" method="stat_exportLayer">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_country_item/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+				<param name="fileName">行政区内-国家秘密事项统计(综合统计).xlsx</param>
+			</result>
+		</action>
+
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="secrecyCountryItem_organIndex" class="bmp.secrecyCountryItemAction" method="organIndex">
+			<result name="success">/country_secrecy/secrecy_country_item/borderlayout/view/secrecyCountryItem_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="secrecyCountryItem_dataValidate" method="dataValidate" class="bmp.secrecyCountryItemAction"></action>
+	</package>
+</struts>

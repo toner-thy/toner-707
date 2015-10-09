@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+    <!--  -->
+	<package name="com.cdthgk.destructionScrap"  namespace="/bmp/destructionScrap" extends="com.cdthgk.project">
+		<action name="destructionScrap_*" class="destructionScrap" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/destructionScrap</param>
+				<param name="actionName">destructionScrap_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/destructionScrap</param>
+				<param name="actionName">destructionScrap_edit</param>
+				<param name="destructionScrap.id">${destructionScrap.id}</param>
+			</result>
+			<result name="print">/bmp/secrecyCarrier/borderlayout/view/destructionScrap_print.jsp</result>
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/destructionScrap_{1}.jsp</result>
+		</action>
+		 <action name="destructionScrap_save" class="destructionScrap" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/destructionScrap</param>
+				<param name="actionName">destructionScrap_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="destructionScrap_update" class="destructionScrap" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/destructionScrap</param>
+				<param name="actionName">destructionScrap_edit</param>
+				<param name="destructionScrap.id">${destructionScrap.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="destructionScrap_allList" class="destructionScrap" method="allList" >
+			<result name="allList">/bmp/secrecyCarrier/borderlayout/view/destructionScrap_allList.jsp</result>
+		</action>
+
+		<action name="destructionScrap_organIndex" class="destructionScrap" method="organIndex">
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/destructionScrap_organIndex.jsp</result>
+		</action>
+		 	 <!-- 数据填写校验 -->
+		<action name="destructionScrap_dataValidate" method="dataValidate" class="destructionScrap"></action>
+	</package>
+
+	<!--  -->
+	<package name="com.cdthgk.secrecyBorrow"  namespace="/bmp/secrecyBorrow" extends="com.cdthgk.project">
+		<action name="secrecyBorrow_*" class="secrecyBorrow" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyBorrow</param>
+				<param name="actionName">secrecyBorrow_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyBorrow</param>
+				<param name="actionName">secrecyBorrow_edit</param>
+				<param name="secrecyBorrow.id">${secrecyBorrow.id}</param>
+			</result>
+			<result name="print">/bmp/secrecyCarrier/borderlayout/view/secrecyBorrow_print.jsp</result>
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyBorrow_{1}.jsp</result>
+		</action>
+		 <action name="secrecyBorrow_save" class="secrecyBorrow" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyBorrow</param>
+				<param name="actionName">secrecyBorrow_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="secrecyBorrow_update" class="secrecyBorrow" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyBorrow</param>
+				<param name="actionName">secrecyBorrow_edit</param>
+				<param name="secrecyBorrow.id">${secrecyBorrow.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="secrecyBorrow_allList" class="secrecyBorrow" method="allList" >
+			<result name="allList">/bmp/secrecyCarrier/borderlayout/view/secrecyBorrow_allList.jsp</result>
+		</action>
+
+		<action name="secrecyBorrow_organIndex" class="secrecyBorrow" method="organIndex">
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyBorrow_organIndex.jsp</result>
+		</action>
+		<action name="secrecyBorrow_dataValidate" method="dataValidate" class="secrecyBorrow"></action>
+	</package>
+
+	<!--  -->
+	<package name="com.cdthgk.secrecyPrint"  namespace="/bmp/secrecyPrint" extends="com.cdthgk.project">
+		<action name="secrecyPrint_*" class="secrecyPrint" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyPrint</param>
+				<param name="actionName">secrecyPrint_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyPrint</param>
+				<param name="actionName">secrecyPrint_edit</param>
+				<param name="secrecyPrint.id">${secrecyPrint.id}</param>
+			</result>
+			<result name="print">/bmp/secrecyCarrier/borderlayout/view/secrecyPrint_print.jsp</result>
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyPrint_{1}.jsp</result>
+		</action>
+		 <action name="secrecyPrint_save" class="secrecyPrint" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyPrint</param>
+				<param name="actionName">secrecyPrint_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="secrecyPrint_update" class="secrecyPrint" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyPrint</param>
+				<param name="actionName">secrecyPrint_edit</param>
+				<param name="secrecyPrint.id">${secrecyPrint.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="secrecyPrint_allList" class="secrecyPrint" method="allList" >
+			<result name="allList">/bmp/secrecyCarrier/borderlayout/view/secrecyPrint_allList.jsp</result>
+		</action>
+
+		<action name="secrecyPrint_organIndex" class="secrecyPrint" method="organIndex">
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyPrint_organIndex.jsp</result>
+		</action>
+		<action name="secrecyPrint_dataValidate" method="dataValidate" class="secrecyPrint"></action>
+	</package>
+
+
+	<!--  -->
+	<package name="com.cdthgk.secrecyMaintain"  namespace="/bmp/secrecyMaintain" extends="com.cdthgk.project">
+		<action name="secrecyMaintain_*" class="secrecyMaintain" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyMaintain</param>
+				<param name="actionName">secrecyMaintain_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyMaintain</param>
+				<param name="actionName">secrecyMaintain_edit</param>
+				<param name="secrecyMaintain.id">${secrecyMaintain.id}</param>
+			</result>
+			<result name="print">/bmp/secrecyCarrier/borderlayout/view/secrecyMaintain_print.jsp</result>
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyMaintain_{1}.jsp</result>
+		</action>
+		 <action name="secrecyMaintain_save" class="secrecyMaintain" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyMaintain</param>
+				<param name="actionName">secrecyMaintain_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="secrecyMaintain_update" class="secrecyMaintain" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyMaintain</param>
+				<param name="actionName">secrecyMaintain_edit</param>
+				<param name="secrecyMaintain.id">${secrecyMaintain.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="secrecyMaintain_allList" class="secrecyMaintain" method="allList" >
+			<result name="allList">/bmp/secrecyCarrier/borderlayout/view/secrecyMaintain_allList.jsp</result>
+		</action>
+
+		<action name="secrecyMaintain_organIndex" class="secrecyMaintain" method="organIndex">
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyMaintain_organIndex.jsp</result>
+		</action>
+		<action name="secrecyMaintain_dataValidate" method="dataValidate" class="secrecyMaintain"></action>
+	</package>
+	<!--  -->
+	<package name="com.cdthgk.secrecyCopy"  namespace="/bmp/secrecyCopy" extends="com.cdthgk.project">
+		<action name="secrecyCopy_*" class="secrecyCopy" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyCopy</param>
+				<param name="actionName">secrecyCopy_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyCopy</param>
+				<param name="actionName">secrecyCopy_edit</param>
+				<param name="secrecyCopy.id">${secrecyCopy.id}</param>
+			</result>
+			<result name="print">/bmp/secrecyCarrier/borderlayout/view/secrecyCopy_print.jsp</result>
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyCopy_{1}.jsp</result>
+		</action>
+		 <action name="secrecyCopy_save" class="secrecyCopy" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyCopy</param>
+				<param name="actionName">secrecyCopy_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="secrecyCopy_update" class="secrecyCopy" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyCopy</param>
+				<param name="actionName">secrecyCopy_edit</param>
+				<param name="secrecyCopy.id">${secrecyCopy.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="secrecyCopy_allList" class="secrecyCopy" method="allList" >
+			<result name="allList">/bmp/secrecyCarrier/borderlayout/view/secrecyCopy_allList.jsp</result>
+		</action>
+
+		<action name="secrecyCopy_organIndex" class="secrecyCopy" method="organIndex">
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyCopy_organIndex.jsp</result>
+		</action>
+		<action name="secrecyCopy_dataValidate" method="dataValidate" class="secrecyCopy"></action>
+	</package>
+	<!--  -->
+	<package name="com.cdthgk.secrecyTechnologyPrevention"  namespace="/bmp/secrecyTechnologyPrevention" extends="com.cdthgk.project">
+		<action name="secrecyTechnologyPrevention_*" class="secrecyTechnologyPrevention" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyTechnologyPrevention</param>
+				<param name="actionName">secrecyTechnologyPrevention_list</param>
+			</result>
+			<result name="edit_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyTechnologyPrevention</param>
+				<param name="actionName">secrecyTechnologyPrevention_edit</param>
+				<param name="secrecyTechnologyPrevention.id">${secrecyTechnologyPrevention.id}</param>
+			</result>
+			<result name="print">/bmp/secrecyCarrier/borderlayout/view/secrecyTechnologyPrevention_print.jsp</result>
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyTechnologyPrevention_{1}.jsp</result>
+		</action>
+		 <action name="secrecyTechnologyPrevention_save" class="secrecyTechnologyPrevention" method="save">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/secrecyTechnologyPrevention</param>
+				<param name="actionName">secrecyTechnologyPrevention_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		 <action name="secrecyTechnologyPrevention_update" class="secrecyTechnologyPrevention" method="update">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyTechnologyPrevention</param>
+				<param name="actionName">secrecyTechnologyPrevention_edit</param>
+				<param name="secrecyTechnologyPrevention.id">${secrecyTechnologyPrevention.id}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="secrecyTechnologyPrevention_allList" class="secrecyTechnologyPrevention" method="allList" >
+			<result name="allList">/bmp/secrecyCarrier/borderlayout/view/secrecyTechnologyPrevention_allList.jsp</result>
+		</action>
+
+		<action name="secrecyTechnologyPrevention_organIndex" class="secrecyTechnologyPrevention" method="organIndex">
+			<result name="success">/bmp/secrecyCarrier/borderlayout/view/secrecyTechnologyPrevention_organIndex.jsp</result>
+		</action>
+		<action name="secrecyTechnologyPrevention_dataValidate" method="dataValidate" class="secrecyTechnologyPrevention"></action>
+	</package>
+</struts>

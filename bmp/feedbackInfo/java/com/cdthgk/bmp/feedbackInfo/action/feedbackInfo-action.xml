@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.platform.feedbackInfo" namespace="/platform/feedbackInfo" extends="com.cdthgk.project">
+		<action name="feedbackInfo_list" class="feedbackInfoAction" method="list">
+			<result name="list">/bmp/feedbackInfo/borderlayout/view/feedbackInfo_list.jsp</result>
+		</action>
+		<!-- 用户意见反馈时用action -->
+		<action name="feedbackInfo_userList" class="feedbackInfoAction" method="userList">
+			<result name="list">/bmp/feedbackInfo/borderlayout/view/feedbackInfo_userList.jsp</result>
+		</action>
+		<!-- 新增发布信息action -->
+        <action name="feedbackInfo_add" class="feedbackInfoAction" method="add">
+           <result name="add">/bmp/feedbackInfo/borderlayout/view/feedbackInfo_add.jsp</result>
+        </action>
+        <action name="feedbackInfo_save" class="feedbackInfoAction" method="save">
+			<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/platform/feedbackInfo</param>
+				<param name="actionName">feedbackInfo_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+		<!-- 编辑发布信息action -->
+		<action name="feedbackInfo_edit" class="feedbackInfoAction" method="edit" >
+			<result name="edit">/bmp/feedbackInfo/borderlayout/view/feedbackInfo_edit.jsp</result>
+		</action>
+        <action name="feedbackInfo_update" class="feedbackInfoAction" method="update">
+        	<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<result name="list_action" type="stateRedirectAction">
+	   			<param name="feedbackInfo.feedbackInfoId">${feedbackInfo.feedbackInfoId}</param>
+				<param name="namespace">/platform/feedbackInfo</param>
+				<param name="actionName">feedbackInfo_edit</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+		<!-- 删除配置 -->
+		<action name="feedbackInfo_delete" class="feedbackInfoAction" method="delete" >
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/platform/feedbackInfo</param>
+				<param name="actionName">feedbackInfo_userList</param>
+			</result>
+		</action>
+		<!-- 详情配置 -->
+		<action name="feedbackInfo_detail" class="feedbackInfoAction" method="detail" >
+			<result name="detail">/bmp/feedbackInfo/borderlayout/view/feedbackInfo_detail.jsp</result>
+		</action>
+	</package>
+</struts>

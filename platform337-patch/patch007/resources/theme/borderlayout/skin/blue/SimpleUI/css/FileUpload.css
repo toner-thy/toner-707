@@ -1,0 +1,65 @@
+.fu_list {
+	width: 100%;
+	background: #ebebeb;
+	font-size: 12px;
+	border: 1px solid #B5CBD9;
+}
+
+.fu_list td {
+	padding: 2px 5px;
+	line-height: 12px;
+	/**background-color: #fff;*/
+	background-color: #EBEBEB;
+}
+
+.fu_list table {
+	width: 100%;
+}
+
+.fu_list thead td {
+	background: url("../image/FileUpload/head_bg.gif") left top repeat;
+}
+
+.fu_list td.btnCell {
+	width: 100px;
+	text-align: right;
+	padding-right: 12px;
+}
+
+.fu_list td.btnCell a {
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+.fu_list b {
+	font-size: 14px;
+}
+
+a.files {
+	width: 90px;
+	height: 30px;
+	overflow: hidden;
+	display: block;
+	border: 1px solid #BEBEBE;
+	background: url(../image/FileUpload/btn_add.gif) left top no-repeat;
+	text-decoration: none;
+	float:left;
+}
+
+a.files:hover {
+	background-color: #FFE;
+	background-position: 0 -30px;
+}
+
+a.files input {
+	margin-left: -350px;
+	font-size: 30px;
+	cursor: pointer;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+}
+
+a.files,a.files input {
+	outline: none;
+	hide-focus: expression(this.hideFocus = true);
+}

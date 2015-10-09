@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.statinfo" extends="com.cdthgk.project" namespace="/bmp/statinfo">
+		<action name="statinfo_index" method="index" class="bmp.statinfoAction">
+			<result name="success">/bmp/statinfo/borderlayout/view/statinfo_index.jsp</result>
+		</action>
+		<action name="statinfo_xmlExport" method="xmlExport" class="bmp.statinfoAction">
+			<result name="xmlExport" type="freemarker">/bmp/statinfo/borderlayout/template/bmsTemplate.xml</result>
+		</action>
+		<action name="statinfo_xmlExportSelected" method="xmlExportSelected" class="bmp.statinfoAction">
+			<result name="xmlExport" type="freemarker">/bmp/statinfo/borderlayout/template/bmsTemplateSelected.xml</result>
+		</action>
+		<action name="statinfo_main" method="main" class="bmp.statinfoAction">
+			<result name="success">/bmp/statinfo/borderlayout/view/statinfo_main.jsp</result>
+		</action>
+		<action name="statinfo_mainList" method="mainList" class="bmp.statinfoAction">
+			<result name="success">/bmp/statinfo/borderlayout/view/statinfo_mainList.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* CSS Document */
+
+.mesWindow {
+	border:#666 1px solid;
+	background:#fff;
+	min-width:100px;
+	max-width:1000px;
+	min-height:50px;
+	max-height:800px;
+}
+.mesWindowTop {
+	border-bottom:#eee 1px solid;
+	margin-left:4px;
+	padding:3px;
+	font-weight:bold;
+	text-align:left;
+	font-size:12px;
+}
+.mesWindowContent {
+	margin:4px;
+	font-size:12px;
+}
+.mesWindow .close {
+	height:15px;
+	width:28px;
+	border:none;
+	cursor:pointer;
+	text-decoration:underline;
+	background:#fff
+}
+#message_box {
+	position:absolute;
+	width:350px;
+	height:160px;
+	left:250px;/*firefox不支持expression表达式！！！注意，如果message_box设置了style的width值，则左靠以本left值为准，反之则以expression值为准*/
+	top:150px;
+
+
+	left:expression( ((document.documentElement.clientWidth - document.getElementById('message_box').style.width )/2 * 0.6) + 'px' );
+	top:expression( ((document.documentElement.clientHeight - document.getElementById('message_box').style.height )/2 * 0.6) + 'px' );
+	min-width:350px;
+	filter:dropshadow(color=#666666, offx=3, offy=3, positive=2);
+	z-index:100;
+	display:none;
+	min-width:100px;
+	max-width:1000px;
+	min-height:50px;
+	max-height:800px;
+	visibility: visible;
+
+}
+.message {
+	border:#036 solid;
+	border-width:1px 1px 3px 1px;
+	width:95%;
+	height:95%;
+	background:#fff;
+	color:#036;
+	font-size:12px;
+	line-height:150%;
+	
+	min-width:100px;
+	max-width:1000px;
+	min-height:50px;
+	max-height:800px;
+
+}
+.msgheader {
+	cursor:move;
+	background:#036;
+	height:25px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding:3px 5px 0 5px;
+	color:#fff;
+	min-width:350px;
+	width:100% !important;
+}
+.msgheader .title
+{
+	text-align:left;
+	width:79% !important;
+	float:left;
+}
+
+.msgcloser
+{
+	display:inline; cursor:hand;
+	text-align:right;
+	float:right;
+	width:20%;
+}
+#backmask {
+	z-index:99;
+}

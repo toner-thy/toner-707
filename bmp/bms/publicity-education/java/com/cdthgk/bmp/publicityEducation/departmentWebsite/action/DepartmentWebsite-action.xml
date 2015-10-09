@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.publicityEducation.departmentWebsite.action.DepartmentWebsiteAction"
+	namespace="/bmp/departmentWebsite" extends="com.cdthgk.project" >
+
+		<!-- 查询主界面 -->
+		<action name="departmentWebsite_main" class="bmp.departmentWebsiteAction" method="main">
+			<result name="success">/bms/publicity-education/department-website/borderlayout/view/departmentWebsite_main.jsp</result>
+		</action>
+		<!-- 查询list界面 -->
+		<action name="departmentWebsite_listQuery" class="bmp.departmentWebsiteAction" method="list">
+			<result name="success">/bms/publicity-education/department-website/borderlayout/view/departmentWebsite_listQuery.jsp</result>
+		</action>
+
+		<!-- list页面 -->
+		<action name="departmentWebsite_list" class="bmp.departmentWebsiteAction" method="list">
+			<result name="success">/bms/publicity-education/department-website/borderlayout/view/departmentWebsite_list.jsp</result>
+		</action>
+
+		<!-- add界面 -->
+		<action name="departmentWebsite_add" class="bmp.departmentWebsiteAction" method="add">
+			<result name="success">/bms/publicity-education/department-website/borderlayout/view/departmentWebsite_add.jsp</result>
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/departmentWebsite</param>
+				<param name="actionName">departmentWebsite_list</param>
+			</result>
+		</action>
+
+		<action name="departmentWebsite_adding" class="bmp.departmentWebsiteAction" method="adding">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/departmentWebsite</param>
+				<param name="actionName">departmentWebsite_list</param>
+			</result>
+		</action>
+
+		<action name="departmentWebsite_edit" class="bmp.departmentWebsiteAction" method="edit">
+			<result name="success">/bms/publicity-education/department-website/borderlayout/view/departmentWebsite_edit.jsp</result>
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/departmentWebsite</param>
+				<param name="actionName">departmentWebsite_list</param>
+			</result>
+		</action>
+
+		<action name="departmentWebsite_editing" class="bmp.departmentWebsiteAction" method="editing">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/departmentWebsite</param>
+				<param name="actionName">departmentWebsite_list</param>
+			</result>
+		</action>
+
+		<action name="departmentWebsite_delete" class="bmp.departmentWebsiteAction" method="delete">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/departmentWebsite</param>
+				<param name="actionName">departmentWebsite_list</param>
+			</result>
+		</action>
+
+		<action name="departmentWebsite_detail" class="bmp.departmentWebsiteAction" method="detail">
+			<result name="success">/bms/publicity-education/department-website/borderlayout/view/departmentWebsite_detail.jsp</result>
+		</action>
+
+		<action name="departmentWebsite_export" class="bmp.departmentWebsiteAction" method="export">
+			<result name="success" type="excel">
+				<param name="location">/bms/publicity-education/department-website/borderlayout/view/departmentWebsite_detail.xlsx</param>
+				<param name="fileName">部门网站管理情况.xlsx</param>
+			</result>
+		</action>
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="departmentWebsite_organIndex" class="bmp.departmentWebsiteAction" method="organIndex" >
+			<result name="success">/bms/publicity-education/department-website/borderlayout/view/departmentWebsite_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="departmentWebsite_dataValidate" method="dataValidate" class="bmp.departmentWebsiteAction"></action>
+
+	</package>
+</struts>

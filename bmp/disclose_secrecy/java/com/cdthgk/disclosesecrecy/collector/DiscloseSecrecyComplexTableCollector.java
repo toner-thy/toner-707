@@ -1,0 +1,102 @@
+package com.cdthgk.disclosesecrecy.collector;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.cdthgk.platform.district.domain.District;
+import com.cdthgk.platform.stat.model.impl.ComplexTable;
+import com.cdthgk.disclosesecrecy.service.DiscloseSecrecyService;
+import com.cdthgk.disclosesecrecy.vo.DiscloseSecrecy;
+import com.cdthgk.model.form.Parameter;
+import com.cdthgk.view.web.ParameterCollector;
+
+/**
+ * <p>
+ * 通过行政区划  统计   行政区划和直辖单位的  国家秘密事项个数   这里不需要合计
+ *  这里的查询出来的数据只有一排哦  亲
+ *
+ *  //查询出来的列
+ *  district_name(行政区划名字)
+ *  district_code(行政区划编码)
+ *  a1 a2 a3 (按照行政区划统计出的个数信息)
+ *  b1 b2 b3 (按照直辖单位统计出的个数信息)
+ *
+ * 行政区划:按照密级划分 ,密级字段的值=1,  那么查询出来的列所对应的列名就是a1
+ * 直辖单位:按照密级划分 ,密级字段的值=1,  那么查询出来的列所对应的列名就是b1
+ * </p>
+ * <p>
+ * copyright cdthgk 2010-2020, all rights reserved.
+ * </p>
+ *
+ * @author
+ */
+public class DiscloseSecrecyComplexTableCollector implements ParameterCollector<ComplexTable>{
+
+	/*** Spring依赖注入 服务层注入 ***/
+	private DiscloseSecrecyService discloseSecrecyService;
+
+	/**
+	 * 通过行政区划  统计   行政区划和直辖单位的国家秘密事项个数
+	 * 不需要合计列
+	 */
+	@Override
+	public ComplexTable getData(Parameter param) {
+
+		ComplexTable complexTable = new ComplexTable();
+		// 获取传入参数
+		District district = (District)param.getVariable("district");
+
+		List<District> districtList = new ArrayList<District>();
+		districtList.add(district);
+
+		//通过行政区划  统计   行政区划和直辖单位的  国家秘密事项个数   这里不需要合计
+		List<Map<String, Object>> listSecrecy =discloseSecrecyService.countDiscloseSecrecy(null, null, "secrecy_level",
+				DiscloseSecrecy.class.getName(), district.getDistrictCode(), false);//保密局
+		List<Map<String, Object>> listZhixiaSecrecy =discloseSecrecyService.countDiscloseSecrecy(null, null, "secrecy_level",
+				DiscloseSecrecy.class.getName(), district.getDistrictCode(), true);//直辖单位
+		for (int i = 0; i < listSecrecy.size(); i++) {
+			Map<String, Object> map = listSecrecy.get(i);
+			Map<String, Object> mapZhixia = listZhixiaSecrecy.get(i);
+			complexTable.setTitle("泄密案件");
+			complexTable.setDistrictName(district.getName());
+			complexTable.setSecrecyText("密 级");
+			complexTable.setNumberText("数 量");
+			if (i==0) {
+				//密级=1
+				complexTable.setSecrecyLevel1(map.get("option_text").toString());
+				complexTable.setSecrecyNum1(Integer.parseInt(mapZhixia.get("fcount").toString()));// 直辖数量
+				complexTable.setSecrecyNum2(Integer.parseInt(map.get("fcount").toString()));	// 行政区数量
+			}
+			if (i==1) {
+				//密级=2
+				complexTable.setSecrecyLevel2(map.get("option_text").toString());
+				complexTable.setSecrecyNum3(Integer.parseInt(mapZhixia.get("fcount").toString()));// 直辖数量
+				complexTable.setSecrecyNum4(Integer.parseInt(map.get("fcount").toString()));	// 行政区数量
+			}
+			if (i==2) {
+				//密级=3
+				complexTable.setSecrecyLevel3(map.get("option_text").toString());
+				complexTable.setSecrecyNum5(Integer.parseInt(mapZhixia.get("fcount").toString()));// 直辖数量
+				complexTable.setSecrecyNum6(Integer.parseInt(map.get("fcount").toString()));// 行政区数量
+			}
+			if (i==3) {
+				//合计
+				complexTable.setTotalText("合 计");
+			}
+		}
+		return complexTable;
+	}
+
+	/*************************************** getter and setter ***************************************************************/
+	public DiscloseSecrecyService getDiscloseSecrecyService() {
+		return discloseSecrecyService;
+	}
+
+	public void setDiscloseSecrecyService(
+			DiscloseSecrecyService discloseSecrecyService) {
+		this.discloseSecrecyService = discloseSecrecyService;
+	}
+
+
+}

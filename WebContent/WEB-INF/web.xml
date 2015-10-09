@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<welcome-file-list>
+		<welcome-file>index.action</welcome-file>
+<!-- 		<welcome-file>platform/login/login.action</welcome-file> -->
+	</welcome-file-list>
+
+	<session-config>
+		<session-timeout>200</session-timeout>
+	</session-config>
+
+	<context-param>
+		<param-name>
+			javax.servlet.jsp.jstl.fmt.localizationContext
+		</param-name>
+		<param-value>ApplicationResources</param-value>
+	</context-param>
+	<!-- Fallback locale if no bundles found for browser's preferred locale -->
+
+
+	<!-- Force a single locale using param-name 'javax.servlet.jsp.jstl.fmt.locale' -->
+	<context-param>
+		<param-name>
+			javax.servlet.jsp.jstl.fmt.fallbackLocale
+		</param-name>
+		<param-value>en</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/FrameworkCore.xml</param-value>
+	</context-param>
+	<context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j.xml</param-value>
+    </context-param>
+    <!--
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>3000</param-value>
+    </context-param>
+     -->
+    <listener>
+        <listener-class>
+            org.springframework.web.util.Log4jConfigListener
+        </listener-class>
+    </listener>
+
+	<!-- 这个listener 放在最上面 -->
+	<listener>
+		<listener-class>
+			com.cdthgk.component.deploymodule.ModuleDeployListener
+		</listener-class>
+	</listener>
+
+	<!--  -->
+	<context-param>
+		<param-name>scope.contextLoaderClass</param-name>
+		<param-value>com.cdthgk.component.ioc.springimpl.ContextSpringWebLoader</param-value>
+	</context-param>
+	<context-param>
+		<param-name>scope.basePackage</param-name>
+		<param-value>com.cdthgk,com.thgk</param-value>
+	</context-param>
+	<context-param>
+		<param-name>scope.applicationListener</param-name>
+		<param-value>
+		com.cdthgk.component.constant.listener.ConstantApplicationScopeListener
+		,com.cdthgk.component.configuration.listener.ConfigurationApplicationScopeListener
+		,com.cdthgk.platform.core.listener.PlatformApplicationScopeListener
+		,com.cdthgk.component.visitor.web.VisitorApplicationScopeListener
+<!-- 		,com.cdthgk.appconsole.webconsole.listener.TomcatEmbeddedInitApplicationScopeListener -->
+		</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			com.cdthgk.component.scope.web.ApplicationScopeServletContextListener
+		</listener-class>
+	</listener>
+
+	<!-- 监控session -->
+	<listener>
+		<listener-class>
+			com.cdthgk.permission.web.login.listener.WebActorLoginListener
+		</listener-class>
+	</listener>
+
+	<!-- xchao by 2009-7-10
+	<listener>
+		<listener-class>
+			com.cdthgk.platform.core.listener.StartupListener
+		</listener-class>
+	</listener>
+	-->
+	<!-- (依赖 year-plan jar包使用)计划管理子系统  计划完成情况定时任务   开始 -->
+
+	<!-- 计划管理子系统  计划完成情况定时任务  结束  -->
+
+	<filter>
+		<filter-name>lazyLoadingFilter</filter-name>
+		<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>lazyLoadingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--
+	struts2的配置
+		org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+		org.apache.struts2.dispatcher.FilterDispatcher
+	-->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			com.thgk.framework.core.encode.SetEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>encoding_wlc</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+ 	-->
+	<!-- ECTable的配置 -->
+	<context-param>
+		<param-name>extremecomponentsPreferencesLocation</param-name>
+		<param-value>
+			/ec/config/extremecomponents.properties
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>extremecomponentsMessagesLocation</param-name>
+		<param-value>
+			/ec/config/extremecomponentsResourceBundle
+		</param-value>
+	</context-param>
+
+	<!-- 支持ftl中使用jsp标签 -->
+	<servlet>
+		<servlet-name>JspSupportServlet</servlet-name>
+		<servlet-class>com.cdthgk.component.easytag.support.JspSupportServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- CXFServlet
+	-->
+	<servlet>
+        <servlet-name>CXFServlet</servlet-name>
+        <servlet-class>
+            org.apache.cxf.transport.servlet.CXFServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!-- CXFServlet Mapping
+    -->
+    <servlet-mapping>
+        <servlet-name>CXFServlet</servlet-name>
+        <url-pattern>/ws/*</url-pattern>
+    </servlet-mapping>
+
+
+     <!-- ZSOffice servlet mappings start -->
+	<servlet>
+		<servlet-name>ZoomOffice</servlet-name>
+		<display-name>ZoomOffice</display-name>
+		<description>ZoomOffice Servlet</description>
+		<servlet-class>com.zhuozhengsoft.ZSOfficeX.servlet.zsserver</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ZoomOffice</servlet-name>
+		<url-pattern>/zsserver.slt</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ZoomOffice</servlet-name>
+		<url-pattern>/zsoffice.ocx</url-pattern>
+	</servlet-mapping>
+	<!-- ZSOffice servlet mappings end -->
+</web-app>

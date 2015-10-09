@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.platform.organDataManage.action.OrganDataManageAction" namespace="/bmp/organDataManage" extends="com.cdthgk.project">
+		<action name="organDataManage_main" method="main" class="bmp.organDataManageAction">
+			<result name="success">/platform/jsp/public/organDataManage/view/organDataManage_main.jsp</result>
+		</action>
+		<action name="organDataManage_organList" method="organList" class="bmp.organDataManageAction">
+			<result name="success">/platform/jsp/public/organDataManage/view/organDataManage_organList.jsp</result>
+		</action>
+
+		<action name="organDataManage_redirectPage" class="bmp.organDataManageAction" method="redirectPage" />
+
+	</package>
+</struts>

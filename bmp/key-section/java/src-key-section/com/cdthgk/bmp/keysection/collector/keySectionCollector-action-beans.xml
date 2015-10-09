@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- FashionTable-->
+	<bean id="keySectionFashionTableCollector" class="com.cdthgk.bmp.keysection.collector.KeySectionFashionTableCollector">
+		<property name="keySectionService" ref="bmp.keySectionService"></property>
+	</bean>
+	<bean id="keySectionFashionTableStatWebView" class="com.cdthgk.platform.stat.model.impl.FashionTableStatWebView">
+		<property name="collector" ref="keySectionFashionTableCollector"></property>
+	</bean>
+
+
+
+	<!-- SimpleTable -->
+	<bean id="keySectionSimpleTableCollector" class="com.cdthgk.bmp.keysection.collector.KeySectionSimpleTableCollector">
+		<property name="keySectionService" ref="bmp.keySectionService"></property>
+	</bean>
+	<bean id="keySectionSimpleTableStatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTableStatWebView">
+		<property name="collector" ref="keySectionSimpleTableCollector"></property>
+	</bean>
+	<bean id="keySectionSimpleTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.SimpleTable01StatWebView">
+		<property name="collector" ref="keySectionSimpleTableCollector"></property>
+	</bean>
+
+
+
+	<!-- ComplexTable -->
+	<bean id="keySectionComplexTableCollector" class="com.cdthgk.bmp.keysection.collector.KeySectionComplexTableCollector">
+		<property name="keySectionService" ref="bmp.keySectionService"></property>
+	</bean>
+	<bean id="keySectionComplexTableStatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTableStatWebView">
+		<property name="collector" ref="keySectionComplexTableCollector"></property>
+	</bean>
+	<bean id="keySectionComplexTable01StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable01StatWebView">
+		<property name="collector" ref="keySectionComplexTableCollector"></property>
+	</bean>
+	<bean id="keySectionComplexTable02StatWebView" class="com.cdthgk.platform.stat.model.impl.ComplexTable02StatWebView">
+		<property name="collector" ref="keySectionComplexTableCollector"></property>
+	</bean>
+
+
+
+
+	<!-- DistrictListTable -->
+	<bean id="keySectionDistrictListTableCollector" class="com.cdthgk.bmp.keysection.collector.KeySectionDistrictListTableCollector">
+		<property name="keySectionService" ref="bmp.keySectionService"></property>
+	</bean>
+	<bean id="keySectionDistrictListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.DistrictListTableStatWebView">
+		<property name="collector" ref="keySectionDistrictListTableCollector"></property>
+	</bean>
+
+
+
+
+	<!-- OrganListTable -->
+	<bean id="keySectionOrganListTableCollector" class="com.cdthgk.bmp.keysection.collector.KeySectionOrganListTableCollector">
+		<property name="keySectionService" ref="bmp.keySectionService"></property>
+	</bean>
+	<bean id="keySectionOrganListTableStatWebView" class="com.cdthgk.platform.stat.model.impl.OrganListTableStatWebView">
+		<property name="collector" ref="keySectionOrganListTableCollector"></property>
+	</bean>
+</beans>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="secrecyWorksummary" extends="com.cdthgk.project" namespace="/bmp/secrecyworksummary">
+		<action name="secrecyWorksummary_main" method="main" class="bmp.secrecyWorksummaryAction">
+			<result name="main">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_main.jsp</result>
+		</action>
+		<action name="secrecyWorksummary_list" method="list" class="bmp.secrecyWorksummaryAction">
+			<result name="list">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_list.jsp</result>
+		</action>
+		<action name="secrecyWorksummary_detail" method="detail" class="bmp.secrecyWorksummaryAction">
+			<result name="personGroupMemberDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_personGroupMemberDetail.jsp</result>
+			<result name="secrecyWorkOrganMemberDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_secrecyWorkOrganMemberDetail.jsp</result>
+			<result name="keysectionDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_keysectionDetail.jsp</result>
+			<result name="keyPartDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_keyPartDetail.jsp</result>
+			<result name="secrecyPersonDetail">/bmp/secrecy-worksummary/borderlayout/view/secrecyWorkSummary_secrecyPersonDetail.jsp</result>
+		</action>
+
+		<!-- 导出 -->
+		<action name="secrecyWorksummary_exportData" class="bmp.secrecyWorksummaryAction" method="exportData">
+			<result name="success" type="excel">
+				<param name="location">/exportExcel/secrecyWorksummaryExprotTemplet.xlsx</param>
+				<param name="fileName">保密工作概况.xlsx</param>
+			</result>
+		</action>
+
+		<!-- 导出明细列表的信息 -->
+		<action name="secrecyWorksummary_exportDataDetail" method="exportDataDetail" class="bmp.secrecyWorksummaryAction">
+			<result name="personGroupMemberDetail" type="excel">
+				<param name="location">/exportExcel/secrecyWorkOrganExprotTemplet_groupMember.xlsx</param>
+				<param name="fileName">保密工作概况明细.xlsx</param>
+			</result>
+			<result name="secrecyWorkOrganMemberDetail"  type="excel">
+				<param name="location">/exportExcel/secrecyWorkOrganExprotTemplet_organMember.xlsx</param>
+				<param name="fileName">保密工作概况明细.xlsx</param>
+			</result>
+			<result name="keysectionDetail"  type="excel">
+				<param name="location">/exportExcel/keySectionExprotTemplet_personNum.xlsx</param>
+				<param name="fileName">保密工作概况明细.xlsx</param>
+			</result>
+			<result name="keyPartDetail"  type="excel">
+				<param name="location">/exportExcel/keyPartExprotTemplet.xlsx</param>
+				<param name="fileName">保密工作概况明细.xlsx</param>
+			</result>
+			<result name="secrecyPersonDetail"  type="excel">
+				<param name="location">/exportExcel/secrecyPersonExprotTemplet.xlsx</param>
+				<param name="fileName">保密工作概况明细.xlsx</param>
+			</result>
+		</action>
+
+
+	</package>
+</struts>

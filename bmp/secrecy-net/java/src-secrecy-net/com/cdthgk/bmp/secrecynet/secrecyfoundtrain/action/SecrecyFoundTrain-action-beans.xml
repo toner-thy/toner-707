@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="bmp.secrecyFoundTrainAction" class="com.cdthgk.bmp.secrecynet.secrecyfoundtrain.action.SecrecyFoundTrainAction" scope="prototype">
+    	<property name="secrecyFoundTrainService" ref="bmp.SecrecyFoundTrainService"/>
+    	<property name="secrecyFoundTrainContentService" ref="bmp.SecrecyFoundTrainContentService"/>
+    </bean>
+
+</beans>

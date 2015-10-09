@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.secrecyCarrier.vo.SecrecyCopy" table="bm_secrecyCopy">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="39" />
+            <generator class="uuid"></generator>
+        </id>
+         <property name="date" type="java.util.Date">
+            <column name="date" length="19">
+                <comment>复印时间</comment>
+            </column>
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="100">
+                <comment>文件名称</comment>
+            </column>
+        </property>
+        <property name="secrecyLevel" type="java.lang.Integer">
+            <column name="secrecyLevel" length="11">
+                <comment>密级</comment>
+            </column>
+        </property>
+        <property name="docNumber" type="java.lang.String">
+            <column name="docNumber" length="100">
+                <comment>文号</comment>
+            </column>
+        </property>
+        <property name="usePlace" type="java.lang.String">
+            <column name="usePlace" length="500">
+                <comment>文号</comment>
+            </column>
+        </property>
+        <property name="number" type="java.lang.String">
+            <column name="number" length="11">
+                <comment>份数</comment>
+            </column>
+        </property>
+        <property name="pageNo" type="java.lang.String">
+            <column name="pageNo" length="11">
+                <comment>每份页数</comment>
+            </column>
+        </property>
+        <many-to-one name="approver" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="approver" length="39">
+                <comment>审批人</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="undertaker" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="undertaker" length="39">
+                <comment>承办人</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="applicant" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="applicant" length="39">
+                <comment>申请人</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="draftingDep" class="com.cdthgk.platform.organization.department.domain.Department">
+            <column name="draftingDep" length="39">
+                <comment>申请部门</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="didOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="didOrgan" length="39">
+                <comment>文件制发单位</comment>
+            </column>
+        </many-to-one>
+        <property name="description" type="java.lang.String">
+            <column name="description" length="200">
+                <comment>备注</comment>
+            </column>
+        </property>
+
+        <property name="state" type="java.lang.Integer">
+            <column name="STATE" length="11">
+                <comment>状态：0：使用1：删除</comment>
+            </column>
+        </property>
+        <property name="modifyTime" type="java.util.Date">
+            <column name="MODIFY_TIME" length="19">
+                <comment>修改时间</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <many-to-one name="organId" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="CREATE_ORGAN" length="39">
+                <comment>创建单位</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="CREATE_PERSON" length="39">
+                <comment>输入人员</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="MODIFY_PERSON" length="39">
+                <comment>修改人员</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

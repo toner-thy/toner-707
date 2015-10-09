@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecynet.secrecySupervision.vo.SecrecySupervisionContent" table="bm_net_secrecy_supervision_content">
+        <!-- 主键ID -->
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="39" />
+            <generator class="uuid" />
+        </id>
+		<property name="year" type="java.lang.Integer">
+			<column name="YEAR" length="11">
+				<comment>年</comment>
+			</column>
+		</property>
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
+			<column name="ORGAN" >
+				<comment>单位</comment>
+			</column>
+		</many-to-one>
+
+		<property name="budget" type="java.lang.Double">
+			<column name="BUDGET" length="11" />
+		</property>
+
+		<property name="actualUse" type="java.lang.Double">
+			<column name="ACTUAL_USE" length="11" />
+		</property>
+
+		<property name="buyCheckTools" type="java.lang.Integer">
+			<column name="BUY_CHECK_TOOLS" length="11" />
+		</property>
+
+		<property name="platformConstruction" type="java.lang.Integer">
+			<column name="PLATFORM_CONSTRUCTION" length="11" />
+		</property>
+
+		<property name="businessTrain" type="java.lang.Integer">
+			<column name="BUSINESS_TRAIN" length="11" />
+		</property>
+
+		<property name="networkEvaluation" type="java.lang.Integer">
+			<column name="NETWORK_EVALUATION" length="11" />
+		</property>
+
+		<property name="other" type="java.lang.String">
+			<column name="OTHER" length="500" />
+		</property>
+
+
+
+
+
+    </class>
+</hibernate-mapping>

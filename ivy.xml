@@ -1,0 +1,57 @@
+<ivy-module version="2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd"
+	xmlns:m="http://ant.apache.org/ivy/maven">
+    <info organisation="com.cdthgk" module="bmp-p" status="release"/>
+    <configurations>
+		<conf name="master" visibility="public"
+			description="contains only the artifact published by this module itself, with no transitive dependencies" />
+		<conf name="sources" visibility="public"
+			description="this configuration contains the source artifact of this module, if any." />
+		<conf name="javadoc" visibility="public"
+			description="this configuration contains the javadoc artifact of this module, if any." />
+	</configurations>
+	<publications>
+		<artifact name="bmp-p" type="jar" ext="jar" conf="master" />
+		<artifact name="bmp-p" type="javadoc" ext="jar" conf="javadoc" m:classifier="javadoc" />
+	</publications>
+    <dependencies>
+		<dependency org="com.cdthgk" name="cdthgk-thgk-platform" rev="3.3.7_alpha" transitive="true"/>
+		<!--cdthgk-zbmp-0.1.2是加入登录后进入的桌面系统		-->
+		<!--cdthgk-zbmp-0.1.3是取消登录后进入的桌面系统		-->
+		<!--
+		<dependency org="com.cdthgk" name="cdthgk-zbmp" rev="0.1.3" transitive="false"/>
+		-->
+		<dependency org="com.cdthgk" name="cdthgk-lawsystem" rev="0.1.6_alpha" transitive="false"/>
+		<dependency org="com.cdthgk" name="cdthgk-stat-framework" rev="0.0.9_alpha" transitive="false"/>
+		<dependency org="com.cdthgk" name="cdthgk-data-office" rev="0.1.1" transitive="true" />
+		<dependency org="com.cdthgk" name="cdthgk-workbench" rev="0.1.4" transitive="false"/>
+		<dependency org="com.cdthgk" name="cdthgk-platform-help" rev="0.1.5" transitive="false"/>
+		<dependency org="com.cdthgk" name="cdthgk-year-plan" rev="0.0.10_alpha" transitive="false"/>
+		<!--
+		-->
+		<dependency org="com.cdthgk" name="cdthgk-bmp-oa" rev="0.1.11_alpha" transitive="true"/>
+		<dependency org="com.cdthgk" name="cdthgk-workflow-integration" rev="0.1.2_alpha" transitive="true"/>
+		<dependency org="com.cdthgk" name="cdthgk-workflow-jbpm4" rev="0.3.2" transitive="true"/>
+		<dependency org="com.cdthgk" name="cdthgk-mail-client" rev="1.0.9_alpha" transitive="false"/>
+
+		<dependency org="com.cdthgk" name="cdthgk-examination" rev="0.0.9_alpha" transitive="true"/>
+		<dependency org="com.cdthgk" name="cdthgk-platform-attachment" rev="1.0.3" transitive="false" />
+		<dependency org="com.cdthgk" name="cdthgk-platform-dictionary" rev="1.1.6" transitive="false" />
+		<dependency org="com.cdthgk" name="cdthgk-platform-organization" rev="1.0.38" transitive="false" />
+		<!--
+		<dependency org="com.cdthgk" name="cdthgk-examination" rev="0.0.2_alpha" transitive="true"/>
+		-->
+    	<exclude org="org.apache.tomcat"/>
+		<!--
+		<dependency org="com.cdthgk" name="cdthgk-ims" rev="0.0.22_alpha" transitive="false"/>
+    	<exclude module="cdthgk-workbench"/>
+		-->
+		<exclude module="juel-api"/>
+		<exclude module="cdthgk-ukey-1.0.4"/>
+		<exclude module="cdthgk-platform-attachment-1.0.2"/>
+		<exclude module="cdthgk-platform-dictionary-1.1.5"/>
+		<exclude module="cdthgk-platform-organization-1.0.36"/>
+    	<exclude org="javax.servlet" module="jsp-api"/>
+    </dependencies>
+</ivy-module>

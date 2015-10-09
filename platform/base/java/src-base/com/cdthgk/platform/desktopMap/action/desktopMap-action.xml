@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.platform.desktopMap" namespace="/bmp/desktopMap" extends="com.cdthgk.project">
+		<action name="desktopMap_main" method="main" class="bmp.desktopMapAction">
+			<result name="success">/platform/jsp/public/desktopMap/view/desktopMap_main.jsp</result>
+		</action>
+		<action name="desktopMap_homeOld" method="homeOld" class="bmp.desktopMapAction">
+			<result name="success">/platform/jsp/public/desktopMap/view/desktopMap_mainOld.jsp</result>
+		</action>
+
+		<action name="desktopMap_homeNow" method="homeNow" class="bmp.desktopMapAction">
+			<result name="success">/platform/jsp/public/desktopMap/view/desktopMap_mainNow.jsp</result>
+		</action>
+
+		<action name="desktopMap_menu1" method="menu1" class="bmp.desktopMapAction">
+			<result name="success">/platform/jsp/public/desktopMap/view/desktopMap_menu1.jsp</result>
+		</action>
+		<action name="desktopMap_menu2" method="menu2" class="bmp.desktopMapAction">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/bmp/desktopMap</param>
+				<param name="actionName">desktopMap_menu3</param>
+				<param name="domainId">${domainId}</param>
+			</result>
+		</action>
+		<action name="desktopMap_menu3" method="menu3" class="bmp.desktopMapAction">
+			<result name="success">/platform/jsp/public/desktopMap/view/desktopMap_menu3.jsp</result>
+		</action>
+		<action name="desktopMap_menu4" method="menu4" class="bmp.desktopMapAction">
+			<result name="success">/platform/jsp/public/desktopMap/view/desktopMap_menu4.jsp</result>
+		</action>
+		<action name="desktopMap_menu5" method="menu5" class="bmp.desktopMapAction">
+			<result name="success">/platform/jsp/public/desktopMap/view/desktopMap_menu5.jsp</result>
+		</action>
+		<action name="desktopMap_mailUnRead" method="mailUnRead" class="bmp.desktopMapAction">
+		</action>
+		<action name="desktopMap_isCheckTask" method="isCheckTask" class="bmp.desktopMapAction">
+		</action>
+	</package>
+</struts>

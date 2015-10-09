@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.thgk.action.demo" namespace="/bmp/demo" extends="com.cdthgk.project">
+		<!--跳转到泄密事件主面板  -->
+		<action name="demo_exportWord" class="bmp.demoAction" method="exportWord">
+	       	<result name="xmlExport" type="freemarker">/bmp/workbench-demo/template/wordTemplate.xml</result>
+        </action>
+	</package>
+</struts>

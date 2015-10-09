@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:context="http://www.springframework.org/schema/context"
+       	xmlns:util="http://www.springframework.org/schema/util"
+		xsi:schemaLocation="
+	   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"
+        default-lazy-init="false">
+
+	<bean id="propertyConfigurer"
+	        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	    <property name="location" value="classpath:jdbc/jdbc.properties"/>
+	</bean>
+
+	<!-- 如果是在本机做单元测试，可使用如下方式配置数据源： -->
+	<!--
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+			<property name="driverClassName" value="${jdbc.mysql.driverClassName}" />
+		    <property name="url" value="${jdbc.mysql.url}" />
+		    <property name="username" value="${jdbc.mysql.username}" />
+		    <property name="password" value="${jdbc.mysql.password}" />
+		    <property name="maxActive" value="0"></property>
+		    <property name="maxIdle" value="0"></property>
+	</bean>
+	-->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${driverClassName}" />
+	    <property name="jdbcUrl" value="${url}" />
+	    <property name="user" value="${username}" />
+	    <property name="password" value="${password}" />
+	    <property name="minPoolSize" value="${minPoolSize}"></property>
+	    <property name="maxPoolSize" value="${maxPoolSize}"></property>
+	    <property name="initialPoolSize" value="${initialPoolSize}"></property>
+	    <property name="maxIdleTime" value="${maxIdleTime}"></property>
+	    <property name="acquireIncrement" value="${acquireIncrement}"></property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="jdbcTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+
+	<aop:config>
+		<!--
+			对于给定的切入点 利用AspectJ pointcut language 自动生成一个动态代理
+			管理控制名为txAdvice的 advice 配置的方法
+		-->
+		<aop:advisor pointcut="execution(* *..service..*.*(..))"
+			advice-ref="txAdvice" />
+	</aop:config>
+
+	<!--
+		定义事务通知，<tx:method name="方法名*"/>定义凡是匹配此名的方法都事务管理，
+		对于insert开头和update开头的 默认的事务传播性为PROPAGATION_REQUIRED
+		对于其他的方法默认的事务传播性为PROPAGATION_REQUIRED 并且事务隔离性为 read-only
+	-->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 数据插入的方法 -->
+			<!--
+			<tx:method name="insert*" rollback-for="Exception" />
+			<tx:method name="approve*" rollback-for="Exception" />
+			<tx:method name="reject*" rollback-for="Exception" />
+			<tx:method name="create*" rollback-for="Exception" />
+			<tx:method name="add*" rollback-for="Exception" />
+			<tx:method name="save*" rollback-for="Exception" />
+			<tx:method name="send*" rollback-for="Exception" />
+			<tx:method name="deploy*" rollback-for="Exception" />
+			 -->
+
+			<!-- 报表服务器的添加÷修改÷删除 -->
+			<!--
+			<tx:method name="beforeAdd*" rollback-for="Exception" />
+			<tx:method name="beforeStartReportTask*" rollback-for="Exception" />
+			<tx:method name="beforeStop*" rollback-for="Exception" />
+			<tx:method name="beforeRemove*" rollback-for="Exception" />
+			<tx:method name="doAfter*" rollback-for="Exception" />
+			 -->
+
+			<!-- 数据修改的方法-->
+			<!--
+			<tx:method name="update*" rollback-for="Exception" />
+			<tx:method name="edit*" rollback-for="Exception" />
+			<tx:method name="merge*" rollback-for="Exception" />
+			<tx:method name="enable*" rollback-for="Exception" />
+			<tx:method name="disable*" rollback-for="Exception" />
+			<tx:method name="toggle*" rollback-for="Exception" />
+			-->
+
+				<!-- 数据删除操作 -->
+				<!--
+			<tx:method name="delete*" rollback-for="Exception" />
+			<tx:method name="remove*" rollback-for="Exception" />
+			-->
+
+			<!-- 数据操作 -->
+			<!--
+			<tx:method name="execute" rollback-for="Exception" />
+			<tx:method name="addResourceLog" rollback-for="Exception" propagation="REQUIRES_NEW"/>
+			<tx:method name="execute*" rollback-for="Exception" />
+			-->
+
+			<!-- 剩下的查询方法 -->
+			<!--
+			<tx:method name="*" read-only="true" />
+			 -->
+
+			<tx:method name="*" rollback-for="Exception"/>
+
+		</tx:attributes>
+	</tx:advice>
+
+
+	<util:list id="userInfoSelector" list-class="java.util.ArrayList">
+		<value>sex</value>
+		<value>degree</value>
+		<value>duty</value>
+		<value>department.departmentName</value>
+		<value>department.departmentId</value>
+		<value>birthDate</value>
+		<value>learningLevel</value>
+		<value>polity</value>
+		<value>phone</value>
+		<value>mobile</value>
+		<value>technicTitleLevel</value>
+		<value>specialtyCode</value>
+		<value>administrativeLevel</value>
+	</util:list>
+
+	<util:list id="kePartSelector" list-class="java.util.ArrayList">
+		<value>department.departmentName</value>
+		<value>department.departmentId</value>
+	</util:list>
+
+	<util:list id="secrecyComputerSelector" list-class="java.util.ArrayList">
+		<value>isNetTerminal</value>
+	</util:list>
+
+	<import resource="dbresource-hibernate.xml"/>
+	<import resource="dbresource-proxy.xml"/>
+	<import resource="cxf.xml"/>
+</beans>

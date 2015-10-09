@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 配置控制器Struts配置 -->
+	<package name="com.cdthgk.bmp.secrecyProducts.action.SecrecyProductsAction" namespace="/bmp/secrecyProducts" extends="com.cdthgk.project" >
+		<global-results>
+			<result name="list" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/secrecyProducts</param>
+				<param name="actionName">secrecyProducts_list</param>
+			</result>
+		</global-results>
+
+		<!-- 密品的   主页面 -->
+		<action name="secrecyProducts_list" class="bmp.secrecyProductsAction" method="list">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_list.jsp</result>
+		</action>
+
+		<!-- 密品的   列表页面 -->
+		<action name="secrecyProducts_list_list" class="bmp.secrecyProductsAction" method="list_list">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_list_list.jsp</result>
+		</action>
+
+		<!-- 密品的   密级变更列表页面 -->
+		<action name="secrecyProducts_change_list" class="bmp.secrecyProductsAction" method="change_list">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_change_list.jsp</result>
+		</action>
+
+		<!-- 密品的   密级解除列表页面 -->
+		<action name="secrecyProducts_clear_list" class="bmp.secrecyProductsAction" method="clear_list">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_clear_list.jsp</result>
+		</action>
+
+		<!-- 密品的   新增页面 -->
+		<action name="secrecyProducts_add" class="bmp.secrecyProductsAction" method="add">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_add.jsp</result>
+		</action>
+		<!-- 密品的   新增保存 -->
+		<action name="secrecyProducts_adding" class="bmp.secrecyProductsAction" method="adding">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_add.jsp</result>
+		</action>
+
+		<!-- 密品的   编辑页面 -->
+		<action name="secrecyProducts_edit" class="bmp.secrecyProductsAction" method="edit">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_edit.jsp</result>
+		</action>
+		<!-- 密品的   编辑保存 -->
+		<action name="secrecyProducts_editing" class="bmp.secrecyProductsAction" method="editing">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_edit.jsp</result>
+		</action>
+
+		<!-- 密品的   删除 -->
+		<action name="secrecyProducts_del" class="bmp.secrecyProductsAction" method="del">
+		</action>
+
+		<!-- 查看密品记录  是否被其他的表引用 -->
+		<action name="ajax_relationship_secrecyProducts" class="bmp.secrecyProductsAction" method="ajax_relationship">
+		</action>
+
+		<!-- 密品的   进入密级变更页-->
+		<action name="secrecyProducts_change" class="bmp.secrecyProductsAction" method="change">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_change.jsp</result>
+		</action>
+
+		<!-- 密品的  密级变更保存 -->
+		<action name="secrecyProducts_changeing" class="bmp.secrecyProductsAction" method="changeing">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_change.jsp</result>
+		</action>
+
+		<!-- 密品的   进入密级解除页-->
+		<action name="secrecyProducts_clear" class="bmp.secrecyProductsAction" method="clear">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_clear.jsp</result>
+		</action>
+
+		<!-- 密品的  密级解除保存 -->
+		<action name="secrecyProducts_clearing" class="bmp.secrecyProductsAction" method="clearing">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_clear.jsp</result>
+		</action>
+
+		<!-- 密品的  明细 -->
+		<action name="secrecyProducts_detail" class="bmp.secrecyProductsAction" method="detail">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_detail.jsp</result>
+		</action>
+
+		<!-- 密品的  密级变更明细 -->
+		<action name="secrecyProducts_changeDetial" class="bmp.secrecyProductsAction" method="changeDetial">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_changeDetail.jsp</result>
+		</action>
+
+		<!-- 密品的  密级解除明细 -->
+		<action name="secrecyProducts_clearDetial" class="bmp.secrecyProductsAction" method="clearDetial">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_clearDetail.jsp</result>
+		</action>
+
+		<!-- 密品 导出 -->
+		<action name="secrecyProducts_export" class="bmp.secrecyProductsAction" method="export">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_products/borderlayout/view/exportExcel_secrecyProductsList_ExprotTemplet.xlsx</param>
+				<param name="fileName">密品列表.xlsx</param>
+			</result>
+		</action>
+
+
+		<!-- 首页统计密品     本单位   -->
+		<action name="indexView_SecrecyProducts" class="bmp.secrecyProductsAction" method="indexView_SecrecyProducts">
+			<result name="success" >/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_indexView.jsp</result>
+		</action>
+		<!-- 首页  密品 明细显示   本单位   -->
+		<action name="indexView_DetailList" class="bmp.secrecyProductsAction" method="indexView_DetailList">
+			<result name="success" >/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_indexView_DetailList.jsp</result>
+		</action>
+		<!-- 首页   统计密品     行政区划   -->
+		<action name="indexView_SecrecyProducts_District" class="bmp.secrecyProductsAction" method="indexView_SecrecyProducts_District">
+			<result name="success" >/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_indexView_District.jsp</result>
+		</action>
+		<!-- 首页  密品 明细显示   行政区划   -->
+		<action name="indexView_DetailList_District" class="bmp.secrecyProductsAction" method="indexView_DetailList_District">
+			<result name="success" >/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_indexView_DetailList_District.jsp</result>
+		</action>
+
+
+		<!--保密  密品查询 -->
+		<action name="secrecyProducts_query_main" class="bmp.secrecyProductsAction" method="query_main">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_query_main.jsp</result>
+		</action>
+		<action name="secrecyProducts_query_list" class="bmp.secrecyProductsAction" method="list">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_list.jsp</result>
+		</action>
+
+
+		<!--综合统计 查询 通过行政区划    查询密品个数 的明细列表 包括当前行政区划 和下级行政区划 的密品的明细-->
+		<action name="zhtj_query_Detail" class="bmp.secrecyProductsAction" method="zhtj_query_Detail">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/stat/secrecyProducts_stat_stat.jsp</result>
+		</action>
+		<!--综合统计 查询 统计行政区划 密品   统计行政区下的直辖单位情况  分单位显示-->
+		<action name="zhtj_queryByDistrict" class="bmp.secrecyProductsAction" method="zhtj_queryByDistrict">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/stat/secrecyProducts_stat_organList.jsp</result>
+		</action>
+		<!--综合统计      通过行政区划查询 密品  本单位的情况   -->
+		<action name="zhtj_DetailList" class="bmp.secrecyProductsAction" method="zhtj_DetailList">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/stat/secrecyProducts_stat_DetailList.jsp</result>
+		</action>
+		<!--综合统计       一个单位的数据撰取的功能    -->
+		<action name="zhtj_OrganDetailList" class="bmp.secrecyProductsAction" method="zhtj_OrganDetailList">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_list_list.jsp</result>
+		</action>
+		<!--综合统计 查询 通过行政区划    查询密品个数 的明细列表 包括当前行政区划 和下级行政区划 的密品的明细-->
+		<action name="zhtj_query" class="bmp.secrecyProductsAction" method="zhtj_query">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/stat/secrecyProducts_stat_stat.jsp</result>
+		</action>
+
+		<!-- 综合统计导出统计密品   行政区划统计   -->
+		<action name="stat_exportDistrict" class="bmp.secrecyProductsAction" method="stat_exportDistrict">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_products/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+				<param name="fileName">行政区划-密品统计(综合统计).xlsx</param>
+			</result>
+		</action>
+		<!-- 综合统计导出统计密品   行政区下统计   -->
+		<action name="stat_exportLayer" class="bmp.secrecyProductsAction" method="stat_exportLayer">
+			<result name="success" type="excel">
+				<param name="location">/country_secrecy/secrecy_products/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+				<param name="fileName">行政区内-密品统计(综合统计).xlsx</param>
+			</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="secrecyProducts_organIndex" class="bmp.secrecyProductsAction" method="organIndex">
+			<result name="success">/country_secrecy/secrecy_products/borderlayout/view/secrecyProducts_organIndex.jsp</result>
+		</action>
+		<!-- 数据填写校验 -->
+		<action name="secrecyProducts_dataValidate" method="dataValidate" class="bmp.secrecyProductsAction"></action>
+	</package>
+</struts>

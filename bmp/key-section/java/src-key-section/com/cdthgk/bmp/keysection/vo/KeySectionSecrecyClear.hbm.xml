@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-13 14:02:01 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.keysection.vo.KeySectionSecrecyClear" table="bm_key_section_secrecy_clear" >
+
+        <id name="sectionSecrecyClearId" type="java.lang.String">
+            <column name="section_secrecy_clear_id"  >
+            	<comment>要害部门解密  主键id</comment>
+            </column>
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <many-to-one name="keySectionId" class="com.cdthgk.bmp.keysection.vo.KeySection" >
+            <column name="key_section_id" length="39">
+                <comment>外键   要害部门ID</comment>
+            </column>
+        </many-to-one>
+        <property name="clearType" type="java.lang.Integer">
+            <column name="clear_type" >
+           		 <comment>解密类型</comment>
+            </column>
+        </property>
+        <property name="clearTime" type="java.util.Date">
+            <column name="clear_time" length="19" >
+                 <comment>解密时间</comment>
+            </column>
+        </property>
+        <many-to-one name="reviewPerson" class="com.cdthgk.platform.permission.user.domain.User">
+            <column name="review_person" length="39" >
+                 <comment>审核人</comment>
+            </column>
+        </many-to-one>
+        <property name="cleanReason" type="java.lang.String">
+            <column name="clean_reason" length="2000" >
+                <comment>变更原因</comment>
+            </column>
+        </property>
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="CREATE_PERSON">
+				<comment>创建人</comment>
+			</column>
+		</many-to-one>
+		<property name="createDate" type="java.util.Date">
+			<column name="CREATE_DATE" >
+				<comment>创建时间</comment>
+			</column>
+		</property>
+    </class>
+</hibernate-mapping>

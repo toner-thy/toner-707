@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- 设备分类管理配置 -->
+	<bean id="secrecyEquipmentCategoryAction" class="com.cdthgk.devicemgr.action.SecrecyEquipmentCategoryAction"  scope="prototype">
+		<property name="secrecyEquipmentCategoryService" ref="secrecyEquipmentCategoryService"></property>
+		<property name="deviceMgrService" ref="deviceMgrService"></property>
+	</bean>
+
+	<!-- 单位设备管理配置 -->
+	<bean id="deviceMgrAction" class="com.cdthgk.devicemgr.action.DeviceMgrAction" scope="prototype">
+		<property name="deviceMgrService" ref="deviceMgrService"/>
+		<property name="userInfoService" ref="platform.userInfoService"/>
+		<property name="secrecyEquipmentCategoryService" ref="secrecyEquipmentCategoryService"></property>
+	</bean>
+</beans>

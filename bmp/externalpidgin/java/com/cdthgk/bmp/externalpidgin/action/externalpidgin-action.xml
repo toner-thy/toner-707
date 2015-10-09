@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.thgk.bmp.externalpidgin" namespace="/bmp/externalPidgin" extends="com.cdthgk.project">
+	<!-- 跳转到审批list页面方法 -->
+		<action name="externalPidgin_list" method="list" class="externalPidginAction">
+			<result name="success">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_list.jsp</result>
+		</action>
+		<action name="externalPidgin_deleteAttachment" method="deleteAttachment" class="externalPidginAction">
+		    <result name="toAttachmentAjax">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_attachment.jsp</result>
+		</action>
+	<!-- 跳转到详细页面 -->
+		<action name="externalPidgin_detail" method="detail" class="externalPidginAction">
+			<result name="success">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_detail.jsp</result>
+		</action>
+		<action name="externalPidgin_add" method="add" class="externalPidginAction">
+			<result name="success">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_add.jsp</result>
+		</action>
+		<action name="externalPidgin_save" method="save" class="externalPidginAction">
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/externalPidgin</param>
+				<param name="actionName">externalPidgin_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="externalPidgin_edit" method="edit" class="externalPidginAction">
+			<result name="success">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_edit.jsp</result>
+		</action>
+		<action name="externalPidgin_update" method="update" class="externalPidginAction">
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/externalPidgin</param>
+				<param name="actionName">externalPidgin_edit</param>
+				<param name="id">${externalPidgin.externalPidginId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="externalPidgin_del" method="del" class="externalPidginAction">
+			<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/externalPidgin</param>
+				<param name="actionName">externalPidgin_list</param>
+			</result>
+		</action>
+
+		<!-- 行政区划树 -->
+		<action name="externalPidgin_checkMain" method="checkMain" class="externalPidginAction">
+			<result name="checkMain">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_checkMain.jsp</result>
+		</action>
+		<!-- 本单位按行政区划查询列表 -->
+		<action name="externalPidgin_epList" method="epList" class="externalPidginAction">
+			<result name="success">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_epList.jsp</result>
+		</action>
+
+
+
+		<action name="externalPidgin_organEpList" method="organEpList" class="externalPidginAction">
+			<result name="organEpList">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_organEpList.jsp</result>
+		</action>
+		<action name="externalPidgin_organAllEpList" method="organAllEpList" class="externalPidginAction">
+			<result name="organAllEpList">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_organAllEpList.jsp</result>
+		</action>
+		<!-- 涉密涉外活动统计 -->
+		<action name="externalPidgin_countExternalPidgin" method="countExternalPidgin" class="externalPidginAction">
+			<result name="countExternalPidgin">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_countList.jsp</result>
+		</action>
+		<!-- 管辖单位涉密涉外活动统计 -->
+		<action name="externalPidgin_countAllOrgan" method="countAllOrgan" class="externalPidginAction">
+			<result name="countAllOrgan">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_countAllOrgan.jsp</result>
+		</action>
+		<action name="externalPidgin_main" method="main" class="externalPidginAction">
+			<result name="main">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_main.jsp</result>
+		</action>
+		<action name="externalPidgin_gotab0007" method="gotab0007" class="externalPidginAction">
+			<result name="success">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_gotab0007.jsp</result>
+		</action>
+		<action name="externalPidgin_gotab0002" method="gotab0002" class="externalPidginAction">
+			<result name="success">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_gotab0002.jsp</result>
+		</action>
+
+		<!-- 主页涉密涉外活动统计 -->
+		<action name="externalPidgin_indexView" method="indexView" class="externalPidginAction">
+			<result name="success">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_indexView.jsp</result>
+		</action>
+
+		<!-- 上报 -->
+		<action name="externalPidgin_report" method="report" class="externalPidginAction">
+		 	<result name="list_action" type="stateRedirectAction">
+		 		<param name="namespace">/bmp/externalPidgin</param>
+          		<param name="actionName">externalPidgin_list</param>
+          	</result>
+		</action>
+		<!-- 查询页上报 -->
+		<action name="externalPidgin_listReport" method="listReport" class="externalPidginAction">
+		 	<result name="list_action" type="stateRedirectAction">
+		 	    <param name="namespace">/bmp/externalPidgin</param>
+          		<param name="actionName">externalPidgin_epList</param>
+          		<param name="district.districtCode">${district.districtCode}</param>
+          	</result>
+		</action>
+		<!-- 跳转到单位统计详情页 -->
+		<action name="externalPidgin_checkdetail" method="checkdetail" class="externalPidginAction">
+			<result name="checkdetail">/bmp/pages/externalPidginStat/externalPidginStat_checkdetail.jsp</result>
+		</action>
+
+		<!-- 首页涉密涉外活动统计数字撰取 -->
+		<action name="externalPidgin_organExtPidginData" method="organExtPidginData" class="externalPidginAction">
+			<result name="organExtPidginData">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_organExtPidginData.jsp</result>
+		</action>
+		<!-- 首页涉密涉外活动统计查询 -->
+		<action name="externalPidgin_extPidginQueryData" method="extPidginQueryData" class="externalPidginAction">
+			<result name="extPidginQueryData">/bmp/externalpidgin/borderlayout/view/externalpidgin/externalPidgin_organExtPidginData.jsp</result>
+		</action>
+	</package>
+</struts>

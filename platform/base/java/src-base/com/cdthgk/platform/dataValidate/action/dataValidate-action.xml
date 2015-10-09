@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.platform.dataValidate" namespace="/bmp/dataVailidate" extends="com.cdthgk.project">
+		<action name="dataValidate_index" method="index" class="bmp.dataValidateAction">
+			<result name="success">/platform/jsp/public/dataValidate/view/dataValidate_index.jsp</result>
+		</action>
+		<action name="businessRule_list" method="list" class="bmp.dataValidateAction">
+			<result name="success">/platform/jsp/public/dataValidate/view/businessRule_list.jsp</result>
+		</action>
+		<action name="businessRule_edit" method="edit" class="bmp.dataValidateAction">
+		</action>
+		<action name="dataValidate_createLog" method="createLog" class="bmp.dataValidateAction"></action>
+	</package>
+</struts>

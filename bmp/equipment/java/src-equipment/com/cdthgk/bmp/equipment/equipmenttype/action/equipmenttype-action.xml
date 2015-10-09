@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.bmp.equipment.equipmenttype" extends="com.cdthgk.project">
+		<action name="equipmentType_*" class="bmp.equipmentTypeAction" method="{1}">
+			<result name="save" type="stateRedirectAction">
+				<param name="actionName">equipmentType_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+			<result name="update" type="stateRedirectAction">
+				<param name="actionName">equipmentType_edit</param>
+				<param name="id">${equipmentType.equipmentTypeId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+			<result name="list_action" type="stateRedirectAction">
+				<param name="actionName">equipmentType_list</param>
+			</result>
+			<result name="success">/bmp/equipment/equipmenttype/borderlayout/view/equipmentType_{1}.jsp</result>
+		</action>
+		<action name="equipmentType_publishEquipment" class="bmp.equipmentTypeAction" method="publishEquipment">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="actionName">equipmentType_list</param>
+			</result>
+		</action>
+		<action name="equipmentType_publishingEquipment" class="bmp.equipmentTypeAction" method="publishingEquipment">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="actionName">equipmentType_list</param>
+			</result>
+		</action>
+	</package>
+</struts>

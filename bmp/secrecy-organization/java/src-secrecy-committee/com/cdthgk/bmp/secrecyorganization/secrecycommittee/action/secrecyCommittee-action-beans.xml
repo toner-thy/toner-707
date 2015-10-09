@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<!-- 保密委员会控制器Spring配置 -->
+	<bean id="secrecyCommitteeAction" class="com.cdthgk.bmp.secrecyorganization.secrecycommittee.action.SecrecyCommitteeAction" parent="bmpAction" scope="prototype">
+		<property name="secrecyCommitteeModuleService" ref="secrecyCommitteeModuleService"/>
+		<property name="secrecyCommitteeMemberModuleService" ref="secrecyCommitteeMemberModuleService"/>
+		<property name="attachmentService" ref="platform.attachmentService" />
+		<property name="secrecyCommitteeExchanger" ref="secrecyCommittee.exchanger"/>
+		<property name="serverReportMappingService" ref="platform.exchange.serverReportMappingService"/>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="personGroupService" ref="bmp.personGroupService"/>
+		<property name="personGroupRelationService" ref="bmp.personGroupRelationService"/>
+		<property name="organService" ref="platform.organService"/>
+		<property name="secrecyWorkOrganModuleService" ref="secrecyWorkOrganModuleService"/>
+		<property name="secrecyWorkOrganMemberUnitModuleService" ref="secrecyWorkOrganMemberUnitModuleService" />
+		<property name="secrecyWorkOrganRelationMemberModuleService" ref="secrecyWorkOrganRelationMemberModuleService" />
+	</bean>
+
+	<!-- 上传行为配置 -->
+	<bean id="secrecyCommittee.uploadBehavior" class="com.cdthgk.web.upload.UploadBehavior">
+		<property name="fileStorage" ref="secrecyCommittee.fileStorage"/>
+		<property name="uploadPolicys" ref="secrecyCommittee.uploadPolicys"/>
+	</bean>
+
+	<!-- 上传存储配置 -->
+	<bean id="secrecyCommittee.fileStorage" class="com.cdthgk.standard.file.storage.ProjectModuleDateDirStorage"
+		parent="project.attachment.fileStorage">
+		<property name="relativeDir" value="/secrecyCommittee"/>
+		<property name="renamePolicy" ref="secrecyCommittee.renamePolicy"/>
+	</bean>
+		<!-- 上传重命名配置 -->
+		<bean id="secrecyCommittee.renamePolicy" class="com.cdthgk.standard.file.rename.TimestampRenamePolicy" >
+		</bean>
+
+	<!-- 上传规则 -->
+	<util:list id="secrecyCommittee.uploadPolicys">
+		<ref bean="secrecyCommittee.fileSizeUploadPolicy" />
+		<ref bean="secrecyCommittee.extNameUploadPolicy" />
+	</util:list>
+	<!-- 大小规则 -->
+	<bean id="secrecyCommittee.fileSizeUploadPolicy" class="com.cdthgk.web.upload.policy.FileSizeUploadPolicy">
+		<property name="maxSize" value="102400000"/>
+	</bean>
+	<!-- 后缀名规则 -->
+	<bean id="secrecyCommittee.extNameUploadPolicy" class="com.cdthgk.web.upload.policy.ExtNameUploadPolicy">
+		<property name="whiteList">
+			<util:list>
+				<value>doc</value>
+				<value>docx</value>
+				<value>xls</value>
+				<value>xlsx</value>
+				<value>jpg</value>
+				<value>jpeg</value>
+				<value>gif</value>
+				<value>png</value>
+				<value>rar</value>
+				<value>zip</value>
+			</util:list>
+		</property>
+	</bean>
+</beans>

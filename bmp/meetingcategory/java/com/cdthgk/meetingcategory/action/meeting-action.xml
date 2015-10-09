@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.cdthgk.meeting" namespace="/bmp/meeting" extends="com.cdthgk.project">
+		<action name="meeting_*" method="{1}" class="meetingAction">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/meeting</param>
+				<param name="actionName">meeting_list</param>
+			</result>
+			<result name="mylist_action" type="stateRedirectAction">
+                <param name="namespace">/bmp/meeting</param>
+				<param name="actionName">meeting_list</param>
+				<param name="meeting.meetingCategory.meetingCategoryId">${meeting.meetingCategory.meetingCategoryId}</param>
+			</result>
+
+			<result name="list">/bmp/meetingcategory/borderlayout/view/meeting_list.jsp</result>
+			<result name="list1">/bmp/meetingcategory/borderlayout/view/meeting_list1.jsp</result>
+			<result name="list2">/bmp/meetingcategory/borderlayout/view/meeting_list2.jsp</result>
+			<result name="selectListing">/bmp/meetingcategory/borderlayout/view/meeting_selectListing.jsp</result>
+			<result name="selectListing1">/bmp/meetingcategory/borderlayout/view/meeting_selectListing1.jsp</result>
+			<result name="selectListing2">/bmp/meetingcategory/borderlayout/view/meeting_selectListing2.jsp</result>
+			<result name="add">/bmp/meetingcategory/borderlayout/view/meeting_addSelect.jsp</result>
+			<result name="addbefore2" >/bmp/meetingcategory/borderlayout/view/meeting_add2.jsp</result>
+			<result name="addbefore1" >/bmp/meetingcategory/borderlayout/view/meeting_add1.jsp</result>
+			<result name="addbefore" >/bmp/meetingcategory/borderlayout/view/meeting_add.jsp</result>
+			<result name="addbefore0" >/bmp/meetingcategory/borderlayout/view/meeting_add.jsp</result>
+			<result name="view" >/bmp/meetingcategory/borderlayout/view/meeting_view.jsp</result>
+			<result name="view1" >/bmp/meetingcategory/borderlayout/view/meeting_view1.jsp</result>
+			<result name="view2" >/bmp/meetingcategory/borderlayout/view/meeting_view2.jsp</result>
+			<result name="view0" >/bmp/meetingcategory/borderlayout/view/meeting_view0.jsp</result>
+			<result name="edit" >/bmp/meetingcategory/borderlayout/view/meeting_edit.jsp</result>
+			<result name="edit1" >/bmp/meetingcategory/borderlayout/view/meeting_edit1.jsp</result>
+			<result name="edit2" >/bmp/meetingcategory/borderlayout/view/meeting_edit2.jsp</result>
+			<result name="edit0" >/bmp/meetingcategory/borderlayout/view/meeting_edit0.jsp</result>
+			<result name="main">/bmp/meetingcategory/borderlayout/view/meeting_main.jsp</result>
+			<result name="mylist">/bmp/meetingcategory/borderlayout/view/meeting_list.jsp</result>
+			<!-- 导出 -->
+			<result name="export" type="excel">
+				<param name="location">/bmp/meetingcategory/borderlayout/view/meeting_exprotTemplet.xlsx</param>
+				<param name="fileName">涉密会议（活动）.xls</param>
+			</result>
+			<result name="export1" type="excel">
+				<param name="location">/bmp/meetingcategory/borderlayout/view/meeting_exprotTemplet1.xlsx</param>
+				<param name="fileName">保密会议（活动）.xls</param>
+			</result>
+			<result name="export2" type="excel">
+				<param name="location">/bmp/meetingcategory/borderlayout/view/meeting_exprotTemplet2.xlsx</param>
+				<param name="fileName">会议（活动）记录.xls</param>
+			</result>
+		</action>
+		<action name="attendMeeting_*" class="attendMeetingAction" method="{1}">
+			<result name="mylist_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/meeting</param>
+				<param name="actionName">attendMeeting_list</param>
+				<param name="attendMeeting.meetingcategory.meetingId">${attendMeeting.meetingcategory.meetingId}</param>
+			</result>
+			<result name="mylist">/bmp/meetingcategory/borderlayout/view/attendMeeting_list.jsp</result>
+			<result name="{1}">/bmp/meetingcategory/borderlayout/view/attendMeeting_{1}.jsp</result>
+		</action>
+
+		<!-- 保密工作信息总览获取数据 -->
+		<action name="meeting_organIndex" method="organIndex" class="meetingAction">
+			<result name="organIndex1">/bmp/meetingcategory/borderlayout/view/meeting_organIndex1.jsp</result>
+			<result name="organIndex2">/bmp/meetingcategory/borderlayout/view/meeting_organIndex2.jsp</result>
+			<result name="organIndex3">/bmp/meetingcategory/borderlayout/view/meeting_organIndex3.jsp</result>
+		</action>
+		 <!-- 数据填写校验 -->
+		<action name="meeting_dataValidate" method="dataValidate" class="meetingAction"></action>
+	</package>
+    <package name="com.cdthgk.meetingcategory" namespace="/bmp/meetingcategory" extends="com.cdthgk.project">
+		<action name="meetingCategory_*" class="meetingCategoryAction" method="{1}">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/meetingcategory</param>
+				<param name="actionName">meetingCategory_list</param>
+				<param name="meetingCategoryList_crd">${meetingCategoryList_crd}</param>
+				<param name="meetingCategoryList_p">${meetingCategoryList_p}</param>
+			</result>
+			<result name="main">/bmp/meetingcategory/borderlayout/view/meetingCategory_main.jsp</result>
+			<result name="list">/bmp/meetingcategory/borderlayout/view/meetingCategory_list.jsp</result>
+			<result name="add" >/bmp/meetingcategory/borderlayout/view/meetingCategory_add.jsp</result>
+			<result name="edit">/bmp/meetingcategory/borderlayout/view/meetingCategory_edit.jsp</result>
+			<result name="view">/bmp/meetingcategory/borderlayout/view/meetingCategory_view.jsp</result>
+		</action>
+		<action name="meetingCategory_add" method="add" class="meetingCategoryAction">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/meetingcategory</param>
+				<param name="actionName">meetingCategory_addBefore</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+		</action>
+		<action name="meetingCategory_edit" method="edit" class="meetingCategoryAction">
+			<result name="list_action" type="stateRedirectAction">
+			    <param name="namespace">/bmp/meetingcategory</param>
+				<param name="actionName">meetingCategory_editBefore</param>
+				<param name="needReload">${needReload}</param>
+				<param name="meetingCategory.meetingCategoryId">${meetingCategory.meetingCategoryId}</param>
+			</result>
+		</action>
+
+	</package>
+</struts>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-13 16:51:30 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.EmployPerson" table="bm_employ_person" >
+        <id name="employPersonId" type="string">
+            <column name="employ_person_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+
+        <many-to-one name="secrecyOffice" class="com.cdthgk.bmp.secrecyorganization.secrecyoffice.vo.SecrecyOffice" fetch="select">
+			<column name="SECRECY_OFFICE_ID" length="39">
+				<comment>保密办（保密局）</comment>
+			</column>
+		</many-to-one>
+
+        <property name="managerStaff" type="java.lang.Integer">
+            <column name="manager_staff" />
+        </property>
+        <property name="specialtyStaff" type="java.lang.Integer">
+            <column name="specialty_staff" />
+        </property>
+        <property name="workStaff" type="java.lang.Integer">
+            <column name="work_staff" />
+        </property>
+        <property name="other" type="java.lang.Integer">
+            <column name="other" />
+        </property>
+    </class>
+</hibernate-mapping>

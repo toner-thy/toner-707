@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 保密委员会控制器Struts配置 -->
+	<package name="secrecyCommittee" extends="com.cdthgk.project" namespace="/secrecyorganization/secrecycommittee">
+		<!-- 通用配置 -->
+			<!-- 详情配置 -->
+			<action name="secrecyCommittee_detail" method="detail" class="secrecyCommitteeAction">
+				<result name="detail">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommittee_detail.jsp</result>
+			</action>
+
+			<!-- 下级单位查看所属保密委员会信息 -->
+			<action name="secrecyCommittee_districtDetail" method="detail" class="secrecyCommitteeAction">
+				<result name="detail">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommittee_districtDetail.jsp</result>
+			</action>
+
+			<!-- 新增配置 -->
+			<action name="secrecyCommittee_add" method="add" class="secrecyCommitteeAction">
+				<result name="add">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommittee_add.jsp</result>
+				<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_detail</param>
+				</result>
+			</action>
+			<action name="secrecyCommittee_adding" method="adding" class="secrecyCommitteeAction">
+				<result name="edit_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_edit</param>
+					<param name="secrecyCommittee.secrecyCommitteeId">${secrecyCommittee.secrecyCommitteeId}</param>
+				</result>
+			</action>
+
+			<!-- 编辑配置 -->
+			<action name="secrecyCommittee_edit" method="edit" class="secrecyCommitteeAction">
+				<result name="edit">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommittee_edit.jsp</result>
+				<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_detail</param>
+				</result>
+			</action>
+			<action name="secrecyCommittee_editing" method="editing" class="secrecyCommitteeAction">
+				<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_detail</param>
+				</result>
+			</action>
+
+		<!-- 私有配置 -->
+			<!-- 请编写您的配置到这里 -->
+			<action name="secrecyCommittee_list" method="list" class="secrecyCommitteeAction">
+				<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_detail</param>
+					<param name="district.districtCode">${district.districtCode}</param>
+					<param name="va">1</param>
+					<param name="editable">0</param>
+				</result>
+			</action>
+			<action name="secrecyCommittee_main" method="main" class="secrecyCommitteeAction">
+				<result name="success">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/secrecyCommittee_main.jsp</result>
+			</action>
+			<!-- 上报 -->
+			<action name="secrecyCommittee_report" method="report" class="secrecyCommitteeAction">
+				<result name="detail_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/secrecyorganization/secrecycommittee</param>
+					<param name="actionName">secrecyCommittee_detail</param>
+				</result>
+			</action>
+
+			<!-- 导出 -->
+			<action name="secrecyCommittee_exportData" class="secrecyCommitteeAction" method="exportData">
+				<result name="success" type="excel">
+					<param name="location">/exportExcel/secrecyCommitteeExprotTemplet.xlsx</param>
+					<param name="fileName">${secrecyCommittee.name}.xlsx</param>
+				</result>
+			</action>
+
+			<!-- 单位综合统计用 -->
+		<action name="personGroup_stat" method="stat" class="secrecyCommitteeAction">
+			<result name="stat">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/stat/personGroup_stat.jsp</result>
+			<result name="stat_no">/bmp/secrecy-organization/secrecy-committee/borderlayout/view/stat/personGroup_stat_no.jsp</result>
+		</action>
+
+
+	</package>
+</struts>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="cdthgk-thgk-platform builder" default="build" basedir="."
+	 xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:ecf="antlib:com.cdthgk.ace">
+	<!-- 注意：每当增加一个模块，需要对ant修改增加相应模块部署目录 -->
+
+
+	<!-- 版本名称 -->
+	<property name="version" value="0" />
+	<property name="subVersion" value="1" />
+	<property name="reversion" value="3" />
+	<property name="pubVersion" value="${version}.${subVersion}.${reversion}" />
+	<!-- 项目名称 -->
+	<property name="projectName" value="cdthgk-zbmp"/>
+	<!-- 编译临时目录 -->
+	<property name="buildTempDir" location="build_temp" />
+	<property name="runtimeDir" location="runtime_temp"/>
+
+	<property name="src" location="${buildTempDir}/src" />
+	<property name="ecfBin" location="${buildTempDir}/ecfBin" />
+	<property name="jarFile" value="${projectName}-${pubVersion}.jar" />
+	<property name="webResourceTarget" location="${buildTempDir}/ecfBin/webResource" />
+
+	<property name="releaseZipFile" value="${projectName}-${pubVersion}.zip" />
+
+	<!-- 删除编译临时目录 -->
+	<target name="deleteFold">
+		<delete dir="${buildTempDir}" />
+		<delete dir="${ecfBin}" />
+		<delete dir="${src}" />
+	</target>
+
+	<target name="createFold" depends="deleteFold">
+		<tstamp />
+		<mkdir dir="${buildTempDir}" />
+		<mkdir dir="${ecfBin}" />
+		<mkdir dir="${src}" />
+	</target>
+
+	<target name="antCopyBin" depends="createFold">
+		<copy todir="${webResourceTarget}">
+			<fileset dir="${basedir}/platform337-patch/patch013">
+			</fileset>
+		</copy>
+		<!-- 配置信息 -->
+		<copy todir="${ecfBin}" file="thgk-module.properties"/>
+		<copy todir="${src}/META-INF">
+			<fileset dir="${basedir}/WebContent/WEB-INF/">
+				<include name="*.tld"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="jarBin" depends="antCopyBin">
+		<jar destfile="${jarFile}" basedir="${ecfBin}">
+			<include name="**" />
+			<manifest>
+				<attribute name="Built-By" value="taohy" />
+				<attribute name="Version" value="${pubVersion}"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="resolve">
+			<ivy:configure file="E:/soft/programe_ide/eclipse_3.7/ivysettings.xml"/>
+			<ivy:settings id="settings" file="E:/soft/programe_ide/eclipse_3.7/ivysettings.xml"/>
+			<ivy:resolve file="bmp-patch-ivy-build.xml" conf ="${ivy.configurations}" revision="${pubVersion}"/>
+			<ivy:retrieve pattern="${ivy.retrieve.pattern}" conf="${ivy.configurations}"/>
+	    </target>
+
+	<target name="publish"
+	        description="--> Publish share" depends="resolve">
+			<ivy:publish resolver="share-publish"
+					revision="${pubVersion}"
+		            update="true"
+		            overwrite="true"
+					settingsref="settings">
+				<artifacts pattern="[artifact]-[revision]-[type].[ext]"/>
+	            <artifacts pattern="[artifact]-[revision].[ext]"/>
+	        </ivy:publish>
+		</target>
+
+	<!-- 删除编译临时目录 -->
+	<target name="clear" >
+		<tstamp />
+		<delete dir="${buildTempDir}" />
+		<delete file="${jarFile}" />
+		<delete file="ivy-${pubVersion}-ivy.xml" />
+	</target>
+
+	<target name="build" depends="clear"/>
+
+</project>

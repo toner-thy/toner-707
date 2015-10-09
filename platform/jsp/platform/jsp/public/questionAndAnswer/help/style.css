@@ -1,0 +1,167 @@
+@import url("reset.css");
+/*定义基本字体样式 */
+body, td, th
+{
+	color: #333333;
+	line-height: 22px;
+	font-family: "宋体", arial, helvetica, clean, sans-serif;
+	font-size: 12px;
+}
+.red {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF6600;
+}
+img{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+/* 基本字体色*/
+a
+{
+	color: #008800;
+	text-decoration: none;
+}
+/*链接无下划线 基本字体色 */
+a:hover
+{
+	color: #FF6600;
+	text-decoration: underline;
+}
+/* 公共css部分 */
+html, body
+{
+	margin: 0px;
+}
+.clearfloat
+{
+	/* 此类应当放在 div 或 break 元素上，而且该元素应当是完全包含浮动的容器关闭之前的最后一个元素 */
+	clear: both;
+	line-height: 0px;
+	height: 0;
+	font-size: 1px;
+}
+
+#header {
+	height: 157px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+}
+#footer {
+	height: 70px;
+	width: 980px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	clear: both;
+}#main {
+	width: 98%;
+	margin-right: auto;
+	margin-left: auto;
+}
+#topnav {
+	width: 100%;
+	margin-bottom: 5px;
+	padding-left: 6px;
+}
+#content {
+	width: 100%;
+	height: 100%;
+}
+#leftside {
+	width: 228px;
+	border: 1px solid #CCCCCC;
+	float: left;
+	margin-right: 10px;
+}
+.pp {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+.bg {
+	background-image: url(../images/menu_bj.jpg);
+	background-repeat: repeat-x;
+	text-align: left;
+	text-indent: 10px;
+	height: 25px;
+	width: 228px;
+	padding-top: 6px;
+	font-size: 14px;
+	font-weight: bold;
+}
+.fuwu {
+	text-align: left;
+	width: 218px;
+}
+.fuwu ul {
+}
+.fuwu li {
+	background-image: url(../images/arrow.jpg);
+	background-repeat: no-repeat;
+	padding-left: 35px;
+	text-decoration: none;
+	text-align: left;
+	background-position: 25px;
+	margin-top: 5px;
+}
+.fuwu li a{
+	text-decoration: none;
+	color: #333333;
+}
+.fuwu li a:hover{
+	color: #FF6600;
+	text-decoration: underline;
+}
+#wenti {
+	margin-bottom: 3px;
+	background-image: url(../images/biaoti_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	height: 26px;
+	clear: both;
+}
+.kuang01 {
+	background-image: url(../images/bg_1.jpg);
+	background-repeat: no-repeat;
+	text-align: center;
+	height: 22px;
+	width: 114px;
+	/**cursor: pointer;*/
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-top: 2px;
+}
+.gray_bj {
+	background-color: #eaeaea;
+	height: 23px;
+	padding-top: 3px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+#rightside {
+	float: left;
+	width: 75%;
+	z-index: 9999;
+}
+.hongse{
+	color:#FF0000;
+	font-weight:bold;}
+.chengse {
+	color: #FF6600;
+}
+/* add 2010-12-13 */
+.recashol, .recashul{ padding:0 0 15px 15px;}
+.recashol li, .recashul li{ line-height:24px;}
+.recashul .dot{ color:#787878; font-size:14px;}
+.recashFAQ{ padding:8px 0 0 15px; border-top:1px dashed #ccc;}
+.recashFAQ h2{ height:31px; line-height:31px; font-weight:bold;}
+.recashFAQ p{ line-height:24px;}
+.recashFAQ em{ font-style:normal; color:#ff6600;}

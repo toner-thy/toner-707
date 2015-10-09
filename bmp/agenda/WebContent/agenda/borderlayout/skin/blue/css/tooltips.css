@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*Tooltips*/
+.tooltips, .tooltipsanchor{
+position:relative; /*这个是关键，这个相对位置，使得tipsmsg的absolute定位是根据这个来定位top和left的。*/
+z-index:15;
+color:black;
+}
+.tooltips:hover{
+z-index:20;
+background:none; /*没有这个在IE中不可用*/
+}
+.tooltips .tipsmsg , 
+.tooltips .tipsmsgright {
+display: none;
+max-width:800px;
+min-width:100px;
+text-decoration:none;
+padding: 5px 10px;
+text-align:center;
+cursor:default;
+white-space : nowrap; /*normal,nowrap允许换行，如果不允许就改为nowrap*/
+}
+
+.tooltips:hover .tipsmsg , .tooltips:focus .tipsmsg{ /*span 标签仅在 :hover 状态时显示*/
+display:block;
+position:absolute;
+top:21px;
+left:9px;
+border:1px solid black;
+background-color:#ccFFFF;
+margin:5px;
+color:black;
+}
+.tooltips:hover .tipsmsgright , .tooltips:focus .tipsmsgright{ /*span 标签仅在 :hover 状态时显示*/
+display:block;
+position:absolute;
+top:-8px;
+left:25px;
+border:1px solid black;
+background-color:#ccFFFF;
+margin:5px;
+color:black;
+}
+
+a.tooltips , a.tooltips:hover
+{
+	cursor: default;
+	text-decoration: none;
+	color:black;
+}

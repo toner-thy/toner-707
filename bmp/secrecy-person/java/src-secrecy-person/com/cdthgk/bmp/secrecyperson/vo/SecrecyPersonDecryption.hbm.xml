@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-7-17 14:21:58 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecyperson.vo.SecrecyPersonDecryption" table="bm_secrecy_person_decryption">
+        <id name="secrecyPersonDecryptionId" type="string">
+            <column name="bm_secrecy_person_decryption_id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+         <many-to-one name="secrecyPersonId" class="com.cdthgk.bmp.secrecyperson.vo.SecrecyPerson" fetch="select">
+			<column name="secrecy_person_id" length="39">
+				<comment>涉密人员</comment>
+			</column>
+		</many-to-one>
+        <property name="decryptionType" type="java.lang.Integer">
+            <column name="decryption_type">
+                <comment>脱密类型</comment>
+            </column>
+        </property>
+        <property name="decryptionLimit" type="java.lang.Integer">
+            <column name="decryption_limit">
+                <comment>脱密期限</comment>
+            </column>
+        </property>
+        <property name="limitMeasure" type="java.lang.Integer">
+            <column name="limit_measure">
+                <comment>脱密期限单位</comment>
+            </column>
+        </property>
+        <property name="decryptionStart" type="timestamp">
+            <column name="decryption_start" length="19">
+                <comment>脱密时间起</comment>
+            </column>
+        </property>
+        <property name="decryptionEnd" type="timestamp">
+            <column name="decryption_end" length="19">
+                <comment>脱密时间止</comment>
+            </column>
+        </property>
+        <property name="decryptionReason" type="string">
+            <column name="decryption_reason" length="2000">
+                <comment>脱密说明</comment>
+            </column>
+        </property>
+
+        <many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">
+			<column name="create_person" length="39">
+				<comment>创建人</comment>
+			</column>
+		</many-to-one>
+
+        <property name="createDate" type="timestamp">
+            <column name="create_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

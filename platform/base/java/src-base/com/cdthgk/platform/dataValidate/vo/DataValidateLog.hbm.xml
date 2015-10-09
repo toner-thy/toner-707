@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-30 14:43:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.platform.dataValidate.vo.DataValidateLog" table="sys_data_validate_log">
+        <id name="dataValidateLogId" type="string">
+            <column name="DATA_VALIDATE_LOG_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+        </id>
+        <property name="createTime" type="date">
+            <column name="CREATE_TIME" length="10">
+            </column>
+        </property>
+		<many-to-one name="createOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+            <column name="create_organ" length="39">
+            </column>
+        </many-to-one>
+
+        <many-to-one name="createPerson" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo" fetch="select">
+            <column name="create_person" length="39">
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

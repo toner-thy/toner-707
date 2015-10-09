@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-5-26 16:45:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.cdthgk.platform.sysReleaseLog.vo.SysReleaseLog" table="sys_release_log" >
+        <id name="logId" type="string">
+            <column name="LOG_ID" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <property name="releasePerson" type="string">
+            <column name="RELEASE_PERSON" length="100" not-null="true">
+                <comment>������</comment>
+            </column>
+        </property>
+        <property name="releaseDate" type="java.util.Date">
+            <column name="RELEASE_DATE" length="19" not-null="true">
+                <comment>����ʱ��</comment>
+            </column>
+        </property>
+        <property name="releaseVersion" type="string">
+            <column name="RELEASE_VERSION" length="100">
+                <comment>�����汾��</comment>
+            </column>
+        </property>
+        <property name="releaseCodeVersion" type="string">
+            <column name="RELEASE_CODE_VERSION" length="100">
+                <comment>�����Ĵ���汾��</comment>
+            </column>
+        </property>
+        <property name="releaseContent" type="string">
+            <column name="RELEASE_CONTENT" length="4000">
+                <comment>��������</comment>
+            </column>
+        </property>
+        <property name="releaseAttention" type="string">
+            <column name="RELEASE_ATTENTION" length="2000">
+                <comment>ע������</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="2000">
+                <comment>��ע</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

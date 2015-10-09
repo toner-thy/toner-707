@@ -1,0 +1,43 @@
+注意：
+
+	补丁解压后放在项目根目录，直接进行覆盖、更新即可。
+
+
+发布日志：
+	patch001:	platform-patch20140310.zip
+			1、修改弹出消息，下一次弹出的消息没有关闭上一次弹出的消息，关闭是需要关闭N个弹出况。
+	patch002:	platform-patch20140331.zip
+			1、包含补丁patch001。
+			2、修改统一权限划分时，单位添加共享角色下的用户，会覆盖该角色下包含的其他用户。
+	patch003:	platform-patch20140403.zip
+			1、包含补丁patch002。
+			2、修改默认选项卡的鼠标滑动事件为点击事件。
+	patch004:   platform-patch20140425.zip
+	        1、包含补丁patch003。
+	        2、修改打开超过十个标签页时的提示信息。
+	        3、修改在线用户显示样式。
+	        4、修改"使用帮助"，调用组件。
+	        5、去掉zip包，直接放入文件。通过bmp-pathch-build.xml打包cdthgk-zbmp.jar，通过IVY拖包到BMP中。
+	patch005:   platform-patch20140529.zip
+			1、包含补丁patch004。
+	        2、首页增加功能导航、升级日志。
+	patch006:   platform-patch20140610.zip
+	        1、包含补丁patch005。
+	        2、优化附件显示为2行，邮件中附件为优化
+	patch007:   platform-patch20140611.zip
+	        1、包含补丁patch006。
+	        2、共享角色时，加入单位过多时，页面需要等待1分钟。
+	        3、根据单位类型判断，BMP登陆首页界面是系统初始界面，BMS是登陆首页界面新手向导。
+	patch008:   platform
+	        1、包含补丁patch007。
+	        2、系统登陆后进入，显示弹出遮罩层
+	patch009:   宋亚非
+	patch010:   cdthgk-zbmp-0.1.0.jar
+			1、添加桌面
+	patch011:   cdthgk-zbmp-0.1.1.jar
+			1、桌面样式设计
+			2、修改子系统进入方案
+	patch012:   cdthgk-zbmp-0.1.2.jar
+			1、新手引导修改为业务引导
+	patch013:   cdthgk-zbmp-0.1.3.jar
+			1、取消登录后显示的桌面

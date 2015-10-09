@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.thgk.action.DataAuthority" namespace="/bmp/dataAuthority" extends="com.cdthgk.project">
+		<action name="dataAuthority_list" class="bmp.dataAuthorityAction" method="list">
+	       	<result name="success">/platform/jsp/public/dataAuthority/dataAuthority_list.jsp</result>
+        </action>
+
+		<action name="dataAuthority_query_list_main" class="bmp.dataAuthorityAction" method="query_list_main">
+	       	<result name="success">/platform/jsp/public/dataAuthority/dataAuthority_query_main.jsp</result>
+        </action>
+
+		<action name="dataAuthority_query_list_list" class="bmp.dataAuthorityAction" method="query_list_list">
+	       	<result name="success">/platform/jsp/public/dataAuthority/dataAuthority_userinfo_list.jsp</result>
+        </action>
+		<action name="dataAuthority_query_list_stype" class="bmp.dataAuthorityAction" method="query_list_stype">
+        </action>
+	    <action name="dataAuthority_detail"  class="bmp.dataAuthorityAction" method="detail">
+			<result name="success">/platform/jsp/public/dataAuthority/dataAuthority_detail.jsp</result>
+		</action>
+
+		<action name="dataAuthority_add" class="bmp.dataAuthorityAction" method="add">
+	       	<result name="success">/platform/jsp/public/dataAuthority/dataAuthority_add.jsp</result>
+        </action>
+		<action name="dataAuthority_edit" class="bmp.dataAuthorityAction" method="edit">
+	       	<result name="success">/platform/jsp/public/dataAuthority/dataAuthority_edit.jsp</result>
+        </action>
+		<action name="dataAuthority_editing" class="bmp.dataAuthorityAction" method="editing">
+	       	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/dataAuthority</param>
+				<param name="actionName">dataAuthority_detail_userInfo</param>
+				<param name="dataAuthority.dataId">${dataAuthority.dataId}</param>
+				<param name="userInfo.userInfoId">${userInfo.userInfoId}</param>
+			</result>
+        </action>
+        <action name="dataAuthority_adding"  class="bmp.dataAuthorityAction" method="adding">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/dataAuthority</param>
+				<param name="actionName">dataAuthority_query_list_list</param>
+				<param name="dataId">${dataId}</param>
+			</result>
+		</action>
+		<action name="dataAuthority_del"  class="bmp.dataAuthorityAction" method="del">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/dataAuthority</param>
+				<param name="actionName">dataAuthority_query_list_list</param>
+				<param name="dataId">${dataId}</param>
+			</result>
+		</action>
+
+		<action name="dataAuthority_detail_userInfo"  class="bmp.dataAuthorityAction" method="detail_userInfo">
+			<result name="success">/platform/jsp/public/dataAuthority/dataAuthority_userinfo_detail.jsp</result>
+		</action>
+
+	</package>
+</struts>

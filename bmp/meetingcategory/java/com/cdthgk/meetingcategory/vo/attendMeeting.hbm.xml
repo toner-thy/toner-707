@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.meetingcategory.vo.AttendMeeting" table="bm_attend_meeting">
+       	<id name="attendMeetingId">
+       		<column name="attend_meeting_id"></column>
+       		<generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator"/>
+       	</id>
+		<many-to-one name="meeting" column="meeting_Id"/>
+		<property name="attendMeetingContent" column="attend_Meeting_Content"></property>
+		<property name="attendMeetingName" column="attend_Meeting_Name"></property>
+		<property name="commitInfoTime" column="commit_Info_Time"></property>
+
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="ATTEND_ORGAN" length="39">
+                <comment>举办人员</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department">
+            <column name="ATTEND_DEPARTMENT" length="39">
+                <comment>举办人员</comment>
+            </column>
+        </many-to-one>
+
+        <many-to-one name="userInfo" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+        	<column name="ATTEND_USERINFO" length="39">
+                <comment>举办人员</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

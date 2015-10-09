@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.secrecysystem.secrecynetworkterminal"  namespace="/bmp/secrecynetworkterminal" extends="com.cdthgk.project">
+		<action name="secrecyNetworkterminal_mainQuery" class="bmp.secrecyNetworkterminalAction" method="mainQuery">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetworkterminal_mainQuery.jsp</result>
+        </action>
+		<action name="secrecyNetworkterminal_list" class="bmp.secrecyNetworkterminalAction" method="list">
+        	<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetworkterminal_list.jsp</result>
+        </action>
+
+		<action name="secrecyNetworkterminal_export" class="bmp.secrecyNetworkterminalAction" method="export">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetworkterminal_Templet.xlsx</param>
+				<param name="fileName">涉密网络终端.xlsx</param>
+			</result>
+        </action>
+
+ 		<!-- 计算机  接入网络  新增保存 -->
+        <action name="secrecyNetworkterminal_save" class="bmp.secrecyNetworkterminalAction" method="save">
+        	<result name="add_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/secrecycomputer</param>
+				<param name="actionName">secrecyComputer_addNet</param>
+				<param name="secrecyComputer.secrecycomputerId">${secrecyComputer.secrecycomputerId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+		<!-- 计算机 接入网络 移除保存 -->
+        <action name="secrecyNetworkterminal_remove" class="bmp.secrecyNetworkterminalAction" method="remove">
+        	<result name="remove_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/secrecycomputer</param>
+				<param name="actionName">secrecyComputer_removeNet</param>
+				<param name="secrecyComputer.secrecycomputerId">${secrecyComputer.secrecycomputerId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+ 		<!-- 网络  接入计算机 新增保存 -->
+        <action name="secrecyNetworkterminal_saveTerminals" class="bmp.secrecyNetworkterminalAction" method="saveTerminals">
+        	<result name="add_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/secrecynetwork</param>
+				<param name="actionName">secrecyNetwork_addComputer</param>
+				<param name="secrecyNetwork.secrecyNetworkId">${secrecyNetwork.secrecyNetworkId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+		<!-- 网络 接入计算机 移除保存 -->
+        <action name="secrecyNetworkterminal_removeTerminals" class="bmp.secrecyNetworkterminalAction" method="removeTerminals">
+        	<result name="remove_action" type="com.cdthgk.web.stateRedirectAction">
+				<param name="namespace">/bmp/secrecynetwork</param>
+				<param name="actionName">secrecyNetwork_rmcomputer</param>
+				<param name="secrecyNetwork.secrecyNetworkId">${secrecyNetwork.secrecyNetworkId}</param>
+				<param name="secrecyNetworkterminal.secrecynetworkterminalId">${secrecyNetworkterminal.secrecynetworkterminalId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+		<!-- 主页 涉密网络统计 -->
+		<action name="secrecyNetworkterminal_indexView" method="indexView" class="bmp.secrecyNetworkterminalAction">
+			<result name="organView">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetworkterminal_indexView.jsp</result>
+			<result name="layerView">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetworkterminal_indexViewLayer.jsp</result>
+		</action>
+
+		<action name="secrecyNetworkterminal_countData" method="countData" class="bmp.secrecyNetworkterminalAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetworkterminal_countData.jsp</result>
+		</action>
+		<action name="secrecyNetworkterminal_countSubData" method="countSubData" class="bmp.secrecyNetworkterminalAction">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/secrecyNetworkterminal_countSubData.jsp</result>
+		</action>
+
+		<!-- 综合统计 -->
+		<!--综合统计 查询 通过行政区划    查询涉密网络终端个数 的明细列表 包括当前行政区划 和下级行政区划 的涉密网络终端的明细-->
+		<action name="zhtj_query_Detail" class="bmp.secrecyNetworkterminalAction" method="zhtj_query_Detail">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/secrecyNetworkterminal_stat_stat.jsp</result>
+		</action>
+		<!--综合统计 查询 统计行政区划涉密网络终端   统计行政区下的直辖单位情况  分单位显示-->
+		<action name="zhtj_queryByDistrict" class="bmp.secrecyNetworkterminalAction" method="zhtj_queryByDistrict">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/secrecyNetworkterminal_stat_organList.jsp</result>
+		</action>
+		<!--综合统计      通过行政区划查询 涉密网络终端  本单位的情况   -->
+		<action name="zhtj_DetailList" class="bmp.secrecyNetworkterminalAction" method="zhtj_DetailList">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/secrecyNetworkterminal_stat_DetailList.jsp</result>
+		</action>
+
+		<!-- 综合统计导出   行政区划统计   -->
+		<action name="stat_exportDistrict" class="bmp.secrecyNetworkterminalAction" method="stat_exportDistrict">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/ZongHeTongJi_District.xlsx</param>
+				<param name="fileName">行政区划-涉密网络终端统计(综合统计).xlsx</param>
+			</result>
+		</action>
+		<!-- 综合统计导出  行政区下统计   -->
+		<action name="stat_exportLayer" class="bmp.secrecyNetworkterminalAction" method="stat_exportLayer">
+			<result name="success" type="excel">
+				<param name="location">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/ZongHeTongJi_Layer.xlsx</param>
+				<param name="fileName">行政区内-涉密网络终端统计(综合统计).xlsx</param>
+			</result>
+		</action>
+
+		<action name="zhtj_query" class="bmp.secrecyNetworkterminalAction" method="zhtj_query">
+			<result name="success">/bmp/secrecy-system/secrecy-network/borderlayout/view/stat/secrecyNetworkterminal_stat_stat.jsp</result>
+		</action>
+
+  </package>
+</struts>

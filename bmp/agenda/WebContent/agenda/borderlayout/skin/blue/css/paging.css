@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+table.paging /*翻页用*/
+{
+	border: none !important;
+	padding:0;
+	margin:3px 0 0 0;
+	font-family:Arial ;
+	vertical-align:middle;
+}
+ul#pagingshow{
+	list-style-type: none;
+	float: right;
+	display: inline;
+	clear: both;
+	width:auto;
+}
+ul#pagingshow li{
+	float: left;
+	display: inline;
+	width:20px;
+	height: 20px;
+	margin: 2px;
+			
+}
+ul#pagingshow li a {
+	font-family:Arial ;
+	display: block;
+	width:20px;
+	height:20px;
+	border:1px #999 solid;  /*如果想去掉边框，就在这里设置*/
+	color:#0984FF;
+	background-color:#fff;
+	text-decoration: none;
+	line-height: 20px;
+	font-size: 12px;
+	text-align: center;
+	font-weight: bold;
+}
+ul#pagingshow li a:hover{
+	position: absolute;
+	width:28px;
+	height: 28px;
+	line-height: 28px; /*行高和实际高度一样，会让文字垂直居中*/
+	font-size: 18px;
+	z-index:99;
+	margin: -4px 0 0 -4px; /*由于变成了绝对定位，此时边距为负值，会导致向左上偏移*/
+}
+
+ul#pagingshow li.curPage {
+
+	display: block;
+	width:20px;
+	height:20px;
+	border:1px #666 solid;  /*如果想去掉边框，就在这里设置*/
+	color:#FFF;
+	text-decoration: none;
+	/*font-size: 18px;*/
+	text-align: center;
+	font-weight: bold;
+	background-color: #0984FF;
+	line-height: 20px; 
+}
+
+ul#pagingshow li.curPage:hover {
+
+	display: block;
+	width:20px;
+	height:20px;
+	/*border:1px #999 solid;  /*如果想去掉边框，就在这里设置*/
+	/*color:#0984FF;
+	background-color:#fff;*/
+	text-decoration: none;
+	text-align: center;
+	font-weight: bold;
+}
+
+ul#pagingshow li.curPage a{
+
+	display: block;
+	width:20px;
+	height:20px;
+	border:1px #D00 solid;  /*如果想去掉边框，就在这里设置*/
+	color:#FFF;
+	text-decoration: none;
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #0984FF;
+	line-height: 20px; 
+}
+
+ul#pagingshow li.curPage a:hover {
+
+	display: block;
+	border:1px #999 solid;  /*如果想去掉边框，就在这里设置*/
+	color:#0984FF;
+	background-color:#fff;
+	text-decoration: none;
+	line-height: 20px;
+	text-align: center;
+	font-weight: bold;
+	padding:0;
+}
+.inputpagenum , .inputdoublenum
+{
+	font-size:100%;
+	margin:0px;
+	width:28px;
+	text-align:right;
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="bm.infoService" class="com.cdthgk.bmp.info.service.impl.InfoServiceImpl" parent="platform.service"></bean>
+	<bean id="bm.infoTypeService" class="com.cdthgk.bmp.info.service.impl.InfoTypeServiceImpl" parent="platform.service"></bean>
+	<bean id="bm.infoLogService" class="com.cdthgk.bmp.info.service.impl.InfoLogServiceImpl" parent="platform.service"></bean>
+	<bean id="bm.infoWarnService" class="com.cdthgk.bmp.info.service.impl.InfoWarnServiceImpl" parent="platform.service"></bean>
+</beans>

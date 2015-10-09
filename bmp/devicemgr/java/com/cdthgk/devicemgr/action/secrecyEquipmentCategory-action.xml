@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.thgk.bmp.secrecyEquipmentCategory"  namespace="/bmp/secrecyEquipmentCategory" extends="com.cdthgk.project">
+		<!-- 新增用配置 -->
+		<action name="secrecyEquipmentCategory_add" method="add" class="secrecyEquipmentCategoryAction">
+			<result name="add">/bmp/devicemgr/borderlayout/view/secrecyEquipmentCategory_add.jsp</result>
+		</action>
+		<action name="secrecyEquipmentCategory_adding" method="adding" class="secrecyEquipmentCategoryAction">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyEquipmentCategory</param>
+				<param name="actionName">secrecyEquipmentCategory_edit</param>
+				<param name="secrecyEquipmentCategory.secrecyEquipmentCategoryId">${secrecyEquipmentCategory.secrecyEquipmentCategoryId}</param>
+			</result>
+		</action>
+		<!-- 编辑用配置 -->
+		<action name="secrecyEquipmentCategory_edit" method="edit" class="secrecyEquipmentCategoryAction">
+			<result name="edit">/bmp/devicemgr/borderlayout/view/secrecyEquipmentCategory_edit.jsp</result>
+		</action>
+		<action name="secrecyEquipmentCategory_editing" method="editing" class="secrecyEquipmentCategoryAction">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyEquipmentCategory</param>
+				<param name="actionName">secrecyEquipmentCategory_edit</param>
+				<param name="secrecyEquipmentCategory.secrecyEquipmentCategoryId">${secrecyEquipmentCategory.secrecyEquipmentCategoryId}</param>
+			</result>
+		</action>
+		<!-- 删除用配置 -->
+		<action name="secrecyEquipmentCategory_delete" method="delete" class="secrecyEquipmentCategoryAction">
+			<result name="list_action" type="stateRedirectAction">
+				<param name="namespace">/bmp/secrecyEquipmentCategory</param>
+				<param name="actionName">secrecyEquipmentCategory_edit</param>
+				<param name="secrecyEquipmentCategory.secrecyEquipmentCategoryId">${secrecyEquipmentCategory.secrecyEquipmentCategoryId}</param>
+			</result>
+		</action>
+
+		<!-- 私有配置 -->
+		<action name="secrecyEquipmentCategory_main" method="main" class="secrecyEquipmentCategoryAction">
+			<result name="main">/bmp/devicemgr/borderlayout/view/secrecyEquipmentCategory_main.jsp</result>
+		</action>
+		<action name="secrecyEquipmentCategory_tree" method="tree" class="secrecyEquipmentCategoryAction">
+			<result name="tree">/bmp/devicemgr/borderlayout/view/secrecyEquipmentCategory_tree.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.secrecynet.secrecytechnologytrain.vo.SecrecyTechnologyTrainContent" table="bm_net_secrecy_technology_train_content">
+        <!-- 主键ID -->
+        <id name="id" type="java.lang.String">
+            <column name="ID" length="39" />
+            <generator class="uuid" />
+        </id>
+		<property name="year" type="java.lang.Integer">
+			<column name="YEAR" length="11">
+				<comment>年</comment>
+			</column>
+		</property>
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
+			<column name="ORGAN" >
+				<comment>单位</comment>
+			</column>
+		</many-to-one>
+
+       <!--  <many-to-one name="secrecyTechnologyTrain" class="com.cdthgk.bmp.secrecynet.secrecytechnologytrain.vo.SecrecyTechnologyTrain" fetch="select">
+            <column name="PARENT_ID" length="39">
+                <comment>父亲级id</comment>
+            </column>
+        </many-to-one> -->
+		<property name="secrityTechTrainNum" type="java.lang.Integer">
+			<column name="SECRITY_TECH_TRAIN_NUM" length="11">
+				<comment>保密技术培训次数</comment>
+			</column>
+		</property>
+		<property name="trainNum" type="java.lang.Integer">
+			<column name="TRAIN_NUM" length="11">
+				<comment>培训次数</comment>
+			</column>
+		</property>
+    </class>
+</hibernate-mapping>

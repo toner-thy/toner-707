@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+  "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <package name="secrecyOfficeStat" extends="com.cdthgk.project" namespace="/secrecyorganization/secrecyofficestat">
+    <action name="secrecyOfficeStat_statEstablishSituation" method="statEstablishSituation" class="bmp.secrecyOfficeStatAction">
+      <result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeStat_statEstablishSituation.jsp</result>
+    </action>
+    <action name="secrecyOfficeStat_statOnlineSituation" method="statOnlineSituation" class="bmp.secrecyOfficeStatAction">
+      <result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeStat_statOnlineSituation.jsp</result>
+    </action>
+    <action name="secrecyOfficeStat_statEstablishSituationOrgan" method="statEstablishSituationOrgan" class="bmp.secrecyOfficeStatAction">
+      <result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeStat_statEstablishSituationOrgan.jsp</result>
+    </action>
+    <action name="secrecyOfficeStat_statOnlineSituationOrgan" method="statOnlineSituationOrgan" class="bmp.secrecyOfficeStatAction">
+      <result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeStat_statOnlineSituationOrgan.jsp</result>
+    </action>
+    <action name="secrecyOfficeStat_statInfrastructure" method="statInfrastructure" class="bmp.secrecyOfficeStatAction">
+      <result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeStat_statInfrastructure.jsp</result>
+    </action>
+    <action name="secrecyOfficeStat_statInfrastructureOrgan" method="statInfrastructureOrgan" class="bmp.secrecyOfficeStatAction">
+      <result name="success">/bmp/secrecy-organization/secrecy-office/borderlayout/view/secrecyOfficeStat_statInfrastructureOrgan.jsp</result>
+    </action>
+	<!-- 导出 -->
+	<action name="secrecyOfficeStat_exportEstablishSituation" method="exportEstablishSituation" class="bmp.secrecyOfficeStatAction" >
+		<result name="success" type="excel">
+			<param name="location">/bmp/secrecy-organization/secrecy-office/borderlayout/view/exportEstablishSituationTemplet.xlsx</param>
+			<param name="fileName">保密办（保密局）统计.xlsx</param>
+		</result>
+	</action>
+	<action name="secrecyOfficeStat_exportOnlineSituation" method="exportOnlineSituation" class="bmp.secrecyOfficeStatAction" >
+		<result name="success" type="excel">
+			<param name="location">/bmp/secrecy-organization/secrecy-office/borderlayout/view/exportOnlineSituationTemplet.xlsx</param>
+			<param name="fileName">保密办（保密局）统计.xlsx</param>
+		</result>
+	</action>
+	<action name="secrecyOfficeStat_exportInfrastructure" method="exportInfrastructure" class="bmp.secrecyOfficeStatAction" >
+		<result name="success" type="excel">
+			<param name="location">/bmp/secrecy-organization/secrecy-office/borderlayout/view/exportInfrastructureTemplet.xlsx</param>
+			<param name="fileName">保密办（保密局）统计.xlsx</param>
+		</result>
+	</action>
+  </package>
+</struts>
