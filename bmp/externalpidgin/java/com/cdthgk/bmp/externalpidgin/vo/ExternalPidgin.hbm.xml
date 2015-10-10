@@ -80,6 +80,11 @@
                 <comment>内容</comment>
             </column>
         </property>
+        <property name="plan" type="java.lang.String">
+            <column name="plan" length="2000">
+                <comment>活动保密预案</comment>
+            </column>
+        </property>
         <many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select" >
             <column name="ORGAN_ID" length="39">
                 <comment>单位ID</comment>

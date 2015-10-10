@@ -37,6 +37,7 @@ public class ExternalPidgin extends BaseDomain implements java.io.Serializable {
 	private String secrecyDutier;
 	private String dutierHeadship;
 	private String content;
+	private String plan;
 	private Department department;
 	private Organ organ;
 
@@ -337,5 +338,11 @@ public class ExternalPidgin extends BaseDomain implements java.io.Serializable {
 		this.inceptTime = inceptTime;
 	}
 
+	public String getPlan() {
+		return plan;
+	}
 
+	public void setPlan(String plan) {
+		this.plan = plan;
+	}
 }

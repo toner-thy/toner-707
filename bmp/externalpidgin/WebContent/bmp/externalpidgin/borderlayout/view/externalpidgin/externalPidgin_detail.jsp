@@ -177,6 +177,16 @@
 							</div>
 						</td>
 					</tr>
+					<tr height="36">
+						<td class="tbLable fr" valign="top">
+							活动保密预案：
+						</td>
+						<td  class="tbValue fl" colspan="3" valign="top" height="100">
+							<div style="word-wrap:break-word;overflow: hidden;width: 400px">
+								${externalPidgin.plan}
+							</div>
+						</td>
+					</tr>
 				</table>
 				<table class="content_table st no_print" width="100%;">
 						<tr>

@@ -215,6 +215,14 @@
 									<textarea name="externalPidgin.content" style="width:95%;height:100px;" class="textarea validate['length[500]']">${externalPidgin.content}</textarea>
 								</td>
 							</tr>
+							<tr >
+								<td align="right">
+									活动保密预案：
+								</td>
+								<td colspan="3" height="100px;" valign="top">
+									<textarea name="externalPidgin.plan" style="width:95%;height:100px;" class="textarea validate['length[2000]']">${externalPidgin.plan}</textarea>
+								</td>
+							</tr>
 
 							<!-- 附件 -->
 							<!-- <tr>
