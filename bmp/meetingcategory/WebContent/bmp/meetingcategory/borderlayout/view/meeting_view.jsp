@@ -71,48 +71,53 @@
 				<div class="panel_content panel_content_table">
 					<c:if test="${meeting !=null}">
 						<table class="content_table"  style="width: 100%">
-							<tr>
-								<td align="right" width="18%">
+							<tr style="height: 50px">
+								<td align="right" width="20%">
 									涉密会议（活动）名称：
 								</td>
-								<td width="40%">
-									${meeting.meetingName }<br></td>
+								<td width="30%">
+									${meeting.meetingName }
+								</td>
+								<td align="right" width="20%" >
+									会议资料管理情况：
+								</td>
+								<td width="30%">
+									<dictionary:text tableCode="bmp" fieldCode="manager_case" optionValue="${meeting.managerCase}"></dictionary:text>
+								</td>
+							</tr>
+
+							<tr style="height: 50px">
 								<td align="right" width="20%">
 									开会日期：
 								</td>
-								<td width="22%">&nbsp;&nbsp;<fmt:formatDate value='${meeting.meetingTime}' pattern='yyyy-MM-dd HH:mm'/><br></td>
-							</tr>
-
-							<tr>
-								<td align="right">
+								<td width="30%"><fmt:formatDate value='${meeting.meetingTime}' pattern='yyyy-MM-dd'/><br></td>
+								<td align="right" width="20%">
 									涉密等级：
 								</td>
-								<td>
+								<td width="30%">
 									<dictionary:text tableCode="bmp" fieldCode="secrecy_level_thing" optionValue="${meeting.secrecyLevel}"></dictionary:text>
-								</td>
-								<td align="right">
-									地点：
-								</td>
-								<td>
-									${meeting.place}
 								</td>
 							</tr>
 
-							<tr>
-								<td align="right">
+							<tr style="height: 50px">
+								<td align="right" width="20%">
+									地点：
+								</td>
+								<td width="30%">
+									${meeting.place}
+								</td>
+								<td align="right" width="20%">
 									出席人员：
 								</td>
-								<td align="left" colspan="4" valign="top" height="100">
-									<div style="word-wrap:break-word;overflow: hidden;width:99%;">
-										${meeting.attendUserInfoNames}
-									</div>
+								<td width="30%">
+										${meeting.attendUserInfos}
 								</td>
 							</tr>
 							<tr>
 								<td align="right">
 									会议知悉范围：
 								</td>
-								<td align="left" colspan="4" valign="top" height="100">
+								<td align="left" colspan="3" valign="top" height="100">
 									<div style="word-wrap:break-word;overflow: hidden;width:99%;">
 										${meeting.scope}
 									</div>
@@ -122,7 +127,7 @@
 								<td align="right">
 									保密办参与情况：
 								</td>
-								<td align="left" colspan="4" valign="top" height="100">
+								<td align="left" colspan="3" valign="top" height="100">
 									<div style="word-wrap:break-word;overflow: hidden;width:99%;">
 										${meeting.situation}
 									</div>
@@ -132,9 +137,19 @@
 								<td align="right">
 									主要管理措施：
 								</td>
-								<td align="left" colspan="4" valign="top" height="100">
+								<td align="left" colspan="3" valign="top" height="100">
 									<div style="word-wrap:break-word;overflow: hidden;width:99%;">
 										${meeting.measure}
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td align="right">
+									会议保密预案：
+								</td>
+								<td align="left" colspan="3" valign="top" height="100">
+									<div style="word-wrap:break-word;overflow: hidden;width:99%;">
+										${meeting.plan}
 									</div>
 								</td>
 							</tr>

@@ -130,54 +130,63 @@
 					<div class="panel_content panel_content_table">
 					<form id="meeting_add" class="form"  action="<s:url namespace='/bmp/meeting' action='meeting_update' includeParams='true'/>"  method="post"  enctype="multipart/form-data">
 						<table class="content_table">
-							<tr>
+							<tr style="height: 50px">
 								<td class="tbLable fr">
 									涉密会议（活动）名称：
 								</td>
-								<td class="tbValue fl" colspan="5">
-									<input name="meeting.meetingName" style="width: 95%" id="meeting.meetingName" type="text" value="${meeting.meetingName}" class="validate['required','length[128]']" size="19"><span style="color:red;">&nbsp;&nbsp;*</span>
+								<td class="tbValue fl">
+									<input name="meeting.meetingName" style="width: 70%" id="meeting.meetingName" type="text" value="${meeting.meetingName}" class="validate['required','length[128]']" size="19"><span style="color:red;">&nbsp;&nbsp;*</span>
+								</td>
+								<td class="tbLable fr">
+									会议资料管理情况：
+								</td>
+								<td class="tbValue fl">
+									<dictionary:select tableCode="bmp" fieldCode="manager_case" optionValue="${meeting.managerCase}"
+									 id="meeting.managerCase" name="meeting.managerCase" style="width: 132px;"/><span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
 							</tr>
-							<tr>
-								<td class="tbLable fr" style="width: 10%">
+							<tr style="height: 50px">
+								<td class="tbLable fr" style="width: 20%">
 									开会日期：
 								</td>
-								<td class="tbValue fl"style="width: 20%">
+								<td class="tbValue fl"style="width: 30%">
 									<input name="meetingTime" id="meetingTime" type="text" value="<fmt:formatDate value='${meeting.meetingTime}' pattern='yyyy-MM-dd'/>"
 									 class="Wdate validate['required']" onfocus="WdatePicker({isShowClear:true,dateFmt:'yyyy-MM-dd'})">
 									 <span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
-								<td class="tbLable fr" style="width: 10%">
+								<td class="tbLable fr" style="width: 20%">
 									涉密等级：
 								</td>
-								<td class="tbValue fl" style="width: 20%">
+								<td class="tbValue fl" style="width: 30%">
 								<dictionary:select tableCode="bmp" fieldCode="secrecy_level_thing"
 									 id="meeting.secrecyLevel" optionValue="${meeting.secrecyLevel}"
 									name="meeting.secrecyLevel" style="width: 132px;"/><span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
-								<td class="tbLable fr" style="width: 10%">
+							</tr>
+							<tr style="height: 50px">
+								<td class="tbLable fr" style="width: 20%">
 									地点：
 								</td>
-								<td class="tbValue fl" style="width: 20%">
-									<input name="meeting.place" id="meeting.place"  value="${meeting.place }" type="text"  class="validate['required','length[128]']" >
+								<td class="tbValue fl" style="width: 30%">
+									<input name="meeting.place" id="meeting.place" style="width: 70%"  value="${meeting.place }" type="text"  class="validate['required','length[128]']" >
 									<span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
-							</tr>
-							<tr style="height: 70px">
-								<td class="tbLable fr">
+								<td class="tbLable fr" style="width: 20%">
 									出席人员：
 								</td>
-								<td class="tbValue fl" colspan="5">
-									 <ui:multySelect textEl="readPersonNames" required="true"  value="${userInfos}"
-									 valueProperty="userInfoId" textProperty="name"   valueEl="meeting.attendUserInfos"
-									   buttonEl="readPerson" ></ui:multySelect>
+								<td class="tbValue fl" style="width: 30%">
+<%-- 									 <ui:multySelect textEl="readPersonNames" required="true"  value="${userInfos}" --%>
+<%-- 									 valueProperty="userInfoId" textProperty="name"   valueEl="meeting.attendUserInfos" --%>
+<%-- 									   buttonEl="readPerson" ></ui:multySelect> --%>
+									<input name="meeting.attendUserInfos" id="meeting.attendUserInfos" type="text"  class="validate['required','length[128]']" value="${meeting.attendUserInfos }">
+									<span style="color:red;">&nbsp;&nbsp;*</span>
 								 </td>
 							</tr>
 							<tr>
 								<td class="tbLable fr">
 									会议知悉范围：
 								</td>
-								<td class="tbValue fl" colspan="5">
+								<td class="tbValue fl" colspan="3">
 								    <textarea  style="width:99%;height:100px" class="validate['length[4000]']" name="meeting.scope">${meeting.scope}</textarea>
 								</td>
 							</tr>
@@ -185,7 +194,7 @@
 								<td class="tbLable fr">
 									保密办参与情况：
 								</td>
-								<td class="tbValue fl" colspan="5">
+								<td class="tbValue fl" colspan="3">
 								    <textarea  style="width:99%;height:100px" class="validate['length[4000]']" name="meeting.situation">${meeting.situation}</textarea>
 								</td>
 							</tr>
@@ -193,8 +202,16 @@
 								<td class="tbLable fr">
 									主要管理措施：
 								</td>
-								<td class="tbValue fl" colspan="5">
+								<td class="tbValue fl" colspan="3">
 								    <textarea  style="width:99%;height:100px" class="validate['length[4000]']" name="meeting.measure">${meeting.measure}</textarea>
+								</td>
+							</tr>
+							<tr>
+								<td class="tbLable fr">
+									会议保密预案：
+								</td>
+								<td class="tbValue fl" colspan="3">
+								    <textarea  style="width:99%;height:100px" class="validate['length[4000]']" name="meeting.plan">${meeting.plan}</textarea>
 								</td>
 							</tr>
 						</table>

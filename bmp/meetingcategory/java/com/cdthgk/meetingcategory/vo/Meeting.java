@@ -56,6 +56,9 @@ public class Meeting implements java.io.Serializable {
 	private Integer status;//删除时候0:删除了；1：显示
 	private MeetingCategory meetingCategory;//会议类型
 
+	private Integer managerCase;//会议资料管理情况
+	private String plan;//会议保密预案
+
 
         /**
          * @return 返回 meetingId
@@ -333,5 +336,17 @@ public class Meeting implements java.io.Serializable {
 		 */
 		public void setSecrecyLevelStr(String secrecyLevelStr) {
 			this.secrecyLevelStr = secrecyLevelStr;
+		}
+		public Integer getManagerCase() {
+			return managerCase;
+		}
+		public void setManagerCase(Integer managerCase) {
+			this.managerCase = managerCase;
+		}
+		public String getPlan() {
+			return plan;
+		}
+		public void setPlan(String plan) {
+			this.plan = plan;
 		}
 }

@@ -379,16 +379,16 @@ public class MeetingAction extends BmpAction {
         public String edit() {
                 meeting=meetingService.get(meeting.getMeetingId());
                 attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(meeting.getMeetingId());
-                if (StringUtils.isNotEmpty(meeting.getAttendUserInfos())){
-                        List<UserInfo> userInfos = new ArrayList<UserInfo>();
-                        String[]  strings=meeting.getAttendUserInfos().split(",");
-                        for (int i = 0; i < strings.length; i++) {
-                                String userInfoIdString=strings[i].trim();
-                                UserInfo userInfo = meetingService.get(userInfoIdString, UserInfo.class);
-                                userInfos.add(userInfo);
-                        }
-                        this.putToRequest("userInfos",userInfos);
-                }
+//                if (StringUtils.isNotEmpty(meeting.getAttendUserInfos())){
+//                        List<UserInfo> userInfos = new ArrayList<UserInfo>();
+//                        String[]  strings=meeting.getAttendUserInfos().split(",");
+//                        for (int i = 0; i < strings.length; i++) {
+//                                String userInfoIdString=strings[i].trim();
+//                                UserInfo userInfo = meetingService.get(userInfoIdString, UserInfo.class);
+//                                userInfos.add(userInfo);
+//                        }
+//                        this.putToRequest("userInfos",userInfos);
+//                }
                 if (meeting.getMeetingCategory().getMeetingCategoryId().equals("ca82caeb45d9c78f0145d9ce75990002")) {
                         //会议（活动）记录2
                         return "edit2";
@@ -496,20 +496,20 @@ public class MeetingAction extends BmpAction {
                         return "view0";
                 }
                 attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(meeting.getMeetingId());
-                if (StringUtils.isNotEmpty(meeting.getAttendUserInfos())){
-                        String[]  strings=meeting.getAttendUserInfos().split(",");
-                        String userInfos ="";
-                        for (int i = 0; i < strings.length; i++) {
-                                String userInfoIdString=strings[i].trim();
-                                UserInfo userInfo = meetingService.get(userInfoIdString, UserInfo.class);
-                                if (i==strings.length-1) {
-                                       userInfos+=userInfo.getName()+"。";
-                                }else {
-                                        userInfos+=userInfo.getName()+",";
-                                }
-                        }
-                        meeting.setAttendUserInfoNames(userInfos);
-                }
+//                if (StringUtils.isNotEmpty(meeting.getAttendUserInfos())){
+//                        String[]  strings=meeting.getAttendUserInfos().split(",");
+//                        String userInfos ="";
+//                        for (int i = 0; i < strings.length; i++) {
+//                                String userInfoIdString=strings[i].trim();
+//                                UserInfo userInfo = meetingService.get(userInfoIdString, UserInfo.class);
+//                                if (i==strings.length-1) {
+//                                       userInfos+=userInfo.getName()+"。";
+//                                }else {
+//                                        userInfos+=userInfo.getName()+",";
+//                                }
+//                        }
+//                        meeting.setAttendUserInfoNames(userInfos);
+//                }
                 if (meeting.getMeetingCategory().getMeetingCategoryId().equals("ca82caeb45d9c78f0145d9ce75990002")) {
                         //会议（活动）记录2
                         return "view2";

@@ -99,6 +99,11 @@ public class MeetingServiceImpl extends BmpServiceImpl<Meeting, String> implemen
 			hql += " and m.meetingName like :meetingName";
 			params.put("meetingName", "%" + meeting.getMeetingName() + "%");
 		}
+		// 会议出席人员查询
+		if (meeting != null && !"".equals(meeting.getAttendUserInfos()) && null != meeting.getAttendUserInfos()) {
+			hql += " and m.attendUserInfos like :attendUserInfos";
+			params.put("attendUserInfos", "%" + meeting.getAttendUserInfos() + "%");
+		}
 
 		// 会议分类查询
 		if (meeting != null
@@ -151,6 +156,11 @@ public class MeetingServiceImpl extends BmpServiceImpl<Meeting, String> implemen
                         hql += " and m.meetingName like :meetingName";
                         params.put("meetingName", "%" + meeting.getMeetingName() + "%");
                 }
+        		// 会议出席人员查询
+        		if (meeting != null && !"".equals(meeting.getAttendUserInfos()) && null != meeting.getAttendUserInfos()) {
+        			hql += " and m.attendUserInfos like :attendUserInfos";
+        			params.put("attendUserInfos", "%" + meeting.getAttendUserInfos() + "%");
+        		}
 
                 // 会议分类查询
                 if (meeting != null

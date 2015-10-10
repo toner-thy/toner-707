@@ -128,8 +128,12 @@
 					<table width="100%" class="st">
 						<tr>
 							<td class="tbLable fr">会议主题：</td>
-							<td colspan="3">
-								<input type="text" style="width:95%" name="meeting.meetingName" id="meeting.meetingName" value="${meeting.meetingName}"/>
+							<td class="tbValue fl">
+								<input type="text" style="width:65%" name="meeting.meetingName" id="meeting.meetingName" value="${meeting.meetingName}"/>
+							</td>
+							<td class="tbLable fr">出席人员：</td>
+							<td class="tbValue fl">
+								<input type="text" name="meeting.attendUserInfos" id="meeting.attendUserInfos" value="${meeting.attendUserInfos }"/>
 							</td>
 						</tr>
 						<tr>
@@ -186,6 +190,7 @@
 									</ec:column>
 									<ec:column property="meetingTime" title="开会日期" parse="yyyy-MM-dd" cell="date" width="12%" style="line-height:20px;padding:5px;"/>
 									<ec:column property="presenter.name" title="主持人" width="15%" style="line-height:20px;padding:5px;"/>
+									<ec:column property="attendUserInfos"  title="出席人员" width="15%" style="line-height:20px;padding:5px;" cell="text" alias="size=10"/>
 									<ec:column property="place"  title="地点" width="15%" style="line-height:20px;padding:5px;" cell="text" alias="size=10"/>
 									 <ec:column property="null" title="详  情" width="5%">
 										<a href="javascript:view('${aml.meetingId}');"><img src="${ctx}/platform/template/borderlayout/skin/blue/img/btn/display.gif" border="0"/></a>

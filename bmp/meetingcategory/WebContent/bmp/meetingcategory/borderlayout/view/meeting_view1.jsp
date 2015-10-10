@@ -71,41 +71,48 @@
 				<div class="panel_content panel_content_table">
 					<c:if test="${meeting !=null}">
 						<table class="content_table"  style="width: 100%">
-							<tr>
-								<td align="right" width="18%">
+							<tr style="height: 50px">
+								<td align="right" width="20%">
 									会议主题：
 								</td>
-								<td width="40%">
-									${meeting.meetingName }<br></td>
+								<td width="30%">
+									${meeting.meetingName }
+								</td>
+								<td align="right" width="20%" >
+									会议资料管理情况：
+								</td>
+								<td width="30%">
+									<dictionary:text tableCode="bmp" fieldCode="manager_case" optionValue="${meeting.managerCase}"></dictionary:text>
+								</td>
+							</tr>
+
+							<tr style="height: 50px">
 								<td align="right" width="20%">
 									开会日期：
 								</td>
-								<td width="22%">&nbsp;&nbsp;<fmt:formatDate value='${meeting.meetingTime}' pattern='yyyy-MM-dd HH:mm'/><br></td>
-							</tr>
-
-							<tr>
+								<td width="22%">
+									<fmt:formatDate value='${meeting.meetingTime}' pattern='yyyy-MM-dd'/>
+								</td>
 								<td align="right">
 									主持人：
 								</td>
 								<td>
 								${meeting.presenter.name}
 								</td>
+							</tr>
+
+							<tr style="height: 50px">
 								<td align="right">
 									地点：
 								</td>
 								<td>
 									${meeting.place}
 								</td>
-							</tr>
-
-							<tr>
 								<td align="right">
 									出席人员：
 								</td>
-								<td align="left" colspan="4" valign="top" height="100">
-									<div style="word-wrap:break-word;overflow: hidden;width: 98%">
-										${meeting.attendUserInfoNames}
-									</div>
+								<td align="left">
+									${meeting.attendUserInfos}
 								</td>
 							</tr>
 							<tr>
@@ -115,6 +122,16 @@
 								<td align="left" colspan="4" valign="top" height="100">
 									<div style="word-wrap:break-word;overflow: hidden;width: 98%">
 										${meeting.content}
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td align="right">
+									会议保密预案：
+								</td>
+								<td align="left" colspan="3" valign="top" height="100">
+									<div style="word-wrap:break-word;overflow: hidden;width:99%;">
+										${meeting.plan}
 									</div>
 								</td>
 							</tr>

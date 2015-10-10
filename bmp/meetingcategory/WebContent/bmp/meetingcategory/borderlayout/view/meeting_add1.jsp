@@ -130,45 +130,53 @@
 					<div class="panel_content panel_content_table">
 					<form id="meeting_add" class="form"  action="<s:url namespace='/bmp/meeting' action='meeting_save' includeParams='true'/>"  method="post"  enctype="multipart/form-data">
 						<table class="content_table">
-							<tr>
+							<tr style="height: 50px">
 								<td class="tbLable fr">
 									会议议题：
 								</td>
-								<td class="tbValue fl" colspan="5">
-									<input name="meeting.meetingName" style="width: 95%" id="meeting.meetingName" type="text" value="" class="validate['required','length[128]']" size="19"><span style="color:red;">&nbsp;&nbsp;*</span>
+								<td class="tbValue fl">
+									<input name="meeting.meetingName" style="width: 70%" id="meeting.meetingName" type="text" value="" class="validate['required','length[128]']" size="19"><span style="color:red;">&nbsp;&nbsp;*</span>
+								</td>
+								<td class="tbLable fr">
+									会议资料管理情况：
+								</td>
+								<td class="tbValue fl">
+									<dictionary:select tableCode="bmp" fieldCode="manager_case"
+									 id="meeting.managerCase" name="meeting.managerCase" style="width: 132px;"/><span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
 							</tr>
-							<tr>
-								<td class="tbLable fr" style="width: 10%">
+							<tr style="height: 50px">
+								<td class="tbLable fr" style="width: 20%">
 									开会日期：
 								</td>
-								<td class="tbValue fl"style="width: 20%">
+								<td class="tbValue fl"style="width: 30%">
 									<input name="meetingTime" id="meetingTime" type="text" value=""
 									 class="Wdate validate['required']" onfocus="WdatePicker({isShowClear:true,dateFmt:'yyyy-MM-dd'})">
 									 <span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
-								<td class="tbLable fr" style="width: 10%">
+								<td class="tbLable fr" style="width: 20%">
 									主持人：
 								</td>
-								<td class="tbValue fl" style="width: 20%">
+								<td class="tbValue fl" style="width: 30%">
 									<ui:selectByOrgan valueEl="meeting.presenter.userInfoId" textEl="meeting.presenter.name"
 									text="${meeting.presenter.name }" value="${meeting.presenter.userInfoId }" required="true"
 									onlyFromValue="false" styleClass="validate['length[32]']" buttonEl="butPerson"   />
 								</td>
-								<td class="tbLable fr" style="width: 10%">
+							</tr>
+							<tr style="height: 50px">
+								<td class="tbLable fr" style="width: 20%">
 									地点：
 								</td>
-								<td class="tbValue fl" style="width: 20%">
-									<input name="meeting.place" id="meeting.place" type="text"  class="validate['required','length[128]']" >
+								<td class="tbValue fl" style="width: 30%">
+									<input name="meeting.place" id="meeting.place" type="text" style="width: 70%" class="validate['required','length[128]']" >
 									<span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
-							</tr>
-							<tr style="height: 70px">
-								<td class="tbLable fr">
+								<td class="tbLable fr" style="width: 20%">
 									出席人员：
 								</td>
-								<td class="tbValue fl" colspan="5">
-									 <ui:multySelect textEl="readPersonNames" required="true"   valueEl="meeting.attendUserInfos"  buttonEl="readPerson" ></ui:multySelect>
+								<td class="tbValue fl" style="width: 30%">
+									 <input name="meeting.attendUserInfos" id="meeting.attendUserInfos" type="text"  class="validate['required','length[128]']" >
+									<span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
 							</tr>
 							<tr>
@@ -177,6 +185,14 @@
 								</td>
 								<td class="tbValue fl" colspan="5">
 								    <textarea  style="width:99%;height:300px" name="meeting.content"></textarea>
+								</td>
+							</tr>
+							<tr>
+								<td class="tbLable fr">
+									会议保密预案：
+								</td>
+								<td class="tbValue fl" colspan="3">
+								    <textarea  style="width:99%;height:100px" class="validate['length[4000]']" name="meeting.plan"></textarea>
 								</td>
 							</tr>
 						</table>

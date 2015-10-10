@@ -18,6 +18,8 @@
         <property name="holdDepartment" type="java.lang.String" column="holdDepartment"/>
         <property name="holdOrgans" type="java.lang.String" column="holdOrgans"/>
         <property name="measure" type="java.lang.String" column="measure"/>
+        <property name="managerCase" type="java.lang.Integer" column="manager_case"/>
+        <property name="plan" type="java.lang.String" column="plan"/>
 
 
         <many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
