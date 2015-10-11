@@ -76,6 +76,18 @@
 					<param name="nestedflag">${nestedflag}</param>
 				</result>
 			</action>
+			<action name="secrecyPerson_batchUpdateDate" method="batchUpdateDate" class="secrecyPersonAction">
+				<result name="batchUpdateDate">/bmp/secrecy-person/borderlayout/view/secrecyPerson_batchUpdateDate.jsp</result>
+			</action>
+			<action name="secrecyPerson_batchUpdateDateing" method="batchUpdateDateing" class="secrecyPersonAction">
+				<result name="list_action" type="com.cdthgk.web.stateRedirectAction">
+					<param name="namespace">/bmp/secrecyperson</param>
+					<param name="actionName">secrecyPerson_batchUpdateDate</param>
+					<param name="needReload">${needReload}</param>
+					<param name="nestedflag">${nestedflag}</param>
+				</result>
+			</action>
+
 
 			<!-- 导入配置 -->
 			<action name="secrecyPerson_importSecrecyPerson" method="importSecrecyPerson" class="secrecyPersonAction">

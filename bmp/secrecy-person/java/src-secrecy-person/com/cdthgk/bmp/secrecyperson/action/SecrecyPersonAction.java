@@ -828,6 +828,39 @@ public class SecrecyPersonAction extends BmpAction{
 		return this.redirectActionResult("list");
 	}
 
+	public String batchUpdateDate() {
+		//是否是内嵌的页面
+		String nestedflag = this.getRequest().getParameter("nestedflag");
+		if(nestedflag!=null && nestedflag.equals("1")) {//是内嵌的页面
+			this.putToRequest("nestedflag", nestedflag);
+		}else {
+			this.putToRequest("nestedflag", "0");
+		}
+		return "batchUpdateDate";
+	}
+	public String batchUpdateDateing() {
+		for( String id : secrecyPersonIds.split(",") ){
+	        SecrecyPerson sp = secrecyPersonModuleService.get(id);
+	        if( sp!=null ){
+	        	sp.setSecUppostTime(secrecyPerson.getSecUppostTime());
+	        	secrecyPersonModuleService.update(sp);
+	        }
+		}
+
+		// 设置消息
+		addActionMessage("批量修改成功");
+		// 设置是否需要重载
+		needReload = true;
+		//是否是内嵌的页面
+		String nestedflag = this.getRequest().getParameter("nestedflag");
+		if(nestedflag!=null && nestedflag.equals("1")) {//是内嵌的页面
+			this.putToRequest("nestedflag", nestedflag);
+		}else {
+			this.putToRequest("nestedflag", "0");
+		}
+		return this.redirectActionResult("list");
+	}
+
 	/**
 	 * <p>
 	 * 机关涉密人员详情

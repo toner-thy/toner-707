@@ -225,6 +225,40 @@
 				});
 			}
 
+			//批量修改时间
+			function batchUpdateDate(){
+				var items = window.frames[0].EcTable.getCheckedItems();
+				if(items.length==0){
+					alert("请选择一项。");
+					return;
+				}
+
+				if (window.confirm('确定要修改吗？ ' )) {
+					var ids = "";
+					items.each(function(item){
+						ids += item.value + ",";
+					});
+					TabUtil.openAsTab({
+						url : '${ctx}/bmp/secrecyperson/secrecyPerson_batchUpdateDate.action?secrecyPersonIds='+ids+'&nestedflag=1&t_date=' + new Date().getTime(),
+						title : '批量修改时间',
+						onClose : function(tab, item) {
+							if(!item.content.getContentWindow().needReload2){
+								if (window.confirm("您确定放弃正在编辑的内容吗？")) {
+									if(item.content.getContentWindow().needReload){
+										window.location.reload();
+									}
+								} else {
+									return false;
+								}
+							} else{
+								if(item.content.getContentWindow().needReload){
+									window.location.reload();
+								}
+							}
+						}
+					});
+				}
+			}
 		</script>
 
 	</head>

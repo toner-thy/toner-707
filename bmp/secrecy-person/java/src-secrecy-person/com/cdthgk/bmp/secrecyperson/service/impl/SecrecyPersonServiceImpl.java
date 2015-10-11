@@ -188,6 +188,18 @@ public class SecrecyPersonServiceImpl extends BmpServiceImpl<SecrecyPerson, Stri
 				hql.append(" and s.secrecyPersonLevel = :secrecyPersonLevel");
 				params.put("secrecyPersonLevel", secrecyPerson.getSecrecyPersonLevel());
 			}
+			// 人员类型
+			if (secrecyPerson.getPersonType() != null
+					&& secrecyPerson.getPersonType().intValue() != allLeavel) {
+				hql.append(" and s.personType = :personType");
+				params.put("personType", secrecyPerson.getPersonType());
+			}
+			// 类别
+			if (secrecyPerson.getSpPerType() != null
+					&& secrecyPerson.getSpPerType().intValue() != allLeavel) {
+				hql.append(" and s.spPerType = :spPerType");
+				params.put("spPerType", secrecyPerson.getSpPerType());
+			}
 			// 部 门
 			if (secrecyPerson.getDepartment()!=null) {
 				//部门名称过滤  梁文杰 2013-07-20修改

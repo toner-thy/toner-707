@@ -271,7 +271,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="fr" style="width: 30%">取得上岗证书时间：</td>
+						<td class="fr" style="width: 30%">最近一次接受保密教育时间：</td>
 						<td class="fl">
 							<div style="margin-left: 8px">
 								<c:if test="${secrecyPerson.secUppostTime == null}">

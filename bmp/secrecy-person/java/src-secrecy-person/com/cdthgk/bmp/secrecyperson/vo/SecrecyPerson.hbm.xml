@@ -185,6 +185,16 @@
 				<comment>是否为定密责任人</comment>
 			</column>
 		</property>
+		<property name="spDecryptionDate" type="java.lang.Integer">
+			<column name="sp_decryption_date">
+				<comment>脱密期限</comment>
+			</column>
+		</property>
+		<property name="spPerType" type="java.lang.Integer">
+			<column name="sp_per_type">
+				<comment>类别</comment>
+			</column>
+		</property>
 
 		<!-- 通用字段 -->
 		<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User" fetch="select">

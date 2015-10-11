@@ -122,6 +122,9 @@ public class SecrecyPerson extends ReportState implements java.io.Serializable{
 	private Integer responsiblePerson;
 	private String responsiblePersonTxt;
 
+	private Integer spDecryptionDate;
+	private Integer spPerType;
+
 	// 通用字段
 	private User createPerson;
 	private Date createTime;
@@ -885,7 +888,20 @@ public class SecrecyPerson extends ReportState implements java.io.Serializable{
                 this.personAge = personAge;
         }
 
+		public Integer getSpDecryptionDate() {
+			return spDecryptionDate;
+		}
 
+		public void setSpDecryptionDate(Integer spDecryptionDate) {
+			this.spDecryptionDate = spDecryptionDate;
+		}
 
+		public Integer getSpPerType() {
+			return spPerType;
+		}
+
+		public void setSpPerType(Integer spPerType) {
+			this.spPerType = spPerType;
+		}
 
 }

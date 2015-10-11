@@ -418,9 +418,19 @@
 								<td>
 									<input id="secrecyPerson.userInfo.mobile" name="secrecyPerson.userInfo.mobile" type="text"  class="validate['phone','length[50]']" value="${secrecyPerson.userInfo.mobile}"/>
 								</td>
-								<td class="tbLable fr">取得上岗证书时间：</td>
+								<td class="tbLable fr">最近一次接受保密教育时间：</td>
 								<td class="tbValue fl">
 									<input type="text" id="secrecyPerson.secUppostTime" name="secrecyPerson.secUppostTime" class="Wdate" value="<s:date name='#attr.secrecyPerson.secUppostTime' format='yyyy-MM-dd'/>" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="tbLable fr">类别：</td>
+								<td>
+									<dictionary:select tableCode="bmp" fieldCode="sp_per_type" id="secrecyPerson.spPerType" name="secrecyPerson.spPerType" title="false" titleText="请选择" style="width: 130px;" optionValue="${secrecyPerson.spPerType}"></dictionary:select>
+								</td>
+								<td class="tbLable fr">脱密期限：</td>
+								<td class="tbValue fl">
+									<dictionary:select tableCode="bmp" fieldCode="sp_decryption_date" id="secrecyPerson.spDecryptionDate" name="secrecyPerson.spDecryptionDate" title="false" titleText="请选择" style="width: 130px;" optionValue="${secrecyPerson.spDecryptionDate}"></dictionary:select>
 								</td>
 							</tr>
 							<tr>

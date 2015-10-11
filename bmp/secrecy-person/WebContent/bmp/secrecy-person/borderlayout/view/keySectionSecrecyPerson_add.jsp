@@ -282,7 +282,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td class="tbLable fr">取得上岗证书时间：</td>
+								<td class="tbLable fr">最近一次接受保密教育时间：</td>
 								<td class="tbValue fl">
 									<input type="text" id="secrecyPerson.secUppostTime" name="secrecyPerson.secUppostTime" class="Wdate" value="<s:date name='#attr.secrecyPerson.secUppostTime' format='yyyy-MM-dd'/>" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
 								</td>

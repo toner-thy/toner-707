@@ -270,7 +270,7 @@
 					</tr>
 
 					<tr>
-						<td class="fr" style="width: 30%">取得上岗证书时间：</td>
+						<td class="fr" style="width: 30%">最近一次接受保密教育时间：</td>
 						<td class="fl">
 							<div style="margin-left: 8px">
 								<c:if test="${secrecyPerson.secUppostTime == null}">
@@ -327,6 +327,31 @@
 							</div>
 						</td>
 					</tr>
+					<tr>
+						<td class="fr" style="width: 30%">类别：</td>
+						<td class="fl">
+							<div style="margin-left: 8px">
+								<c:if test="${secrecyPerson.spPerType == null}">
+									暂未填写
+								</c:if>
+								<c:if test="${secrecyPerson.spPerType != null}">
+									<dictionary:text tableCode="bmp" fieldCode="sp_per_type" optionValue="${secrecyPerson.spPerType}"/>
+								</c:if>
+							</div>
+						</td>
+						<td class="fr">脱密期限：</td>
+						<td class="fl">
+							<div style="margin-left: 8px">
+								<c:if test="${secrecyPerson.spDecryptionDate == null}">
+									暂未填写
+								</c:if>
+								<c:if test="${secrecyPerson.spDecryptionDate != null}">
+									<dictionary:text tableCode="bmp" fieldCode="sp_decryption_date" optionValue="${secrecyPerson.spDecryptionDate}"/>
+								</c:if>
+							</div>
+						</td>
+					</tr>
+
 					<tr>
 						<td class="fr" style="width: 30%">单位审查意见：</td>
 						<td class="fl" colspan="3" valign="top" height="50;">

@@ -143,6 +143,40 @@
 					});
 				}
 			}
+			//批量修改时间
+			function batchUpdateDate(){
+				var items = EcTable.getCheckedItems();
+				if(items.length==0){
+					alert("请选择要修改日期的项。");
+					return;
+				}
+
+				if (window.confirm('确定要修改吗？ ' )) {
+					var ids = "";
+					items.each(function(item){
+						ids += item.value + ",";
+					});
+					TabUtil.openAsTab({
+						url : '${ctx}/bmp/secrecyperson/secrecyPerson_batchUpdateDate.action?secrecyPersonIds='+ids+'&nestedflag=1&t_date=' + new Date().getTime(),
+						title : '批量修改时间',
+						onClose : function(tab, item) {
+							if(!item.content.getContentWindow().needReload2){
+								if (window.confirm("您确定放弃正在编辑的内容吗？")) {
+									if(item.content.getContentWindow().needReload){
+										window.location.reload();
+									}
+								} else {
+									return false;
+								}
+							} else{
+								if(item.content.getContentWindow().needReload){
+									window.location.reload();
+								}
+							}
+						}
+					});
+				}
+			}
 
 			//密级变更
 			function doSecrecyChange1() {
@@ -245,12 +279,6 @@
 								<td class="tbLable fr">涉密等级：</td>
 								<td class="tbValue fl">
 									<dictionary:select tableCode="bmp" fieldCode="secrecy_level_person" id="secrecyPerson_secrecyPersonLevel" name="secrecyPerson.secrecyPersonLevel" title="true" titleText="全部" style="width: 130px;" optionValue="${secrecyPerson.secrecyPersonLevel}"></dictionary:select>
-									<%-- <select id="secrecyPerson_secrecyPersonLevel" name="secrecyPerson.secrecyPersonLevel" style="width: 129px;">
-										<option value="4">全部</option>
-										<option value="3">一般</option>
-										<option value="2">重要</option>
-										<option value="1">核心</option>
-									</select> --%>
 								</td>
 							</tr>
 							<tr>
@@ -262,6 +290,16 @@
 								<td class="tbLable fr">职 务：</td>
 								<td class="tbValue fl">
 									<input type="text" id="secrecyPerson.officeDuty" name="secrecyPerson.officeDuty" value="${secrecyPerson.officeDuty}" />
+								</td>
+							</tr>
+							<tr>
+								<td class="tbLable fr">人员类型：</td>
+								<td class="tbValue fl">
+									<dictionary:select tableCode="bmp" fieldCode="person_type" id="secrecyPerson.personType" name="secrecyPerson.personType" title="true" titleText="全部" style="width: 130px;" optionValue="${secrecyPerson.personType}"></dictionary:select>
+								</td>
+								<td class="tbLable fr">类别：</td>
+								<td class="tbValue fl">
+									<dictionary:select tableCode="bmp" fieldCode="sp_per_type" id="secrecyPerson.spPerType" name="secrecyPerson.spPerType" title="true" titleText="全部" style="width: 130px;" optionValue="${secrecyPerson.spPerType}"></dictionary:select>
 								</td>
 							</tr>
 							<tr>
@@ -332,6 +370,12 @@
 									<c:if test="${secrecyPerson.officeDuty!= null}">
 										${secrecyPerson.officeDuty}
 									</c:if>
+								</ec:column>
+								<ec:column property="null" title="人员类型" width="10%">
+									<dictionary:text tableCode="bmp" fieldCode="person_type" optionValue="${secrecyPerson.personType}"/>
+								</ec:column>
+								<ec:column property="null" title="类别" width="10%">
+									<dictionary:text tableCode="bmp" fieldCode="sp_per_type" optionValue="${secrecyPerson.spPerType}"/>
 								</ec:column>
 								<ec:column property="null" title="办公室电话" width="10%" cell="text">
 									<c:if test="${empty secrecyPerson.officePhone}">
