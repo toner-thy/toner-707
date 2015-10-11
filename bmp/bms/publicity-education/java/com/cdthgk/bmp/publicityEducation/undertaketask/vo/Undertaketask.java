@@ -1,11 +1,8 @@
 package com.cdthgk.bmp.publicityEducation.undertaketask.vo;
 
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import org.hibernate.mapping.Array;
 
 import com.cdthgk.platform.organization.organ.domain.Organ;
 import com.cdthgk.platform.organization.userinfo.domain.UserInfo;
@@ -15,7 +12,9 @@ import com.cdthgk.platform.organization.userinfo.domain.UserInfo;
  */
 public class Undertaketask implements java.io.Serializable {
 
-        //id.
+	private static final long serialVersionUID = 4795343661337448160L;
+
+		//id.
         private String undertaketaskId;
 
         //���⣨�Ե㣩���.
@@ -44,6 +43,10 @@ public class Undertaketask implements java.io.Serializable {
         private Date modifyTime;
 
         private Organ createOrgan;
+
+        private String awards;
+        private UserInfo projectLeader;
+        private Organ undertakeOrgan;
 
         private List<UserInfo> undertakerList;
         private String undertakerUserTxt;
@@ -268,6 +271,42 @@ public class Undertaketask implements java.io.Serializable {
         public void setUndertakerUserTxt(String undertakerUserTxt) {
                 this.undertakerUserTxt = undertakerUserTxt;
         }
+
+
+
+		public String getAwards() {
+			return awards;
+		}
+
+
+
+		public void setAwards(String awards) {
+			this.awards = awards;
+		}
+
+
+
+		public UserInfo getProjectLeader() {
+			return projectLeader;
+		}
+
+
+
+		public void setProjectLeader(UserInfo projectLeader) {
+			this.projectLeader = projectLeader;
+		}
+
+
+
+		public Organ getUndertakeOrgan() {
+			return undertakeOrgan;
+		}
+
+
+
+		public void setUndertakeOrgan(Organ undertakeOrgan) {
+			this.undertakeOrgan = undertakeOrgan;
+		}
 
 
 

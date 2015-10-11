@@ -57,7 +57,7 @@
 			<div class="right">
 				<div class="pop_button_bar">
 					<a class="pop_button pop_button_refresh" href="###" onclick="javascript:window.refresh();"><span>刷新本页</span></a>
-					<a class="pop_button pop_button_close" href="###" onclick="javascript:TabUtil.closeTab();"><span>退出本页</span></a>
+					<a class="pop_button pop_button_close" href="###" onclick="javascript:window.close();"><span>退出本页</span></a>
 				</div>
 			</div>
 		</div>
@@ -95,7 +95,20 @@
 									${undertaketask.releaseUnit.organName}
 								</td>
 							</tr>
-
+							<tr>
+								<td class="tbLable fr">
+									承办单位：
+								</td>
+								<td class="tbValue fl">
+									${undertaketask.undertakeOrgan.organName}
+								</td>
+							</tr>
+							<tr>
+								<td class="tbLable fr">课题负责人：</td>
+								<td class="tbValue fl">
+									 ${undertaketask.projectLeader.name}
+								</td>
+							</tr>
 							<tr>
 								<td class="tbLable fr">
 									承办人：
@@ -126,6 +139,22 @@
 								</td>
 								<td >
 									<textarea rows="10" cols="150" style="width: 90%;" readonly="readonly">${undertaketask.specificResults }</textarea>
+								</td>
+							</tr>
+							<tr>
+								<td class="tbLable fr">
+									获奖情况：
+								</td>
+								<td >
+									<textarea rows="10" cols="150" style="width: 90%;" readonly="readonly">${undertaketask.awards }</textarea>
+								</td>
+							</tr>
+							<!-- 附件 -->
+							<tr>
+								<td colspan="2">
+									<div>
+									    <attach:view uploadBehavior="bmpUploadBehavior" allowDownload="true" attachments="${attachmentList}" showTitle="false" />
+				 					</div>
 								</td>
 							</tr>
 						</table>

@@ -20,6 +20,8 @@ import com.cdthgk.bmp.statinfo.dto.QueryDto;
 import com.cdthgk.common.bean.BeanUtils;
 import com.cdthgk.common.bean.rule.CopyRuleEnum;
 import com.cdthgk.common.lang.CollectionUtils;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
+import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.dictionary.context.DictionaryContext;
 import com.cdthgk.platform.dictionary.spi.DictionaryService;
@@ -64,6 +66,8 @@ public class UndertaketaskAction extends BmpAction {
 	private String fromQuery;
 	private String checkLower;
 
+    private List<String> secAttach;
+    private List<Attachment> attachmentList;
 	/**
 	 *
 	 * <p>
@@ -156,6 +160,10 @@ public class UndertaketaskAction extends BmpAction {
 				.getOrgan());
 		undertaketask.setStatus(1);
 		this.undertaketaskService.save(undertaketask);
+
+		 // 新增时添加附件
+        AttachmentContext.getInstance().getAttachmentService().updateHostId(undertaketask.getUndertaketaskId(),secAttach);
+
 		this.addActionMessage("添加成功");
 		BusinessLog log = new BusinessLog();
 		log.setBusinessName("承担课题情况");
@@ -173,6 +181,8 @@ public class UndertaketaskAction extends BmpAction {
 				&& !"".equals(undertaketask.getUndertaketaskId())) {
 			undertaketask = this.undertaketaskService.get(undertaketask
 					.getUndertaketaskId());
+			attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(undertaketask.getUndertaketaskId());
+
 			if (undertaketask != null) {
 				this.dealUserName(undertaketask);
 				this.putToRequest("undertaketask", undertaketask);
@@ -204,6 +214,9 @@ public class UndertaketaskAction extends BmpAction {
 			uttDB.setModifyTime(new Date());
 			this.undertaketaskService.update(uttDB);
 			this.addActionError("修改成功");
+
+			AttachmentContext.getInstance().getAttachmentService().updateHostId(uttDB.getUndertaketaskId(),secAttach);
+
 			BusinessLog log = new BusinessLog();
 			log.setBusinessName("承担课题情况");
 			log.setPrimaryKey(uttDB.getUndertaketaskId());
@@ -243,6 +256,7 @@ public class UndertaketaskAction extends BmpAction {
 				&& !"".equals(undertaketask.getUndertaketaskId())) {
 			undertaketask = this.undertaketaskService.get(undertaketask
 					.getUndertaketaskId());
+			attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(undertaketask.getUndertaketaskId());
 			if (undertaketask != null) {
 				this.dealUserName(undertaketask);
 				this.putToApplication("undertaketask", undertaketask);
@@ -465,6 +479,21 @@ public class UndertaketaskAction extends BmpAction {
 	 */
 	public void setDataValidateService(DataValidateService dataValidateService) {
 		this.dataValidateService = dataValidateService;
+	}
+	public List<String> getSecAttach() {
+        return secAttach;
+	}
+
+	public void setSecAttach(List<String> secAttach) {
+	        this.secAttach = secAttach;
+	}
+
+	public List<Attachment> getAttachmentList() {
+		return attachmentList;
+	}
+
+	public void setAttachmentList(List<Attachment> attachmentList) {
+		this.attachmentList = attachmentList;
 	}
 
 }

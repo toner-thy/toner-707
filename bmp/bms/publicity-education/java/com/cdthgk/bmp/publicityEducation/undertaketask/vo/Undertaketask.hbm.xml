@@ -33,6 +33,20 @@
                 <comment>�����Ч</comment>
             </column>
         </property>
+
+        <property name="awards" type="string">
+            <column name="awards" length="65535">
+            </column>
+        </property>
+        <many-to-one name="projectLeader" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
+            <column name="project_leader" length="39">
+                <comment>课题负责人</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="undertakeOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
+            <column name="undertake_organ" length="39" />
+        </many-to-one>
+
         <property name="status" type="java.lang.Integer">
             <column name="STATUS">
                 <comment>״̬</comment>
