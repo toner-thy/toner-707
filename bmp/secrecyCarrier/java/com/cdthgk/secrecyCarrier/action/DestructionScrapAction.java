@@ -14,6 +14,7 @@ import com.cdthgk.bmp.statinfo.dto.QueryDto;
 import com.cdthgk.common.bean.BeanUtils;
 import com.cdthgk.common.bean.rule.CopyRuleEnum;
 import com.cdthgk.common.lang.CollectionUtils;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.dictionary.context.DictionaryContext;
@@ -38,6 +39,8 @@ public class DestructionScrapAction extends BmpAction {
 
 	private Attachment attachment;
 	List<Attachment> attachmentList;
+
+    private List<String> secAttach;
 	private String showType;
 	private District district;
 	private DistrictService districtService;
@@ -62,6 +65,7 @@ public class DestructionScrapAction extends BmpAction {
 	public String edit() {
 		destructionScrap = destructionScrapService
 				.get(destructionScrap.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(destructionScrap.getId());
 		return SUCCESS;
 	}
 
@@ -79,6 +83,9 @@ public class DestructionScrapAction extends BmpAction {
 		destructionScrap.setState(0);
 		destructionScrap.setCreateTime(new Date());
 		destructionScrapService.save(destructionScrap);
+		 // 新增时添加附件
+        AttachmentContext.getInstance().getAttachmentService().updateHostId(destructionScrap.getId(),secAttach);
+
 		addActionMessage("添加成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -104,6 +111,7 @@ public class DestructionScrapAction extends BmpAction {
 		destructionScrap2.setModifyPerson(getCurrentUser());
 		destructionScrap2.setModifyTime(new Date());
 		destructionScrapService.update(destructionScrap2);
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(destructionScrap2.getId(),secAttach);
 		addActionMessage("修改成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -143,6 +151,7 @@ public class DestructionScrapAction extends BmpAction {
 	public String detail() {
 		destructionScrap = destructionScrapService
 				.get(destructionScrap.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(destructionScrap.getId());
 		return SUCCESS;
 	}
 
@@ -325,6 +334,14 @@ public class DestructionScrapAction extends BmpAction {
 	 */
 	public void setDataValidateService(DataValidateService dataValidateService) {
 		this.dataValidateService = dataValidateService;
+	}
+
+	public List<String> getSecAttach() {
+		return secAttach;
+	}
+
+	public void setSecAttach(List<String> secAttach) {
+		this.secAttach = secAttach;
 	}
 
 }

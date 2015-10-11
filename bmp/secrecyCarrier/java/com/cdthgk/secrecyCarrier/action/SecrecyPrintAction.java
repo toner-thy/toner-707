@@ -13,6 +13,7 @@ import com.cdthgk.bmp.statinfo.dto.QueryDto;
 import com.cdthgk.common.bean.BeanUtils;
 import com.cdthgk.common.bean.rule.CopyRuleEnum;
 import com.cdthgk.common.lang.CollectionUtils;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.dictionary.context.DictionaryContext;
@@ -38,6 +39,7 @@ public class SecrecyPrintAction extends BmpAction {
 
 	private Attachment attachment;
 	List<Attachment> attachmentList;
+	private List<String> secAttach;
 	private String showType;
 	private District district;
 	private DistrictService districtService;
@@ -59,6 +61,7 @@ public class SecrecyPrintAction extends BmpAction {
 
 	public String edit() {
 		secrecyPrint = secrecyPrintService.get(secrecyPrint.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyPrint.getId());
 		 if (secrecyPrint.getUndertaker()!=null) {
 	                        String[] strings=secrecyPrint.getUndertaker().split(",");
 	                        List<UserInfo> list=new ArrayList<UserInfo>();
@@ -97,6 +100,7 @@ public class SecrecyPrintAction extends BmpAction {
 		secrecyPrint.setState(0);
 		secrecyPrint.setCreateTime(new Date());
 		secrecyPrintService.save(secrecyPrint);
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyPrint.getId(),secAttach);
 		addActionMessage("添加成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -118,6 +122,7 @@ public class SecrecyPrintAction extends BmpAction {
 	        secrecyPrint2.setModifyPerson(getCurrentUser());
 	        secrecyPrint2.setModifyTime(new Date());
                 secrecyPrintService.update(secrecyPrint2);
+                AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyPrint2.getId(),secAttach);
                 addActionMessage("修改成功!");
                 needReload = true;
                 BusinessLog log = new BusinessLog();
@@ -157,7 +162,7 @@ public class SecrecyPrintAction extends BmpAction {
 
 	public String detail() {
 		secrecyPrint = secrecyPrintService.get(secrecyPrint.getId());
-
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyPrint.getId());
 		 if (secrecyPrint.getUndertaker()!=null) {
 		         String[] strings=secrecyPrint.getUndertaker().split(",");
 	                        String list="";
@@ -360,6 +365,14 @@ public class SecrecyPrintAction extends BmpAction {
         public void setDataValidateService(DataValidateService dataValidateService) {
                 this.dataValidateService = dataValidateService;
         }
+
+		public List<String> getSecAttach() {
+			return secAttach;
+		}
+
+		public void setSecAttach(List<String> secAttach) {
+			this.secAttach = secAttach;
+		}
 
 
 }

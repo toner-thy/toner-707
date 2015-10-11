@@ -13,6 +13,7 @@ import com.cdthgk.bmp.statinfo.dto.QueryDto;
 import com.cdthgk.common.bean.BeanUtils;
 import com.cdthgk.common.bean.rule.CopyRuleEnum;
 import com.cdthgk.common.lang.CollectionUtils;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.dictionary.context.DictionaryContext;
@@ -38,6 +39,7 @@ public class SecrecyMaintainAction extends BmpAction {
 
 	private Attachment attachment;
 	List<Attachment> attachmentList;
+	private List<String> secAttach;
 	private String showType;
 	private District district;
 	private DistrictService districtService;
@@ -59,6 +61,7 @@ public class SecrecyMaintainAction extends BmpAction {
 
 	public String edit() {
 		secrecyMaintain = secrecyMaintainService.get(secrecyMaintain.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyMaintain.getId());
 		return SUCCESS;
 	}
 
@@ -76,6 +79,7 @@ public class SecrecyMaintainAction extends BmpAction {
 		secrecyMaintain.setState(0);
 		secrecyMaintain.setCreateTime(new Date());
 		secrecyMaintainService.save(secrecyMaintain);
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyMaintain.getId(),secAttach);
 		addActionMessage("添加成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -100,6 +104,7 @@ public class SecrecyMaintainAction extends BmpAction {
 		secrecyMaintain2.setModifyPerson(getCurrentUser());
 		secrecyMaintain2.setModifyTime(new Date());
 		secrecyMaintainService.update(secrecyMaintain2);
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyMaintain2.getId(),secAttach);
 		addActionMessage("修改成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -138,6 +143,7 @@ public class SecrecyMaintainAction extends BmpAction {
 
 	public String detail() {
 		secrecyMaintain = secrecyMaintainService.get(secrecyMaintain.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyMaintain.getId());
 		return SUCCESS;
 	}
 
@@ -319,6 +325,14 @@ public class SecrecyMaintainAction extends BmpAction {
 	 */
 	public void setDataValidateService(DataValidateService dataValidateService) {
 		this.dataValidateService = dataValidateService;
+	}
+
+	public List<String> getSecAttach() {
+		return secAttach;
+	}
+
+	public void setSecAttach(List<String> secAttach) {
+		this.secAttach = secAttach;
 	}
 
 }

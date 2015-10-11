@@ -37,7 +37,7 @@
 									TabUtil.closeTab();
 								}
 							};
-					formcheck = new FormCheck('form_destructionScrap_update',{
+					formcheck = new FormCheck('add_form',{
 								display:{
 									showErrors:${_.config.formcheck.showErrors},errorsLocation: ${_.config.formcheck.errorsLocation}
 								},
@@ -116,7 +116,7 @@
 					</div>
 				</div>
 				<div class="panel_content panel_content_table">
-				<form id="form_destructionScrap_update" class="form"  action="<s:url namespace='/bmp/destructionScrap' action='destructionScrap_update' includeParams='true'/>" method="post" enctype="multipart/form-data">
+				<form id="add_form" class="form"  action="<s:url namespace='/bmp/destructionScrap' action='destructionScrap_update' includeParams='true'/>" method="post" enctype="multipart/form-data">
 					<table class="content_table">
 						<tr>
 								<td class="tbLable fr">
@@ -192,6 +192,9 @@
 						<input type="hidden" id="destructionScrap.id" name='destructionScrap.id' value="${destructionScrap.id}" class="btn_23" style="display: none;"/>
 						<input type="submit" id="sub" value="sub" class="btn_23" style="display: none;"/>
 				</form>
+				<div>
+					<attach:upload uploadBehavior="bmpUploadBehavior" applyForm="add_form" applyName="secAttach" attachments="${attachmentList }" showTitle="false"/>
+				 </div>
 			</div>
 			</div>
 		</div>

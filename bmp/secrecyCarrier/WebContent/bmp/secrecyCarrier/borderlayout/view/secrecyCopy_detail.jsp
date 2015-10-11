@@ -203,6 +203,14 @@
 								 ${secrecyCopy.description}
 								</td>
 							</tr>
+							<!-- 附件 -->
+							<tr>
+								<td colspan="2">
+									<div>
+									    <attach:view uploadBehavior="bmpUploadBehavior" allowDownload="true" attachments="${attachmentList}" showTitle="false" />
+				 					</div>
+								</td>
+							</tr>
 					</table>
 					<div id="files_list">
 					</div>

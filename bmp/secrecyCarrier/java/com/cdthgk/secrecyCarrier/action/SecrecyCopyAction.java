@@ -13,6 +13,7 @@ import com.cdthgk.bmp.statinfo.dto.QueryDto;
 import com.cdthgk.common.bean.BeanUtils;
 import com.cdthgk.common.bean.rule.CopyRuleEnum;
 import com.cdthgk.common.lang.CollectionUtils;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.dictionary.context.DictionaryContext;
@@ -37,6 +38,7 @@ public class SecrecyCopyAction extends BmpAction {
 
 	private Attachment attachment;
 	List<Attachment> attachmentList;
+	private List<String> secAttach;
 	private String showType;
 	private District district;
 	private DistrictService districtService;
@@ -58,6 +60,7 @@ public class SecrecyCopyAction extends BmpAction {
 
 	public String edit() {
 		secrecyCopy = secrecyCopyService.get(secrecyCopy.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyCopy.getId());
 		return SUCCESS;
 	}
         public boolean isNeedReload() {
@@ -75,6 +78,7 @@ public class SecrecyCopyAction extends BmpAction {
 		secrecyCopy.setState(0);
 		secrecyCopy.setCreateTime(new Date());
 		secrecyCopyService.save(secrecyCopy);
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyCopy.getId(),secAttach);
 		addActionMessage("添加成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -96,6 +100,7 @@ public class SecrecyCopyAction extends BmpAction {
 	        secrecyCopy2.setModifyPerson(getCurrentUser());
 	        secrecyCopy2.setModifyTime(new Date());
                 secrecyCopyService.update(secrecyCopy2);
+                AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyCopy2.getId(),secAttach);
                 addActionMessage("修改成功!");
                 needReload = true;
             BusinessLog log=new BusinessLog();
@@ -131,6 +136,7 @@ public class SecrecyCopyAction extends BmpAction {
 
 	public String detail() {
 		secrecyCopy = secrecyCopyService.get(secrecyCopy.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyCopy.getId());
 		return SUCCESS;
 	}
 
@@ -304,5 +310,11 @@ public class SecrecyCopyAction extends BmpAction {
                 this.dataValidateService = dataValidateService;
         }
 
+		public List<String> getSecAttach() {
+			return secAttach;
+		}
 
+		public void setSecAttach(List<String> secAttach) {
+			this.secAttach = secAttach;
+		}
 }

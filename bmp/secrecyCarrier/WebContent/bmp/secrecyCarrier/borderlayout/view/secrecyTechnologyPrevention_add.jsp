@@ -38,7 +38,7 @@
 									TabUtil.closeTab();
 								}
 							};
-					formcheck = new FormCheck('form_secrecyTechnologyPrevention_save',{
+					formcheck = new FormCheck('add_form',{
 								display:{
 									showErrors:${_.config.formcheck.showErrors},errorsLocation: ${_.config.formcheck.errorsLocation}
 								},
@@ -95,7 +95,7 @@
 					</div>
 				</div>
 				<div class="panel_content panel_content_table">
-				<form id="form_secrecyTechnologyPrevention_save" class="form"  action="<s:url namespace='/bmp/secrecyTechnologyPrevention' action='secrecyTechnologyPrevention_save' includeParams='true'/>" method="post" enctype="multipart/form-data">
+				<form id="add_form" class="form"  action="<s:url namespace='/bmp/secrecyTechnologyPrevention' action='secrecyTechnologyPrevention_save' includeParams='true'/>" method="post" enctype="multipart/form-data">
 					<table class="content_table" width="100%">
 							<tr>
 								<td class="tbLable fr">
@@ -150,6 +150,9 @@
 						</table>
 						<input type="submit" id="sub" value="sub" class="btn_23" style="display: none;"/>
 				</form>
+				<div>
+					<attach:upload uploadBehavior="bmpUploadBehavior" applyForm="add_form" applyName="secAttach" showTitle="false"/>
+				 </div>
 			</div>
 			</div>
 		</div>

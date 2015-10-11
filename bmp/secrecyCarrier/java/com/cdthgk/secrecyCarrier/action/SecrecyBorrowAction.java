@@ -13,6 +13,7 @@ import com.cdthgk.bmp.statinfo.dto.QueryDto;
 import com.cdthgk.common.bean.BeanUtils;
 import com.cdthgk.common.bean.rule.CopyRuleEnum;
 import com.cdthgk.common.lang.CollectionUtils;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.dictionary.context.DictionaryContext;
@@ -37,6 +38,7 @@ public class SecrecyBorrowAction extends BmpAction {
 
 	private Attachment attachment;
 	List<Attachment> attachmentList;
+	private List<String> secAttach;
 	private String showType;
 	private District district;
 	private DistrictService districtService;
@@ -60,6 +62,7 @@ public class SecrecyBorrowAction extends BmpAction {
 
 	public String edit() {
 		secrecyBorrow = secrecyBorrowService.get(secrecyBorrow.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyBorrow.getId());
 		return SUCCESS;
 	}
 
@@ -77,6 +80,7 @@ public class SecrecyBorrowAction extends BmpAction {
 		secrecyBorrow.setState(0);
 		secrecyBorrow.setCreateTime(new Date());
 		secrecyBorrowService.save(secrecyBorrow);
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyBorrow.getId(),secAttach);
 		addActionMessage("添加成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -101,6 +105,7 @@ public class SecrecyBorrowAction extends BmpAction {
 				CopyRuleEnum.ignoreCaseNull);
 		secrecyBorrow2.setModifyTime(new Date());
 		secrecyBorrowService.update(secrecyBorrow2);
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyBorrow2.getId(),secAttach);
 		addActionMessage("修改成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -139,6 +144,7 @@ public class SecrecyBorrowAction extends BmpAction {
 
 	public String detail() {
 		secrecyBorrow = secrecyBorrowService.get(secrecyBorrow.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyBorrow.getId());
 		return SUCCESS;
 	}
 
@@ -321,5 +327,14 @@ public class SecrecyBorrowAction extends BmpAction {
 	public void setDataValidateService(DataValidateService dataValidateService) {
 		this.dataValidateService = dataValidateService;
 	}
+
+	public List<String> getSecAttach() {
+		return secAttach;
+	}
+
+	public void setSecAttach(List<String> secAttach) {
+		this.secAttach = secAttach;
+	}
+
 
 }

@@ -39,7 +39,7 @@
 									TabUtil.closeTab();
 								}
 							};
-					formcheck = new FormCheck('form_secrecyMaintain_update',{
+					formcheck = new FormCheck('add_form',{
 								display:{
 									showErrors:${_.config.formcheck.showErrors},errorsLocation: ${_.config.formcheck.errorsLocation}
 								},
@@ -118,7 +118,7 @@
 					</div>
 				</div>
 				<div class="panel_content panel_content_table">
-				<form id="form_secrecyMaintain_update" class="form"  action="<s:url namespace='/bmp/secrecyMaintain' action='secrecyMaintain_update' includeParams='true'/>" method="post" enctype="multipart/form-data">
+				<form id="add_form" class="form"  action="<s:url namespace='/bmp/secrecyMaintain' action='secrecyMaintain_update' includeParams='true'/>" method="post" enctype="multipart/form-data">
 					<table class="content_table">
 						<tr>
 							<tr>
@@ -212,6 +212,9 @@
 						<input type="hidden" id="secrecyMaintain.id" name='secrecyMaintain.id' value="${secrecyMaintain.id}" class="btn_23" style="display: none;"/>
 						<input type="submit" id="sub" value="sub" class="btn_23" style="display: none;"/>
 				</form>
+				<div>
+					<attach:upload uploadBehavior="bmpUploadBehavior" applyForm="add_form" applyName="secAttach" attachments="${attachmentList }" showTitle="false"/>
+				 </div>
 			</div>
 			</div>
 		</div>

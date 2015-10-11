@@ -13,6 +13,7 @@ import com.cdthgk.bmp.statinfo.dto.QueryDto;
 import com.cdthgk.common.bean.BeanUtils;
 import com.cdthgk.common.bean.rule.CopyRuleEnum;
 import com.cdthgk.common.lang.CollectionUtils;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.district.domain.District;
@@ -36,6 +37,7 @@ public class SecrecyTechnologyPreventionAction extends BmpAction {
 
 	private Attachment attachment;
 	List<Attachment> attachmentList;
+	private List<String> secAttach;
 	private String showType;
 	private District district;
 	private DistrictService districtService;
@@ -56,6 +58,7 @@ public class SecrecyTechnologyPreventionAction extends BmpAction {
 
 	public String edit() {
 		secrecyTechnologyPrevention = secrecyTechnologyPreventionService.get(secrecyTechnologyPrevention.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyTechnologyPrevention.getId());
 		return SUCCESS;
 	}
         public boolean isNeedReload() {
@@ -73,6 +76,7 @@ public class SecrecyTechnologyPreventionAction extends BmpAction {
 		secrecyTechnologyPrevention.setState(0);
 		secrecyTechnologyPrevention.setCreateTime(new Date());
 		secrecyTechnologyPreventionService.save(secrecyTechnologyPrevention);
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyTechnologyPrevention.getId(),secAttach);
 		addActionMessage("添加成功!");
 		needReload = true;
 		BusinessLog log = new BusinessLog();
@@ -94,6 +98,7 @@ public class SecrecyTechnologyPreventionAction extends BmpAction {
 	        secrecyTechnologyPrevention2.setModifyPerson(getCurrentUser());
 	        secrecyTechnologyPrevention2.setModifyTime(new Date());
                 secrecyTechnologyPreventionService.update(secrecyTechnologyPrevention2);
+                AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyTechnologyPrevention2.getId(),secAttach);
                 addActionMessage("修改成功!");
                 needReload = true;
                 BusinessLog log = new BusinessLog();
@@ -133,6 +138,7 @@ public class SecrecyTechnologyPreventionAction extends BmpAction {
 
 	public String detail() {
 		secrecyTechnologyPrevention = secrecyTechnologyPreventionService.get(secrecyTechnologyPrevention.getId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyTechnologyPrevention.getId());
 		return SUCCESS;
 	}
 
@@ -298,7 +304,12 @@ public class SecrecyTechnologyPreventionAction extends BmpAction {
                 this.dataValidateService = dataValidateService;
         }
 
+		public List<String> getSecAttach() {
+			return secAttach;
+		}
 
-
+		public void setSecAttach(List<String> secAttach) {
+			this.secAttach = secAttach;
+		}
 
 }
