@@ -178,7 +178,7 @@
 								<ec:column property="null" title="密级" width="5%" style="text-align: left;">
 									<dictionary:text tableCode="bmp" fieldCode="secrecy_level_thing" optionValue="${caseCriticalviolation.secrecyLevel}"></dictionary:text>
 								</ec:column>
-								<ec:column property="null" title="发案形式" width="35%" style="text-align: left;">
+								<ec:column property="null" title="违规方式" width="35%" style="text-align: left;">
 									<dictionary:text tableCode="bmp" fieldCode="case_Type" optionValue="${caseCriticalviolation.caseType}"></dictionary:text>
 								</ec:column>
 								<ec:column property="null" title="责任单位性质" width="20%" style="text-align: left;" >

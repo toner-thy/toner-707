@@ -12,6 +12,7 @@
 <%@ taglib prefix="secPersonlist" uri="http://www.cdthgk.com/tags/secrecyperson/list"%>
 <%@ taglib prefix="nestedlist" uri="http://www.cdthgk.com/bmp/tags/nestedlist"%>
 <%@ taglib uri="http://www.cdthgk.com/tags/ui" prefix="u"%>
+<%@ taglib prefix="attach" uri="http://www.cdthgk.com/tags/attachment"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -71,7 +72,7 @@
 								部门名称：
 							</td>
 							<td class="tbValue fl" >
-								${discloseSecrecy.department.departmentName}</td>
+								${discloseSecrecy.departmentName}</td>
 							<td class="tbLable fr">
 								密&nbsp;&nbsp;&nbsp;&nbsp;级：
 							</td>
@@ -87,20 +88,20 @@
 								<dictionary:text tableCode="bmp" fieldCode="find_result" optionValue="${discloseSecrecy.dealResult}"></dictionary:text>
 							</td>
 							<td class="tbLable fr">
-								创建时间：
+								发生时间：
 							</td>
 							<td class="tbValue fl">
-								<c:if test="${discloseSecrecy.createTime!=null}">
-										<s:date name="discloseSecrecy.createTime" format="yyyy-MM-dd"/>
+								<c:if test="${discloseSecrecy.findTime!=null}">
+										<s:date name="discloseSecrecy.findTime" format="yyyy-MM-dd"/>
 									</c:if>
-									<c:if test="${discloseSecrecy.createTime==null}">
+									<c:if test="${discloseSecrecy.findTime==null}">
 										暂无
 									</c:if>
 							</td>
 						</tr>
 						<tr>
 						    <td class="tbLable fr">
-							    发案形式：
+							    违规方式：
 							</td>
 							<td class="tbLable fl" colspan="3">
 							<dictionary:text tableCode="bmp" fieldCode="case_Type" optionValue="${discloseSecrecy.caseType}"></dictionary:text>
@@ -108,18 +109,20 @@
 						</tr>
 						<tr>
 							<td class="tbLable fr">
-								单位性质：
-							</td>
-							<td class="tbValue fl">
-								<dictionary:text tableCode="bmp" fieldCode="duty_organ_kind" optionValue="${discloseSecrecy.dutyOrganKind}"></dictionary:text>
-							</td>
-							<td class="tbLable fr">
 							      案件性质：
 							</td>
-							<td class="tbLable fl">
+							<td class="tbLable fl" colspan="3">
 								<dictionary:text tableCode="bmp" fieldCode="case_kind" optionValue="${discloseSecrecy.casekind}"></dictionary:text>
 							</td>
 						</tr>
+						<!-- 附件 -->
+							<tr>
+								<td colspan="4">
+									<div>
+									    <attach:view uploadBehavior="bmpUploadBehavior" allowDownload="true" attachments="${attachmentList}" showTitle="false" />
+				 					</div>
+								</td>
+							</tr>
 					</table>
 				</div>
 			</div>

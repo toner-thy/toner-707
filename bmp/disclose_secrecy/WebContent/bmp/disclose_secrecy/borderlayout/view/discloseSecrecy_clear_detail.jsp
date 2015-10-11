@@ -112,7 +112,7 @@
 						</tr>
 						<tr>
 						    <td class="tbLable fr">
-							    发案形式：
+							    违规方式：
 							</td>
 							<td class="tbLable fl" colspan="3">
 							<dictionary:text tableCode="bmp" fieldCode="case_Type" optionValue="${discloseSecrecy.caseType}"></dictionary:text>

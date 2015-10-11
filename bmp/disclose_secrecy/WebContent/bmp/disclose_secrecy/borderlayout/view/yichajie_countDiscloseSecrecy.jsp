@@ -110,7 +110,7 @@
  			 <div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						发案形式统计
+						违规方式统计
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 					</div>
@@ -120,7 +120,7 @@
 						<s:if test="#request.countCaseTypeList.size>0">
 							<table id="countPartList_table"  border="0"  cellspacing="0"  cellpadding="0"  class="tableRegion"  width="100%">
 								<tr>
-									<td class="tableHeader" align="center">发案形式</td>
+									<td class="tableHeader" align="center">违规方式</td>
 									<td class="tableHeader" align="center">数量</td>
 								</tr>
 								<c:forEach items="${countCaseTypeList}" var="countCaseType" varStatus="ifsStatus">

@@ -30,7 +30,7 @@
         </property>
         <property name="caseType" type="java.lang.Integer">
             <column name="case_type">
-                <comment>发案形式</comment>
+                <comment>违规方式</comment>
             </column>
         </property>
 

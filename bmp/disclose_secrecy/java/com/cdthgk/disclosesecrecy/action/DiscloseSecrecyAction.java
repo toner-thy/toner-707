@@ -25,6 +25,8 @@ import com.cdthgk.disclosesecrecy.vo.CaseHandledutyPerson;
 import com.cdthgk.disclosesecrecy.vo.DiscloseSecrecy;
 import com.cdthgk.disclosesecrecy.vo.DiscloseSecrecyChange;
 import com.cdthgk.disclosesecrecy.vo.DiscloseSecrecyClear;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
+import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.base.action.PlatformAction;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.dictionary.context.DictionaryContext;
@@ -51,6 +53,9 @@ public class DiscloseSecrecyAction extends PlatformAction {
         private DiscloseSecrecyClear discloseSecrecyClear;
         private DiscloseSecrecyChangeService discloseSecrecyChangeService;
         private DiscloseSecrecyClearService discloseSecrecyClearService;
+
+        private List<String> secAttach;
+        private List<Attachment> attachmentList;
 
         //泄密事件处理人
         private CaseHandledutyPersonService caseHandledutyPersonService;
@@ -150,6 +155,7 @@ public class DiscloseSecrecyAction extends PlatformAction {
                 try {
                         // 保存实体
                         discloseSecrecyService.save(discloseSecrecy);
+                        AttachmentContext.getInstance().getAttachmentService().updateHostId(discloseSecrecy.getDisclosesecrecycaseId(),secAttach);
                         flag = true;
                 } catch (Exception e) {
                         flag = false;
@@ -1126,6 +1132,7 @@ public class DiscloseSecrecyAction extends PlatformAction {
                 List<DiscloseSecrecyChange> discloseSecrecy_changelist = new ArrayList<DiscloseSecrecyChange>(discloseSecrecy.getDiscloseSecrecyChanges());
                 putToRequest("discloseSecrecy_changelist", discloseSecrecy_changelist);
                 this.putToRequest("discloseSecrecy", discloseSecrecy);
+                attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(discloseSecrecy.getDisclosesecrecycaseId());
                 return SUCCESS;
         }
         //泄密事件密级变更详情
@@ -1325,6 +1332,7 @@ public class DiscloseSecrecyAction extends PlatformAction {
                         discloseSecrecy = discloseSecrecyService.get(getId());
 
                 }
+                attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(discloseSecrecy.getDisclosesecrecycaseId());
                 //编辑涉密事件时获得泄密事件负责人列表
                 putToRequest("caseHandledutyPersonList", caseHandledutyPersonService.queryCaseHandledutyPersonList(psm,discloseSecrecy,null));
                 return SUCCESS;
@@ -1381,6 +1389,7 @@ public class DiscloseSecrecyAction extends PlatformAction {
                 // 更新实体
                 try {
                         discloseSecrecyService.update(ds);
+                        AttachmentContext.getInstance().getAttachmentService().updateHostId(ds.getDisclosesecrecycaseId(),secAttach);
                         this.putToRequest("DiscloseSecrecy", ds);
                         flag = true;
                 } catch (Exception e) {
@@ -1692,5 +1701,19 @@ public class DiscloseSecrecyAction extends PlatformAction {
         public void setDataValidateService(DataValidateService dataValidateService) {
                 this.dataValidateService = dataValidateService;
         }
+		public List<String> getSecAttach() {
+			return secAttach;
+		}
+		public void setSecAttach(List<String> secAttach) {
+			this.secAttach = secAttach;
+		}
+		public List<Attachment> getAttachmentList() {
+			return attachmentList;
+		}
+		public void setAttachmentList(List<Attachment> attachmentList) {
+			this.attachmentList = attachmentList;
+		}
+
+
 
 }

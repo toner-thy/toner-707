@@ -31,7 +31,7 @@
           <td width="204" align="center" >名称</td>
           <td width="116" align="center">部门名称</td>
           <td width="159" align="center" >密级</td>
-          <td width="159" align="center" >发案形式</td>
+          <td width="159" align="center" >违规方式</td>
           <td width="73" align="center" >责任单位性质</td>
           <td width="73" align="center" >案件性质</td>
           <td width="73" align="center" >查处结果</td>

@@ -19,15 +19,18 @@ public class DiscloseSecrecy implements Serializable {
 	private String secrecyLevelTxt;
 	private Integer casekind;//案件性质
 	private String casekindTxt;
-	private Integer caseType;//发案形式
+	private Integer caseType;//违规方式
 	private String caseTypeTxt;
 
 	private Integer dutyOrganKind;//责任单位性质
 	private String dutyOrganKindTxt;
 	private Department department;
+	private String departmentName;
+
 
 	private Integer status;
 
+	private Date findTime;
 	private Organ createOrgan;
 	private UserInfo createPerson;
 	private Date createTime;
@@ -271,4 +274,22 @@ public class DiscloseSecrecy implements Serializable {
 	public void setModifyPerson(UserInfo modifyPerson) {
 		this.modifyPerson = modifyPerson;
 	}
+
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+
+	public Date getFindTime() {
+		return findTime;
+	}
+
+	public void setFindTime(Date findTime) {
+		this.findTime = findTime;
+	}
+
+
 }

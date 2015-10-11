@@ -10,7 +10,7 @@
 <%@ taglib uri="http://www.cdthgk.com/tags/dictionary"
 	prefix="dictionary"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
-<!-- 保密局泄密案件根据查处结果值和按照案件密级，案件发案形式，等统计-->
+<!-- 保密局泄密案件根据查处结果值和按照案件密级，案件违规方式，等统计-->
 <link href="${ctx}/platform/css/public/table/complexTbSustain.css"
 	type="text/css" rel="stylesheet" />
 
@@ -135,7 +135,7 @@
 	<div class="split_line"></div>
 	<div class="panel tMargin">
 		<div class="panel_header">
-			<div class="panel_title panel_titleListIco">发案形式统计</div>
+			<div class="panel_title panel_titleListIco">违规方式统计</div>
 			<div class="panel_btn_bar pop_button_bar">
 				<%-- <a href="###" id="doExport"  onclick="doExport()" class="pop_button"><span>导出</span></a> --%>
 			</div>

@@ -37,7 +37,7 @@
 
         <property name="caseType" type="java.lang.Integer">
             <column name="case_type">
-                <comment>发案形式</comment>
+                <comment>违规方式</comment>
             </column>
         </property>
 
@@ -53,6 +53,10 @@
             </column>
         </property>
 
+        <property name="departmentName" type="java.lang.String">
+            <column name="department_name" length="200" not-null="true">
+            </column>
+        </property>
         <many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department" fetch="select">
         	<column name="depart_id" length="39">
                 <comment>部门ID</comment>
@@ -88,6 +92,11 @@
 		</set>
         <property name="createTime" type="java.util.Date">
             <column name="create_time" length="19">
+                <comment>输入时间</comment>
+            </column>
+        </property>
+        <property name="findTime" type="java.util.Date">
+            <column name="find_time" length="19">
                 <comment>输入时间</comment>
             </column>
         </property>

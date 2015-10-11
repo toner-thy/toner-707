@@ -153,7 +153,7 @@ $(id).style.display="none";
                                                 style="vertical-align:middle;"  onmouseover="disOne('expid')" onmouseout="noneOne('expid')"  />
                                     <div id="expid"  style="display:none;z-index:500;position:absolute; background-color:#CCFFCC;" >
 	                                                <br/>
-	                                                                              &ensp;&ensp; 1、 案件名称应包括：案件发生部门、姓名和发案形式。 <br/>
+	                                                                              &ensp;&ensp; 1、 案件名称应包括：案件发生部门、姓名和违规方式。 <br/>
 	                                                                              &ensp;&ensp; 2、 如：×× 部门 李×网络泄密案；<br/>
 	                                                <br/>
                                     </div>
@@ -174,7 +174,7 @@ $(id).style.display="none";
 	                                                <br/>
                                     </div>
 							</td>
-							<td class="tbLable fr">发案形式：</td>
+							<td class="tbLable fr">违规方式：</td>
 							<td class="tbValue fl"><dictionary:select tableCode="bmp"
 							        filterValues="${filterValues}"
 									fieldCode="case_Type" id="caseCriticalviolation.caseType"

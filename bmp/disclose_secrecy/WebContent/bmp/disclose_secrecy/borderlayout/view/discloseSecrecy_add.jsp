@@ -8,6 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.cdthgk.com/tags/dictionary" prefix="dictionary"%>
 <%@ taglib prefix="dep" uri="http://www.cdthgk.com/tags/organization/department"%>
+<%@ taglib prefix="attach" uri="http://www.cdthgk.com/tags/attachment"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -154,7 +155,7 @@
                                                 style="vertical-align:middle;"  onmouseover="disOne('expid')" onmouseout="noneOne('expid')"  />
                                     <div id="expid"  style="display:none;z-index:500;position:absolute; background-color:#CCFFCC;" >
 	                                                <br/>
-	                                                                              &ensp;&ensp; 1、 案件名称应包括：案件发生部门、姓名和发案形式。 <br/>
+	                                                                              &ensp;&ensp; 1、 案件名称应包括：案件发生部门、姓名和违规方式。 <br/>
 	                                                                              &ensp;&ensp; 2、 如：×× 部门 李×网络泄密案；<br/>
 	                                                <br/>
                                     </div>
@@ -166,24 +167,24 @@
 							<td class="tbValue fl"><dictionary:select tableCode="bmp"
 									fieldCode="case_kind" id="discloseSecrecy.casekind"
 									name="discloseSecrecy.casekind" style="width: 132px;"/></td>
-							<td class="tbLable fr">发案形式：</td>
+							<td class="tbLable fr">违规方式：</td>
 							<td class="tbValue fl"><dictionary:select tableCode="bmp"
 							        filterValues="${filterValues}"
 									fieldCode="case_Type" id="discloseSecrecy.caseType"
 									name="discloseSecrecy.caseType" style="width: 200px;"/></td>
 						</tr>
 						<tr>
-							<td class="tbLable fr">责任单位性质：</td>
-							<td class="tbValue fl"><dictionary:select tableCode="bmp"
-									fieldCode="duty_organ_kind"
-									id="discloseSecrecy.dutyOrganKind"
-									name="discloseSecrecy.dutyOrganKind" style="width: 200px;"/></td>
-							<td class="tbLable fr">创建时间：</td>
+							<td class="tbLable fr">部门名称：</td>
+							<td class="tbValue fl">
+								<input type="text" id="discloseSecrecy.departmentName" name="discloseSecrecy.departmentName"
+								style="width: 65%" class="validate['required','length[200]']"/> <span style="color: red;">*</span>
+							</td>
+							<td class="tbLable fr">发生时间：</td>
 							<td class="tbValue fl"><input type="text"
-								id="secrecyPolicyCode.awardTime"
-								name="secrecyPolicyCode.awardTime"
+								id="discloseSecrecy.findTime"
+								name="discloseSecrecy.findTime"
 								class="Wdate validate['required','length[20]']"
-								value="<s:date name='#attr.secrecyPolicyCode.awardTime' format='yyyy-MM-dd'/>"
+								value="<s:date name='#attr.discloseSecrecy.findTime' format='yyyy-MM-dd'/>"
 								onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"
 								readonly="readonly" /> <font color="red">*</font>
 								<img alt="" src="${ctx}/bmp/key-section/borderlayout/skin/blue/img/wen.jpg" width="20px" height="20px;"
@@ -218,24 +219,6 @@
                                     </div>
 							</td>
 						</tr>
-						<tr>
-							<td class="tbLable fr">部门名称：</td>
-							<td class="tbValue fl"><dep:selectByOrgan valueEl="discloseSecrecy.department.departmentId"
-									textEl="discloseSecrecy.department.departmentName" required="true" onlyFromValue="true"
-									styleClass="validate['length[32]']"
-									 buttonEl="sss" />
-									 <img alt="" src="${ctx}/bmp/key-section/borderlayout/skin/blue/img/wen.jpg" width="20px" height="20px;"
-                                                style="vertical-align:middle;"  onmouseover="disOne('dapartName')" onmouseout="noneOne('dapartName')"  />
-                                    <div id="dapartName"  style="display:none;z-index:500;position:absolute; background-color:#CCFFCC;" >
-	                                                <br/>
-			                                                           &ensp;&ensp;1、只能点击选择按钮选择对应的部门。<br/>
-
-	                                                <br/>
-                                    </div>
-							</td>
-
-						</tr>
-
 					</table>
 
 					<!-- 隐藏提交按钮 -->
@@ -243,6 +226,9 @@
 						<input id="sub" value="sub" type="submit" style="display: none;" />
 					</div>
 				</form>
+				<div>
+					<attach:upload uploadBehavior="bmpUploadBehavior" applyForm="add_form" applyName="secAttach" showTitle="false"/>
+				 </div>
 			</div>
 		</div>
 		<!-- 内容panel结束 -->

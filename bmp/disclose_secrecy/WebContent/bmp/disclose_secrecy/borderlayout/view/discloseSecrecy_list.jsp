@@ -207,7 +207,7 @@
 							<ec:column property="name" title="名称" width="14%"
 								style="text-align: left;" cell="text" alias="size=15">
 							</ec:column>
-							<ec:column property="department.departmentName" title="部门名称"
+							<ec:column property="departmentName" title="部门名称"
 								width="12%" style="text-align: left;">
 							</ec:column>
 							<ec:column property="null" title="密级" width="5%"
@@ -215,15 +215,10 @@
 								<dictionary:text tableCode="bmp" fieldCode="secrecy_level_thing"
 									optionValue="${discloseSecrecy.secrecyLevel}"></dictionary:text>
 							</ec:column>
-							<ec:column property="null" title="发案形式" width="30%"
+							<ec:column property="null" title="违规方式" width="30%"
 								style="text-align: left;">
 								<dictionary:text tableCode="bmp" fieldCode="case_Type"
 									optionValue="${discloseSecrecy.caseType}"></dictionary:text>
-							</ec:column>
-							<ec:column property="null" title="责任单位性质" width="18%"
-								style="text-align: left;">
-								<dictionary:text tableCode="bmp" fieldCode="duty_organ_kind"
-									optionValue="${discloseSecrecy.dutyOrganKind}"></dictionary:text>
 							</ec:column>
 							<ec:column property="null" title="案件性质" width="9%"
 								style="text-align: left;">

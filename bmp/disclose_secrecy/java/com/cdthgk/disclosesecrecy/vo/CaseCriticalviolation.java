@@ -17,7 +17,7 @@ public class CaseCriticalviolation implements Serializable {
 	private String name;
 	private Integer dealResult;//查处结果
 	private Integer secrecyLevel;//密级
-	private Integer caseType;//发案形式
+	private Integer caseType;//违规方式
 	private Integer dutyOrganKind;//责任单位性质
 	private Department department;//部门名称
 	private Integer status;//涉密状态
