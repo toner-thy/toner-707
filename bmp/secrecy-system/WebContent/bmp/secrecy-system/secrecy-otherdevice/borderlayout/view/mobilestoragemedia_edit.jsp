@@ -12,6 +12,7 @@
 <%@ taglib uri="http://www.cdthgk.com/tags/secrecyPerson/search" prefix="sp"%>
 <%@ taglib uri="http://www.cdthgk.com/tags/keySection" prefix="section" %>
 <%@ taglib uri="http://www.cdthgk.com/tags/keyPart" prefix="part" %>
+<%@ taglib prefix="attach" uri="http://www.cdthgk.com/tags/attachment"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,7 +49,7 @@
 							TabUtil.closeTab();
 						}
 					};
-					var fc = new FormCheck('form_secrecyMobilestoragemedia_add',{
+					var fc = new FormCheck('add_form',{
 						display:{
 							showErrors:${_.config.formcheck.showErrors},errorsLocation: ${_.config.formcheck.errorsLocation}
 						},
@@ -245,7 +246,7 @@
 				</div>
 
 				<div class="panel_content panel_content_table">
-					<form id="form_secrecyMobilestoragemedia_add" action="<s:url namespace='/secrecysystem/secrecymobilestoragemedia' action='mobilestoragemedia_editing' includeParams='true'/>" method="post">
+					<form id="add_form" action="<s:url namespace='/secrecysystem/secrecymobilestoragemedia' action='mobilestoragemedia_editing' includeParams='true'/>" method="post">
 						<!-- 隐藏域 -->
 						<input type="hidden" id="secrecyMobilestoragemedia.secrecymobilestoragemediaId" name="secrecyMobilestoragemedia.secrecymobilestoragemediaId" value="${secrecyMobilestoragemedia.secrecymobilestoragemediaId }" />
 						<table class="content_table" width="100%">
@@ -376,6 +377,9 @@
 							<input type="submit" id="sub" value="sub" style="display: none;" />
 						</div>
 					</form>
+					<div>
+						<attach:upload uploadBehavior="bmpUploadBehavior" applyForm="add_form" applyName="secAttach" attachments="${attachmentList }" showTitle="false"/>
+					 </div>
 				</div>
 			</div>
 			<!-- 涉密人员panel结束 -->

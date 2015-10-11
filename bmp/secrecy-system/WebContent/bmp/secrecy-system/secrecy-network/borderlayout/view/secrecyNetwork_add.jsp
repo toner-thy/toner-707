@@ -229,7 +229,8 @@
 									测评通过机构：
 								</td>
 								<td class="tbValue fl">
-								    <org:selectByDistrct textEl="secrecyNetwork.reviewOrgan.organName" valueEl="secrecyNetwork.reviewOrgan.organId" required="false" buttonEl="orgImg"></org:selectByDistrct>
+									<input type="text" name="secrecyNetwork.reviewOrgan" id="secrecyNetwork.reviewOrgan"
+										value="${secrecyNetwork.reviewOrgan }" class="validate['length[30]']"/>
 								</td>
 							</tr>
 							<tr style="display: none;" id="pass22">

@@ -32,10 +32,10 @@
             <column name="review_time">
             </column>
         </property>
-        <many-to-one name="reviewOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ" fetch="select">
-			<column name="review_organ" length="39">
-			</column>
-		</many-to-one>
+        <property name="reviewOrgan" type="java.lang.String">
+            <column name="review_organ">
+            </column>
+        </property>
         <property name="isApproval" type="java.lang.Integer">
             <column name="is_approval">
             </column>

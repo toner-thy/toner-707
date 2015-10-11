@@ -35,7 +35,7 @@ public class SecrecyNetwork implements java.io.Serializable {
 
 	private Date reviewTime;
 
-	private Organ reviewOrgan;
+	private String reviewOrgan;
 
 	private Integer isApproval;
 
@@ -380,17 +380,12 @@ public class SecrecyNetwork implements java.io.Serializable {
 		this.reviewTime = reviewTime;
 	}
 
-	/**
-	 * @return 返回reviewOrgan
-	 */
-	public Organ getReviewOrgan() {
+
+	public String getReviewOrgan() {
 		return reviewOrgan;
 	}
 
-	/**
-	 * @param reviewOrgan 设置reviewOrgan
-	 */
-	public void setReviewOrgan(Organ reviewOrgan) {
+	public void setReviewOrgan(String reviewOrgan) {
 		this.reviewOrgan = reviewOrgan;
 	}
 

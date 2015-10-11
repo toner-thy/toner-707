@@ -137,9 +137,7 @@
 									测评通过机构：
 								</td>
 								<td class="tbValue fl">
-									<c:if test="${secrecyNetwork.reviewOrgan.organId ne '' }">
-								    	${secrecyNetwork.reviewOrgan.organName }
-								    </c:if>
+								    	${secrecyNetwork.reviewOrgan }
 								</td>
 							</tr>
 							<tr style="display: none;" id="pass22">

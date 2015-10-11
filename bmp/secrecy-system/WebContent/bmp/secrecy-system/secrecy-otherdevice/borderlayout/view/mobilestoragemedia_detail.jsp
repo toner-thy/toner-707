@@ -12,6 +12,7 @@
 <%@ taglib uri="http://www.cdthgk.com/tags/secrecyPerson/search" prefix="sp"%>
 <%@ taglib uri="http://www.cdthgk.com/tags/keySection" prefix="section" %>
 <%@ taglib uri="http://www.cdthgk.com/tags/keyPart" prefix="part" %>
+<%@ taglib prefix="attach" uri="http://www.cdthgk.com/tags/attachment"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -216,6 +217,14 @@
 								</td>
 								<td class="tbValue fl" colspan="3">
 									${secrecyMobilestoragemedia.mediaDescription }
+								</td>
+							</tr>
+							<!-- 附件 -->
+							<tr>
+								<td colspan="4">
+									<div>
+									    <attach:view uploadBehavior="bmpUploadBehavior" allowDownload="true" attachments="${attachmentList}" showTitle="false" />
+				 					</div>
 								</td>
 							</tr>
 						</table>

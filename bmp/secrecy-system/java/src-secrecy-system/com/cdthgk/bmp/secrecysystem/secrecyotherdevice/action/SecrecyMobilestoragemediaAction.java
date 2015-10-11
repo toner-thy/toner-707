@@ -28,6 +28,8 @@ import com.cdthgk.common.bean.BeanUtils;
 import com.cdthgk.common.bean.rule.CopyRuleEnum;
 import com.cdthgk.common.lang.CollectionUtils;
 import com.cdthgk.common.lang.StringUtils;
+import com.cdthgk.platform.attachment.context.AttachmentContext;
+import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.dataValidate.service.DataValidateService;
 import com.cdthgk.platform.dictionary.context.DictionaryContext;
 import com.cdthgk.platform.dictionary.domain.DictionaryOption;
@@ -66,6 +68,8 @@ public class SecrecyMobilestoragemediaAction extends BmpAction {
 	private Boolean needReload = false;
 	private District district;
 
+	private List<Attachment> attachmentList;
+    private List<String> secAttach;
 	/**
 	 *
 	 * <p>
@@ -249,6 +253,9 @@ public class SecrecyMobilestoragemediaAction extends BmpAction {
 		//Department department = secrecyMobilestoragemediaService.get(secrecyMobilestoragemedia.getDepartment().getDepartmentId(), Department.class);
 		secrecyMobilestoragemedia.setDepartment(department);
 		this.secrecyMobilestoragemediaService.save(secrecyMobilestoragemedia);
+
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyMobilestoragemedia.getSecrecymobilestoragemediaId(),secAttach);
+
 		this.setNeedReload(true);
 		addActionMessage(getMessageConstant().getSaveSuccess());
 		BusinessLog log = new BusinessLog();
@@ -284,6 +291,7 @@ public class SecrecyMobilestoragemediaAction extends BmpAction {
 		List<DictionaryOption> isbelongKeydepartmentOptions = DictionaryContext.getInstance().getDictionaryService().getOptionList("bmp", "is_section_part");
 		this.putToRequest("isbelongKeydepartmentOptions", isbelongKeydepartmentOptions);
 		secrecyMobilestoragemedia = this.secrecyMobilestoragemediaService.get(secrecyMobilestoragemedia.getSecrecymobilestoragemediaId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyMobilestoragemedia.getSecrecymobilestoragemediaId());
 		return EDIT;
 	}
 
@@ -347,6 +355,9 @@ public class SecrecyMobilestoragemediaAction extends BmpAction {
 		secrecyMobilestoragemediaDb.setModifyPerson(getCurrentUser());
 		secrecyMobilestoragemediaDb.setModifyOrgan(getCurrentUser().getUserInfo().getOrgan());
 		secrecyMobilestoragemediaService.update(secrecyMobilestoragemediaDb);
+
+		AttachmentContext.getInstance().getAttachmentService().updateHostId(secrecyMobilestoragemediaDb.getSecrecymobilestoragemediaId(),secAttach);
+
 		putToRequest("secrecyMobilestoragemedia", secrecyMobilestoragemediaDb);
 		this.setNeedReload(true);
 		addActionMessage(getMessageConstant().getUpdateSuccess());
@@ -430,6 +441,7 @@ public class SecrecyMobilestoragemediaAction extends BmpAction {
 		List<DictionaryOption> isbelongKeydepartmentOptions = DictionaryContext.getInstance().getDictionaryService().getOptionList("bmp", "is_section_part");
 		this.putToRequest("isbelongKeydepartmentOptions", isbelongKeydepartmentOptions);
 		secrecyMobilestoragemedia = this.secrecyMobilestoragemediaService.get(secrecyMobilestoragemedia.getSecrecymobilestoragemediaId());
+		attachmentList = AttachmentContext.getInstance().getAttachmentService().getAttachmentsByHostId(secrecyMobilestoragemedia.getSecrecymobilestoragemediaId());
 		return DETAIL;
 	}
 
@@ -1243,5 +1255,21 @@ public class SecrecyMobilestoragemediaAction extends BmpAction {
         public void setDataValidateService(DataValidateService dataValidateService) {
                 this.dataValidateService = dataValidateService;
         }
+
+		public List<Attachment> getAttachmentList() {
+			return attachmentList;
+		}
+
+		public void setAttachmentList(List<Attachment> attachmentList) {
+			this.attachmentList = attachmentList;
+		}
+
+		public List<String> getSecAttach() {
+			return secAttach;
+		}
+
+		public void setSecAttach(List<String> secAttach) {
+			this.secAttach = secAttach;
+		}
 
 }
