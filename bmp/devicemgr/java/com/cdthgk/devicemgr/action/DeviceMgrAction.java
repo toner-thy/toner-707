@@ -12,6 +12,8 @@ import com.cdthgk.devicemgr.vo.EquipmentTrash;
 import com.cdthgk.devicemgr.vo.SecrecyEquipment;
 import com.cdthgk.devicemgr.vo.SecrecyEquipmentCategory;
 import com.cdthgk.platform.base.action.PlatformAction;
+import com.cdthgk.platform.organization.core.OrganizationContext;
+import com.cdthgk.platform.organization.organ.configuration.OrganConfiguration;
 import com.cdthgk.platform.organization.organ.domain.Organ;
 import com.cdthgk.platform.organization.userinfo.domain.UserInfo;
 import com.cdthgk.platform.organization.userinfo.service.UserInfoService;

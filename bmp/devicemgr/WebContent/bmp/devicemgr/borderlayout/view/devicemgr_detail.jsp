@@ -125,10 +125,10 @@
 
 						<tr height="36px;">
 							<td class="tbLable fr">
-								存放地点：
+								领用单位：
 							</td>
 							<td class="tbValue fl">
-								&nbsp;&nbsp;${secrecyEquipment.atPlace}
+								&nbsp;&nbsp;${secrecyEquipment.obtainOrgan.organName}
 							</td>
 							<td class="tbLable fr">
 								责任人：

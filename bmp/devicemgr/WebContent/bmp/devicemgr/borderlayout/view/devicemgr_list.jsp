@@ -189,8 +189,8 @@
 								<ec:column property="null" title="所属单位">
 									<div title="${secrecyEquipment.organ.organName}">${fn:substring(secrecyEquipment.organ.organName,0,10)}<c:if test="${fn:length(secrecyEquipment.organ.organName)>10}">……</c:if></div>
 								</ec:column>
-								<ec:column property="null" title="存放地点">
-									<div title="${secrecyEquipment.atPlace}">${fn:substring(secrecyEquipment.atPlace,0,10)}<c:if test="${fn:length(secrecyEquipment.atPlace)>10}">……</c:if></div>
+								<ec:column property="null" title="领用单位">
+									<div title="${secrecyEquipment.obtainOrgan.organName}">${fn:substring(secrecyEquipment.obtainOrgan.organName,0,10)}<c:if test="${fn:length(secrecyEquipment.obtainOrgan.organName)>10}">……</c:if></div>
 								</ec:column>
 <%-- 								<ec:column property="null" title="状态"> --%>
 <%-- 									<dictionary:text fieldCode="secrecyEquipment_status" tableCode="devicemgr" optionValue="${secrecyEquipment.status}"></dictionary:text> --%>

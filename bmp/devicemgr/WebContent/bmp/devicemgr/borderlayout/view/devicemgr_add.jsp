@@ -8,6 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.cdthgk.com/tags/dictionary" prefix="dictionary"%>
 <%@ taglib prefix="dep" uri="http://www.cdthgk.com/tags/organization/department"%>
+<%@ taglib prefix="organ" uri="http://www.cdthgk.com/tags/organization/organ"%>
 <%@ taglib uri="http://www.cdthgk.com/tags/organization/userinfo" prefix="ui"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 
@@ -155,10 +156,10 @@
 
 							<tr height="30px;">
 								<td align="right">
-									存放地点：
+									领用单位：
 								</td>
 								<td>
-									<input name="secrecyEquipment.atPlace" id="betraynum" type="text" value="${secrecyEquipment.atPlace}" class="validate['required','length[100]']"><span style="color:red;">&nbsp;&nbsp;*</span>
+									<organ:selectByDistrct  textEl="secrecyEquipment.obtainOrgan.organName" valueEl="secrecyEquipment.obtainOrgan.organId"  required="true" onlyFromValue="true"  buttonEl="readOrgan" ></organ:selectByDistrct>
 								</td>
 								<td align="right">
 									责任人：

@@ -52,6 +52,7 @@ public class SecrecyEquipment implements java.io.Serializable {
 	private Department department;
 
 	private Organ organ;
+	private Organ obtainOrgan;
 
 
 	private Set equipmentTrash=new HashSet();
@@ -248,4 +249,13 @@ public class SecrecyEquipment implements java.io.Serializable {
 	public void setDutyPerson(UserInfo dutyPerson) {
 		this.dutyPerson = dutyPerson;
 	}
+
+	public Organ getObtainOrgan() {
+		return obtainOrgan;
+	}
+
+	public void setObtainOrgan(Organ obtainOrgan) {
+		this.obtainOrgan = obtainOrgan;
+	}
+
 }

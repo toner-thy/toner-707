@@ -66,6 +66,9 @@
         <many-to-one name="department" class="com.cdthgk.platform.organization.department.domain.Department">
            <column name="DEPARTMENT_ID" length="39"/>
         </many-to-one>
+		<many-to-one name="obtainOrgan" class="com.cdthgk.platform.organization.organ.domain.Organ">
+            <column name="obtain_organ_id" length="39" />
+        </many-to-one>
 		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
             <column name="ORGAN_ID" length="39" />
         </many-to-one>
