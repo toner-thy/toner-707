@@ -131,7 +131,7 @@
 									密级：
 								</td>
 								<td class="tbValue fl">
-									<dictionary:select fieldCode="secrecy_level_thing" tableCode="bmp" id="secrecyCopy.secrecyLevel"
+									<dictionary:select fieldCode="secrecy_copy_level" tableCode="bmp" id="secrecyCopy.secrecyLevel"
 								                           name="secrecyCopy.secrecyLevel" style="width: 132px;"
 								                           title="true" titleText="请选择" styleClass="validate['required']"
 								                           optionValue="${secrecyCopy.secrecyLevel}"/>
@@ -154,7 +154,7 @@
 									<input type="text" name="secrecyCopy.pageNo" class="validate['required','length[20]']" value="${secrecyCopy.pageNo}" size="50"/><span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
 								<td class="tbLable fr">
-									申请人：
+									领用人：
 								</td>
 								<td class="tbValue fl">
 									<ui:selectByOrgan valueEl="secrecyCopy.applicant.userInfoId" textEl="secrecyCopy.applicant.name"
@@ -200,9 +200,15 @@
 							</tr>
 							<tr>
 								<td class="tbLable fr">
+									复印编码：
+								</td>
+								<td class="tbValue fl">
+									<input type="text" name="secrecyCopy.copyNumber" value="${secrecyCopy.copyNumber}" size="50"/>
+								</td>
+								<td class="tbLable fr">
 									用途：
 								</td>
-								<td class="tbValue fl" colspan="3">
+								<td class="tbValue fl">
 									<input type="text" name="secrecyCopy.usePlace" value="${secrecyCopy.usePlace}" size="50"/>
 								</td>
 							</tr>

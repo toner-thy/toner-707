@@ -27,6 +27,11 @@
                 <comment>文号</comment>
             </column>
         </property>
+        <property name="copyNumber" type="java.lang.String">
+            <column name="copyNumber" length="100">
+                <comment>文号</comment>
+            </column>
+        </property>
         <property name="usePlace" type="java.lang.String">
             <column name="usePlace" length="500">
                 <comment>文号</comment>

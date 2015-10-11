@@ -130,6 +130,14 @@
 							</tr>
 							<tr>
 								<td class="tbLable fr">
+									页码：
+								</td>
+								<td class="tbValue fl">
+									${secrecyBorrow.pageNumber}
+								</td>
+							</tr>
+							<tr>
+								<td class="tbLable fr">
 									密级：
 								</td>
 								<td class="tbValue fl">

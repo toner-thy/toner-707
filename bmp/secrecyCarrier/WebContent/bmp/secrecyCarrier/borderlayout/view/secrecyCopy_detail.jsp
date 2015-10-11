@@ -133,7 +133,7 @@
 									密级：
 								</td>
 								<td class="tbValue fl">
-									<dictionary:text fieldCode="secrecy_level_thing" tableCode="bmp"
+									<dictionary:text fieldCode="secrecy_copy_level" tableCode="bmp"
 								                           optionValue="${secrecyCopy.secrecyLevel}"/>
 								</td>
 								<td class="tbLable fr">
@@ -151,7 +151,7 @@
 								${secrecyCopy.pageNo}
 								</td>
 								<td class="tbLable fr">
-									申请人：
+									领用人：
 								</td>
 								<td class="tbValue fl">
 									${secrecyCopy.applicant.name }
@@ -189,9 +189,15 @@
 							</tr>
 							<tr>
 								<td class="tbLable fr">
+									复印编码：
+								</td>
+								<td class="tbValue fl">
+									${secrecyCopy.copyNumber}
+								</td>
+								<td class="tbLable fr">
 									用途：
 								</td>
-								<td class="tbValue fl" colspan="3">
+								<td class="tbValue fl" >
 									${secrecyCopy.usePlace}
 								</td>
 							</tr>
@@ -205,7 +211,7 @@
 							</tr>
 							<!-- 附件 -->
 							<tr>
-								<td colspan="2">
+								<td colspan="4">
 									<div>
 									    <attach:view uploadBehavior="bmpUploadBehavior" allowDownload="true" attachments="${attachmentList}" showTitle="false" />
 				 					</div>

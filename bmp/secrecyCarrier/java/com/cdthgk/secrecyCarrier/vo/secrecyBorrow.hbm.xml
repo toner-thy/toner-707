@@ -22,6 +22,10 @@
                 <comment>密级</comment>
             </column>
         </property>
+        <property name="pageNumber" type="java.lang.Integer">
+            <column name="pageNumber" length="11">
+            </column>
+        </property>
         <property name="docNumber" type="java.lang.String">
             <column name="docNumber" length="100">
                 <comment>文号</comment>

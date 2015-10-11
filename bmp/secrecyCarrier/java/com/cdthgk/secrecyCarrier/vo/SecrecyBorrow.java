@@ -16,6 +16,7 @@ public class SecrecyBorrow implements java.io.Serializable {
 	private Date date;//借阅时间
 	private String name;//文件名称
 	private Integer secrecyLevel;//密级
+	private Integer pageNumber;
 	private String secrecyLevelTxt;
 	private String docNumber;//文号
 	private String number;//份数
@@ -233,5 +234,11 @@ public class SecrecyBorrow implements java.io.Serializable {
         public void setSecrecyLevelTxt(String secrecyLevelTxt) {
                 this.secrecyLevelTxt = secrecyLevelTxt;
         }
+		public Integer getPageNumber() {
+			return pageNumber;
+		}
+		public void setPageNumber(Integer pageNumber) {
+			this.pageNumber = pageNumber;
+		}
 
 }

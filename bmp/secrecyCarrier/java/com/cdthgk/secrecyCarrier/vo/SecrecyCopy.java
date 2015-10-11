@@ -20,6 +20,7 @@ public class SecrecyCopy implements java.io.Serializable {
 	private String secrecyLevelTxt;
 	private String number;//份数
 	private String pageNo;//每份页数
+	private String copyNumber;
 	private Department draftingDep;//申请部门
 	private UserInfo  approver;//批准人
 	private UserInfo  applicant;//申请人
@@ -39,7 +40,7 @@ public class SecrecyCopy implements java.io.Serializable {
         public String getId() {
                 return id;
         }
-        
+
         /**
          * @return 返回 approver
          */
@@ -297,5 +298,11 @@ public class SecrecyCopy implements java.io.Serializable {
                 this.secrecyLevelTxt = secrecyLevelTxt;
         }
 
+		public String getCopyNumber() {
+			return copyNumber;
+		}
 
+		public void setCopyNumber(String copyNumber) {
+			this.copyNumber = copyNumber;
+		}
 }

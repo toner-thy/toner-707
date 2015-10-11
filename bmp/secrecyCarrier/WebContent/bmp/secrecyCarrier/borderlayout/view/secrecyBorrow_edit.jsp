@@ -145,6 +145,14 @@
 							</tr>
 							<tr>
 								<td class="tbLable fr">
+									页码：
+								</td>
+								<td class="tbValue fl">
+									<input type="text" name="secrecyBorrow.pageNumber" value="${secrecyBorrow.pageNumber}"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="tbLable fr">
 									借阅人：
 								</td>
 								<td class="tbValue fl">
