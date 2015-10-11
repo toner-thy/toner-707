@@ -163,18 +163,10 @@
 							</tr>
 							<tr>
 								<td class="tbLable fr">
-									领导审批意见：
-								</td>
-								<td class="tbValue fl" colspan="3">
-								 <textarea rows="6" cols="100"  name="secrecyMaintain.leaderIdea" class="validate['length[100]']" style="width:98%" >${secrecyMaintain.leaderIdea}</textarea>
-								</td>
-							</tr>
-							<tr>
-								<td class="tbLable fr">
-									部门意见：
+									维修结果：
 								</td>
 								<td class="tbValue fl" style="width:98%" colspan="3">
-								 <textarea rows="6" cols="100" name="secrecyMaintain.depIdea" class="validate['length[100]']"  style="width:98%" >${secrecyMaintain.depIdea}</textarea>
+								 <textarea rows="6" cols="100" name="secrecyMaintain.depIdea" class="validate['length[2000]']"  style="width:98%" >${secrecyMaintain.depIdea}</textarea>
 								</td>
 							</tr>
 							<tr>

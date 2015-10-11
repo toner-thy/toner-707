@@ -15,6 +15,7 @@ public class SecrecyTechnologyPrevention implements java.io.Serializable {
 	private String name;//设备名称
 	private String number;//数量
 	private Date date;//时间
+	private Date validateDate;
 	private Department equipDep;//装备部门
 	private String purpose;//用途;
 	private Part keyPart;//要害部位
@@ -193,5 +194,10 @@ public class SecrecyTechnologyPrevention implements java.io.Serializable {
         public void setState(Integer state) {
                 this.state = state;
         }
-
+		public Date getValidateDate() {
+			return validateDate;
+		}
+		public void setValidateDate(Date validateDate) {
+			this.validateDate = validateDate;
+		}
 }

@@ -72,8 +72,14 @@
 								<td class="tbLable fr">
 									设备名称：
 								</td>
-								<td class="tbValue fl" colspan="3">
+								<td class="tbValue fl">
 								${secrecyTechnologyPrevention.name}
+								</td>
+								<td class="tbLable fr">
+									有效期：
+								</td>
+								<td class="tbValue fl">
+									<s:date name="secrecyTechnologyPrevention.validateDate" format="yyyy-MM-dd"/>
 								</td>
 							</tr>
 							<tr>
@@ -116,7 +122,7 @@
 							</tr>
 							<!-- 附件 -->
 							<tr>
-								<td colspan="2">
+								<td colspan="4">
 									<div>
 									    <attach:view uploadBehavior="bmpUploadBehavior" allowDownload="true" attachments="${attachmentList}" showTitle="false" />
 				 					</div>

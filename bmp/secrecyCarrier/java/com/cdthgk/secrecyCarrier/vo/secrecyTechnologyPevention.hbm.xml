@@ -12,6 +12,10 @@
                 <comment>时间</comment>
             </column>
         </property>
+         <property name="validateDate" type="java.util.Date">
+            <column name="validate_date" length="19">
+            </column>
+        </property>
         <property name="name" type="java.lang.String">
             <column name="name" length="100">
                 <comment>设备名称</comment>

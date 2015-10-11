@@ -23,7 +23,7 @@
             </column>
         </property>
         <property name="depIdea" type="java.lang.String">
-            <column name="depIdea" length="100">
+            <column name="depIdea" length="2000">
                 <comment>部门意见</comment>
             </column>
         </property>

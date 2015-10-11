@@ -101,8 +101,14 @@
 								<td class="tbLable fr">
 									设备名称：
 								</td>
-								<td class="tbValue fl" colspan="3">
+								<td class="tbValue fl">
 									<input type="text" size="50" class="validate['required','length[100]']" name="secrecyTechnologyPrevention.name" value="${secrecyTechnologyPrevention.name}"/><span style="color:red;">&nbsp;&nbsp;*</span>
+								</td>
+								<td class="tbLable fr">
+									有效期：
+								</td>
+								<td class="tbValue fl">
+									<input type="text" readonly="readonly" name="secrecyTechnologyPrevention.validateDate" value="${secrecyTechnologyPrevention.validateDate}" class="Wdate validate['required']" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd '})" /><span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
 							</tr>
 							<tr>
@@ -116,7 +122,7 @@
 									时间：
 								</td>
 								<td class="tbValue fl">
-									<input type="text" readonly="readonly" name="secrecyTechnologyPrevention.date" value="${secrecyTechnologyPrevention.date}" class="Wdate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd '})" />
+									<input type="text" readonly="readonly" name="secrecyTechnologyPrevention.date" value="${secrecyTechnologyPrevention.date}" class="Wdate validate['required']" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd '})" /><span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
 
 							</tr>

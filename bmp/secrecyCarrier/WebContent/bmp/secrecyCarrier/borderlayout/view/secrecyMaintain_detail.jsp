@@ -124,15 +124,7 @@
 							</tr>
 							<tr>
 								<td class="tbLable fr">
-									领导审批意见：
-								</td>
-								<td class="tbValue fl" colspan="3">
-								 ${secrecyMaintain.leaderIdea}
-								</td>
-							</tr>
-							<tr>
-								<td class="tbLable fr">
-									部门意见：
+									维修结果：
 								</td>
 								<td class="tbValue fl" style="width:98%" colspan="3">
 								 ${secrecyMaintain.depIdea}
@@ -148,7 +140,7 @@
 							</tr>
 							<!-- 附件 -->
 							<tr>
-								<td colspan="2">
+								<td colspan="4">
 									<div>
 									    <attach:view uploadBehavior="bmpUploadBehavior" allowDownload="true" attachments="${attachmentList}" showTitle="false" />
 				 					</div>
