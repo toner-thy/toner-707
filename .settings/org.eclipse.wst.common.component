@@ -78,6 +78,8 @@
         <wb-resource deploy-path="/" source-path="/bmp/info/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/bmp/formatFile/java"/>
         <wb-resource deploy-path="/" source-path="/bmp/formatFile/WebContent"/>
+        <wb-resource deploy-path="/" source-path="/bmp/dataClass/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/bmp/dataClass/java"/>
         <property name="java-output-path" value="/cdthgk-bmp/bin"/>
         <property name="context-root" value="bip"/>
     </wb-module>

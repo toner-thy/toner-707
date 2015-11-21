@@ -29,7 +29,7 @@
 	<!-- 模板 -->
 	<constants class="com.cdthgk.component.easytag.constant.EasyTagConstant">
 		<!--  是否重新加载模板   生产运行环境（客户现场）需要修改为false    开发环境改为true -->
-		<constant name="reloadTemplate" value="true"/>
+		<constant name="reloadTemplate" value="false"/>
 	</constants>
 	<!-- 远程附件配置信息 -->
 	<constants class="com.cdthgk.platform.attachment.constant.AttachmentConstant">
@@ -55,6 +55,8 @@
 <!-- 		<constant name="loginListeners" value="ioc:mail.loginMailListener,platform.loginInfoLoginListener"/> -->
 	 	<!-- 系统登陆登出监听 -->
 		<constant name="loginListeners" value="ioc:platform.loginInfoLoginListener"/>
+		<!--  以下配置取消授权验证   -->
+  		<constant name="authrizate" value="false" />
 
 	</constants>
 

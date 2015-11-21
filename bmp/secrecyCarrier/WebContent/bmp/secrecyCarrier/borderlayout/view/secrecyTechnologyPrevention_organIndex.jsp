@@ -28,7 +28,7 @@
           <td colspan="4" align="center">涉密设备维修登记情况</td>
         </tr>
         <tr>
-          <td width="204" align="center" >时间</td>
+          <td width="204" align="center" >配置时间</td>
           <td width="116" align="center">装备部门、部位</td>
           <td width="159" align="center" >设备名称及用途</td>
           <td width="159" align="center" >数量</td>

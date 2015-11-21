@@ -13,7 +13,7 @@
 <!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>装备保密技术防范设备情况列表</title>
+		<title>物理环境防护设备列表</title>
 
 		<link href="${ctx}/platform/css/public/table/complexTbSustain.css" type="text/css" rel="stylesheet"/>
 		<script src="${ctx}/resources/js/environment/environment.js" type="text/javascript"></script>
@@ -35,7 +35,7 @@
 			function doAdd(action){
 			 	TabUtil.openAsTab({
 					url : action+"?list_crd=${param.list_crd}&list_p=${param.list_p}",
-					title : '装备保密技术防范设备情况-新增',
+					title : '物理环境防护设备-新增',
 					onClose : function(tab, item) {
 					if(!item.content.getContentWindow().needReload2){
 						if (window.confirm("您确定放弃正在新增的内容吗？")) {
@@ -66,7 +66,7 @@
 				}
 				TabUtil.openAsTab({
 					url : action+"?list_crd=${param.list_crd}&list_p=${param.list_p}&secrecyTechnologyPrevention.id="+items[0].value,
-					title : '装备保密技术防范设备情况-编辑',
+					title : '物理环境防护设备-编辑',
 					onClose : function(tab, item) {
 					if(!item.content.getContentWindow().needReload2){
 						if (window.confirm("您确定放弃正在新增的内容吗？")) {
@@ -110,7 +110,7 @@
 					url : '${ctx}/bmp/secrecyTechnologyPrevention/secrecyTechnologyPrevention_detail.action?secrecyTechnologyPrevention.id='+checkEntryId+'&t_date=' + new Date().getTime(),
 					width : window.top.getSize().x * 0.8,
 					height : window.top.getSize().y * 0.9,
-					title : '装备保密技术防范设备情况详情'
+					title : '物理环境防护设备详情'
 				});
 			}
 
@@ -155,16 +155,16 @@
 
 		   <!-- 复合面板开始 -->
 			<cp:start defaultTitle="设备分类简介" ctx="${ctx}" icoPath="/bmp/checkevent/borderlayout/skin/blue/img/list_.gif">
-				<div id="cp001Btn" class="cpBtn" href="###" onmouseover="javascript:showCp(2,'cp001','装备保密技术防范设备情况简介');">关 于</div>
-				<div id="cp002Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(2,'cp002','装备保密技术防范设备情况搜索');">查 询</div>
+				<div id="cp001Btn" class="cpBtn" href="###" onmouseover="javascript:showCp(2,'cp001','物理环境防护设备简介');">关 于</div>
+				<div id="cp002Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(2,'cp002','物理环境防护设备搜索');">查 询</div>
 			</cp:start>
 				<cp:msg show="false" divId="cp001">
 					<!-- 模块简介 -->
 					<div class="cpMsgTitle">
-						关于装备保密技术防范设备情况简介
+						关于物理环境防护设备简介
 					</div>
 					<div class="cpMsgContext">
-						装备保密技术防范设备情况可以帮助保密行政管理部门对作者的统一管理。
+						物理环境防护设备可以帮助保密行政管理部门对作者的统一管理。
 					</div>
 
 					<!-- 上下之间的间隔，可以调节高度 -->
@@ -204,7 +204,7 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						本单位装备保密技术防范设备情况列表
+						本单位物理环境防护设备列表
 					</div>
 				</div>
 				<div class="panel_content">
@@ -221,7 +221,7 @@
 							</ec:column>
 							<ec:column property="number" title="数量">
 							</ec:column>
-							<ec:column property="date" title="时间" cell="date" format="yyyy-MM-dd" parse="yyyy-MM-dd"/>
+							<ec:column property="date" title="配置时间" cell="date" format="yyyy-MM-dd" parse="yyyy-MM-dd"/>
 							<ec:column property="equipDep.departmentName" title="装备部门">
 							</ec:column>
 							<ec:column property="keyPart.partName" title="要害部位">

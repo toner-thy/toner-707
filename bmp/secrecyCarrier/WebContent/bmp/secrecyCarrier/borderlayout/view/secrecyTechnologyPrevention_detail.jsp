@@ -14,7 +14,7 @@
 <!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>装备保密技术防范设备情况详情</title>
+		<title>物理环境防护设备详情</title>
 
 		<!-- css -->
 		<link href="${ctx}/platform/template/borderlayout/skin/blue/css/page.css" type="text/css" rel="stylesheet" />
@@ -59,7 +59,7 @@
 			<div class="panel">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						装备保密技术防范设备情况详情
+						物理环境防护设备详情
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<!-- 右侧按钮 -->
@@ -90,7 +90,7 @@
 								${secrecyTechnologyPrevention.number}
 								</td>
 								<td class="tbLable fr">
-									时间：
+									配置时间：
 								</td>
 								<td class="tbValue fl">
 								<s:date name="secrecyTechnologyPrevention.date" format="yyyy-MM-dd"/>

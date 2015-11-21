@@ -18,7 +18,7 @@
 <!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title>新增装备保密技术防范设备情况</title>
+		<title>新增物理环境防护设备</title>
 		<link href="${ctx}/platform/css/platform/css/public/table/complexTbSustain.css" type="text/css" rel="stylesheet"/>
 		<script src="${ctx}/resources/js/environment/environment.js" type="text/javascript"></script>
 		<script type="text/javascript">
@@ -89,7 +89,7 @@
 	 		<div class="panel">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						新增装备保密技术防范设备情况
+						新增物理环境防护设备
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 					</div>
@@ -119,7 +119,7 @@
 									<input type="text" size="50" class="validate['required','length[100]']" name="secrecyTechnologyPrevention.number" value="${secrecyTechnologyPrevention.number}"/><span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
 								<td class="tbLable fr">
-									时间：
+									配置时间：
 								</td>
 								<td class="tbValue fl">
 									<input type="text" readonly="readonly" name="secrecyTechnologyPrevention.date" value="${secrecyTechnologyPrevention.date}" class="Wdate validate['required']" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd '})" /><span style="color:red;">&nbsp;&nbsp;*</span>

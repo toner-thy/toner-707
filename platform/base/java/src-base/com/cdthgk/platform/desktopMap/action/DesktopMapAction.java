@@ -110,8 +110,8 @@ public class DesktopMapAction extends BaseAction {
 //		putToRequest("newList", newList);
 		putToRequest("newList", treeNodeDomainList);
 		putToRequest("version", Constants.PROJECT_INFO.projectVersion());
-		
-		
+
+
 //		@SuppressWarnings("unchecked")
 //		List<InBoxMail> list = (List<InBoxMail>) MailContext.getInstance().getMailService().getNotReadMailList(sysUser.getUser());
 //		// 按照收件箱接收时间进行降序排列
@@ -133,48 +133,48 @@ public class DesktopMapAction extends BaseAction {
 		return SUCCESS;
 	}
 	public String mailUnRead(){
-		SysUser sysUser = (SysUser) webApplicationLoginManager.getLoginInfo(getRequest()).getActor();
-		// 放在MAIN页面加载时收取（登陆会很慢，故在这里收取邮件）
-		// 消息提醒前执行获取邮件（）
-		try {
-			inBoxMailService.insertCaptureMail(sysUser.getUser());
-		} catch (Exception e) {
-			e.printStackTrace();
-			LOGGER.warn("读取邮件失败！:"+e.getMessage());
-		}
-		// 收取邮件后，消息提醒，查询本地未读邮件
-		@SuppressWarnings("unchecked")
-		List<InBoxMail> list = (List<InBoxMail>) MailContext.getInstance().getMailService().getNotReadMailList(sysUser.getUser());
-		// 按照收件箱接收时间进行降序排列
-		if(CollectionUtils.isNotEmpty(list)){
-			Collections.sort(list, new Comparator<InBoxMail>() {
-				@Override
-				public int compare(InBoxMail o1, InBoxMail o2) {
-					if (o1.getReceiveMailDate().getTime() <= o2.getReceiveMailDate().getTime()) {
-						return 1;
-					} else {
-						return -1;
-					}
-				}
-			});
-			List<Map<String, String>> listjson=new ArrayList<Map<String,String>>();
-			int i=0;
-			for(InBoxMail me : list){
-				if(i>=5)
-				{
-					break;
-				}
-				Map<String, String> maps=new HashMap<String, String>();
-				maps.put("mailId",me.getMailId());
-				maps.put("title", me.getTitle());
-				maps.put("time",DateUtils.formart(me.getReceiveMailDate(), "yyyy-MM-dd"));
-				listjson.add(maps);
-				++i;
-			}
-			setResultData(listjson);
-		} else {
-			setResultData(null);
-		}
+//		SysUser sysUser = (SysUser) webApplicationLoginManager.getLoginInfo(getRequest()).getActor();
+//		// 放在MAIN页面加载时收取（登陆会很慢，故在这里收取邮件）
+//		// 消息提醒前执行获取邮件（）
+//		try {
+//			inBoxMailService.insertCaptureMail(sysUser.getUser());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			LOGGER.warn("读取邮件失败！:"+e.getMessage());
+//		}
+//		// 收取邮件后，消息提醒，查询本地未读邮件
+//		@SuppressWarnings("unchecked")
+//		List<InBoxMail> list = (List<InBoxMail>) MailContext.getInstance().getMailService().getNotReadMailList(sysUser.getUser());
+//		// 按照收件箱接收时间进行降序排列
+//		if(CollectionUtils.isNotEmpty(list)){
+//			Collections.sort(list, new Comparator<InBoxMail>() {
+//				@Override
+//				public int compare(InBoxMail o1, InBoxMail o2) {
+//					if (o1.getReceiveMailDate().getTime() <= o2.getReceiveMailDate().getTime()) {
+//						return 1;
+//					} else {
+//						return -1;
+//					}
+//				}
+//			});
+//			List<Map<String, String>> listjson=new ArrayList<Map<String,String>>();
+//			int i=0;
+//			for(InBoxMail me : list){
+//				if(i>=5)
+//				{
+//					break;
+//				}
+//				Map<String, String> maps=new HashMap<String, String>();
+//				maps.put("mailId",me.getMailId());
+//				maps.put("title", me.getTitle());
+//				maps.put("time",DateUtils.formart(me.getReceiveMailDate(), "yyyy-MM-dd"));
+//				listjson.add(maps);
+//				++i;
+//			}
+//			setResultData(listjson);
+//		} else {
+//			setResultData(null);
+//		}
 		return JSON;
 	}
 	public String homeOld(){

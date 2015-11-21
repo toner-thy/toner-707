@@ -35,7 +35,7 @@
 	<import resource="classpath*:com/thgk/**/*-beans.xml" />
 	<import resource="module_upload.xml" />
 	<import resource="project-*.xml" />
-	<import resource="messageProvider-service-beans.xml" />
+	<!--<import resource="messageProvider-service-beans.xml" />-->
 	<!--
 	IMS任务
 	<import resource="task.xml" />

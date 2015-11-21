@@ -38,7 +38,7 @@
 					url : '${ctx}/bmp/secrecyTechnologyPrevention/secrecyTechnologyPrevention_detail.action?secrecyTechnologyPrevention.id='+checkEntryId+'&t_date=' + new Date().getTime(),
 					width : window.top.getSize().x * 0.8,
 					height : window.top.getSize().y * 0.9,
-					title : '装备保密技术防范设备情况详情'
+					title : '物理环境防护设备详情'
 				});
 			}
 		</script>
@@ -59,17 +59,17 @@
 		<div id="body_content" class="body_content">
 
 			<!-- 复合面板开始 -->
-			<cp:start defaultTitle="装备保密技术防范设备情况简介" ctx="${ctx}" icoPath="">
-				<div id="cp001Btn" class="cpBtn" href="###" onmouseover="javascript:showCp(2,'cp001','装备保密技术防范设备情况简介');">关 于</div>
-				<div id="cp002Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(2,'cp002','装备保密技术防范设备情况搜索');">查 询</div>
+			<cp:start defaultTitle="物理环境防护设备简介" ctx="${ctx}" icoPath="">
+				<div id="cp001Btn" class="cpBtn" href="###" onmouseover="javascript:showCp(2,'cp001','物理环境防护设备简介');">关 于</div>
+				<div id="cp002Btn" class="cpBtn_ov" href="###" onmouseover="javascript:showCp(2,'cp002','物理环境防护设备搜索');">查 询</div>
 			</cp:start>
 				<cp:msg show="false" divId="cp001">
 					<!-- 模块简介 -->
 					<div class="cpMsgTitle">
-						关于装备保密技术防范设备情况
+						关于物理环境防护设备
 					</div>
 					<div class="cpMsgContext">
-						装备保密技术防范设备情况
+						物理环境防护设备
 					</div>
 				</cp:msg>
 				<cp:search show="true" divId="cp002">
@@ -119,11 +119,11 @@
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
 						<c:if test="${showType ne '1'}">
-						${district.districtName} - 装备保密技术防范设备情况列表
+						${district.districtName} - 物理环境防护设备列表
 
 					</c:if>
 					<c:if test="${showType eq '1'}">
-						${district.districtName}<dis:levelText district="${district}"></dis:levelText>级机关单位 - 装备保密技术防范设备情况列表
+						${district.districtName}<dis:levelText district="${district}"></dis:levelText>级机关单位 - 物理环境防护设备列表
 					</c:if>
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
@@ -142,7 +142,7 @@
 							</ec:column>
 							<ec:column property="number" title="数量">
 							</ec:column>
-							<ec:column property="date" title="时间" cell="date" format="yyyy-MM-dd" parse="yyyy-MM-dd"/>
+							<ec:column property="date" title="配置时间" cell="date" format="yyyy-MM-dd" parse="yyyy-MM-dd"/>
 							<ec:column property="equipDep.departmentName" title="装备部门">
 							</ec:column>
 							<ec:column property="keyPart.partName" title="要害部位">
