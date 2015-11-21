@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.dataClass.vo.DataClass" table="bip_data_class">
+        <id name="dataClassId" type="java.lang.String">
+            <column name="dataClassId" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+        <property name="name" type="java.lang.String">
+			<column name="name" >
+			</column>
+		</property>
+        <property name="status" type="java.lang.Integer">
+			<column name="status" >
+			</column>
+		</property>
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
+			<column name="organId">
+			</column>
+		</many-to-one>
+
+		<set name="organs" cascade="all">
+            <key>
+                <column name="dataClassId" length="32" not-null="true">
+                </column>
+            </key>
+            <one-to-many class="com.cdthgk.bmp.dataClass.vo.DataClassOrgan" />
+        </set>
+
+		<many-to-one name="createPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="CREATE_PERSON">
+				<comment>创建人</comment>
+			</column>
+		</many-to-one>
+		<property name="createTime" type="java.util.Date">
+			<column name="CREATE_TIME" >
+				<comment>创建时间</comment>
+			</column>
+		</property>
+		<many-to-one name="modifyPerson" class="com.cdthgk.platform.permission.user.domain.User">
+			<column name="MODIFY_PERSON" >
+				<comment>修改人</comment>
+			</column>
+		</many-to-one>
+		<property name="modifyTime" type="java.util.Date">
+			<column name="MODIFY_TIME" >
+				<comment>修改时间</comment>
+			</column>
+		</property>
+    </class>
+</hibernate-mapping>

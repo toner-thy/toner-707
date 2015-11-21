@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.cdthgk.bmp.dataClass.vo.DataClassOrgan" table="bip_data_class_organ">
+        <id name="id" type="java.lang.String">
+            <column name="id" length="39" />
+            <generator class="com.cdthgk.persistece.hibernate.idgen.AssignedUUIDGenerator" />
+        </id>
+		<many-to-one name="dataClass" class="com.cdthgk.bmp.dataClass.vo.DataClass" fetch="select">
+			<column name="dataClassId">
+			</column>
+		</many-to-one>
+		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
+			<column name="organId">
+			</column>
+		</many-to-one>
+    </class>
+</hibernate-mapping>

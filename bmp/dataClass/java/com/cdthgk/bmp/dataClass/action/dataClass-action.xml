@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+  <package name="com.cdthgk.bmp.dataClass"  namespace="/bmp/dataClass" extends="com.cdthgk.project">
+        <action name="dataClass_list" class="bmp.dataClassAction" method="list">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClass_list.jsp</result>
+        </action>
+
+        <action name="dataClass_add" class="bmp.dataClassAction" method="add">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClass_add.jsp</result>
+        </action>
+
+        <action name="dataClass_adding" class="bmp.dataClassAction" method="adding">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/dataClass</param>
+				<param name="actionName">dataClass_add</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+        <action name="dataClass_edit" class="bmp.dataClassAction" method="edit">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClass_edit.jsp</result>
+        </action>
+
+        <action name="dataClass_editing" class="bmp.dataClassAction" method="editing">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/dataClass</param>
+				<param name="actionName">dataClass_edit</param>
+				<param name="dataClass.dataClassId">${dataClass.dataClassId}</param>
+				<param name="needReload">${needReload}</param>
+			</result>
+        </action>
+
+         <action name="dataClass_delete" class="bmp.dataClassAction" method="delete">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/dataClass</param>
+				<param name="actionName">dataClass_list</param>
+			</result>
+        </action>
+         <action name="dataClass_publish" class="bmp.dataClassAction" method="publish">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/dataClass</param>
+				<param name="actionName">dataClass_list</param>
+			</result>
+        </action>
+        <action name="dataClass_statDataClassPro" class="bmp.dataClassAction" method="statDataClassPro">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClass_statDataClassPro.jsp</result>
+        </action>
+        <action name="dataClass_statDataClassProView" class="bmp.dataClassAction" method="statDataClassProView">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClass_statDataClassProView.jsp</result>
+        </action>
+<!--资料填报-->
+
+		<action name="dataClass_fillMain" class="bmp.dataClassAction" method="fillMain">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClassPro_fillMain.jsp</result>
+        </action>
+		<action name="dataClass_fillTree" class="bmp.dataClassAction" method="fillTree">
+        </action>
+		<action name="dataClass_fillList" class="bmp.dataClassAction" method="fillList">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClassPro_fillList.jsp</result>
+        </action>
+
+        <action name="dataClass_fillAdd" class="bmp.dataClassAction" method="fillAdd">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClassPro_fillAdd.jsp</result>
+        </action>
+        <action name="dataClass_fillAdding" class="bmp.dataClassAction" method="fillAdding">
+        	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/dataClass</param>
+				<param name="actionName">dataClass_fillList</param>
+				<param name="dataClass.dataClassId">${dataClass.dataClassId}</param>
+			</result>
+        </action>
+        <action name="dataClass_fillView" class="bmp.dataClassAction" method="fillView">
+        	<result name="success">/bmp/dataClass/borderlayout/view/dataClassPro_fillView.jsp</result>
+        </action>
+
+
+  </package>
+</struts>
