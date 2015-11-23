@@ -33,18 +33,18 @@
 	</constants>
 	<!-- 远程附件配置信息 -->
 	<constants class="com.cdthgk.platform.attachment.constant.AttachmentConstant">
-		<constant name="storeRemote" value="false"/>
+		<constant name="storeRemote" value="true"/>
 	</constants>
-	<!-- 邮件系统配置信息
+	<!-- 邮件系统配置信息-->
 	<constants class="com.cdthgk.mail.constant.MailConstant">
-		<constant name="httpHost" value="74.2.74.98"/>
+		<constant name="httpHost" value="localhost"/>
 		<constant name="httpPort" value="4556"/>
 		<constant name="httpContextPath" value="mail"/>
 		<constant name="wsRelativePath" value="ws"/>
-		<constant name="smtpHost" value="74.2.74.98"/>
-		<constant name="pop3Host" value="74.2.74.98"/>
+		<constant name="smtpHost" value="localhost"/>
+		<constant name="pop3Host" value="localhost"/>
 		<constant name="domain" value="bmpbms.com"/>
-	</constants>-->
+	</constants>
 
 	<constants class="com.cdthgk.permission.constant.PermissionConstant">
 		<!-- uk登录信息 -->
