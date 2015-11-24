@@ -1,11 +1,10 @@
 package com.cdthgk.bmp.formatFile.action;
 
-import java.util.Date;
 import java.util.List;
 
+import com.cdthgk.bmp.core.action.BmpAction;
 import com.cdthgk.bmp.formatFile.service.FormatFileService;
 import com.cdthgk.bmp.formatFile.vo.FormatFile;
-import com.cdthgk.bmp.core.action.BmpAction;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.attachment.service.AttachmentService;
 
@@ -23,10 +22,17 @@ public class FormatFileAction extends BmpAction {
 	//上传附件
 	private List<String> attachments;
 
-	//查询本单位
+	//查询本单位公文发送
 	public String list(){
 		PageSortModel<FormatFile> psm = new PageSortModel<FormatFile>(getRequest(), "formatFileList");
 		List<FormatFile> formatFileList = formatFileService.queryListPage(psm, formatFile, getCurrentUser().getOrgan());
+		putToRequest("formatFileList", formatFileList);
+		return SUCCESS;
+	}
+	//查询本单位公文接收
+	public String acceptList(){
+		PageSortModel<FormatFile> psm = new PageSortModel<FormatFile>(getRequest(), "formatFileList");
+		List<FormatFile> formatFileList = formatFileService.queryAcceptListPage(psm, formatFile, getCurrentUser().getUserInfo().getUserInfoId());
 		putToRequest("formatFileList", formatFileList);
 		return SUCCESS;
 	}

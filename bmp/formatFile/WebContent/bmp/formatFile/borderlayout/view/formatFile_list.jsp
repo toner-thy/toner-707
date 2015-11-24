@@ -155,7 +155,7 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						版式文件列表
+						发送列表
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<!-- 右侧按钮 -->

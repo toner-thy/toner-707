@@ -1,5 +1,8 @@
 package com.cdthgk.bmp.formatFile.vo;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.cdthgk.platform.organization.organ.domain.Organ;
 import com.thgk.platform.core.BaseDomain;
 
@@ -11,6 +14,7 @@ public class FormatFile extends BaseDomain {
 	private String fileUrl;
 	private String formatFileUrl;
 	private Organ organ;
+	private Set<FormatFileUserInfo> userInfoSet = new HashSet<FormatFileUserInfo>();
 	public String getId() {
 		return id;
 	}
@@ -40,5 +44,11 @@ public class FormatFile extends BaseDomain {
 	}
 	public void setOrgan(Organ organ) {
 		this.organ = organ;
+	}
+	public Set<FormatFileUserInfo> getUserInfoSet() {
+		return userInfoSet;
+	}
+	public void setUserInfoSet(Set<FormatFileUserInfo> userInfoSet) {
+		this.userInfoSet = userInfoSet;
 	}
 }

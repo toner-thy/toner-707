@@ -58,13 +58,36 @@
 		function doBackList(){
 			window.location.href="${ctx}/bmp/formatFile/formatFile_list.action";
 		}
+		function httppostaip(){
+			var Object=document.all.HWPostil1;
+			Object.HttpInit(); //初始化HTTP引擎。
+			Object.HttpAddPostString("NAME",document.all.Fname.value); //设置上传文件名。
+			Object.HttpAddPostString("FTYPE","aip"); //设置上传文件类型。
+			Object.HttpAddPostCurrFile("FileBlod");//设置上传当前文件,文件标识为FileBlod。
+			var id=Object.HttpPost("http://192.168.1.62:8089/test.php");//上传数据。http://127.0.0.1/test.php为接收文档的后台页面
+			//alert(id);
+			if(id!="ok!"){
+				alert("文档保存失败，错误编号"+id);
+			}else{
+				alert("保存成功");
+			}
+		}
 		function doSave(){
 			if (formcheck.isFormValid(true)) {
-				$('sub').click();
-				$('sbm_button').style.display='none';
-				$('sbm_button_hidden').style.display='';
-				window.setTimeout("$('sbm_button').style.display=''",8000);
-				window.setTimeout("$('sbm_button_hidden').style.display='none'",8000);
+				var Object=document.all.HWPostil1;
+				Object.HttpInit(); //初始化HTTP引擎。
+// 				Object.HttpAddPostString("NAME",document.all.Fname.value); //设置上传文件名。
+				Object.HttpAddPostString("FTYPE","aip"); //设置上传文件类型。
+				Object.HttpAddPostCurrFile("FileBlod");//设置上传当前文件,文件标识为FileBlod。
+				var url = "/formatFile_adding.action";
+				alert(url);
+				strValue = Object.HttpPost(url);
+alert(strValue)
+// 				$('sub').click();
+// 				$('sbm_button').style.display='none';
+// 				$('sbm_button_hidden').style.display='';
+// 				window.setTimeout("$('sbm_button').style.display=''",8000);
+// 				window.setTimeout("$('sbm_button_hidden').style.display='none'",8000);
 			}
 		}
 		</script>
@@ -92,7 +115,7 @@
 			<div class="panel">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						上传附件
+						拟稿
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<!-- 右侧按钮 -->
@@ -101,23 +124,21 @@
 				<form id="form_add" class="form" enctype="multipart/form-data" action="<s:url action="formatFile_adding" includeParams="true"/>" method="post">
 					<div class="panel_content panel_content_table">
 						<table class="content_table">
-							<tr>
+							<tr height="36px;">
 								<td style="text-align:right;">名称:</td>
 								<td>
 									<input id="formatFile.name" name="formatFile.name" value="${formatFile.name}"  class="validate['required','length[100]']"
-									style="width:400px;"/><span style="color:red;">&nbsp;&nbsp;*</span>
+									style="width:400px;height: 32px;"/><span style="color:red;">&nbsp;&nbsp;*</span>
 								</td>
 							</tr>
 							<tr>
-								<td style="text-align:right;">操作注意事项:</td>
-								<td>
-									请先上传附件后再点击保存按钮
+								<td colspan="2">
+									<div style="width:1000px;height:500px;">
+										<object id=HWPostil1 height='100%' width='100%' style='LEFT: 0px; TOP: 0px'  classid='clsid:FF1FE7A0-0578-4FEE-A34E-FB21B277D561'></OBJECT>
+									</div>
 								</td>
 							</tr>
 						</table>
-						<!-- 附件 -->
-						<div id="files_list"></div>
-
 						<!-- 隐藏提交按钮 -->
 						<div align="center">
 							<input type="submit" id="sub" value="sub" style="display: none;" />
@@ -125,16 +146,6 @@
 
 					</div>
 				</form>
-				<table class="content_table st" id="table_part_add" width="100%">
-						<tr>
-							<td class="tbLable fr">
-								附件列表：
-							</td>
-							<td class="fl" colspan="3">
-								<attach:upload uploadBehavior="loginAttachmentUploadBehavior" applyForm="form_add" limit="1" applyName="attachments" showTitle="false"/>
-							</td>
-						</tr>
-				</table>
 			</div>
 			<!-- 内容panel结束 -->
 		</div>

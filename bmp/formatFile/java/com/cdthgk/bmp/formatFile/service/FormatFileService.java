@@ -10,7 +10,12 @@ import ec.common.PageSortModel;
 
 public interface FormatFileService extends BmpServiceTemplate<FormatFile, String>{
 
+	//发送列表
 	public List<FormatFile> queryListPage(PageSortModel<FormatFile> psm,
 			FormatFile formatFile, Organ organ);
+
+	//接收列表
+	public List<FormatFile> queryAcceptListPage(PageSortModel<FormatFile> psm,
+			FormatFile formatFile, String userInfoId);
 
 }

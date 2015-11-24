@@ -111,7 +111,7 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						签收列表
+						接收列表
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<!-- 右侧按钮 -->
