@@ -33,7 +33,7 @@
 	</constants>
 	<!-- 远程附件配置信息 -->
 	<constants class="com.cdthgk.platform.attachment.constant.AttachmentConstant">
-		<constant name="storeRemote" value="true"/>
+		<constant name="storeRemote" value="false"/>
 	</constants>
 	<!-- 邮件系统配置信息-->
 	<constants class="com.cdthgk.mail.constant.MailConstant">

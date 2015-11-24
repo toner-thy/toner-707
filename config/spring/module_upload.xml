@@ -32,6 +32,7 @@
 				<value>png</value>
 				<value>jpeg</value>
 				<value>cebx</value>
+				<value>aip</value>
 			</util:list>
 		</property>
 	</bean>

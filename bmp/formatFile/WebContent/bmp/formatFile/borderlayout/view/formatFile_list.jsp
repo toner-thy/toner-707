@@ -102,9 +102,9 @@
 					forms.submit();
 					}
 				}
-			function doDownload(formatFileId){
+			function doDetail(formatFileId){
 				$ENV.dialog.open({
-					url : '${ctx}/bmp/formatFile/borderlayout/view/test.jsp?t_date=' + new Date().getTime(),
+					url : '${ctx}/bmp/formatFile/formatFile_detail.action?formatFile.id=' + formatFileId,
 					width : 0.8,
 					height :  0.9,
 					title : '查看'
@@ -182,7 +182,7 @@
 									</c:if>
 								</ec:column>
 								<ec:column property="null" title="查看版式文件" width="10%">
-									<a href='###' onclick="doDownload('${formatFile.id}')">查看</a>
+									<a href='###' onclick="doDetail('${formatFile.id}')">查看</a>
 								</ec:column>
 							</ec:row>
 						</ec:table>

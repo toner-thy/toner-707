@@ -17,7 +17,7 @@
 
 <html>
 	<head>
-		<title>上传附件</title>
+		<title>详情</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 
@@ -45,53 +45,11 @@
 
 			$ENV.loader.loadJavaScript("${ctx}/platform/theme/borderlayout/resources/js/ectable/EcTable.js", function(){
 				$ENV.onDomReady(function(){
-					formcheck = new FormCheck('form_add',{
-						display:{
-							showErrors:${_.config.formcheck.showErrors},errorsLocation: ${_.config.formcheck.errorsLocation}
-						},
-						trimValue: true
-					});
+					var Object=document.all.HWPostil1;
+// 					Object.LoadFile("D:/j2ee/apps/work/Catalina/localhost/bip/upload__24ab6ef8_151398949b1__8000_00000004.tmp");
+					Object.LoadFile("${formatFile.fileUrl}");
 				});
 			});
-
-
-		function doBackList(){
-			window.location.href="${ctx}/bmp/formatFile/formatFile_list.action";
-		}
-		function httppostaip(){
-			var Object=document.all.HWPostil1;
-			Object.HttpInit(); //初始化HTTP引擎。
-			Object.HttpAddPostString("NAME",document.all.Fname.value); //设置上传文件名。
-			Object.HttpAddPostString("FTYPE","aip"); //设置上传文件类型。
-			Object.HttpAddPostCurrFile("FileBlod");//设置上传当前文件,文件标识为FileBlod。
-			var id=Object.HttpPost("http://192.168.1.62:8089/test.php");//上传数据。http://127.0.0.1/test.php为接收文档的后台页面
-			//alert(id);
-			if(id!="ok!"){
-				alert("文档保存失败，错误编号"+id);
-			}else{
-				alert("保存成功");
-			}
-		}
-		function doSave(){
-			if (formcheck.isFormValid(true)) {
-				var Object=document.all.HWPostil1;
-				Object.HttpInit(); //初始化HTTP引擎。
-				//  TODO 隐藏菜单、按钮不起作用
-				// Object.HideMenuItem(1);
-				// Object.ShowDefMenu = false; //显示菜单
-				// Object.ShowToolBar = false; //隐藏工具条
-// 				Object.HttpAddPostString("NAME",document.all.Fname.value); //设置上传文件名。
-				Object.HttpAddPostString("FTYPE","aip"); //设置上传文件类型。
-				Object.HttpAddPostCurrFile("FileBlod");//设置上传当前文件,文件标识为FileBlod。
-				var url = "/formatFile_adding.action?formatFile.name="
-						+document.getElementById("formatFile.name").value;
-				if(Object.HttpPost(url) != "failed: can't save the file data"){
-					window.location.href="${ctx}/bmp/formatFile/formatFile_list.action?msg=1";
-				} else {
-					alert("不能保存空文件。")
-				}
-			}
-		}
 		</script>
 	</head>
 
@@ -100,30 +58,17 @@
 		<div class="button_bar">
 			<div class="left">
 				<div class="pop_button_bar">
-					<a class="pop_button" href="javascript:void();"  id="sbm_button_hidden" style="display:none;"><span>保存中...</span></a>
-					<a class="pop_button" href="javascript:doSave();" id="sbm_button"><span>保 存</span></a>
-					<a class="pop_button" href="javascript:doBackList();"><span>返回列表</span></a>
 				</div>
 			</div>
 			<div class="right">
 				<div class="pop_button_bar">
-					<a class="pop_button pop_button_refresh" href="###" onclick="javascript:window.refresh();"><span>刷新本页</span></a>
-					<a class="pop_button pop_button_close" href="###" onclick="javascript:TabUtil.closeTab();"><span>退出本页</span></a>
+					<a class="pop_button pop_button_close" href="###" onclick="javascript:window.close();"><span>退出本页</span></a>
 				</div>
 			</div>
 		</div>
 		<div class="body_content">
 			<!-- 内容panel开始 -->
 			<div class="panel">
-				<div class="panel_header">
-					<div class="panel_title panel_titleListIco">
-						拟稿
-					</div>
-					<div class="panel_btn_bar pop_button_bar">
-						<!-- 右侧按钮 -->
-					</div>
-				</div>
-				<form id="form_add" class="form" enctype="multipart/form-data" action="<s:url action="formatFile_adding" includeParams="true"/>" method="post">
 					<div class="panel_content panel_content_table">
 						<table class="content_table">
 							<tr height="36px;">
@@ -141,13 +86,7 @@
 								</td>
 							</tr>
 						</table>
-						<!-- 隐藏提交按钮 -->
-						<div align="center">
-							<input type="submit" id="sub" value="sub" style="display: none;" />
-						</div>
-
 					</div>
-				</form>
 			</div>
 			<!-- 内容panel结束 -->
 		</div>

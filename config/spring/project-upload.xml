@@ -18,7 +18,7 @@
 			<property name="baseDir" value=""/>
 			-->
 			<!-- 设置项目名称每个项目必须设置 -->
-			<property name="project" value="bmp"></property>
+			<property name="project" value="bip"></property>
 	</bean>
 	<!-- 项目默认的重命名策略 -->
 	<bean id="project.renamePolicy" class="com.cdthgk.standard.file.rename.UUIDRenamePolicy"/>

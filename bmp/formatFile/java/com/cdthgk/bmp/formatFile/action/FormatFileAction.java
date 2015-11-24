@@ -5,8 +5,11 @@ import java.util.List;
 import com.cdthgk.bmp.core.action.BmpAction;
 import com.cdthgk.bmp.formatFile.service.FormatFileService;
 import com.cdthgk.bmp.formatFile.vo.FormatFile;
+import com.cdthgk.common.lang.UUIDGenerator;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.attachment.service.AttachmentService;
+import com.cdthgk.standard.file.storage.ProjectModuleDateDirStorage;
+import com.cdthgk.web.upload.UploadFile;
 
 import ec.common.PageSortModel;
 
@@ -27,6 +30,9 @@ public class FormatFileAction extends BmpAction {
 		PageSortModel<FormatFile> psm = new PageSortModel<FormatFile>(getRequest(), "formatFileList");
 		List<FormatFile> formatFileList = formatFileService.queryListPage(psm, formatFile, getCurrentUser().getOrgan());
 		putToRequest("formatFileList", formatFileList);
+		if(getRequest().getParameter("msg") != null){
+			addActionMessage("保存成功");
+		}
 		return SUCCESS;
 	}
 	//查询本单位公文接收
@@ -41,17 +47,20 @@ public class FormatFileAction extends BmpAction {
 		return SUCCESS;
 	}
 	public String adding(){
-		if(attachments!=null && attachments.size()>0){
-			formatFile.setOrgan(getCurrentUser().getOrgan());
-			formatFileService.save(formatFile);
-			// 上传附件
-			attachmentService.updateHostId(formatFile.getId(), attachments);
-			addActionMessage("上传成功。");
-			return SUCCESS;
-		}else{
-			addActionMessage("上传失败，请重新上传。");
-			return SUCCESS;
-		}
+		String formatFileId = UUIDGenerator.generateUUID32();
+		UploadFile uploadFile = this.getUploadFiles().get(0);
+		Attachment attach = new Attachment(uploadFile);
+		attach.setHostId(formatFileId);
+		attachmentService.save(attach);
+		formatFile.setId(formatFileId);
+		formatFile.setOrgan(getCurrentUser().getOrgan());
+
+		// TODO 注入一个bmp.fileStorage；通过该对象来获取存储路径。设置在formatFile对象中;附件名称乱码未处理；
+
+
+		ProjectModuleDateDirStorage p = new ProjectModuleDateDirStorage();
+		formatFileService.save(formatFile);
+		return SUCCESS;
 	}
 
 	public String edit(){
@@ -70,6 +79,11 @@ public class FormatFileAction extends BmpAction {
 			}
 		}
 		addActionMessage("删除成功。");
+		return SUCCESS;
+	}
+
+	public String detail(){
+		formatFile = formatFileService.get(formatFile.getId());
 		return SUCCESS;
 	}
 

@@ -15,7 +15,12 @@
 
         <action name="formatFile_adding" class="bmp.formatFileAction" method="adding">
         	<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        	<param name="uploadBehavior">bmpUploadBehavior</param>
         	<result name="success" type="stateRedirectAction">
+				<param name="namespace">/bmp/formatFile</param>
+				<param name="actionName">formatFile_list</param>
+			</result>
+        	<result name="input" type="stateRedirectAction">
 				<param name="namespace">/bmp/formatFile</param>
 				<param name="actionName">formatFile_list</param>
 			</result>
@@ -24,13 +29,16 @@
         <action name="formatFile_edit" class="bmp.formatFileAction" method="edit">
         	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_edit.jsp</result>
         </action>
-
         <action name="formatFile_editing" class="bmp.formatFileAction" method="editing">
         	<interceptor-ref name="platformUploadStack"></interceptor-ref>
         	<result name="success" type="stateRedirectAction">
 				<param name="namespace">/bmp/formatFile</param>
 				<param name="actionName">formatFile_list</param>
 			</result>
+        </action>
+
+        <action name="formatFile_detail" class="bmp.formatFileAction" method="detail">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_detail.jsp</result>
         </action>
 
         <action name="formatFile_download" class="bmp.formatFileAction" method="download">
