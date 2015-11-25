@@ -1,13 +1,17 @@
 package com.cdthgk.bmp.formatFile.action;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.cdthgk.bmp.core.action.BmpAction;
 import com.cdthgk.bmp.formatFile.service.FormatFileService;
 import com.cdthgk.bmp.formatFile.vo.FormatFile;
+import com.cdthgk.bmp.formatFile.vo.FormatFileUserInfo;
 import com.cdthgk.common.lang.UUIDGenerator;
 import com.cdthgk.platform.attachment.domain.Attachment;
 import com.cdthgk.platform.attachment.service.AttachmentService;
+import com.cdthgk.platform.organization.core.OrganizationContext;
 import com.cdthgk.standard.file.storage.ProjectModuleDateDirStorage;
 import com.cdthgk.web.upload.UploadFile;
 
@@ -24,6 +28,11 @@ public class FormatFileAction extends BmpAction {
 	private Attachment attachment;
 	//上传附件
 	private List<String> attachments;
+	//上传规则
+	private ProjectModuleDateDirStorage projectModuleDateDirStorage;
+	//人员
+	private String userInfoIds;
+
 
 	//查询本单位公文发送
 	public String list(){
@@ -35,14 +44,8 @@ public class FormatFileAction extends BmpAction {
 		}
 		return SUCCESS;
 	}
-	//查询本单位公文接收
-	public String acceptList(){
-		PageSortModel<FormatFile> psm = new PageSortModel<FormatFile>(getRequest(), "formatFileList");
-		List<FormatFile> formatFileList = formatFileService.queryAcceptListPage(psm, formatFile, getCurrentUser().getUserInfo().getUserInfoId());
-		putToRequest("formatFileList", formatFileList);
-		return SUCCESS;
-	}
 
+	//上传
 	public String add(){
 		return SUCCESS;
 	}
@@ -54,23 +57,35 @@ public class FormatFileAction extends BmpAction {
 		attachmentService.save(attach);
 		formatFile.setId(formatFileId);
 		formatFile.setOrgan(getCurrentUser().getOrgan());
-
-		// TODO 注入一个bmp.fileStorage；通过该对象来获取存储路径。设置在formatFile对象中;附件名称乱码未处理；
-
-
-		ProjectModuleDateDirStorage p = new ProjectModuleDateDirStorage();
+		String path = projectModuleDateDirStorage.getBaseDir() + projectModuleDateDirStorage.getRelativeDir() + attach.getAttachUrl();
+		formatFile.setFormatFileUrl(path.replaceAll("\\\\", "/"));
+		formatFile.setStatus(0);
 		formatFileService.save(formatFile);
 		return SUCCESS;
 	}
 
-	public String edit(){
+	//进入发送页面，选择人员
+	public String send(){
 		formatFile = formatFileService.get(formatFile.getId());
 		return SUCCESS;
 	}
-	public String editing(){
-		formatFileService.save(formatFile);
+	public String sending(){
+		Set<FormatFileUserInfo> userInfoSet = new HashSet<FormatFileUserInfo>();
+		String [] userInfoIdStr = userInfoIds.split(",");
+		for (String userInfoId : userInfoIdStr) {
+			FormatFileUserInfo formatFileUserInfo = new FormatFileUserInfo();
+			formatFileUserInfo.setFormatFile(formatFile);
+			formatFileUserInfo.setStatus(0);
+			formatFileUserInfo.setUserInfo(OrganizationContext.getInstance().getMemberService().get(userInfoId));
+			userInfoSet.add(formatFileUserInfo);
+		}
+		formatFile.setUserInfoSet(userInfoSet);
+		formatFile.setStatus(1);
+		formatFileService.update(formatFile);
 		return SUCCESS;
 	}
+
+	//删除
 	public String delete(){
 		String[] idArray = getDeleteIds().split(",");
 		if(idArray!=null){
@@ -82,14 +97,37 @@ public class FormatFileAction extends BmpAction {
 		return SUCCESS;
 	}
 
+	//详情
 	public String detail(){
 		formatFile = formatFileService.get(formatFile.getId());
 		return SUCCESS;
 	}
 
-	public String download(){
-		attachment = attachmentService.getAttachmentsByHostId(formatFile.getId()).get(0);
-		return "download";
+	//查看发送人员
+	public String viewUserInfo(){
+		formatFile = formatFileService.get(formatFile.getId());
+		Set<FormatFileUserInfo> formatFileUserInfoSet = formatFile.getUserInfoSet();
+		putToRequest("formatFile", formatFile);
+		putToRequest("formatFileUserInfoSet", formatFileUserInfoSet);
+		return SUCCESS;
+	}
+
+	/************************       接收          ************************************/
+	//查询本单位公文接收
+	public String acceptList(){
+		PageSortModel<FormatFile> psm = new PageSortModel<FormatFile>(getRequest(), "formatFileList");
+		List<FormatFile> formatFileList = formatFileService.queryAcceptListPage(psm, formatFile, getCurrentUser().getUserInfo().getUserInfoId());
+		putToRequest("formatFileList", formatFileList);
+		return SUCCESS;
+	}
+	//查看
+	public String acceptView(){
+		//页面传入 两张表ID;formatFileId  userInfoId 表示唯一
+		formatFile = formatFileService.get(formatFile.getId());
+		String userInfoId = getRequest().getParameter("userInfoId").toString();
+		formatFileService.updateFormatFileUserInfo(formatFile, userInfoId);
+		putToRequest("formatFile", formatFile);
+		return SUCCESS;
 	}
 
 	public FormatFile getFormatFile() {
@@ -130,5 +168,15 @@ public class FormatFileAction extends BmpAction {
 
 	public void setAttachmentService(AttachmentService attachmentService) {
 		this.attachmentService = attachmentService;
+	}
+	public void setProjectModuleDateDirStorage(
+			ProjectModuleDateDirStorage projectModuleDateDirStorage) {
+		this.projectModuleDateDirStorage = projectModuleDateDirStorage;
+	}
+	public String getUserInfoIds() {
+		return userInfoIds;
+	}
+	public void setUserInfoIds(String userInfoIds) {
+		this.userInfoIds = userInfoIds;
 	}
 }

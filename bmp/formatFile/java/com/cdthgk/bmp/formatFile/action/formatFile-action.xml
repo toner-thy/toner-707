@@ -8,6 +8,9 @@
         <action name="formatFile_list" class="bmp.formatFileAction" method="list">
         	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_list.jsp</result>
         </action>
+        <action name="formatFile_acceptList" class="bmp.formatFileAction" method="acceptList">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_acceptList.jsp</result>
+        </action>
 
         <action name="formatFile_add" class="bmp.formatFileAction" method="add">
         	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_add.jsp</result>
@@ -26,22 +29,22 @@
 			</result>
         </action>
 
-        <action name="formatFile_edit" class="bmp.formatFileAction" method="edit">
-        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_edit.jsp</result>
+        <action name="formatFile_send" class="bmp.formatFileAction" method="send">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_send.jsp</result>
         </action>
-        <action name="formatFile_editing" class="bmp.formatFileAction" method="editing">
-        	<interceptor-ref name="platformUploadStack"></interceptor-ref>
+        <action name="formatFile_sending" class="bmp.formatFileAction" method="sending">
         	<result name="success" type="stateRedirectAction">
 				<param name="namespace">/bmp/formatFile</param>
-				<param name="actionName">formatFile_list</param>
+				<param name="actionName">formatFile_acceptList</param>
 			</result>
         </action>
 
         <action name="formatFile_detail" class="bmp.formatFileAction" method="detail">
         	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_detail.jsp</result>
         </action>
-
-        <action name="formatFile_download" class="bmp.formatFileAction" method="download">
+        <!-- 查看发送人员 -->
+        <action name="formatFile_viewUserInfo" class="bmp.formatFileAction" method="viewUserInfo">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_viewUserInfo.jsp</result>
         </action>
 
          <action name="formatFile_delete" class="bmp.formatFileAction" method="delete">

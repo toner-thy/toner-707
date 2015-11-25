@@ -62,26 +62,7 @@
 					alert("请选择一项。");
 					return;
 				}
-				TabUtil.openAsTab({
-					url : action + "?id="+items[0].value + "&_dt="+ new Date().getTime(),
-					title : '附件管理-编辑',
-					onClose : function(tab, item) {
-					if(!item.content.getContentWindow().needReload2){
-						if (window.confirm("您确定放弃正在编辑的内容吗？")) {
-							if(item.content.getContentWindow().needReload){
-								$ENV.page.refresh();
-							}
-							}else {
-								return false;
-							}
-						}else{
-							if(item.content.getContentWindow().needReload){
-								$ENV.page.refresh();
-							}
-						}
-					}
-				});
-
+				window.location.href=action + "?id="+items[0].value + "&_dt="+ new Date().getTime();
 			}
 
 			//删除
@@ -100,8 +81,8 @@
 					var forms = $('delete_form');
 					forms.action = action;
 					forms.submit();
-					}
 				}
+			}
 			function doDetail(formatFileId){
 				$ENV.dialog.open({
 					url : '${ctx}/bmp/formatFile/formatFile_detail.action?formatFile.id=' + formatFileId,
@@ -110,8 +91,9 @@
 					title : '查看'
 				});
 			}
-
-
+			function doViewUserInfo(formatFileId){
+				window.location.href='${ctx}/bmp/formatFile/formatFile_viewUserInfo.action?formatFile.id=' + formatFileId;
+			}
 		</script>
 	</head>
 
@@ -179,6 +161,14 @@
 									</c:if>
 									<c:if test="${formatFile.createTime==null}">
 										暂 无
+									</c:if>
+								</ec:column>
+								<ec:column property="null" title="状态" width="40%">
+									<c:if test="${formatFile.status ==0}">
+										<font color="red">未发送</font>
+									</c:if>
+									<c:if test="${formatFile.status ==1}">
+										<font color="green"><a href="###" onclick="doViewUserInfo('${formatFile.id}')">已发送</a></font>
 									</c:if>
 								</ec:column>
 								<ec:column property="null" title="查看版式文件" width="10%">

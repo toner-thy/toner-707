@@ -34,12 +34,31 @@
 			$ENV.loader.loadJavaScript("${ctx}/resources/js/mootools/mootools-core-1.4.js");
 			$ENV.loader.loadJavaScript("${ctx}/resources/js/My97DatePicker/WdatePicker.js");
 			$ENV.loader.loadJavaScript("${ctx}/resources/js/notimoo/notimoo-1.2.1.js");
-			$ENV.loader.loadJavaScript("${ctx}/platform/layout/borderlayout/js/TabUtils.js");
+			$ENV.loader.loadJavaScript("${ctx}/platform/theme/borderlayout/resources/js/ectable/EcTable.js", function(){
+				$ENV.onDomReady(function(){
+					formcheck = new FormCheck('form_add',{
+						display:{
+							showErrors:${_.config.formcheck.showErrors},errorsLocation: ${_.config.formcheck.errorsLocation}
+						},
+						trimValue: true
+					});
+				});
+			});
 
 			function doBack2(){
-				window.location.href='/bip/bmp/formatFile/borderlayout/view/formatFile_exchangeList.jsp';
+				window.location.href="${ctx}/bmp/formatFile/formatFile_list.action";
 			}
 
+			//保存
+			function doSave(){
+				if (formcheck.isFormValid(true)) {
+					$('sub').click();
+					$('sbm_button').style.display='none';
+					$('sbm_button_hidden').style.display='';
+					window.setTimeout("$('sbm_button').style.display=''",5000);
+					window.setTimeout("$('sbm_button_hidden').style.display='none'",5000);
+				}
+			}
 
 		</script>
 	</head>
@@ -66,25 +85,34 @@
 			<div class="panel tMargin">
 				<div class="panel_header">
 					<div class="panel_title panel_titleListIco">
-						选择发送单位
+						选择发送人员
 					</div>
 					<div class="panel_btn_bar pop_button_bar">
 						<!-- 右侧按钮 -->
 					</div>
 				</div>
 				<div class="panel_content panel_content_table">
-					<form id="info_add" name="info_add" action="<s:url action="info_adding" includeParams="true"/>" method="post" enctype="multipart/form-data">
+					<form id="form_add" class="form" enctype="multipart/form-data" action="<s:url action="formatFile_sending" includeParams="true"/>" method="post">
+						<input type="hidden" name="formatFile.id" value="${formatFile.id }"/>
 						<table class="content_table">
-							<tr>
-								<td width="100px" align="right">单位：</td>
-								<td colspan="3" >
-									<organ:multySelectByDistrict textEl="receiveOrgNames" valueEl="receiveOrgIds" onlyFromValue="true" required="true"   buttonEl="readPerson2"></organ:multySelectByDistrict>
+							<tr height="36px;">
+								<td width="100px" align="right">名称：</td>
+								<td >
+									${formatFile.name }
+								</td>
+							</tr>
+							<tr height="36px;">
+								<td width="100px" align="right">人员：</td>
+								<td >
+									<ui:multySelect textEl="userInfoNames" valueEl="userInfoIds" onlyFromValue="true"
+										required="true" buttonEl="selectPersonName" value="" />
 								</td>
 							</tr>
 						</table>
-						<div id="files_list"></div>
-						<!-- 按钮 -->
-						<input type="submit" id="sub" value="sub" class="pop_button" style="display: none;"/>
+						<!-- 隐藏提交按钮 -->
+						<div align="center">
+							<input type="submit" id="sub" value="sub" style="display: none;"/>
+						</div>
 					</form>
 				</div>
 			</div>

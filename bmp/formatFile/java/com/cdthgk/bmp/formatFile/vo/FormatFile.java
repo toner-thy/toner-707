@@ -11,8 +11,8 @@ public class FormatFile extends BaseDomain {
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private String name;
-	private String fileUrl;
 	private String formatFileUrl;
+	private Integer status;
 	private Organ organ;
 	private Set<FormatFileUserInfo> userInfoSet = new HashSet<FormatFileUserInfo>();
 	public String getId() {
@@ -26,12 +26,6 @@ public class FormatFile extends BaseDomain {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getFileUrl() {
-		return fileUrl;
-	}
-	public void setFileUrl(String fileUrl) {
-		this.fileUrl = fileUrl;
 	}
 	public String getFormatFileUrl() {
 		return formatFileUrl;
@@ -50,5 +44,11 @@ public class FormatFile extends BaseDomain {
 	}
 	public void setUserInfoSet(Set<FormatFileUserInfo> userInfoSet) {
 		this.userInfoSet = userInfoSet;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 }

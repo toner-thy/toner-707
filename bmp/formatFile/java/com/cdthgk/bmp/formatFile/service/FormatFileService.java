@@ -18,4 +18,8 @@ public interface FormatFileService extends BmpServiceTemplate<FormatFile, String
 	public List<FormatFile> queryAcceptListPage(PageSortModel<FormatFile> psm,
 			FormatFile formatFile, String userInfoId);
 
+	//公文查看，修改查看状态
+	public void updateFormatFileUserInfo(FormatFile formatFile,
+			String userInfoId);
+
 }

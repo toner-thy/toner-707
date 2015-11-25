@@ -45,9 +45,11 @@
 
 			$ENV.loader.loadJavaScript("${ctx}/platform/theme/borderlayout/resources/js/ectable/EcTable.js", function(){
 				$ENV.onDomReady(function(){
-					var Object=document.all.HWPostil1;
-// 					Object.LoadFile("D:/j2ee/apps/work/Catalina/localhost/bip/upload__24ab6ef8_151398949b1__8000_00000004.tmp");
-					Object.LoadFile("${formatFile.fileUrl}");
+					var hObject=document.all.HWPostil1;
+					hObject=document.all.HWPostil1;
+					hObject.ShowDefMenu = 0; //隐藏菜单
+					hObject.ShowToolBar = 0; //隐藏工具条
+					hObject.LoadFile("${formatFile.formatFileUrl}");
 				});
 			});
 		</script>
@@ -62,7 +64,6 @@
 			</div>
 			<div class="right">
 				<div class="pop_button_bar">
-					<a class="pop_button pop_button_close" href="###" onclick="javascript:window.close();"><span>退出本页</span></a>
 				</div>
 			</div>
 		</div>
@@ -72,10 +73,9 @@
 					<div class="panel_content panel_content_table">
 						<table class="content_table">
 							<tr height="36px;">
-								<td style="text-align:right;">名称:</td>
-								<td>
-									<input id="formatFile.name" name="formatFile.name" value="${formatFile.name}"  class="validate['required','length[100]']"
-									style="width:400px;height: 32px;"/><span style="color:red;">&nbsp;&nbsp;*</span>
+								<td style="text-align:right;width: 20%;">名称:</td>
+								<td style="text-align:left;width: 80%;">
+									${formatFile.name}
 								</td>
 							</tr>
 							<tr>

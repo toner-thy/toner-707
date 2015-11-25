@@ -51,41 +51,51 @@
 						},
 						trimValue: true
 					});
+					hObject=document.all.HWPostil1;
+					//  TODO 隐藏菜单、按钮不起作用
+					hObject.ShowDefMenu = 0; //显示菜单
+					hObject.ShowToolBar = 0; //隐藏工具条
 				});
 			});
-
-
+			var hObject;
+		//返回
 		function doBackList(){
 			window.location.href="${ctx}/bmp/formatFile/formatFile_list.action";
 		}
-		function httppostaip(){
-			var Object=document.all.HWPostil1;
-			Object.HttpInit(); //初始化HTTP引擎。
-			Object.HttpAddPostString("NAME",document.all.Fname.value); //设置上传文件名。
-			Object.HttpAddPostString("FTYPE","aip"); //设置上传文件类型。
-			Object.HttpAddPostCurrFile("FileBlod");//设置上传当前文件,文件标识为FileBlod。
-			var id=Object.HttpPost("http://192.168.1.62:8089/test.php");//上传数据。http://127.0.0.1/test.php为接收文档的后台页面
-			//alert(id);
-			if(id!="ok!"){
-				alert("文档保存失败，错误编号"+id);
-			}else{
-				alert("保存成功");
-			}
+
+		//打开文件
+		function doOpen(){
+			hObject.LoadFile('');
+			hObject.WaterMarkTextOrPath="";
 		}
+
+		//添加水印
+		function addWater(hObject){
+				hObject.Login("HWSEALDEMO**", 4, 65535, "DEMO", "");
+				hObject.WaterMarkAlpha=50;
+				hObject.WaterMarkAngle=-450;
+				hObject.WaterMarkMode=1;// 1、文字5、图片
+// 				hObject.WaterMarkMode=5;
+				hObject.WaterMarkPosX=80;
+				hObject.WaterMarkPosY=80;;
+				hObject.WaterMarkTextColor=0;
+				hObject.WaterMarkTextOrPath="中国石油集团川庆钻探工程有限公司";
+// 			    hObject.WaterMarkTextOrPath="C:/Users/lx/Pictures/1.png";
+				hObject.WaterMarkTxtHOrImgZoom=100;
+		}
+
+		//保存
 		function doSave(){
 			if (formcheck.isFormValid(true)) {
-				var Object=document.all.HWPostil1;
-				Object.HttpInit(); //初始化HTTP引擎。
-				//  TODO 隐藏菜单、按钮不起作用
-				// Object.HideMenuItem(1);
-				// Object.ShowDefMenu = false; //显示菜单
-				// Object.ShowToolBar = false; //隐藏工具条
-// 				Object.HttpAddPostString("NAME",document.all.Fname.value); //设置上传文件名。
-				Object.HttpAddPostString("FTYPE","aip"); //设置上传文件类型。
-				Object.HttpAddPostCurrFile("FileBlod");//设置上传当前文件,文件标识为FileBlod。
-				var url = "/formatFile_adding.action?formatFile.name="
-						+document.getElementById("formatFile.name").value;
-				if(Object.HttpPost(url) != "failed: can't save the file data"){
+				//var hObject=document.all.HWPostil1;
+				hObject.HttpInit(); //初始化HTTP引擎。
+				addWater(hObject);
+				var fileName = document.getElementById("formatFile.name").value;
+ 				hObject.HttpAddPostString("NAME",fileName); //设置上传文件名。
+				hObject.HttpAddPostString("FTYPE","aip"); //设置上传文件类型。
+				hObject.HttpAddPostCurrFile("FileBlod");//设置上传当前文件,文件标识为FileBlod。
+				var url = "/formatFile_adding.action?formatFile.name="+fileName;
+				if(hObject.HttpPost(url) != "failed: can't save the file data"){
 					window.location.href="${ctx}/bmp/formatFile/formatFile_list.action?msg=1";
 				} else {
 					alert("不能保存空文件。")
@@ -135,8 +145,13 @@
 							</tr>
 							<tr>
 								<td colspan="2">
+									<input type="button" value="打开文件" onclick="doOpen()">
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
 									<div style="width:1000px;height:500px;">
-										<object id=HWPostil1 height='100%' width='100%' style='LEFT: 0px; TOP: 0px'  classid='clsid:FF1FE7A0-0578-4FEE-A34E-FB21B277D561'></OBJECT>
+										<object id="HWPostil1" height='100%' width='100%' style='LEFT: 0px; TOP: 0px'  classid='clsid:FF1FE7A0-0578-4FEE-A34E-FB21B277D561'></OBJECT>
 									</div>
 								</td>
 							</tr>

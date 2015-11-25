@@ -11,12 +11,12 @@
 			<column name="name" >
 			</column>
 		</property>
-        <property name="fileUrl" type="java.lang.String">
-			<column name="file_url" >
-			</column>
-		</property>
         <property name="formatFileUrl" type="java.lang.String">
 			<column name="format_file_url" >
+			</column>
+		</property>
+		<property name="status" type="java.lang.Integer">
+			<column name="status" >
 			</column>
 		</property>
 		<many-to-one name="organ" class="com.cdthgk.platform.organization.organ.domain.Organ">
