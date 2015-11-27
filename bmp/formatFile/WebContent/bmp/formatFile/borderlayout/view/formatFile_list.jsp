@@ -52,8 +52,8 @@
 				window.location.href=action;
 			}
 
-			//编辑
-			function doEdit(action){
+			//发送
+			function doSend(action){
 				var items = EcTable.getCheckedItems();
 				if(items.length==0){
 					alert("请选择一项。");
@@ -62,7 +62,7 @@
 					alert("请选择一项。");
 					return;
 				}
-				window.location.href=action + "?id="+items[0].value + "&_dt="+ new Date().getTime();
+				window.location.href=action + "?formatFile.id="+items[0].value + "&_dt="+ new Date().getTime();
 			}
 
 			//删除
@@ -83,6 +83,8 @@
 					forms.submit();
 				}
 			}
+
+			//查看文件
 			function doDetail(formatFileId){
 				$ENV.dialog.open({
 					url : '${ctx}/bmp/formatFile/formatFile_detail.action?formatFile.id=' + formatFileId,
@@ -91,6 +93,8 @@
 					title : '查看'
 				});
 			}
+
+			//查看接收状态
 			function doViewUserInfo(formatFileId){
 				window.location.href='${ctx}/bmp/formatFile/formatFile_viewUserInfo.action?formatFile.id=' + formatFileId;
 			}

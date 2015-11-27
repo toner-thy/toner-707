@@ -4,10 +4,7 @@
 <%@ taglib uri="http://www.cdthgk.com/tags/application" prefix="ap"%>
 <%@ taglib uri="http://www.extremecomponents.org" prefix="ec"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://www.cdthgk.com/tags/dictionary" prefix="dictionary"%>
-<%@ taglib prefix="attach" uri="http://www.cdthgk.com/tags/attachment"%>
-<%@ taglib uri="http://www.cdthgk.com/tags/organization/userinfo" prefix="ui"%>
-<%@ taglib prefix="organ" uri="http://www.cdthgk.com/tags/organization/organ"%>
+<%@ taglib prefix="ui" uri="http://www.cdthgk.com/tags/organization/userinfo"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -52,6 +49,7 @@
 			//保存
 			function doSave(){
 				if (formcheck.isFormValid(true)) {
+					alert("1")
 					$('sub').click();
 					$('sbm_button').style.display='none';
 					$('sbm_button_hidden').style.display='';
@@ -104,8 +102,9 @@
 							<tr height="36px;">
 								<td width="100px" align="right">人员：</td>
 								<td >
-									<ui:multySelect textEl="userInfoNames" valueEl="userInfoIds" onlyFromValue="true"
-										required="true" buttonEl="selectPersonName" value="" />
+<%-- 									<ui:multySelectByDistrict textEl="userInfoNames" valueEl="userInfoIds" onlyFromValue="true" required="true" buttonEl="selectPersonName" /> --%>
+									<ui:multySelect  dialogWidth="0.9" dialogHeight="0.8"  valueEl="secrecyPrint.undertaker" textEl="receivePersonNames2"
+									onlyFromValue="true" required="true"  buttonEl="readPerson"/>
 								</td>
 							</tr>
 						</table>

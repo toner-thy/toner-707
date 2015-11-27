@@ -100,6 +100,7 @@ public class FormatFileAction extends BmpAction {
 	//详情
 	public String detail(){
 		formatFile = formatFileService.get(formatFile.getId());
+		attachment = attachmentService.getAttachmentsByHostId(formatFile.getId()).get(0);
 		return SUCCESS;
 	}
 
