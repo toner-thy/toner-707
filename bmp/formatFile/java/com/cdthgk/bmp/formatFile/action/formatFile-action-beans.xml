@@ -5,6 +5,7 @@
 
     <bean id="bmp.formatFileAction" class="com.cdthgk.bmp.formatFile.action.FormatFileAction" parent="bmpAction" scope="prototype">
     	<property name="formatFileService" ref="bmp.formatFileService"/>
+    	<property name="formatFileUserInfoService" ref="bmp.formatFileUserInfoService"/>
     	<property name="attachmentService" ref="platform.attachmentService"/>
     	<property name="projectModuleDateDirStorage" ref="bmp.fileStorage"/>
     </bean>

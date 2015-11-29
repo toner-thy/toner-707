@@ -78,13 +78,10 @@
 					<div class="panel_content panel_content_table">
 						<table class="content_table">
 							<tr height="36px;">
-								<td style="text-align:right;width: 20%;">名称:</td>
-								<td style="text-align:left;width: 80%;">
-									${formatFile.name}
-								</td>
+								<td style="text-align:center;">${formatFile.name}</td>
 							</tr>
 							<tr>
-								<td colspan="2">
+								<td>
 									<div style="width:1000px;height:500px;">
 										<object id=HWPostil1 height='100%' width='100%' style='LEFT: 0px; TOP: 0px'  classid='clsid:FF1FE7A0-0578-4FEE-A34E-FB21B277D561'></OBJECT>
 									</div>

@@ -8,9 +8,6 @@
         <action name="formatFile_list" class="bmp.formatFileAction" method="list">
         	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_list.jsp</result>
         </action>
-        <action name="formatFile_acceptList" class="bmp.formatFileAction" method="acceptList">
-        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_acceptList.jsp</result>
-        </action>
 
         <action name="formatFile_add" class="bmp.formatFileAction" method="add">
         	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_add.jsp</result>
@@ -35,7 +32,7 @@
         <action name="formatFile_sending" class="bmp.formatFileAction" method="sending">
         	<result name="success" type="stateRedirectAction">
 				<param name="namespace">/bmp/formatFile</param>
-				<param name="actionName">formatFile_acceptList</param>
+				<param name="actionName">formatFile_list</param>
 			</result>
         </action>
 
@@ -52,6 +49,13 @@
 				<param name="namespace">/bmp/formatFile</param>
 				<param name="actionName">formatFile_list</param>
 			</result>
+        </action>
+
+        <action name="formatFile_acceptList" class="bmp.formatFileAction" method="acceptList">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_acceptList.jsp</result>
+        </action>
+        <action name="formatFile_acceptView" class="bmp.formatFileAction" method="acceptView">
+        	<result name="success">/bmp/formatFile/borderlayout/view/formatFile_detail.jsp</result>
         </action>
   </package>
 </struts>

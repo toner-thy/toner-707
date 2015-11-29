@@ -1,5 +1,6 @@
 package com.cdthgk.bmp.formatFile.service.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,25 +32,15 @@ public class FormatFileServiceImpl extends BmpServiceImpl<FormatFile, String> im
 	}
 
 	@Override
-	public List<FormatFile> queryAcceptListPage(PageSortModel<FormatFile> psm,
-			FormatFile formatFile, String userInfoId) {
-		StringBuffer hql = new StringBuffer("select f from FormatFile f left join f.userInfoSet u where u.userInfo.userInfoId = :userInfoId");
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("userInfoId", userInfoId);
-		if(formatFile!=null){
-			if(StringUtils.isNotEmpty(formatFile.getName())){
-				hql.append(" and f.name like :sname");
-				params.put("sname", "%" + formatFile.getName() + "%");
-			}
-		}
-		return findList(hql.toString(), params, psm);
+	public void updateFormatFileUserInfo(FormatFileUserInfo formatFileUserInfo) {
+		formatFileUserInfo.setStatus(1);
+		formatFileUserInfo.setViewTime(new Date());
+		this.getPersistProxy().getOrmPersistence().update(formatFileUserInfo);
 	}
 
 	@Override
-	public void updateFormatFileUserInfo(FormatFile formatFile,
-			String userInfoId) {
-		FormatFileUserInfo formatFileUserInfo = this.getPersistProxy().getOrmPersistence().find("from FormatFileUserInfo where formatFile.id=? and userInfo.userInfoId", new Object[]{formatFile.getId(),userInfoId});
-		formatFileUserInfo.setStatus(1);
-		this.getPersistProxy().getOrmPersistence().update(formatFileUserInfo);
+	public void saveFormatFileUserInfo(List<FormatFileUserInfo> formatFileUserInfoList) {
+		this.getPersistProxy().getOrmPersistence().saveBatch(formatFileUserInfoList);
 	}
+
 }

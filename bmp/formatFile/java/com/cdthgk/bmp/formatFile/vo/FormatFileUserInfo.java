@@ -1,12 +1,16 @@
 package com.cdthgk.bmp.formatFile.vo;
 
+import java.util.Date;
+
 import com.cdthgk.platform.organization.userinfo.domain.UserInfo;
 
 public class FormatFileUserInfo {
 	private String id;
 	private Integer status;
 	private FormatFile formatFile;
+	private String formatFileName;
 	private UserInfo userInfo;
+	private Date viewTime;
 	public String getId() {
 		return id;
 	}
@@ -31,6 +35,16 @@ public class FormatFileUserInfo {
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
 	}
-
-
+	public Date getViewTime() {
+		return viewTime;
+	}
+	public void setViewTime(Date viewTime) {
+		this.viewTime = viewTime;
+	}
+	public String getFormatFileName() {
+		return formatFileName;
+	}
+	public void setFormatFileName(String formatFileName) {
+		this.formatFileName = formatFileName;
+	}
 }

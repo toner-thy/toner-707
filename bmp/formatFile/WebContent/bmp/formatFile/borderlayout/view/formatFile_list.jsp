@@ -74,13 +74,22 @@
 				}
 				if(window.confirm('确定删除所选记录吗？')){
 					var ids = "";
+					var flag = 1;
 					items.each(function(item){
-					ids += item.value + ",";
+						if(document.getElementById('status_'+item.value).value == 1){
+							flag = 0;
+							return false;
+						}
+						ids += item.value + ",";
 					});
-					$('deleteIds').value = ids;
-					var forms = $('delete_form');
-					forms.action = action;
-					forms.submit();
+					if(flag == 1){
+						$('deleteIds').value = ids;
+						var forms = $('delete_form');
+						forms.action = action;
+						forms.submit();
+					} else {
+						alert("已发送的不能删除。");
+					}
 				}
 			}
 
@@ -168,6 +177,7 @@
 									</c:if>
 								</ec:column>
 								<ec:column property="null" title="状态" width="40%">
+									<input type="hidden" id="status_${formatFile.id}" value="${formatFile.status}"/>
 									<c:if test="${formatFile.status ==0}">
 										<font color="red">未发送</font>
 									</c:if>
@@ -175,7 +185,7 @@
 										<font color="green"><a href="###" onclick="doViewUserInfo('${formatFile.id}')">已发送</a></font>
 									</c:if>
 								</ec:column>
-								<ec:column property="null" title="查看版式文件" width="10%">
+								<ec:column property="null" title="查看文件" width="10%">
 									<a href='###' onclick="doDetail('${formatFile.id}')">查看</a>
 								</ec:column>
 							</ec:row>

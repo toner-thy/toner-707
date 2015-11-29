@@ -5,4 +5,6 @@
 
 	<bean id="bmp.formatFileService" class="com.cdthgk.bmp.formatFile.service.impl.FormatFileServiceImpl" parent="bmpService">
 	</bean>
+	<bean id="bmp.formatFileUserInfoService" class="com.cdthgk.bmp.formatFile.service.impl.FormatFileUserInfoServiceImpl" parent="bmpService">
+	</bean>
 </beans>

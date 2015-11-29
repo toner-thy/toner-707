@@ -11,10 +11,18 @@
 			<column name="status" >
 			</column>
 		</property>
-		<many-to-one name="formatFile" class="com.cdthgk.bmp.formatFile.vo.FormatFile" >
+        <property name="viewTime" type="java.util.Date">
+			<column name="viewTime" >
+			</column>
+		</property>
+		<many-to-one name="formatFile" class="com.cdthgk.bmp.formatFile.vo.FormatFile" fetch="select">
 			<column name="formatFile_id">
 			</column>
 		</many-to-one>
+		<property name="formatFileName" type="java.lang.String">
+			<column name="formatFile_name" >
+			</column>
+		</property>
 		<many-to-one name="userInfo" class="com.cdthgk.platform.organization.userinfo.domain.UserInfo">
 			<column name="userInfo_id">
 				<comment>接收人</comment>

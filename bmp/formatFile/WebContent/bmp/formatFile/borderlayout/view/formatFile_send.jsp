@@ -23,17 +23,22 @@
 
 
 		<script type="text/javascript">
-			$ENV.loader.loadStyleSheet("${ctx}/platform/template/borderlayout/skin/blue/css/page.css");
-			$ENV.loader.loadStyleSheet("${ctx}/resources/theme/borderlayout/skin/blue/formcheck/css/formcheck.css");
-			$ENV.loader.loadStyleSheet("${ctx}/resources/theme/borderlayout/skin/blue/notimoo/notimoo-1.2.1.css");
-			$ENV.loader.loadStyleSheet("${ctx}/platform/template/borderlayout/skin/blue/css/ecTable.css");
+		$ENV.loader.loadStyleSheet("${ctx}/platform/template/borderlayout/skin/blue/css/page.css");
+		$ENV.loader.loadStyleSheet("${ctx}/resources/theme/borderlayout/skin/blue/formcheck/css/formcheck.css");
+		$ENV.loader.loadStyleSheet("${ctx}/resources/theme/borderlayout/skin/blue/notimoo/notimoo-1.2.1.css");
+		$ENV.loader.loadStyleSheet("${ctx}/platform/template/borderlayout/skin/blue/css/ecTable.css");
 
-			$ENV.loader.loadJavaScript("${ctx}/resources/js/mootools/mootools-core-1.4.js");
-			$ENV.loader.loadJavaScript("${ctx}/resources/js/My97DatePicker/WdatePicker.js");
-			$ENV.loader.loadJavaScript("${ctx}/resources/js/notimoo/notimoo-1.2.1.js");
-			$ENV.loader.loadJavaScript("${ctx}/platform/theme/borderlayout/resources/js/ectable/EcTable.js", function(){
-				$ENV.onDomReady(function(){
-					formcheck = new FormCheck('form_add',{
+		$ENV.loader.loadJavaScript("${ctx}/resources/js/mootools/mootools-core-1.4.js");
+		$ENV.loader.loadJavaScript("${ctx}/resources/js/mootools/mootools-more-1.4.js");
+		$ENV.loader.loadJavaScript("${ctx}/resources/js/formcheck/1.4/formcheck.js");
+		$ENV.loader.loadJavaScript("${ctx}/resources/js/My97DatePicker/WdatePicker.js");
+		$ENV.loader.loadJavaScript("${ctx}/resources/js/notimoo/notimoo-1.2.1.js");
+		$ENV.loader.loadJavaScript("${ctx}/platform/layout/borderlayout/js/TabUtils.js");
+		$ENV.loader.loadJavaScript("${ctx}/resources/js/SimpleUI/SimpleUI.js");
+
+		$ENV.loader.loadJavaScript("${ctx}/platform/theme/borderlayout/resources/js/ectable/EcTable.js", function(){
+			$ENV.onDomReady(function(){
+				formcheck = new FormCheck('form_add',{
 						display:{
 							showErrors:${_.config.formcheck.showErrors},errorsLocation: ${_.config.formcheck.errorsLocation}
 						},
@@ -49,7 +54,6 @@
 			//保存
 			function doSave(){
 				if (formcheck.isFormValid(true)) {
-					alert("1")
 					$('sub').click();
 					$('sbm_button').style.display='none';
 					$('sbm_button_hidden').style.display='';
@@ -102,9 +106,8 @@
 							<tr height="36px;">
 								<td width="100px" align="right">人员：</td>
 								<td >
-<%-- 									<ui:multySelectByDistrict textEl="userInfoNames" valueEl="userInfoIds" onlyFromValue="true" required="true" buttonEl="selectPersonName" /> --%>
-									<ui:multySelect  dialogWidth="0.9" dialogHeight="0.8"  valueEl="secrecyPrint.undertaker" textEl="receivePersonNames2"
-									onlyFromValue="true" required="true"  buttonEl="readPerson"/>
+									<ui:multySelectByDistrict textEl="userInfoNames" valueEl="userInfoIds" onlyFromValue="true" required="true"
+									buttonEl="selectPersonName" value="${list}" textProperty="name" valueProperty="userInfoId"/>
 								</td>
 							</tr>
 						</table>
