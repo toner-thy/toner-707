@@ -53,7 +53,7 @@
 			});
 
 		function doBackList(){
-			TabUtil.closeTab();
+			window.location.href='${ctx}/bmp/dataClass/dataClass_fillMain.action';
 		}
 		function doSave(){
 			if (formcheck.isFormValid(true)) {
@@ -74,7 +74,7 @@
 				<div class="pop_button_bar">
 					<a class="pop_button" href="javascript:void();"  id="sbm_button_hidden" style="display:none;"><span>保存中...</span></a>
 					<a class="pop_button" href="javascript:doSave();" id="sbm_button"><span>保 存</span></a>
-					<a class="pop_button" href="javascript:doBackList();"><span>返回列表</span></a>
+<%-- 					<a class="pop_button" href="javascript:doBackList();"><span>返回列表</span></a> --%>
 				</div>
 			</div>
 			<div class="right">
@@ -126,7 +126,7 @@
 								<td class="tbLable fr">
 									备注：
 								</td>
-								<td class="tbValue fl" colspan="5">
+								<td class="tbValue fl">
 								    <textarea  style="width:99%;height:300px" name="dataClassPro.remark"></textarea>
 								</td>
 							</tr>

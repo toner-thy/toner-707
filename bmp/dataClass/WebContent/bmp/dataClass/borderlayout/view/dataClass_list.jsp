@@ -110,6 +110,10 @@
 					alert("请选择一项。");
 					return;
 				}
+// 				if(document.getElementById('status_'+items[0].value).value == 1){
+// 					alert("该分类已经发布。");
+// 					return false;
+// 				}
 				if(window.confirm("确定发布吗？")){
 					window.location.href=action+ "?dataClass.dataClassId="+items[0].value + "&_dt="+ new Date().getTime();
 				}

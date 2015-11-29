@@ -16,6 +16,7 @@
 <html>
 	<head>
 		<title>资料分类</title>
+
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 
@@ -94,5 +95,5 @@
 	tree.addEvent('select',function(node){
 		document.getElementById('iddataClassProIframe').src = "${pageContext.request.contextPath}/bmp/dataClass/dataClass_fillList.action?dataClass.dataClassId="+node.data.id+"&dataClass.name="+node.name+"&showPagination=false"
 	});
-	$("dataClass_tree").setStyle("height", $('body_content').getSize().y - $('district_tree_header').getSize().y - 10);
+	$("dataClass_tree").setStyle("height", window.getSize().y - $('district_tree_header').getSize().y - 10);
 </script>
